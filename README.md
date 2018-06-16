@@ -1,6 +1,9 @@
-# NgxIstevenMultiselect
+# Isteven Multiselect
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.0-beta.0.
+
+This project basically gonna help using dropdown / select in efficient manner. This idea has been inspired by AngularJS [isteven-multiselect](http://isteven.github.io/angular-multi-select). In terms of UI it will look somewhat similar to isteven multiselect, but interms of code it may not exactly architectured in the same way.
+Currently I'm planning to support the feature provided by isteven-multiselect, plus other features (list going to updated soon). Still this library is under alpha version.
 
 ## Development server
 
