@@ -1,6 +1,12 @@
 {
-  "name": "isteven-multiselect",
+  "name": "ngx-isteven-multiselect",
   "version": "0.0.1",
+  "keywords": [
+    "angular",
+    "multiselect",
+    "dropdown",
+    "select"
+  ],
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
