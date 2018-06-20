@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'lib-isteven-multiselect',
-  template: `
-    <p>
-      isteven-multiselect works!
-    </p>
-  `,
-  styles: []
+  selector: 'ngx-isteven-multiselect',
+  template: './isteven-multiselect.component.html',
+  styles: ['./isteven-multiselect.component.html']
 })
 export class IstevenMultiselectComponent implements OnInit {
+
+  @Input() options: any[];
 
   constructor() { }
 
