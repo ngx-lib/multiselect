@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, ElementRef, HostListener } from '@angular/core';
+import { IstevenMultiselectService } from './isteven-multiselect.service';
 
 @Component({
   selector: 'ngx-isteven-multiselect',
@@ -14,8 +15,10 @@ export class IstevenMultiselectComponent implements OnInit {
     'name': 'name'
   };
   _options = [];
-
   selectedOptions: any | any[] = null;
+
+  constructor(private elementRef: ElementRef, private istevenMultiselectService: IstevenMultiselectService) {
+  }
 
   @Input() isOpen: boolean = false;
   @Input() ofPrimitiveType: boolean = false;
@@ -65,6 +68,15 @@ export class IstevenMultiselectComponent implements OnInit {
       selectedIds.indexOf(option.id) === -1 && this.selectedOptions.push(option)
     } else {
       this.selectedOptions = option;
+      this.close();
+    }
+  }
+
+  // TODO: Consider creating a directive for this.
+  // TODO: Also convert below to be work for element specific
+  @HostListener('document:click', ['$event.target'])
+  clickOutSide(event) {
+    if(this.elementRef.nativeElement !== event && !this.istevenMultiselectService.closest(event, 'ngx-isteven-multiselect') && this.isOpen){
       this.close();
     }
   }
