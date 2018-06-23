@@ -1,9 +1,11 @@
 <div class="isteven-wrapper">
   <div class="isteven-header">
     <div class="selection" (click)="isOpen = !isOpen">
-      <div class="none-selected" *ngIf="!selectedOptions?.length">None selected</div>
-      <div class="selected" *ngIf="selectedOptions?.length">
-        <span class="text" *ngIf="!isMultiple()">{{selectedOptions}}</span>
+      <div class="none-selected" *ngIf="!isValueSelected()">
+        None selected
+      </div>
+      <div class="selected" *ngIf="isValueSelected()">
+        <span class="text" *ngIf="!isMultiple()">{{selectedOptions.value}}</span>
         <span class="text" *ngIf="isMultiple()">{{selectedOptions.join(",")}}</span>
         <span class="caret" (click)="clear()">X</span>
       </div>
@@ -13,8 +15,8 @@
     <div class="input-search">
       <input type="search" />
     </div>
-    <div class="option" *ngFor="let option of options" (click)="select(option)">
-      {{option}}
+    <div class="option" *ngFor="let option of _options" (click)="select(option)">
+      {{option.value}}
     </div>
   </div>
 </div>

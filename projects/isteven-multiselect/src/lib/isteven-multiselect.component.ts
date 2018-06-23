@@ -1,17 +1,41 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'ngx-isteven-multiselect',
   templateUrl: './isteven-multiselect.component.html',
-  styles: ['./isteven-multiselect.component.css']
+  styles: ['./isteven-multiselect.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class IstevenMultiselectComponent implements OnInit {
 
   private _multiple = false;
+  private _propertyMap = { 
+    'id': 'id',
+    'value': 'value'
+  };
+  _options = [];
   selectedOptions: any | any[] = null;
 
-  @Input() options: any[];
   @Input() isOpen: boolean = false;
+  @Input() ofPrimitiveType: boolean = false;
+
+  @Input() 
+  set options(collection){
+    if(this.ofPrimitiveType){
+      this._options = collection.map((item: any, index: number) => ({id: index, value: item}))
+    } else {
+      let keys = Object.keys(this._propertyMap);
+      this._options = collection.map((item: any, index: number) => {
+        let obj = {};
+        keys.reduce((a: any, b: string) => { obj[b] = item[b] }, obj)
+        return obj;
+      })
+    }
+  }
+
+  @Input() set propertyMap(val){
+    this._propertyMap = { ...this._propertyMap , ...val };
+  }
   @Input()
   set multiple(value: boolean) {
     if (value) this.selectedOptions = [];
@@ -23,6 +47,11 @@ export class IstevenMultiselectComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this)
+  }
+
+  isValueSelected() {
+    return this._multiple ? this.selectedOptions.length: this.selectedOptions; 
   }
 
   close() {
