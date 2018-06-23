@@ -1,8 +1,8 @@
 <div class="isteven-wrapper">
   <div class="isteven-header">
-    <input type="search" />
+    <input type="search" (click)="isOpen = !isOpen"/>
   </div>
-  <div class="isteven-options">
+  <div class="isteven-options" *ngIf="isOpen">
     <div *ngFor="let option of options">
       {{option}}
     </div>

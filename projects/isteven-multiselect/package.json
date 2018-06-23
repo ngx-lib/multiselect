@@ -1,6 +1,9 @@
 {
   "name": "ngx-isteven-multiselect",
   "version": "0.0.1",
+  "scripts": {
+    "tsc-watch": "tsc-watch"
+  },
   "keywords": [
     "angular",
     "multiselect",
@@ -10,5 +13,9 @@
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+  },
+  "devDependencies": {
+    "onchange": "^4.0.0",
+    "tsc-watch": "^1.0.22"
   }
 }
