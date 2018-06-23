@@ -1,9 +1,18 @@
 <div class="isteven-wrapper">
   <div class="isteven-header">
-    <input type="search" (click)="isOpen = !isOpen"/>
+    <div class="selection" (click)="isOpen = !isOpen">
+      <div class="none-selected" *ngIf="!selectedValues">None selected</div>
+      <div class="selected" *ngIf="selectedValues">
+        <span class="text">{{selectedValues}}</span>
+        <span class="caret">X</span>
+      </div>
+    </div>
   </div>
   <div class="isteven-options" *ngIf="isOpen">
-    <div *ngFor="let option of options">
+    <div class="input-search">
+      <input type="search" />
+    </div>
+    <div *ngFor="let option of options" (click)="select(option)">
       {{option}}
     </div>
   </div>
