@@ -1,9 +1,10 @@
 <div class="isteven-wrapper">
   <div class="isteven-header">
     <div class="selection" (click)="isOpen = !isOpen">
-      <div class="none-selected" *ngIf="!selectedOptions">None selected</div>
-      <div class="selected" *ngIf="selectedOptions">
-        <span class="text">{{selectedOptions}}</span>
+      <div class="none-selected" *ngIf="!selectedOptions?.length">None selected</div>
+      <div class="selected" *ngIf="selectedOptions?.length">
+        <span class="text" *ngIf="!isMultiple()">{{selectedOptions}}</span>
+        <span class="text" *ngIf="isMultiple()">{{selectedOptions.join(",")}}</span>
         <span class="caret" (click)="clear()">X</span>
       </div>
     </div>
