@@ -1,10 +1,10 @@
 <div class="isteven-wrapper">
   <div class="isteven-header">
     <div class="selection" (click)="isOpen = !isOpen">
-      <div class="none-selected" *ngIf="!selectedValues">None selected</div>
-      <div class="selected" *ngIf="selectedValues">
-        <span class="text">{{selectedValues}}</span>
-        <span class="caret">X</span>
+      <div class="none-selected" *ngIf="!selectedOptions">None selected</div>
+      <div class="selected" *ngIf="selectedOptions">
+        <span class="text">{{selectedOptions}}</span>
+        <span class="caret" (click)="clear()">X</span>
       </div>
     </div>
   </div>
@@ -12,7 +12,7 @@
     <div class="input-search">
       <input type="search" />
     </div>
-    <div *ngFor="let option of options" (click)="select(option)">
+    <div class="option" *ngFor="let option of options" (click)="select(option)">
       {{option}}
     </div>
   </div>

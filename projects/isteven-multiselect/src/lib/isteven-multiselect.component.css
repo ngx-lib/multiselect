@@ -1,3 +1,7 @@
 .caret{
   text-align: right
 }
+
+.option:hover {
+  background-color: yellow
+}
