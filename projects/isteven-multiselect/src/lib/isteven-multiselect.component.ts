@@ -7,10 +7,20 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class IstevenMultiselectComponent implements OnInit {
 
-  @Input() options: any[];
-  @Input() isOpen: Boolean = false;
+  private _multiple = false;
+  selectedOptions: any | any[] = null;
 
-  selectedOptions: any | any[];
+  @Input() options: any[];
+  @Input() isOpen: boolean = false;
+  @Input()
+  set multiple(value: boolean) {
+    if (value) this.selectedOptions = [];
+    this._multiple = value;
+  }
+
+  isMultiple() {
+    return this._multiple;
+  }
 
   ngOnInit() {
   }
@@ -19,14 +29,18 @@ export class IstevenMultiselectComponent implements OnInit {
     this.isOpen = false;
   }
 
-  clear(value?) {
-    this.selectedOptions = value;
+  clear() {
+    this.selectedOptions = this._multiple ? [] : null;
     this.close();
   }
 
   select(option) {
-    this.selectedOptions = option;
-    this.close();
+    if (this._multiple) {
+      !this.selectedOptions.includes(option) && this.selectedOptions.push(option)
+    } else {
+      this.selectedOptions = option;
+      this.close();
+    }
   }
 
 }
