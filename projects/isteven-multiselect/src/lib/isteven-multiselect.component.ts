@@ -9,49 +9,45 @@ import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core
 export class IstevenMultiselectComponent implements OnInit {
 
   private _multiple = false;
-  private _propertyMap = { 
+  private _propertyMap = {
     'id': 'id',
-    'value': 'value'
+    'name': 'name'
   };
   _options = [];
+
   selectedOptions: any | any[] = null;
 
   @Input() isOpen: boolean = false;
   @Input() ofPrimitiveType: boolean = false;
 
-  @Input() 
-  set options(collection){
-    if(this.ofPrimitiveType){
-      this._options = collection.map((item: any, index: number) => ({id: index, value: item}))
+  @Input() set propertyMap(val) {
+    this._propertyMap = { ...this._propertyMap, ...val };
+  }
+  @Input()
+  set options(collection) {
+    if (this.ofPrimitiveType) {
+      this._options = collection.map((item: any, index: number) => ({ id: index, name: item }))
     } else {
       let keys = Object.keys(this._propertyMap);
       this._options = collection.map((item: any, index: number) => {
         let obj = {};
-        keys.reduce((a: any, b: string) => { obj[b] = item[b] }, obj)
+        keys.reduce((a: any, b: string) => { obj[b] = item[this._propertyMap[b]] }, obj)
         return obj;
       })
     }
   }
 
-  @Input() set propertyMap(val){
-    this._propertyMap = { ...this._propertyMap , ...val };
-  }
   @Input()
   set multiple(value: boolean) {
     if (value) this.selectedOptions = [];
     this._multiple = value;
   }
 
-  isMultiple() {
-    return this._multiple;
-  }
-
   ngOnInit() {
-    console.log(this)
   }
 
   isValueSelected() {
-    return this._multiple ? this.selectedOptions.length: this.selectedOptions; 
+    return this._multiple ? this.selectedOptions.length : this.selectedOptions;
   }
 
   close() {
@@ -65,7 +61,8 @@ export class IstevenMultiselectComponent implements OnInit {
 
   select(option) {
     if (this._multiple) {
-      !this.selectedOptions.includes(option) && this.selectedOptions.push(option)
+      let selectedIds = this.selectedOptions.map(i => i.id);
+      selectedIds.indexOf(option.id) === -1 && this.selectedOptions.push(option)
     } else {
       this.selectedOptions = option;
       this.close();
