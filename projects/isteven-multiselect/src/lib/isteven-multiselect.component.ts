@@ -10,18 +10,23 @@ export class IstevenMultiselectComponent implements OnInit {
   @Input() options: any[];
   @Input() isOpen: Boolean = false;
 
-  selectedValues: any;
-  
+  selectedOptions: any | any[];
+
   ngOnInit() {
   }
 
-  dropdownClose(){
+  close() {
     this.isOpen = false;
   }
 
-  select(option){
-    this.selectedValues = option;
-    this.dropdownClose();
+  clear(value?) {
+    this.selectedOptions = value;
+    this.close();
+  }
+
+  select(option) {
+    this.selectedOptions = option;
+    this.close();
   }
 
 }

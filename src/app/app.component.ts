@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'ngx-isteven-multiselect';
   options = [
-    'a', 'b'
+    'a', 'b', 'c', 'd', 'e', 'f'
   ]
 }
