@@ -10,4 +10,12 @@ export class AppComponent {
   options = [
     'a', 'b', 'c', 'd', 'e', 'f'
   ]
+
+  objectOptions = [
+    {id: 1, value: 'Test 1'},
+    {id: 2, value: 'Test 2'},
+    {id: 3, value: 'Test 3'},
+    {id: 4, value: 'Test 4'},
+    {id: 5, value: 'Test 5'}
+  ]
 }
