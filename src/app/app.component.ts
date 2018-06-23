@@ -11,6 +11,10 @@ export class AppComponent {
     'a', 'b', 'c', 'd', 'e', 'f'
   ]
 
+  propertyMap = {
+    name: 'value'
+  }
+
   objectOptions = [
     {id: 1, value: 'Test 1'},
     {id: 2, value: 'Test 2'},
