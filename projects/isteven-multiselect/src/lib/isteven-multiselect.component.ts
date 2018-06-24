@@ -9,19 +9,24 @@ import { IstevenMultiselectService } from './isteven-multiselect.service';
 })
 export class IstevenMultiselectComponent implements OnInit {
 
-  private _multiple = false;
-  private _propertyMap = {
-    'id': 'id',
-    'name': 'name'
-  };
-  _options = [];
-  selectedOptions: any | any[] = null;
-
   constructor(
     private elementRef: ElementRef,
     private istevenMultiselectService: IstevenMultiselectService) {
   }
 
+  // private variables
+  private _multiple = false;
+  private _propertyMap = {
+    'id': 'id',
+    'name': 'name'
+  };
+  private _optionsCopy = [];
+  
+  // public variables
+  _options = [];
+  selectedOptions: any | any[] = null;
+
+  // Input bindings
   @Input() isOpen: boolean = false;
   @Input() ofPrimitiveType: boolean = false;
   @Input() showMaxLabels: number = 3;
@@ -32,15 +37,16 @@ export class IstevenMultiselectComponent implements OnInit {
   @Input()
   set options(collection) {
     if (this.ofPrimitiveType) {
-      this._options = collection.map((item: any, index: number) => ({ id: index, name: item }))
+      this._optionsCopy = collection.map((item: any, index: number) => ({ id: index, name: item }))
     } else {
       let keys = Object.keys(this._propertyMap);
-      this._options = collection.map((item: any, index: number) => {
+      this._optionsCopy = collection.map((item: any, index: number) => {
         let obj = {};
         keys.reduce((a: any, b: string) => { obj[b] = item[this._propertyMap[b]] }, obj)
         return obj;
       })
     }
+    this.setOptions();
   }
 
   @Input()
@@ -50,6 +56,10 @@ export class IstevenMultiselectComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  setOptions() {
+    this._options = [...this._optionsCopy]
   }
 
   isValueSelected() {
