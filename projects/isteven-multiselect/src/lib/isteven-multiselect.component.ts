@@ -109,4 +109,16 @@ export class IstevenMultiselectComponent implements OnInit {
     }
   }
 
+  selectAll(){
+
+  }
+
+  selectNone() {
+    
+  }
+
+  reset() {
+    
+  }
+
 }
