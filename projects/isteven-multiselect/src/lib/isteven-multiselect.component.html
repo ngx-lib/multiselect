@@ -5,7 +5,7 @@
         None selected
       </div>
       <div class="selected" *ngIf="isValueSelected()">
-        <span class="text">{{selectedOptions | displaySelectedValue}}</span>
+        <span class="text">{{selectedOptions | displaySelectedValue: showMaxLabels}}</span>
         <span class="caret" (click)="clear()">X</span>
       </div>
     </div>
@@ -14,7 +14,7 @@
     <div class="input-search">
       <input type="search" />
     </div>
-    <div class="option" *ngFor="let option of _options" (click)="select(option)">
+    <div class="option" [ngClass]="{'mark': option.ticked}" *ngFor="let option of _options" (click)="select(option)">
       {{option.name}}
     </div>
   </div>
