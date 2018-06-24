@@ -1,6 +1,6 @@
 <div class="isteven-wrapper">
-  <div class="isteven-header">
-    <div class="selection" (click)="isOpen = !isOpen">
+  <button class="dropdown-button" (click)="isOpen = !isOpen">
+    <div class="selection">
       <div class="none-selected" *ngIf="!isValueSelected()">
         None selected
       </div>
@@ -9,13 +9,21 @@
         <span class="caret" (click)="clear()">X</span>
       </div>
     </div>
-  </div>
-  <div class="isteven-options" *ngIf="isOpen">
-    <div class="input-search">
-      <input type="search" />
+  </button>
+  <div class="options-listing" *ngIf="isOpen">
+    <div class="helper-buttons">
+      <button class="helper-button" (click)="selectAll()">Select All</button>
+      <button class="helper-button" (click)="selectNone()">Select None</button>
+      <button class="helper-button" (click)="reset()">Reset</button>
     </div>
-    <div class="option" [ngClass]="{'mark': option.ticked}" *ngFor="let option of _options" (click)="select(option)">
-      {{option.name}}
+    <div class="input-search">
+      <input placeholder="Search..." type="text" class="input-filter">
+      <button type="button" class="clear-button">×</button>
+    </div>
+    <div class="listing-container">
+      <div class="option" [ngClass]="{'marked': option.ticked}" *ngFor="let option of _options" (click)="select(option)">
+        {{option.name}}
+      </div>
     </div>
   </div>
 </div>
