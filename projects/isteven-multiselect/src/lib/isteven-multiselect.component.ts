@@ -4,7 +4,7 @@ import { IstevenMultiselectService } from './isteven-multiselect.service';
 @Component({
   selector: 'ngx-isteven-multiselect',
   templateUrl: './isteven-multiselect.component.html',
-  styles: ['./isteven-multiselect.component.css'],
+  styleUrls: ['./isteven-multiselect.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class IstevenMultiselectComponent implements OnInit {
@@ -17,11 +17,14 @@ export class IstevenMultiselectComponent implements OnInit {
   _options = [];
   selectedOptions: any | any[] = null;
 
-  constructor(private elementRef: ElementRef, private istevenMultiselectService: IstevenMultiselectService) {
+  constructor(
+    private elementRef: ElementRef, 
+    private istevenMultiselectService: IstevenMultiselectService) {
   }
 
   @Input() isOpen: boolean = false;
   @Input() ofPrimitiveType: boolean = false;
+  @Input() showMaxLabels: number = 3;
 
   @Input() set propertyMap(val) {
     this._propertyMap = { ...this._propertyMap, ...val };
@@ -65,8 +68,14 @@ export class IstevenMultiselectComponent implements OnInit {
   select(option) {
     if (this._multiple) {
       let selectedIds = this.selectedOptions.map(i => i.id);
-      selectedIds.indexOf(option.id) === -1 && this.selectedOptions.push(option)
+      if(selectedIds.indexOf(option.id) === -1) {
+        option.ticked = true;
+        this.selectedOptions.push(option);
+      }
     } else {
+      // TODO: find optimized way to do below
+      this._options.forEach(o => o.ticked = false);
+      option.ticked = true;
       this.selectedOptions = option;
       this.close();
     }
