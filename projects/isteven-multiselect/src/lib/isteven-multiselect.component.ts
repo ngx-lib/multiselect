@@ -18,7 +18,7 @@ export class IstevenMultiselectComponent implements OnInit {
   selectedOptions: any | any[] = null;
 
   constructor(
-    private elementRef: ElementRef, 
+    private elementRef: ElementRef,
     private istevenMultiselectService: IstevenMultiselectService) {
   }
 
@@ -65,12 +65,21 @@ export class IstevenMultiselectComponent implements OnInit {
     this.close();
   }
 
+  removeItem(item) {
+    item.ticked = false;
+    let index = this.selectedOptions.findIndex(o => o.id === item.id);
+    this.selectedOptions.splice(index, 1);
+  }
+
   select(option) {
     if (this._multiple) {
       let selectedIds = this.selectedOptions.map(i => i.id);
-      if(selectedIds.indexOf(option.id) === -1) {
-        option.ticked = true;
+      if (selectedIds.indexOf(option.id) === -1) {
+        option.ticked = !option.ticked;
         this.selectedOptions.push(option);
+      } else {
+        option.ticked = false;
+        this.removeItem(option)
       }
     } else {
       // TODO: find optimized way to do below
@@ -85,7 +94,7 @@ export class IstevenMultiselectComponent implements OnInit {
   // TODO: Also convert below to be work for element specific
   @HostListener('document:click', ['$event.target'])
   clickOutSide(event) {
-    if(this.elementRef.nativeElement !== event && !this.istevenMultiselectService.closest(event, 'ngx-isteven-multiselect') && this.isOpen){
+    if (this.elementRef.nativeElement !== event && !this.istevenMultiselectService.closest(event, 'ngx-isteven-multiselect') && this.isOpen) {
       this.close();
     }
   }

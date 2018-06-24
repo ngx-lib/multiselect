@@ -5,3 +5,4 @@
 export * from './lib/isteven-multiselect.service';
 export * from './lib/isteven-multiselect.component';
 export * from './lib/isteven-multiselect.module';
+export * from './lib/display-selected-value.pipe';
