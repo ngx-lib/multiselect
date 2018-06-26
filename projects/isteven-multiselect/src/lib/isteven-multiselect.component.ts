@@ -110,15 +110,19 @@ export class IstevenMultiselectComponent implements OnInit {
   }
 
   selectAll(){
-
+    this.selectedOptions = this._options.map(o => {
+      o.ticked = true;
+      return o;
+    });
   }
 
   selectNone() {
-    
+    this._options.forEach(o => o.ticked = false);
+    this.selectedOptions = [];
   }
 
   reset() {
-    
+    //TODO: Rever selectOptions value to older value
   }
 
 }
