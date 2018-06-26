@@ -138,4 +138,6 @@
 .marked::after {
   content: '✓';
   margin: 0 5px 0;
+  right: 0;
+  position: absolute;
 }
