@@ -54,6 +54,9 @@ export class IstevenMultiselectComponent implements OnInit {
     if (value) this.selectedOptions = [];
     this._multiple = value;
   }
+  get(){
+    return this._multiple;
+  }
 
   ngOnInit() {
   }
