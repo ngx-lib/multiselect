@@ -48,7 +48,6 @@
   border-radius: 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  min-width: 278px;
 }
 
 .listing-container {
@@ -100,7 +99,7 @@
   cursor: pointer;
   border: 1px solid #ccc;
   height: 26px;
-  font-size: 13px;
+  font-size: 10px;
   border-radius: 2px;
   color: #666;
   background-color: #f1f1f1;
@@ -154,4 +153,8 @@
   margin: 0 5px 0;
   right: 0;
   position: absolute;
+}
+
+.helper-button:not(:last-child){
+  margin-right: 4px;
 }
