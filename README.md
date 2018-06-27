@@ -9,13 +9,13 @@ Currently I'm planning to support the feature provided by isteven-multiselect, p
 
 This plans are based on current idea, it could change in future. First thing I'd like to cover all the features that have been used in isteven branch. Each feature will make sure that it should done in optimistic way of 
 
- 1. Single Select
- 2. Multiple Select
+ 1. ~~Single Select~~
+ 2. ~~Multiple Select~~
  3. Dynamic Update datasource
  4. Enable / Disable
  5. Form Support with ControlValueAccessor
  6. Grouping 
- 7. Helper Elements
+ 7. ~~Helper Elements~~ (TODO: Reset)
  8. Output Events
  9. Callbacks
 10. Observable Friendly
