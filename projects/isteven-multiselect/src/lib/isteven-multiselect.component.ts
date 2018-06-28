@@ -28,6 +28,7 @@ export class IstevenMultiselectComponent implements OnInit {
 
   // Input bindings
   @Input() isOpen: boolean = false;
+  @Input() disabled: boolean = false;
   @Input() ofPrimitiveType: boolean = false;
   @Input() showMaxLabels: number = 3;
 
