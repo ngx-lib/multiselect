@@ -1,18 +1,30 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, ElementRef, HostListener } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, ElementRef, HostListener, forwardRef } from '@angular/core';
 import { IstevenMultiselectService } from './isteven-multiselect.service';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor, DefaultValueAccessor } from '@angular/forms';
+
+export const DEFAULT_VALUE_ACCESSOR: any = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => DefaultValueAccessor),
+  multi: true
+};
 
 @Component({
   selector: 'ngx-isteven-multiselect',
   templateUrl: './isteven-multiselect.component.html',
   styleUrls: ['./isteven-multiselect.component.css'],
+  providers: [DEFAULT_VALUE_ACCESSOR],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IstevenMultiselectComponent implements OnInit {
+export class IstevenMultiselectComponent implements OnInit, ControlValueAccessor {
 
   constructor(
     private elementRef: ElementRef,
     private istevenMultiselectService: IstevenMultiselectService) {
   }
+
+  writeValue(value) { }
+  registerOnChange(fn) { }
+  registerOnTouched(fn) { }
 
   // private variables
   private _multiple = false;
@@ -21,7 +33,7 @@ export class IstevenMultiselectComponent implements OnInit {
     'name': 'name'
   };
   private _optionsCopy = [];
-  
+
   // public variables
   _options = [];
   selectedOptions: any | any[] = null;
@@ -55,7 +67,7 @@ export class IstevenMultiselectComponent implements OnInit {
     if (value) this.selectedOptions = [];
     this._multiple = value;
   }
-  get(){
+  get() {
     return this._multiple;
   }
 
@@ -113,7 +125,7 @@ export class IstevenMultiselectComponent implements OnInit {
     }
   }
 
-  selectAll(){
+  selectAll() {
     this.selectedOptions = this._options.map(o => {
       o.ticked = true;
       return o;
