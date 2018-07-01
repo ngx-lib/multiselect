@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy, ElementRef, HostListener, forwardRef } from '@angular/core';
 import { IstevenMultiselectService } from './isteven-multiselect.service';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor, DefaultValueAccessor } from '@angular/forms';
+import { IstevenMultiselectBaseComponent } from './isteven-multiselect-base.component';
 
 export const DEFAULT_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -15,16 +16,13 @@ export const DEFAULT_VALUE_ACCESSOR: any = {
   providers: [DEFAULT_VALUE_ACCESSOR],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IstevenMultiselectComponent implements OnInit, ControlValueAccessor {
+export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent implements OnInit, ControlValueAccessor {
 
   constructor(
     private elementRef: ElementRef,
     private istevenMultiselectService: IstevenMultiselectService) {
+      super();
   }
-
-  writeValue(value) { }
-  registerOnChange(fn) { }
-  registerOnTouched(fn) { }
 
   // private variables
   private _multiple = false;
