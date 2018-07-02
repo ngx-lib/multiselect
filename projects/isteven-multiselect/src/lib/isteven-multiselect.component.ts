@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, ElementRef, HostListener, forwardRef } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, ElementRef, HostListener, forwardRef, Injector } from '@angular/core';
 import { IstevenMultiselectService } from './isteven-multiselect.service';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor, DefaultValueAccessor } from '@angular/forms';
 import { IstevenMultiselectBaseComponent } from './isteven-multiselect-base.component';
@@ -19,9 +19,10 @@ export const DEFAULT_VALUE_ACCESSOR: any = {
 export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent implements OnInit, ControlValueAccessor {
 
   constructor(
-    private elementRef: ElementRef,
-    private istevenMultiselectService: IstevenMultiselectService) {
-      super();
+    protected elementRef: ElementRef,
+    protected istevenMultiselectService: IstevenMultiselectService,
+    protected injector: Injector) {
+      super(injector);
   }
 
   // private variables
