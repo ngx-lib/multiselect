@@ -113,6 +113,8 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
       this.selectedOptions = option;
       this.close();
     }
+    this.onChange(this.selectedOptions);
+    this.writeValue(this.selectedOptions);
   }
 
   // TODO: Consider creating a directive for this.
