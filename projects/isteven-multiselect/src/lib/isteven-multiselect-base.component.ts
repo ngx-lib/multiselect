@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, ElementRef, HostListener, forwardRef, Injector } from '@angular/core';
+import { ElementRef, Injector } from '@angular/core';
 import { IstevenMultiselectService } from './isteven-multiselect.service';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor, DefaultValueAccessor } from '@angular/forms';
+import { ControlValueAccessor } from '@angular/forms';
 
 export class IstevenMultiselectBaseComponent {
   private _istevenMultiselectService: IstevenMultiselectService;
@@ -12,7 +12,7 @@ export class IstevenMultiselectBaseComponent {
       this._istevenMultiselectService = injector.get(IstevenMultiselectService);
   }
 
-  writeValue(value) { }
-  registerOnChange(fn) { }
-  registerOnTouched(fn) { }
+  onChange = (_: any) => {};
+  onTouched = () => {};
+
 }
