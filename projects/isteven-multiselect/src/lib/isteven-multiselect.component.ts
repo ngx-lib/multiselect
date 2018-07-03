@@ -17,20 +17,6 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
       super(injector);
   }
 
-
-  writeValue(value) { 
-    console.log("writeValue", value)
-  }
-  registerOnChange(fn: (value: any) => any): void { 
-    console.log("registerOnChange", fn)
-    this.onChange = fn; 
-  }
-
-  registerOnTouched(fn: () => any): void { 
-    console.log("registerOnTouched", fn)
-    this.onTouched = fn; 
-  }
-
   // private variables
   private _multiple = false;
   private _propertyMap = {
