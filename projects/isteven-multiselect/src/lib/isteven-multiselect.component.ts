@@ -62,12 +62,13 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   @Input()
+  get multiple() {
+    return this._multiple;
+  }
   set multiple(value: boolean) {
+    // TODO: remove belove line
     if (value) this.selectedOptions = [];
     this._multiple = value;
-  }
-  get() {
-    return this._multiple;
   }
 
   ngOnInit() {
