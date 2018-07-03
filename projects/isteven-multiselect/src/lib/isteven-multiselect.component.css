@@ -158,3 +158,9 @@
 .helper-button:not(:last-child){
   margin-right: 4px;
 }
+
+.option.disabled, .option.disabled:hover, .option.disabled label input:hover ~ span {
+  color: #c4c4c4 !important;
+  pointer-events:none;
+  cursor: not-allowed !important;
+}

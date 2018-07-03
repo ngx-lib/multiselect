@@ -12,7 +12,7 @@ This plans are based on current idea, it could change in future. First thing I'd
  1. ~~Single Select~~
  2. ~~Multiple Select~~
  3. Dynamic Update datasource
- 4. Enable / Disable
+ 4. ~~Enable / Disable~~
  5. Form Support with ControlValueAccessor
  6. Grouping 
  7. ~~Helper Elements~~ (TODO: Reset)
