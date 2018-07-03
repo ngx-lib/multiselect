@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'im-root',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ngx-isteven-multiselect';
+  test = '1'
+  test1 = new FormControl(1);
   options = [
     'a', 'b', 'c', 'd', 'e', 'f'
   ]

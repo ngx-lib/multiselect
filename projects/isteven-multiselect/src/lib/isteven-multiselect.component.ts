@@ -1,28 +1,34 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, ElementRef, HostListener, forwardRef, Injector } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, ElementRef, HostListener, Injector } from '@angular/core';
 import { IstevenMultiselectService } from './isteven-multiselect.service';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor, DefaultValueAccessor } from '@angular/forms';
 import { IstevenMultiselectBaseComponent } from './isteven-multiselect-base.component';
-
-export const DEFAULT_VALUE_ACCESSOR: any = {
-  provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => DefaultValueAccessor),
-  multi: true
-};
 
 @Component({
   selector: 'ngx-isteven-multiselect',
   templateUrl: './isteven-multiselect.component.html',
   styleUrls: ['./isteven-multiselect.component.css'],
-  providers: [DEFAULT_VALUE_ACCESSOR],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent implements OnInit, ControlValueAccessor {
+export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent implements OnInit {
 
   constructor(
     protected elementRef: ElementRef,
     protected istevenMultiselectService: IstevenMultiselectService,
     protected injector: Injector) {
       super(injector);
+  }
+
+
+  writeValue(value) { 
+    console.log("writeValue", value)
+  }
+  registerOnChange(fn: (value: any) => any): void { 
+    console.log("registerOnChange", fn)
+    this.onChange = fn; 
+  }
+
+  registerOnTouched(fn: () => any): void { 
+    console.log("registerOnTouched", fn)
+    this.onTouched = fn; 
   }
 
   // private variables

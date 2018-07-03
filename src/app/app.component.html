@@ -1,9 +1,16 @@
 <h2>Dropdown values</h2>
-<hr />
-<ngx-isteven-multiselect [disabled]="disabled" [options]="options" [ofPrimitiveType]="true"></ngx-isteven-multiselect>
+<!-- <input type="text" [(ngModel)]="title" /> {{title}} -->
 <hr />
 <ngx-isteven-multiselect 
+    [(ngModel)]="test"
+    [options]="options"
+    ngDefaultControl
+    [ofPrimitiveType]="true"></ngx-isteven-multiselect>
+<hr />
+<ngx-isteven-multiselect 
+    [formControl]="test1"
     [propertyMap]="propertyMap"
+    ngDefaultControl
     [options]="objectOptions"
     [multiple]="true">
 </ngx-isteven-multiselect>

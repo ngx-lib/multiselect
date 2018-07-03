@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { IstevenMultiselectModule } from 'isteven-multiselect';
 
 import { AppComponent } from './app.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     IstevenMultiselectModule
   ],
   providers: [],
