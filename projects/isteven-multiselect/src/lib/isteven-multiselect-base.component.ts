@@ -16,15 +16,14 @@ export class IstevenMultiselectBaseComponent implements ControlValueAccessor {
   onTouched = () => {};
 
   writeValue(value) { 
-    console.log("writeValue", value)
+    console.log(value)
   }
+
   registerOnChange(fn: (value: any) => any): void { 
-    console.log("registerOnChange", fn)
     this.onChange = fn; 
   }
 
   registerOnTouched(fn: () => any): void { 
-    console.log("registerOnTouched", fn)
     this.onTouched = fn; 
   }
 }
