@@ -22,7 +22,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     protected elementRef: ElementRef,
     protected istevenMultiselectService: IstevenMultiselectService,
     protected injector: Injector) {
-      super(injector);
+    super(injector);
   }
 
   // private variables
@@ -88,8 +88,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   clear() {
     this.selectedOptions = this._multiple ? [] : null;
     this.close();
-    this.onChange(this.selectedOptions);
-    this.writeValue(this.selectedOptions);
+    this.viewToModel(this.selectedOptions);
   }
 
   removeItem(item) {
@@ -115,8 +114,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
       this.selectedOptions = option;
       this.close();
     }
-    this.onChange(this.selectedOptions);
-    this.writeValue(this.selectedOptions);
+    this.viewToModel(this.selectedOptions);
   }
 
   // TODO: Consider creating a directive for this.
@@ -140,8 +138,12 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   selectNone() {
     this._options.forEach(o => o.ticked = false);
     this.selectedOptions = [];
-    this.onChange(this.selectedOptions);
-    this.writeValue(this.selectedOptions);
+    this.viewToModel([]);
+  }
+
+  viewToModel(options) {
+    this.onChange(options);
+    this.writeValue(options);
   }
 
   reset() {
