@@ -88,6 +88,8 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   clear() {
     this.selectedOptions = this._multiple ? [] : null;
     this.close();
+    this.onChange(this.selectedOptions);
+    this.writeValue(this.selectedOptions);
   }
 
   removeItem(item) {
@@ -131,11 +133,15 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
       o.ticked = true;
       return o;
     });
+    this.onChange(this.selectedOptions);
+    this.writeValue(this.selectedOptions);
   }
 
   selectNone() {
     this._options.forEach(o => o.ticked = false);
     this.selectedOptions = [];
+    this.onChange(this.selectedOptions);
+    this.writeValue(this.selectedOptions);
   }
 
   reset() {
