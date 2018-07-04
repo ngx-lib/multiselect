@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, ElementRef, HostListener, Injector, forwardRef } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, ElementRef, HostListener, Injector, forwardRef, SimpleChanges } from '@angular/core';
 import { IstevenMultiselectService } from './isteven-multiselect.service';
 import { IstevenMultiselectBaseComponent } from './isteven-multiselect-base.component';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -35,6 +35,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
 
   // public variables
   _options = [];
+  @Input()
   selectedOptions: any | any[] = null;
 
   // Input bindings
@@ -132,8 +133,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
       o.ticked = true;
       return o;
     });
-    this.onChange(this.selectedOptions);
-    this.writeValue(this.selectedOptions);
+    this.viewToModel(this.selectedOptions);
   }
 
   selectNone() {
@@ -144,11 +144,17 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
 
   viewToModel(options) {
     this.onChange(options);
-    this.writeValue(options);
+    // this.writeValue(options);
   }
 
   reset() {
     //TODO: Rever selectOptions value to older value
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if(changes.selectedOptions.currentValue !== changes.selectedOptions.previousValue) {
+      this.viewToModel([]);
+    }
   }
 
 }
