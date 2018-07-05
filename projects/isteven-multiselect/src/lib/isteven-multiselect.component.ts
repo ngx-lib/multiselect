@@ -32,14 +32,22 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     'name': 'name'
   };
   private _optionsCopy = [];
+  private _isOpen: boolean = false;
+  _selectedOptions: any | any[] = null;
 
   // public variables
   _options = [];
-  @Input()
-  selectedOptions: any | any[] = null;
+  @Input() set selectedOptions (value){
+    this._selectedOptions = value;
+  }
+  get selectedOptions() { return this._selectedOptions; }
 
   // Input bindings
-  @Input() isOpen: boolean = false;
+  @Input() set isOpen (value) { 
+    this._isOpen = value;
+    if(value) this.onTouched();
+  }
+  get isOpen() { return this._isOpen; } 
   @Input() disabled: boolean = false;
   @Input() ofPrimitiveType: boolean = false;
   @Input() showMaxLabels: number = 3;
@@ -63,12 +71,10 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   @Input()
-  get multiple() {
-    return this._multiple;
-  }
+  get multiple() { return this._multiple; }
   set multiple(value: boolean) {
     // TODO: remove belove line
-    if (value) this.selectedOptions = [];
+    if (value) this._selectedOptions = [];
     this._multiple = value;
   }
 
@@ -80,7 +86,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   isValueSelected() {
-    return this._multiple ? this.selectedOptions.length : this.selectedOptions;
+    return this._multiple ? this._selectedOptions.length : this._selectedOptions;
   }
 
   close() {
@@ -88,23 +94,23 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   clear() {
-    this.selectedOptions = this._multiple ? [] : null;
+    this._selectedOptions = this._multiple ? [] : null;
     this.close();
-    this.viewToModel(this.selectedOptions);
+    this.viewToModel(this._selectedOptions);
   }
 
   removeItem(item) {
     item.ticked = false;
-    let index = this.selectedOptions.findIndex(o => o.id === item.id);
-    this.selectedOptions.splice(index, 1);
+    let index = this._selectedOptions.findIndex(o => o.id === item.id);
+    this._selectedOptions.splice(index, 1);
   }
 
   select(option) {
     if (this._multiple) {
-      let selectedIds = this.selectedOptions.map(i => i.id);
+      let selectedIds = this._selectedOptions.map(i => i.id);
       if (selectedIds.indexOf(option.id) === -1) {
         option.ticked = !option.ticked;
-        this.selectedOptions.push(option);
+        this._selectedOptions.push(option);
       } else {
         option.ticked = false;
         this.removeItem(option)
@@ -113,10 +119,10 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
       // TODO: find optimized way to do below
       this._options.forEach(o => o.ticked = false);
       option.ticked = true;
-      this.selectedOptions = option;
+      this._selectedOptions = option;
       this.close();
     }
-    this.viewToModel(this.selectedOptions);
+    this.viewToModel(this._selectedOptions);
   }
 
   // TODO: Consider creating a directive for this.
@@ -129,16 +135,16 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   selectAll() {
-    this.selectedOptions = this._options.map(o => {
+    this._selectedOptions = this._options.map(o => {
       o.ticked = true;
       return o;
     });
-    this.viewToModel(this.selectedOptions);
+    this.viewToModel(this._selectedOptions);
   }
 
   selectNone() {
     this._options.forEach(o => o.ticked = false);
-    this.selectedOptions = [];
+    this._selectedOptions = [];
     this.viewToModel([]);
   }
 
@@ -151,7 +157,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if(changes.selectedOptions.currentValue !== changes.selectedOptions.previousValue) {
+    if(changes.selectedOptions && (changes.selectedOptions.currentValue !== changes.selectedOptions.previousValue)) {
       this.viewToModel([]);
     }
   }
