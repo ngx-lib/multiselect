@@ -13,7 +13,7 @@ This plans are based on current idea, it could change in future. First thing I'd
  2. ~~Multiple Select~~
  3. Dynamic Update datasource
  4. ~~Enable / Disable~~
- 5. Form Support with ControlValueAccessor
+ 5. ~~Form Support with ControlValueAccessor~~ //TODO: Prepopulate value to form
  6. Grouping 
  7. ~~Helper Elements~~ (TODO: Reset)
  8. Output Events
