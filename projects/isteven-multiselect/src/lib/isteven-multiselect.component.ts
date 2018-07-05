@@ -144,7 +144,6 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
 
   viewToModel(options) {
     this.onChange(options);
-    // this.writeValue(options);
   }
 
   reset() {
