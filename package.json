@@ -5,7 +5,8 @@
     "ng": "ng",
     "start": "ng serve && ng build isteven-multiselect && npm run isteven-watch",
     "build": "ng build",
-    "isteven-watch": "npx onchange './projects/isteven-multiselect/src/lib/**/*.*' -- ng build isteven-multiselect",
+    "onchange": "onchange",
+    "isteven-watch": "npx onchange \"./projects/isteven-multiselect/src/lib/**/*.*\" -- ng build isteven-multiselect",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
