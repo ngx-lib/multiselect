@@ -51,7 +51,6 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   @Input() disabled: boolean = false;
   @Input() ofPrimitiveType: boolean = false;
   @Input() showMaxLabels: number = 3;
-
   @Input() set propertyMap(val) {
     this._defaultPropertyMap = { ...this._defaultPropertyMap, ...val };
   }
