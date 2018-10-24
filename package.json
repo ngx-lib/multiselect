@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve && ng build isteven-multiselect && npm run isteven-watch",
+    "start": "ng build isteven-multiselect && ng serve",
     "build": "ng build",
     "onchange": "onchange",
     "isteven-watch": "npx onchange \"./projects/isteven-multiselect/src/lib/**/*.*\" -- ng build isteven-multiselect",
