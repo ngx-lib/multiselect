@@ -27,7 +27,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
 
   // private variables
   private _multiple = false;
-  private _propertyMap = {
+  private _defaultPropertyMap = {
     'id': 'id',
     'name': 'name'
   };
@@ -53,17 +53,17 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   @Input() showMaxLabels: number = 3;
 
   @Input() set propertyMap(val) {
-    this._propertyMap = { ...this._propertyMap, ...val };
+    this._defaultPropertyMap = { ...this._defaultPropertyMap, ...val };
   }
   @Input()
   set options(collection) {
     if (this.ofPrimitiveType) {
       this._optionsCopy = collection.map((item: any, index: number) => ({ id: index, name: item }))
     } else {
-      let keys = Object.keys(this._propertyMap);
+      let keys = Object.keys(this._defaultPropertyMap);
       this._optionsCopy = collection.map((item: any, index: number) => {
         let obj = {};
-        keys.reduce((a: any, b: string) => { obj[b] = item[this._propertyMap[b]] }, obj)
+        keys.reduce((a: any, b: string) => { obj[b] = item[this._defaultPropertyMap[b]] }, obj)
         return obj;
       })
     }

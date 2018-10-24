@@ -7,8 +7,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ngx-isteven-multiselect';
-  test = '1'
+  test = 1
   test1 = new FormControl(1);
   options = [
     'a', 'b', 'c', 'd', 'e', 'f'
