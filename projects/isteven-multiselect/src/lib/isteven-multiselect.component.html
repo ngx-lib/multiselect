@@ -21,7 +21,7 @@
       <button type="button" class="clear-button">×</button>
     </div>
     <div class="listing-container">
-      <div class="option" [ngClass]="{'marked': option.ticked, disabled: (option.disabled || disabled)}" *ngFor="let option of _options" (click)="select(option)">
+      <div class="option" [ngClass]="{'marked': option.ticked, disabled: (disabled || option.disabled)}" *ngFor="let option of _options" (click)="select(option)">
         {{option.name}}
       </div>
     </div>
