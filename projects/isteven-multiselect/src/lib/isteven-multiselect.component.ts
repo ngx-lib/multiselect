@@ -152,7 +152,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   reset() {
-    //TODO: Rever selectOptions value to older value
+    //TODO: Revert selectOptions value to older value
   }
 
   ngOnChanges(changes: SimpleChanges) {
