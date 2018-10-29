@@ -16,8 +16,9 @@ export class IstevenMultiselectBaseComponent implements ControlValueAccessor {
   onTouched = () => {};
 
   writeValue(value) { 
-    console.log(value, this)
     // Set selected value for initial load of value
+    this['selectedOptions'] = value;
+    this['select'](value);
   }
 
   registerOnChange(fn: (value: any) => any): void { 
