@@ -8,7 +8,7 @@ import { FormControl } from '@angular/forms';
 })
 export class AppComponent {
   test = 1
-  test1 = new FormControl(1);
+  test1 = new FormControl([{id: 1, name: '123'}]);
   options = [
     'a', 'b', 'c', 'd', 'e', 'f'
   ]

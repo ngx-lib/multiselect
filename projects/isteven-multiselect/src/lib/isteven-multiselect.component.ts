@@ -109,16 +109,16 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
       let selectedIds = this._selectedOptions.map(i => i.id);
       if (selectedIds.indexOf(option.id) === -1) {
         option.ticked = !option.ticked;
-        this._selectedOptions.push(option);
+        this._selectedOptions.push(this._options.find(i=>i.id==option.id));
       } else {
         option.ticked = false;
         this.removeItem(option)
       }
     } else {
       // TODO: find optimized way to do below
-      this._options.forEach(o => o.ticked = false);
-      option.ticked = true;
-      this._selectedOptions = option;
+      let val = typeof option === "object" && option ? option.id : option;
+      this._options.forEach(o => o.ticked = o.id == val);
+      this._selectedOptions = this._options.filter(i=>i.id == val);
       this.close();
     }
     this.viewToModel(this._selectedOptions);
