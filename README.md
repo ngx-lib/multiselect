@@ -33,7 +33,7 @@ This plans are based on current idea, it could change in future. First thing I'd
 Estimates of each fetures will be added soon. Stay toon. 
 I've not started the work 
 
-**Note:** This repository is into early architecting phase, interested can ping me for contribution.
+**Note:** This repository is into early architecting phase (alpha state), interested can ping me on pankajparkar@outlook.com for contribution purpose.
 
 ## Development server
 
@@ -44,6 +44,10 @@ This project is highly under construction. To run this project you have to run b
 To play around with this repository you have to run below two commands
 1. `npm run isteven-watch` - This command will help to build isteven library everytime when you change any file from it.  
 2. `ng serve` - To run application, it will consume live isteven library
+
+## Track Realtime Status of Feature
+
+[Trello Board here](https://trello.com/b/fsr5Xewa/ngx-isteven-mutiselect)
 
 ## Running unit tests
 
