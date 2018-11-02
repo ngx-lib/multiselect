@@ -13,7 +13,9 @@ This plans are based on current idea, it could change in future. First thing I'd
  2. ~~Multiple Select~~
  3. Dynamic Update datasource
  4. ~~Enable / Disable~~
- 5. ~~Form Support with ControlValueAccessor~~ //TODO: Prepopulate value to form
+ 5. Form Support with ControlValueAccessor
+    a) Template Driven form
+    b) Model Driven form
  6. Grouping 
  7. ~~Helper Elements~~ (TODO: Reset)
  8. Output Events
@@ -28,7 +30,7 @@ This plans are based on current idea, it could change in future. First thing I'd
 17. Server side rendering support
 18. Optimal / Super fast rendering.
 19. Theming Support
-20. Core features will be shifted to core JS.
+20. Angular 2+ Support (make it backword compatible).
 
 Estimates of each fetures will be added soon. Stay toon. 
 I've not started the work 
