@@ -11,18 +11,21 @@ This plans are based on current idea, it could change in future. First thing I'd
 
  1. ~~Single Select~~
  2. ~~Multiple Select~~
- 3. Dynamic Update datasource
+ 3. Callbacks
  4. ~~Enable / Disable~~
  5. Form Support with ControlValueAccessor
     a) Template Driven form
     b) Model Driven form
- 6. Grouping 
+ 6. Output Events 
  7. ~~Helper Elements~~ (TODO: Reset)
- 8. Output Events
- 9. Callbacks
+ 8. Grouping
+ 9. Dynamic Update datasource
 10. Observable Friendly
 11. Lazy loading smooth support.
-12. Templating Support for each type
+12. Small component for each small component
+    a) Input filter template
+    b) Helper buttons
+    c) List options
 13. Configuration Super Easy
 14. NgIvy friendly
 15. Angular Elements friendly
