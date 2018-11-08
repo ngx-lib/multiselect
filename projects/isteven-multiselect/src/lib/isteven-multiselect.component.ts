@@ -29,7 +29,8 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   private _multiple = false;
   private _defaultPropertyMap = {
     'id': 'id',
-    'name': 'name'
+    'name': 'name',
+    'disabled': 'disabled'
   };
   private _optionsCopy = [];
   private _isOpen: boolean = false;
