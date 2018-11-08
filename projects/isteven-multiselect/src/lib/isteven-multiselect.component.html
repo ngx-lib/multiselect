@@ -1,26 +1,31 @@
 <div class="isteven-wrapper">
   <button class="dropdown-button" (click)="isOpen = !isOpen">
     <div class="selection">
+      <!-- TODO: None selected template should be ng-template -->
       <div class="none-selected" *ngIf="!isValueSelected()">
         None selected
       </div>
       <div class="selected" *ngIf="isValueSelected()">
-        <span class="text">{{selectedOptions | displaySelectedValue: showMaxLabels}}</span>
+        <span class="text">{{_selectedOptions | displaySelectedValue: showMaxLabels}}</span>
         <span class="caret" (click)="clear()">X</span>
       </div>
     </div>
   </button>
   <div class="options-listing" *ngIf="isOpen">
+    <!-- TODO: helper button can be separate component -->
     <div class="helper-buttons">
       <button class="helper-button" *ngIf="multiple" (click)="selectAll()">✓ Select All</button>
       <button class="helper-button" *ngIf="multiple" (click)="selectNone()">× Select None</button>
       <button class="helper-button" (click)="reset()">↶ Reset</button>
     </div>
+    <!-- TODO: Input search can be separate component -->
     <div class="input-search">
       <input placeholder="Search..." type="text" class="input-filter">
       <button type="button" class="clear-button">×</button>
     </div>
+    <!-- TODO: List can be separate component in future -->
     <div class="listing-container">
+      <!-- TODO: Default template should be below, consumer can add his own template -->
       <div class="option" [ngClass]="{'marked': option.ticked, disabled: (disabled || option.disabled)}" *ngFor="let option of _options" (click)="select(option)">
         {{option.name}}
       </div>
