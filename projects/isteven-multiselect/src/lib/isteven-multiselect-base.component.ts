@@ -15,7 +15,7 @@ export abstract class IstevenMultiselectBaseComponent implements ControlValueAcc
   onChange = (_: any) => {};
   onTouched = () => {};
 
-  writeValue(value) { 
+  writeValue(value) {
     // Set selected value for initial load of value
     // TODO: use typescript in better way
     this['prepopulateOptions'](value);
@@ -26,6 +26,6 @@ export abstract class IstevenMultiselectBaseComponent implements ControlValueAcc
   }
 
   registerOnTouched(fn: () => any): void { 
-    this.onTouched = fn; 
+    this.onTouched = fn;
   }
 }
