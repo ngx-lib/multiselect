@@ -93,10 +93,10 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     this.viewToModel(values);
   }
 
-  removeItem(item) {
+  removeItem(collection, item) {
     item.ticked = false;
-    let index = this._selectedOptions.findIndex(o => o.id === item.id);
-    this._selectedOptions.splice(index, 1);
+    let index = collection.findIndex(o => o.id === item.id);
+    collection.splice(index, 1);
   }
 
   prepopulateOptions(selected: any) {
@@ -113,16 +113,15 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
 
   select(option) {
     let selectedOptions = [...this._selectedOptions]
+    option.ticked = !option.ticked;
     if (this._multiple) {
       let selectedIds = selectedOptions.map(i => i.id);
       // select option & push inside collection
       if (selectedIds.indexOf(option.id) === -1) {
-        option.ticked = !option.ticked;
         selectedOptions.push(this._options.find(i => i.id == option.id));
       } else {
         // de-select option and remove from the collection
-        option.ticked = false;
-        this.removeItem(option)
+        this.removeItem(selectedOptions, option)
       }
     } else {
       // TODO: find optimized way to do below
