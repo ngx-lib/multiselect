@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
 
+const matchSelectors = ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector', 'oMatchesSelector'];
+
 @Injectable({
   providedIn: 'root'
 })
 export class IstevenMultiselectService {
   constructor() { }
+  
   closest(el, selector) {
     let matchesFn;
-
     // find vendor prefix
-    ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector', 'oMatchesSelector'].some(function (fn) {
+    matchSelectors.some(function (fn) {
       if (typeof document.body[fn] == 'function') {
         matchesFn = fn;
         return true;

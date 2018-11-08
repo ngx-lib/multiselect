@@ -2,7 +2,7 @@ import { ElementRef, Injector } from '@angular/core';
 import { IstevenMultiselectService } from './isteven-multiselect.service';
 import { ControlValueAccessor } from '@angular/forms';
 
-export class IstevenMultiselectBaseComponent implements ControlValueAccessor {
+export abstract class IstevenMultiselectBaseComponent implements ControlValueAccessor {
   private _istevenMultiselectService: IstevenMultiselectService;
   private _elementRef: ElementRef;
 
@@ -17,7 +17,7 @@ export class IstevenMultiselectBaseComponent implements ControlValueAccessor {
 
   writeValue(value) { 
     // Set selected value for initial load of value
-    this['selectedOptions'] = value;
+    // TODO: use typescript in better way
     this['prepopulateOptions'](value);
   }
 

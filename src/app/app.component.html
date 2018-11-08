@@ -1,20 +1,18 @@
 <h2>Dropdown values</h2>
 <!-- <input type="text" [(ngModel)]="title" /> {{title}} -->
 <hr />
+<!-- [ofPrimitiveType]="true" -->
 <ngx-isteven-multiselect 
     [(ngModel)]="test"
     [options]="options"
     ngDefaultControl
-    [ofPrimitiveType]="true"></ngx-isteven-multiselect>
+></ngx-isteven-multiselect>
 <hr />
-{{test?.name}}
+{{test | json}}
 <ngx-isteven-multiselect 
     [formControl]="test1"
-    [propertyMap]="propertyMap"
     ngDefaultControl
-    [selectedOptions]="[{id: 1, name: '123'}]"
     [options]="objectOptions"
-    (change)="change($event)"
     [multiple]="true">
 </ngx-isteven-multiselect>
 

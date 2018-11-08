@@ -33,21 +33,17 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   };
   private _optionsCopy = [];
   private _isOpen: boolean = false;
-  _selectedOptions: any | any[] = null;
 
   // public variables
+  _selectedOptions: any | any[] = null;
   _options = [];
-  @Input() set selectedOptions (value){
-    this._selectedOptions = value;
-  }
-  get selectedOptions() { return this._selectedOptions; }
 
   // Input bindings
-  @Input() set isOpen (value) { 
+  @Input() set isOpen(value) {
     this._isOpen = value;
-    if(value) this.onTouched();
+    if (value) this.onTouched();
   }
-  get isOpen() { return this._isOpen; } 
+  get isOpen() { return this._isOpen; }
   @Input() disabled: boolean = false;
   @Input() ofPrimitiveType: boolean = false;
   @Input() showMaxLabels: number = 3;
@@ -72,8 +68,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   @Input()
   get multiple() { return this._multiple; }
   set multiple(value: boolean) {
-    // TODO: remove belove line
-    if (value) this._selectedOptions = [];
+    if(value) this.viewToModel([])
     this._multiple = value;
   }
 
@@ -93,9 +88,9 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   clear() {
-    this._selectedOptions = this._multiple ? [] : null;
+    let values = this._multiple ? [] : null;
     this.close();
-    this.viewToModel(this._selectedOptions);
+    this.viewToModel(values);
   }
 
   removeItem(item) {
@@ -105,34 +100,67 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   prepopulateOptions(selected: any) {
+    let selectedIds = []
     if (this._multiple) {
-      let selectedIds = selected.map(i => i.id);
-      this._options.map(o => o.ticked = selectedIds.indexOf(o.id) !== -1);
-    } else {
-      let val = typeof selected === "object" && selected ? selected.id : selected;
-      this._options.forEach(o => o.ticked = (val === o.id));
-      this._selectedOptions = this._options.filter(i=>i.id == val);
+      selectedIds = (selected || []).map(i => i.id);
     }
+    else {
+      selectedIds = selected ? [selected.id]: [];
+    }
+    this._options.map(o => o.ticked = selectedIds.indexOf(o.id) !== -1);
+    this.viewToModel(selected)
   }
 
   select(option) {
+    let selectedOptions = [...this._selectedOptions]
     if (this._multiple) {
-      let selectedIds = this._selectedOptions.map(i => i.id);
+      let selectedIds = selectedOptions.map(i => i.id);
+      // select option & push inside collection
       if (selectedIds.indexOf(option.id) === -1) {
         option.ticked = !option.ticked;
-        this._selectedOptions.push(this._options.find(i=>i.id==option.id));
+        selectedOptions.push(this._options.find(i => i.id == option.id));
       } else {
+        // de-select option and remove from the collection
         option.ticked = false;
         this.removeItem(option)
       }
     } else {
       // TODO: find optimized way to do below
-      let val = typeof option === "object" && option ? option.id : option;
+      let val = option && option.id;
       this._options.forEach(o => o.ticked = o.id == val);
-      this._selectedOptions = this._options.filter(i=>i.id == val);
+      selectedOptions = this._options.find(i => i.id == val);
       this.close();
     }
-    this.viewToModel(this._selectedOptions);
+    this.viewToModel(selectedOptions);
+  }
+
+  selectAll() {
+    let allSelectedOptions = this._options.map(o => {
+      o.ticked = true;
+      return o;
+    });
+    this.viewToModel(allSelectedOptions);
+  }
+
+  selectNone() {
+    this._options.forEach(o => o.ticked = false);
+    this._selectedOptions = [];
+    this.viewToModel([]);
+  }
+
+  viewToModel(options) {
+    this._selectedOptions = options;
+    this.onChange(options);
+  }
+
+  reset() {
+    //TODO: Revert selectOptions value to older value
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.selectedOptions && (changes.selectedOptions.currentValue !== changes.selectedOptions.previousValue)) {
+      this.viewToModel(this._multiple ? []: null);
+    }
   }
 
   // TODO: Consider creating a directive for this.
@@ -143,33 +171,4 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
       this.close();
     }
   }
-
-  selectAll() {
-    this._selectedOptions = this._options.map(o => {
-      o.ticked = true;
-      return o;
-    });
-    this.viewToModel(this._selectedOptions);
-  }
-
-  selectNone() {
-    this._options.forEach(o => o.ticked = false);
-    this._selectedOptions = [];
-    this.viewToModel([]);
-  }
-
-  viewToModel(options) {
-    this.onChange(options);
-  }
-
-  reset() {
-    //TODO: Revert selectOptions value to older value
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    if(changes.selectedOptions && (changes.selectedOptions.currentValue !== changes.selectedOptions.previousValue)) {
-      this.viewToModel([]);
-    }
-  }
-
 }
