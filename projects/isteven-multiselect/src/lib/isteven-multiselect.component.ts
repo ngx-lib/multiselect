@@ -1,4 +1,7 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, ElementRef, HostListener, Injector, forwardRef, SimpleChanges } from '@angular/core';
+import { 
+  Component, OnInit, Input, ChangeDetectionStrategy, HostListener, 
+  Injector, forwardRef, SimpleChanges, ElementRef
+} from '@angular/core';
 import { IstevenMultiselectService } from './isteven-multiselect.service';
 import { IstevenMultiselectBaseComponent } from './isteven-multiselect-base.component';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -21,6 +24,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   constructor(
     protected elementRef: ElementRef,
     protected istevenMultiselectService: IstevenMultiselectService,
+    private el: ElementRef,
     protected injector: Injector) {
     super(injector);
   }
@@ -105,7 +109,8 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     selectedIds = this._multiple ? (selected || []).map(i => i.id)
       : selected ? [selected.id]: [];
     this._options.map(o => o.ticked = selectedIds.indexOf(o.id) !== -1);
-    this.viewToModel(selected)
+    //TODO: do we really need this reassignment?
+    this.viewToModel(selected);
   }
 
   select(option) {
@@ -140,13 +145,13 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
 
   selectNone() {
     this._options.forEach(o => o.ticked = false);
-    this._selectedOptions = [];
     this.viewToModel([]);
   }
 
   viewToModel(options) {
     this._selectedOptions = options;
     this.onChange(options);
+    //console.log(this.el.nativeElement.classList)
   }
 
   reset() {
