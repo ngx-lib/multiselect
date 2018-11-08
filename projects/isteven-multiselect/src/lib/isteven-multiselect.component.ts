@@ -102,12 +102,8 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
 
   prepopulateOptions(selected: any) {
     let selectedIds = []
-    if (this._multiple) {
-      selectedIds = (selected || []).map(i => i.id);
-    }
-    else {
-      selectedIds = selected ? [selected.id]: [];
-    }
+    selectedIds = this._multiple ? (selected || []).map(i => i.id)
+      : selected ? [selected.id]: [];
     this._options.map(o => o.ticked = selectedIds.indexOf(o.id) !== -1);
     this.viewToModel(selected)
   }
