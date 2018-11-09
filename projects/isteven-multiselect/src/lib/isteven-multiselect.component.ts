@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 import { IstevenMultiselectService } from './isteven-multiselect.service';
 import { IstevenMultiselectBaseComponent } from './isteven-multiselect-base.component';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { NG_VALUE_ACCESSOR, FormControl } from '@angular/forms';
 
 export const DEFAULT_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -24,7 +24,6 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   constructor(
     protected elementRef: ElementRef,
     protected istevenMultiselectService: IstevenMultiselectService,
-    private el: ElementRef,
     protected injector: Injector) {
     super(injector);
   }
@@ -36,12 +35,12 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     'name': 'name',
     'disabled': 'disabled'
   };
-  private _optionsCopy = [];
+  private _optionsCopy = []; //TODO: in future this will be master list
   private _isOpen: boolean = false;
-
+  filterName: FormControl;
   // public variables
   _selectedOptions: any | any[] = null;
-  _options = [];
+  _options = []; //TODO: this will be local list
 
   // Input bindings
   @Input() set isOpen(value) {
@@ -58,30 +57,47 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   @Input()
   set options(collection) {
     if (this.ofPrimitiveType) {
-      this._optionsCopy = collection.map((item: any, index: number) => ({ id: index, name: item }))
+      this._optionsCopy = collection.map((item: any, index: number) => ({ id: index, name: item }));
     } else {
       let keys = Object.keys(this._defaultPropertyMap);
       this._optionsCopy = collection.map((item: any, index: number) => {
         let obj = {};
-        keys.reduce((a: any, b: string) => { obj[b] = item[this._defaultPropertyMap[b]] }, obj)
+        keys.reduce((a: any, b: string) => { obj[b] = item[this._defaultPropertyMap[b]] }, obj);
         return obj;
       })
     }
-    this.setOptions();
+    this.setOptions([...this._optionsCopy]);
   }
 
   @Input()
   get multiple() { return this._multiple; }
   set multiple(value: boolean) {
-    if(value) this.viewToModel([])
+    if(value) this.viewToModel([]);
     this._multiple = value;
   }
 
-  ngOnInit() {
+  filterOptionsList = (val) => {
+    if(!val) return this.setOptions([...this._optionsCopy]);
+    const options = this._optionsCopy.filter(i=> i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1);
+    this.setOptions(options);
   }
 
-  setOptions() {
-    this._options = [...this._optionsCopy]
+  clearText () {
+    this.filterOptionsList('');
+  }
+
+  ngOnInit() {
+    this.filterName = new FormControl('')
+    // TODO: unsubscribe subscription
+    this.filterName.valueChanges.subscribe(this.filterOptionsList);
+  }
+
+  getOptionStyle(option) {
+    return {'marked': option.ticked, disabled: (this.disabled || option.disabled)};
+  }
+
+  setOptions(options) {
+    this._options = options;
   }
 
   isValueSelected() {
@@ -106,7 +122,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   prepopulateOptions(selected: any) {
-    let selectedIds = []
+    let selectedIds = [];
     selectedIds = this._multiple ? (selected || []).map(i => i.id)
       : selected ? [selected.id]: [];
     this._options.map(o => o.ticked = selectedIds.indexOf(o.id) !== -1);
@@ -124,7 +140,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
         selectedOptions.push(this._options.find(i => i.id == option.id));
       } else {
         // de-select option and remove from the collection
-        this.removeItem(selectedOptions, option)
+        this.removeItem(selectedOptions, option);
       }
     } else {
       // TODO: find optimized way to do below
@@ -137,10 +153,10 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   selectAll() {
-    let allSelectedOptions = this._options.map(o => {
+    let allSelectedOptions = this._options.map((o: any) => {
       o.ticked = true;
       return o;
-    });
+    })
     this.viewToModel(allSelectedOptions);
   }
 
@@ -152,12 +168,10 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   viewToModel(options) {
     this._selectedOptions = options;
     this.onChange(options);
-    //console.log(this.el.nativeElement.classList)
   }
 
   reset() {
-    //TODO: Revert selectOptions value to older value
-    this.viewToModel(this.initialValue)
+    this.viewToModel(this.initialValue);
     this.prepopulateOptions(this.initialValue);
   }
 
