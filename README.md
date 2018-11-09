@@ -13,11 +13,11 @@ This plans are based on current idea, it could change in future. First thing I'd
  2. ~~Multiple Select~~
  3. Callbacks
  4. ~~Enable / Disable~~
- 5. Form Support with ControlValueAccessor
-    a) Template Driven form
-    b) Model Driven form
+ 5. ~~Form Support with ControlValueAccessor~~
+    ~~a) Template Driven form~~
+    ~~b) Model Driven form~~
  6. Output Events 
- 7. ~~Helper Elements~~ (TODO: Reset)
+ 7. ~~Helper Elements~~
  8. Grouping
  9. Dynamic Update datasource
 10. Observable Friendly
