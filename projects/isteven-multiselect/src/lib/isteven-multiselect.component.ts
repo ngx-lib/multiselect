@@ -1,6 +1,6 @@
 import { 
-  Component, OnInit, Input, ChangeDetectionStrategy, HostListener, 
-  Injector, forwardRef, SimpleChanges, ElementRef
+  Component, OnInit, Input, ChangeDetectionStrategy,  
+  Injector, forwardRef, ElementRef, HostListener
 } from '@angular/core';
 import { IstevenMultiselectService } from './isteven-multiselect.service';
 import { IstevenMultiselectBaseComponent } from './isteven-multiselect-base.component';
@@ -93,9 +93,10 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   clear() {
+    this._options.forEach(i=> i.ticked = false);
     let values = this._multiple ? [] : null;
-    this.close();
     this.viewToModel(values);
+    this.close();
   }
 
   removeItem(collection, item) {
@@ -156,12 +157,8 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
 
   reset() {
     //TODO: Revert selectOptions value to older value
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes.selectedOptions && (changes.selectedOptions.currentValue !== changes.selectedOptions.previousValue)) {
-      this.viewToModel(this._multiple ? []: null);
-    }
+    this.viewToModel(this.initialValue)
+    this.prepopulateOptions(this.initialValue);
   }
 
   // TODO: Consider creating a directive for this.
