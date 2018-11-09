@@ -83,6 +83,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   clearText () {
+    this.filterName.setValue('');
     this.filterOptionsList('');
   }
 
