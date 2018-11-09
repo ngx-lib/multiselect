@@ -12,12 +12,22 @@ export abstract class IstevenMultiselectBaseComponent implements ControlValueAcc
       this._istevenMultiselectService = injector.get(IstevenMultiselectService);
   }
 
+  private _initialValue: any;
+  set initialValue(value: any) {
+    this._initialValue = value;
+  }
+  get initialValue() {
+    return this._initialValue;
+  }
+
   onChange = (_: any) => {};
   onTouched = () => {};
 
   writeValue(value) {
-    // Set selected value for initial load of value
+    // TODO: How can I call setter of initialValue here
+    if(value) this._initialValue = value
     // TODO: use typescript in better way
+    // Set selected value for initial load of value
     this['prepopulateOptions'](value);
   }
 
