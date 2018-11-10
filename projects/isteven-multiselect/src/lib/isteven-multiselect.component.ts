@@ -87,6 +87,10 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     this._options = options;
   }
 
+  getOptions() {
+    return [...this._options]
+  }
+
   isValueSelected() {
     return this._multiple ? this._selectedOptions.length : this._selectedOptions;
   }
@@ -96,7 +100,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   clear() {
-    this.setOptions([...this._options].map(o=> ({...o, ticked: false})));
+    this.setOptions(this.getOptions().map(o=> ({...o, ticked: false})));
     let values = this._multiple ? [] : null;
     this.viewToModel(values);
     this.close();
@@ -112,7 +116,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     let selectedIds = [];
     selectedIds = this._multiple ? (selected || []).map(i => i.id)
       : selected ? [selected.id]: [];
-    this.setOptions([...this._options].map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1})));
+    this.setOptions(this.getOptions().map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1})));
     //TODO: do we really need this reassignment?
     this.viewToModel(selected);
   }
@@ -133,7 +137,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     } else {
       // TODO: find optimized way to do below
       let val = option && option.id;
-      let changedOptions = [...this._options].map(o => ({...o, ticked: o.id == val}));
+      let changedOptions = this.getOptions().map(o => ({...o, ticked: o.id == val}));
       selectedOptions = changedOptions.find(i => i.ticked);
       this.setOptions(changedOptions);
       this.close();
@@ -142,13 +146,13 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   selectAll() {
-    let allSelectedOptions = [...this._options].map(o => ({ ...o, ticked: true}))
+    let allSelectedOptions = this.getOptions().map(o => ({ ...o, ticked: true}))
     this.setOptions(allSelectedOptions);
     this.viewToModel(allSelectedOptions);
   }
 
   selectNone () {
-    this.setOptions([...this._options].map(o => ({ ...o, ticked: false})))
+    this.setOptions(this.getOptions().map(o => ({ ...o, ticked: false})))
     this.viewToModel([]);
   }
 
