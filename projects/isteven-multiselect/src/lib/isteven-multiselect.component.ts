@@ -2,7 +2,7 @@ import {
   Component, OnInit, Input, ChangeDetectionStrategy,  
   Injector, forwardRef, ElementRef, HostListener
 } from '@angular/core';
-import { IstevenMultiselectService } from './isteven-multiselect.service';
+import { IstevenMultiselectService } from './services/isteven-multiselect.service';
 import { IstevenMultiselectBaseComponent } from './isteven-multiselect-base.component';
 import { NG_VALUE_ACCESSOR, FormControl } from '@angular/forms';
 
@@ -132,9 +132,10 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   select(option) {
-    let selectedOptions = [...this._selectedOptions]
+    let selectedOptions;
     option.ticked = !option.ticked;
     if (this._multiple) {
+      selectedOptions = [...this._selectedOptions]
       let selectedIds = selectedOptions.map(i => i.id);
       // select option & push inside collection
       if (selectedIds.indexOf(option.id) === -1) {
