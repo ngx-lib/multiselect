@@ -96,7 +96,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   clear() {
-    this._options.forEach(i=> i.ticked = false);
+    this.setOptions([...this._options].map(o=> ({...o, ticked: false})));
     let values = this._multiple ? [] : null;
     this.viewToModel(values);
     this.close();
@@ -112,7 +112,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     let selectedIds = [];
     selectedIds = this._multiple ? (selected || []).map(i => i.id)
       : selected ? [selected.id]: [];
-    this._options.map(o => o.ticked = selectedIds.indexOf(o.id) !== -1);
+    this.setOptions([...this._options].map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1})));
     //TODO: do we really need this reassignment?
     this.viewToModel(selected);
   }
@@ -123,18 +123,19 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     if (this._multiple) {
       selectedOptions = [...this._selectedOptions]
       let selectedIds = selectedOptions.map(i => i.id);
-      // select option & push inside collection
       if (selectedIds.indexOf(option.id) === -1) {
+        // if selected item not exist in collection, push it
         selectedOptions.push(this._options.find(i => i.id == option.id));
       } else {
-        // de-select option and remove from the collection
+        // if selected item exist in collection, post it
         this.removeItem(selectedOptions, option);
       }
     } else {
       // TODO: find optimized way to do below
       let val = option && option.id;
-      this._options.forEach(o => o.ticked = o.id == val);
-      selectedOptions = this._options.find(i => i.id == val);
+      let changedOptions = [...this._options].map(o => ({...o, ticked: o.id == val}));
+      selectedOptions = changedOptions.find(i => i.ticked);
+      this.setOptions(changedOptions);
       this.close();
     }
     this.viewToModel(selectedOptions);
