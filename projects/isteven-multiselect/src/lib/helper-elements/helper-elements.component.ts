@@ -1,35 +1,30 @@
-import { Component, OnInit, Input, Host } from '@angular/core';
-import { IstevenMultiselectComponent } from '../isteven-multiselect.component';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'im-helper-elements',
   templateUrl: './helper-elements.component.html',
   styleUrls: ['./helper-elements.component.css']
 })
-export class HelperElementsComponent implements OnInit {
+export class HelperElementsComponent {
+
   @Input() multiple: boolean = false;
 
-  constructor(@Host() private host: IstevenMultiselectComponent) { }
-  // TODO: is this implementation is making to much tight copuling between the host and consumer component
+  @Output() selectAllClicked = new EventEmitter();
+  @Output() selectNoneClicked = new EventEmitter();
+  @Output() resetClicked = new EventEmitter();
+
+  constructor() { }
+
   selectAll() {
-    let allSelectedOptions = this.host._options.map((o: any) => {
-      o.ticked = true;
-      return o;
-    })
-    this.host.viewToModel(allSelectedOptions);
+    this.selectAllClicked.emit();
   }
 
   selectNone() {
-    this.host._options.forEach(o => o.ticked = false);
-    this.host.viewToModel([]);
+    this.selectNoneClicked.emit();
   }
 
   reset() {
-    this.host.viewToModel(this.host.initialValue);
-    this.host.prepopulateOptions(this.host.initialValue);
-  }
-
-  ngOnInit() {
+    this.resetClicked.emit();
   }
 
 }

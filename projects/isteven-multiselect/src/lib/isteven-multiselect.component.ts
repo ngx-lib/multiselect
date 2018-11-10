@@ -82,6 +82,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     this.setOptions(options);
   }
 
+  // All update to options should happen from below method.
   setOptions(options) {
     this._options = options;
   }
@@ -139,6 +140,23 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     this.viewToModel(selectedOptions);
   }
 
+  selectAll() {
+    let allSelectedOptions = [...this._options].map(o => ({ ...o, ticked: true}))
+    this.setOptions(allSelectedOptions);
+    this.viewToModel(allSelectedOptions);
+  }
+
+  selectNone () {
+    this.setOptions([...this._options].map(o => ({ ...o, ticked: false})))
+    this.viewToModel([]);
+  }
+
+  reset() {
+    this.viewToModel(this.initialValue);
+    this.prepopulateOptions(this.initialValue);
+  }
+
+  // Responsible for updating value from view to model
   viewToModel(options) {
     this._selectedOptions = options;
     this.onChange(options);
