@@ -1,5 +1,5 @@
 import { ElementRef, Injector } from '@angular/core';
-import { IstevenMultiselectService } from './isteven-multiselect.service';
+import { IstevenMultiselectService } from './services/isteven-multiselect.service';
 import { ControlValueAccessor } from '@angular/forms';
 
 export abstract class IstevenMultiselectBaseComponent implements ControlValueAccessor {
