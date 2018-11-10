@@ -11,17 +11,9 @@
       </div>
     </div>
   </button>
-  <div class="options-listing" *ngIf="isOpen">
-    <!-- TODO: helper button can be separate component -->
+  <div class="listing-wrapper" *ngIf="isOpen">
     <im-helper-elements [multiple]="multiple"></im-helper-elements>
-    <!-- TODO: Input search can be separate component -->
     <im-filter-options (filterOptionsList)="filterOptionsList($event)"></im-filter-options>
-    <!-- TODO: List can be separate component in future -->
-    <div class="listing-container">
-      <!-- TODO: Default template should be below, consumer can add his own template -->
-      <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of _options" (click)="select(option)">
-        {{option.name}}
-      </div>
-    </div>
+    <im-options [options]="_options" [disabled]="disabled" (selectOption)="select($event)"></im-options>
   </div>
 </div>

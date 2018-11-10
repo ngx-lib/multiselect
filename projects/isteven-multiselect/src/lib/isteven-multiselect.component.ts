@@ -82,10 +82,6 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     this.setOptions(options);
   }
 
-  getOptionStyle(option) {
-    return {'marked': option.ticked, disabled: (this.disabled || option.disabled)};
-  }
-
   setOptions(options) {
     this._options = options;
   }

@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DisplaySelectedValuePipe } from './pipes/display-selected-value.pipe';
 import { HelperElementsComponent } from './helper-elements/helper-elements.component';
-import { FilterOptionsComponent } from './filter-options/filter-options.component'
+import { FilterOptionsComponent } from './filter-options/filter-options.component';
+import { OptionsComponent } from './options/options.component'
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { FilterOptionsComponent } from './filter-options/filter-options.componen
     IstevenMultiselectComponent, 
     DisplaySelectedValuePipe, 
     HelperElementsComponent,
-    FilterOptionsComponent
+    FilterOptionsComponent,
+    OptionsComponent
   ],
   exports: [IstevenMultiselectComponent]
 })
