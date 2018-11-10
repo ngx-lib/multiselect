@@ -1,18 +1,18 @@
-<h2>Dropdown values</h2>
-<hr />
+<h2>Single Select (Template Driven form)</h2>
 <!-- [ofPrimitiveType]="true" -->
 <ngx-isteven-multiselect 
     [(ngModel)]="test"
     [options]="options"
     ngDefaultControl
 ></ngx-isteven-multiselect>
+<b>Selected Value: </b> {{test | json}}
 <hr />
-{{test | json}}
+<h2>Multiple Select (Model Driven form)</h2>
 <ngx-isteven-multiselect 
     [formControl]="test1"
     ngDefaultControl
     [options]="objectOptions"
     [multiple]="true">
 </ngx-isteven-multiselect>
-
-{{test1?.value | json}}
+<b>Selected Values: </b> {{test1?.value | json}}
+<hr />
