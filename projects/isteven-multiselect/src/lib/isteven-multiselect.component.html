@@ -20,13 +20,13 @@
     </div>
     <!-- TODO: Input search can be separate component -->
     <div class="input-search">
-      <input placeholder="Search..." type="text" class="input-filter">
-      <button type="button" class="clear-button">×</button>
+      <input placeholder="Search..." type="text" [formControl]="filterName" ngDefaultControl class="input-filter">
+      <button type="button" (click)="clearText()" class="clear-button">×</button>
     </div>
     <!-- TODO: List can be separate component in future -->
     <div class="listing-container">
       <!-- TODO: Default template should be below, consumer can add his own template -->
-      <div class="option" [ngClass]="{'marked': option.ticked, disabled: (disabled || option.disabled)}" *ngFor="let option of _options" (click)="select(option)">
+      <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of _options" (click)="select(option)">
         {{option.name}}
       </div>
     </div>
