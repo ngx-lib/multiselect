@@ -153,28 +153,10 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     this.viewToModel(selectedOptions);
   }
 
-  selectAll() {
-    let allSelectedOptions = this._options.map((o: any) => {
-      o.ticked = true;
-      return o;
-    })
-    this.viewToModel(allSelectedOptions);
-  }
-
-  selectNone() {
-    this._options.forEach(o => o.ticked = false);
-    this.viewToModel([]);
-  }
-
   viewToModel(options) {
     this._selectedOptions = options;
     this.onChange(options);
-  }
-
-  reset() {
-    this.viewToModel(this.initialValue);
-    this.prepopulateOptions(this.initialValue);
-  }
+  }  
 
   // TODO: Consider creating a directive for this.
   // TODO: Also convert below to be work for element specific

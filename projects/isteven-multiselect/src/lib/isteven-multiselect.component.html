@@ -13,11 +13,7 @@
   </button>
   <div class="options-listing" *ngIf="isOpen">
     <!-- TODO: helper button can be separate component -->
-    <div class="helper-buttons">
-      <button class="helper-button" *ngIf="multiple" (click)="selectAll()">✓ Select All</button>
-      <button class="helper-button" *ngIf="multiple" (click)="selectNone()">× Select None</button>
-      <button class="helper-button" (click)="reset()">↶ Reset</button>
-    </div>
+    <im-helper-elements [multiple]="multiple"></im-helper-elements>
     <!-- TODO: Input search can be separate component -->
     <div class="input-search">
       <input placeholder="Search..." type="text" [formControl]="filterName" ngDefaultControl class="input-filter">
