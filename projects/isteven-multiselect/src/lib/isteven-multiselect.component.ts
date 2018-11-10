@@ -49,6 +49,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
   get isOpen() { return this._isOpen; }
   @Input() disabled: boolean = false;
+  @Input() groupedProperty: string;
   @Input() ofPrimitiveType: boolean = false;
   @Input() showMaxLabels: number = 3;
   @Input() set propertyMap(val) {

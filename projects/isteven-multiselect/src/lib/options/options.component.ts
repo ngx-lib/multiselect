@@ -10,7 +10,6 @@ export class OptionsComponent implements OnInit {
   @Input() disabled: boolean = false;
   @Input() options: any[];
   @Output() selectOption = new EventEmitter<any>();
-
   constructor() { }
 
   getOptionStyle(option: any) {
