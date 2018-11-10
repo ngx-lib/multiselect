@@ -3,6 +3,7 @@ import { IstevenMultiselectComponent } from './isteven-multiselect.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DisplaySelectedValuePipe } from './display-selected-value.pipe';
+import { HelperElementsComponent } from './helper-elements/helper-elements.component';
 
 @NgModule({
   imports: [
@@ -10,7 +11,11 @@ import { DisplaySelectedValuePipe } from './display-selected-value.pipe';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [IstevenMultiselectComponent, DisplaySelectedValuePipe],
+  declarations: [
+    IstevenMultiselectComponent, 
+    DisplaySelectedValuePipe, 
+    HelperElementsComponent
+  ],
   exports: [IstevenMultiselectComponent]
 })
 export class IstevenMultiselectModule { }
