@@ -11,24 +11,11 @@
       </div>
     </div>
   </button>
-  <div class="options-listing" *ngIf="isOpen">
-    <!-- TODO: helper button can be separate component -->
-    <div class="helper-buttons">
-      <button class="helper-button" *ngIf="multiple" (click)="selectAll()">✓ Select All</button>
-      <button class="helper-button" *ngIf="multiple" (click)="selectNone()">× Select None</button>
-      <button class="helper-button" (click)="reset()">↶ Reset</button>
-    </div>
-    <!-- TODO: Input search can be separate component -->
-    <div class="input-search">
-      <input placeholder="Search..." type="text" [formControl]="filterName" ngDefaultControl class="input-filter">
-      <button type="button" (click)="clearText()" class="clear-button">×</button>
-    </div>
-    <!-- TODO: List can be separate component in future -->
-    <div class="listing-container">
-      <!-- TODO: Default template should be below, consumer can add his own template -->
-      <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of _options" (click)="select(option)">
-        {{option.name}}
-      </div>
-    </div>
+  <div class="listing-wrapper" *ngIf="isOpen">
+    <im-helper-elements [multiple]="multiple" (resetClicked)="reset()"
+      (selectAllClicked)="selectAll()" (selectNoneClicked)="selectNone()">
+    </im-helper-elements>
+    <im-filter-options (filterOptionsList)="filterOptionsList($event)"></im-filter-options>
+    <im-options [options]="_options" [disabled]="disabled" (selectOption)="select($event)"></im-options>
   </div>
 </div>

@@ -2,9 +2,9 @@ import {
   Component, OnInit, Input, ChangeDetectionStrategy,  
   Injector, forwardRef, ElementRef, HostListener
 } from '@angular/core';
-import { IstevenMultiselectService } from './isteven-multiselect.service';
+import { IstevenMultiselectService } from './services/isteven-multiselect.service';
 import { IstevenMultiselectBaseComponent } from './isteven-multiselect-base.component';
-import { NG_VALUE_ACCESSOR, FormControl } from '@angular/forms';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export const DEFAULT_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -19,7 +19,7 @@ export const DEFAULT_VALUE_ACCESSOR: any = {
   providers: [DEFAULT_VALUE_ACCESSOR],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent implements OnInit {
+export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent {
 
   constructor(
     protected elementRef: ElementRef,
@@ -37,7 +37,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   };
   private _optionsCopy = []; //TODO: in future this will be master list
   private _isOpen: boolean = false;
-  filterName: FormControl;
+  
   // public variables
   _selectedOptions: any | any[] = null;
   _options = []; //TODO: this will be local list
@@ -82,21 +82,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     this.setOptions(options);
   }
 
-  clearText () {
-    this.filterName.setValue('');
-    this.filterOptionsList('');
-  }
-
-  ngOnInit() {
-    this.filterName = new FormControl('')
-    // TODO: unsubscribe subscription
-    this.filterName.valueChanges.subscribe(this.filterOptionsList);
-  }
-
-  getOptionStyle(option) {
-    return {'marked': option.ticked, disabled: (this.disabled || option.disabled)};
-  }
-
+  // All update to options should happen from below method.
   setOptions(options) {
     this._options = options;
   }
@@ -110,7 +96,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   clear() {
-    this._options.forEach(i=> i.ticked = false);
+    this.setOptions([...this._options].map(o=> ({...o, ticked: false})));
     let values = this._multiple ? [] : null;
     this.viewToModel(values);
     this.close();
@@ -126,55 +112,56 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     let selectedIds = [];
     selectedIds = this._multiple ? (selected || []).map(i => i.id)
       : selected ? [selected.id]: [];
-    this._options.map(o => o.ticked = selectedIds.indexOf(o.id) !== -1);
+    this.setOptions([...this._options].map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1})));
     //TODO: do we really need this reassignment?
     this.viewToModel(selected);
   }
 
   select(option) {
-    let selectedOptions = [...this._selectedOptions]
+    let selectedOptions;
     option.ticked = !option.ticked;
     if (this._multiple) {
+      selectedOptions = [...this._selectedOptions]
       let selectedIds = selectedOptions.map(i => i.id);
-      // select option & push inside collection
       if (selectedIds.indexOf(option.id) === -1) {
+        // if selected item not exist in collection, push it
         selectedOptions.push(this._options.find(i => i.id == option.id));
       } else {
-        // de-select option and remove from the collection
+        // if selected item exist in collection, post it
         this.removeItem(selectedOptions, option);
       }
     } else {
       // TODO: find optimized way to do below
       let val = option && option.id;
-      this._options.forEach(o => o.ticked = o.id == val);
-      selectedOptions = this._options.find(i => i.id == val);
+      let changedOptions = [...this._options].map(o => ({...o, ticked: o.id == val}));
+      selectedOptions = changedOptions.find(i => i.ticked);
+      this.setOptions(changedOptions);
       this.close();
     }
     this.viewToModel(selectedOptions);
   }
 
   selectAll() {
-    let allSelectedOptions = this._options.map((o: any) => {
-      o.ticked = true;
-      return o;
-    })
+    let allSelectedOptions = [...this._options].map(o => ({ ...o, ticked: true}))
+    this.setOptions(allSelectedOptions);
     this.viewToModel(allSelectedOptions);
   }
 
-  selectNone() {
-    this._options.forEach(o => o.ticked = false);
+  selectNone () {
+    this.setOptions([...this._options].map(o => ({ ...o, ticked: false})))
     this.viewToModel([]);
-  }
-
-  viewToModel(options) {
-    this._selectedOptions = options;
-    this.onChange(options);
   }
 
   reset() {
     this.viewToModel(this.initialValue);
     this.prepopulateOptions(this.initialValue);
   }
+
+  // Responsible for updating value from view to model
+  viewToModel(options) {
+    this._selectedOptions = options;
+    this.onChange(options);
+  }  
 
   // TODO: Consider creating a directive for this.
   // TODO: Also convert below to be work for element specific
