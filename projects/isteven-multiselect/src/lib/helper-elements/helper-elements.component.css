@@ -16,3 +16,7 @@
     line-height: 1.6;
     margin: 0px 0px 8px 0px;
 }
+
+.helper-button:not(:last-child) {
+    margin-right: 4px;
+}
