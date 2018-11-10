@@ -1,5 +1,4 @@
-import { Component, OnInit, Host, OnDestroy, Output, EventEmitter } from '@angular/core';
-import { IstevenMultiselectComponent } from '../isteven-multiselect.component';
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
@@ -15,11 +14,11 @@ export class FilterOptionsComponent implements OnInit, OnDestroy {
   
   @Output() filterOptionsList = new EventEmitter<string>();
 
-  constructor(@Host() private host: IstevenMultiselectComponent) { }
+  constructor() { }
   
   clearText () {
     this.clearInputFilter();
-    this.host.filterOptionsList('');
+    this.filterOptionsList.emit('')
   }
 
   clearInputFilter() {

@@ -20,6 +20,9 @@ import { OptionsComponent } from './options/options.component'
     FilterOptionsComponent,
     OptionsComponent
   ],
-  exports: [IstevenMultiselectComponent]
+  exports: [
+    IstevenMultiselectComponent,
+    DisplaySelectedValuePipe
+  ]
 })
 export class IstevenMultiselectModule { }

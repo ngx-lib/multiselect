@@ -1,5 +1,7 @@
 <div class="helper-buttons">
-  <button class="helper-button" *ngIf="multiple" (click)="selectAll()">✓ Select All</button>
-  <button class="helper-button" *ngIf="multiple" (click)="selectNone()">× Select None</button>
+  <ng-container *ngIf="multiple">
+    <button class="helper-button" (click)="selectAll()">✓ Select All</button>
+    <button class="helper-button" (click)="selectNone()">× Select None</button>
+  </ng-container>
   <button class="helper-button" (click)="reset()">↶ Reset</button>
 </div>
