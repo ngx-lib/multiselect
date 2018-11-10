@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 import { IstevenMultiselectService } from './services/isteven-multiselect.service';
 import { IstevenMultiselectBaseComponent } from './isteven-multiselect-base.component';
-import { NG_VALUE_ACCESSOR, FormControl } from '@angular/forms';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export const DEFAULT_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -19,7 +19,7 @@ export const DEFAULT_VALUE_ACCESSOR: any = {
   providers: [DEFAULT_VALUE_ACCESSOR],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent implements OnInit {
+export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent {
 
   constructor(
     protected elementRef: ElementRef,
@@ -37,7 +37,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   };
   private _optionsCopy = []; //TODO: in future this will be master list
   private _isOpen: boolean = false;
-  filterName: FormControl;
+  
   // public variables
   _selectedOptions: any | any[] = null;
   _options = []; //TODO: this will be local list
@@ -80,17 +80,6 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     if(!val) return this.setOptions([...this._optionsCopy]);
     const options = this._optionsCopy.filter(i=> i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1);
     this.setOptions(options);
-  }
-
-  clearText () {
-    this.filterName.setValue('');
-    this.filterOptionsList('');
-  }
-
-  ngOnInit() {
-    this.filterName = new FormControl('')
-    // TODO: unsubscribe subscription
-    this.filterName.valueChanges.subscribe(this.filterOptionsList);
   }
 
   getOptionStyle(option) {

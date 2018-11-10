@@ -88,56 +88,11 @@
   border-right: 1px solid #d9d9d9;
 }
 
-.input-search {
-  position: relative;
-  padding: 2px 0px 4px 0px;
-  max-height: 30px;
-  overflow: hidden;
-  box-sizing: content-box;
-}
-
-.input-filter {
-  border-radius: 2px;
-  border: 1px solid #ccc;
-  height: 26px;
-  font-size: 14px;
-  width: 100%;
-  padding-left: 7px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  color: #888;
-  margin: 0px 0px 8px 0px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-}
-
-.clear-button {
-  position: absolute;
-  display: inline;
-  text-align: center;
-  cursor: pointer;
-  border: 1px solid #ccc;
-  height: 22px;
-  width: 22px;
-  font-size: 13px;
-  border-radius: 2px;
-  color: #666;
-  background-color: #f1f1f1;
-  line-height: 1.4;
-  right: 2px;
-  top: 4px;
-}
-
 .marked::after {
   content: '✓';
   margin: 0 5px 0;
   right: 0;
   position: absolute;
-}
-
-.helper-button:not(:last-child){
-  margin-right: 4px;
 }
 
 .option.disabled, .option.disabled:hover, .option.disabled label input:hover ~ span {
