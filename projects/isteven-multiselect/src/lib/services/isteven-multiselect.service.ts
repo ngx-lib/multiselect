@@ -32,4 +32,15 @@ export class IstevenMultiselectService {
 
     return false;
   }
+
+  groupOptions (options, groupByProperty) {
+    const getAllUniqueGroupByPropertyValue = [...Array.from(new Set(options.map(item => item[groupByProperty])))]
+    const result = getAllUniqueGroupByPropertyValue.map(
+      group => ({
+        name: group,
+        values: options.filter(o => o[groupByProperty] === group)
+      })
+    )
+    return result;
+  }
 }
