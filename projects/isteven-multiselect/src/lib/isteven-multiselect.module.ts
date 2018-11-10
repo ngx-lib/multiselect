@@ -5,7 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DisplaySelectedValuePipe } from './pipes/display-selected-value.pipe';
 import { HelperElementsComponent } from './helper-elements/helper-elements.component';
 import { FilterOptionsComponent } from './filter-options/filter-options.component';
-import { OptionsComponent } from './options/options.component'
+import { OptionsComponent } from './options/options.component';
+import { GroupedOptionsComponent } from './grouped-options/grouped-options.component'
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { OptionsComponent } from './options/options.component'
     DisplaySelectedValuePipe, 
     HelperElementsComponent,
     FilterOptionsComponent,
-    OptionsComponent
+    OptionsComponent,
+    GroupedOptionsComponent
   ],
   exports: [
     IstevenMultiselectComponent,
