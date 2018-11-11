@@ -33,8 +33,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   private _defaultPropertyMap = {
     'id': 'id',
     'name': 'name',
-    'disabled': 'disabled',
-    'groupedProperty': 'groupedProperty'
+    'disabled': 'disabled'
   };
   private _optionsCopy = []; //TODO: in future this will be master list
   private _isOpen: boolean = false;
@@ -63,7 +62,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     } else {
       let keys = Object.keys(this._defaultPropertyMap);
       this._optionsCopy = collection.map((item: any, index: number) => {
-        let obj = {};
+        let obj = { [this.groupedProperty]: item[this.groupedProperty] };
         keys.reduce((a: any, b: string) => { obj[b] = item[this._defaultPropertyMap[b]] }, obj);
         return obj;
       })
