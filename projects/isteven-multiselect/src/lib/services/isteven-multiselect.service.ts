@@ -8,7 +8,7 @@ const matchSelectors = ['matches', 'webkitMatchesSelector', 'mozMatchesSelector'
 export class IstevenMultiselectService {
   constructor() { }
   
-  closest(el, selector) {
+  closest(el, selector): boolean {
     let matchesFn;
     // find vendor prefix
     matchSelectors.some(function (fn) {
@@ -33,7 +33,7 @@ export class IstevenMultiselectService {
     return false;
   }
 
-  groupOptions (options, groupByProperty) {
+  optionsGrouping (options, groupByProperty): any[] {
     const getAllUniqueGroupByPropertyValue = [...Array.from(new Set(options.map(item => item[groupByProperty])))]
     const result = getAllUniqueGroupByPropertyValue.map(
       group => ({

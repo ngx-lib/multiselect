@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { IstevenMultiselectService } from 'isteven-multiselect/lib/isteven-multiselect.service';
 
 @Component({
   selector: 'im-grouped-options',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupedOptionsComponent implements OnInit {
 
-  constructor() { }
+  groupedOptions = [];
+
+  @Input() groupedProperty: string;
+  @Input() set options (value) {
+    // this.groupedOptions = this.istevenMultiselectService.optionsGrouping(value, this.groupedProperty);
+  }
+  get options(){
+    return this.groupedOptions;
+  }
+
+  constructor(private istevenMultiselectService: IstevenMultiselectService) { }
 
   ngOnInit() {
   }
