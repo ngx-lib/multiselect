@@ -1,19 +1,29 @@
 <h2>Single Select (Template Driven form)</h2>
 <!-- [ofPrimitiveType]="true" -->
 <ngx-isteven-multiselect 
-    [(ngModel)]="test"
-    [options]="options"
+    [(ngModel)]="singleSelect"
+    [options]="singleSelectOptions"
     ngDefaultControl
 ></ngx-isteven-multiselect>
-<b>Selected Value: </b> {{test | json}}
+<b>Selected Value: </b> {{singleSelect | json}}
 <hr />
 <h2>Multiple Select (Model Driven form)</h2>
 <ngx-isteven-multiselect 
-    [formControl]="test1"
+    [formControl]="mutlipleSelect"
     ngDefaultControl
-    [options]="objectOptions"
+    [options]="multipleSelectOptions"
     [groupedProperty]="'test'"
     [multiple]="true">
 </ngx-isteven-multiselect>
-<b>Selected Values: </b> {{test1?.value | json}}
+<b>Selected Values: </b> {{mutlipleSelect?.value | json}}
+<hr />
+<h2>Multiple Select Grouping Support</h2>
+<ngx-isteven-multiselect 
+    [formControl]="groupingSupport"
+    ngDefaultControl
+    [options]="groupingOptions"
+    [groupedProperty]="'category'"
+    [multiple]="true">
+</ngx-isteven-multiselect>
+<b>Selected Values: </b> {{groupingSupport?.value | json}}
 <hr />
