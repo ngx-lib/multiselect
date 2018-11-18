@@ -16,11 +16,11 @@
       (selectNoneClicked)="selectNone()">
     </im-helper-elements>
     <im-filter-options (filterOptionsList)="filterOptionsList($event)"></im-filter-options>
-    <ng-container *ngIf="!groupedProperty else grouped">
+    <ng-container *ngIf="!groupedProperty else groupedTemplate">
       <im-options [options]="_options" [disabled]="disabled" (selectOption)="select($event)"></im-options>
     </ng-container>
   </div>
 </div>
-<ng-template #grouped>
+<ng-template #groupedTemplate>
   <im-grouped-options [options]="_options" [disabled]="disabled" [groupedProperty]="groupedProperty"></im-grouped-options>
 </ng-template>
