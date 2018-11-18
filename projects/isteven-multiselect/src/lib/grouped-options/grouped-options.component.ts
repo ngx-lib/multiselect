@@ -1,10 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { IstevenMultiselectService } from '../services/isteven-multiselect.service';
 
 @Component({
   selector: 'im-grouped-options',
   templateUrl: './grouped-options.component.html',
-  styleUrls: ['./grouped-options.component.css']
+  styleUrls: ['./grouped-options.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GroupedOptionsComponent implements OnInit {
 
