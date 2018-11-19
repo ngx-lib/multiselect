@@ -49,3 +49,7 @@
     pointer-events:none;
     cursor: not-allowed !important;
 }
+
+.option:not(:first-child) {
+    margin-left: 15px;
+}
