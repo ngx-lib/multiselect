@@ -25,8 +25,7 @@ export abstract class IstevenMultiselectBaseComponent implements ControlValueAcc
   onTouched = () => {};
 
   writeValue(value) {
-    // TODO: How can I call setter of initialValue here
-    if(value) this._initialValue = value
+    if(value) this.initialValue = value
     // Set selected value for initial load of value
     this.prepopulateOptions(value);
   }
