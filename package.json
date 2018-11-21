@@ -9,7 +9,10 @@
     "isteven-watch": "npx onchange \"./projects/isteven-multiselect/src/lib/**/*.*\" -- ng build isteven-multiselect",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build_lib": "ng build isteven-multiselect",
+    "npm_pack": "cd dist/isteven-multiselect && npm pack",
+    "package": "npm run build_lib && npm run npm_pack"
   },
   "private": true,
   "dependencies": {
