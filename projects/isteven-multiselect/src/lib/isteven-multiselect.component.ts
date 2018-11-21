@@ -157,8 +157,28 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     this.viewToModel([]);
   }
 
+  //TODO: Optimized below logic, it can be done in lesser steps
   selectGroup (group: any) {
-    
+    const { values } = group;
+    let selectedValues = [...this._selectedOptions]
+    //1. Select 
+    if (group.ticked) {
+      // All
+      let someAreTicked = values.some(v => v.ticked)
+      if (!someAreTicked) {
+        this.viewToModel([...selectedValues, values]);
+      }
+      // few
+      else {
+        this.viewToModel([...selectedValues, values.filter(val => !val.ticked)]);
+      }
+    }
+    //2. Unselect
+    else {
+      let selectedValuesIds = selectedValues.map(val => val.id)
+      selectedValues = selectedValues.filter(val => selectedValuesIds.indexOf(val.id) === -1)
+      this.viewToModel([selectedValues]);
+    }
   }
 
   reset() {
