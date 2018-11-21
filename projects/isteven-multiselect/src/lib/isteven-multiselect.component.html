@@ -12,10 +12,15 @@
     </div>
   </button>
   <div class="listing-wrapper" *ngIf="isOpen">
-    <im-helper-elements [multiple]="multiple" (resetClicked)="reset()"
-      (selectAllClicked)="selectAll()" (selectNoneClicked)="selectNone()">
+    <im-helper-elements [multiple]="multiple" (resetClicked)="reset()" (selectAllClicked)="selectAll()"
+      (selectNoneClicked)="selectNone()">
     </im-helper-elements>
     <im-filter-options (filterOptionsList)="filterOptionsList($event)"></im-filter-options>
-    <im-options [options]="_options" [disabled]="disabled" (selectOption)="select($event)"></im-options>
+    <ng-container *ngIf="!groupedProperty else groupedTemplate">
+      <im-options [options]="_options" [disabled]="disabled" (selectOption)="select($event)"></im-options>
+    </ng-container>
   </div>
 </div>
+<ng-template #groupedTemplate>
+  <im-grouped-options [options]="_options" [disabled]="disabled" [groupedProperty]="groupedProperty" (selectOption)="select($event)" (selectGroup)="selectGroup($event)"></im-grouped-options>
+</ng-template>

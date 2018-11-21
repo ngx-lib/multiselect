@@ -1,11 +1,12 @@
-import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'im-filter-options',
   templateUrl: './filter-options.component.html',
-  styleUrls: ['./filter-options.component.css']
+  styleUrls: ['./filter-options.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FilterOptionsComponent implements OnInit, OnDestroy {
 
