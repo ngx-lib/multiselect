@@ -22,5 +22,5 @@
   </div>
 </div>
 <ng-template #groupedTemplate>
-  <im-grouped-options [options]="_options" [disabled]="disabled" [groupedProperty]="groupedProperty"></im-grouped-options>
+  <im-grouped-options [options]="_options" [disabled]="disabled" [groupedProperty]="groupedProperty" (selectOption)="select($event)" (selectGroup)="selectGroup($event)"></im-grouped-options>
 </ng-template>
