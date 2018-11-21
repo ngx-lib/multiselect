@@ -6,7 +6,10 @@
     "multiselect",
     "dropdown",
     "select",
-    "selectbox"
+    "selectbox",
+    "isteven multiselect",
+    "ngx isteven",
+    "ngx-isteven-multiselect"
   ],
   "peerDependencies": {
     "@angular/animations": "7.0.4",
