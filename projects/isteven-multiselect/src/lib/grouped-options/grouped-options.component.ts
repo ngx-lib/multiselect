@@ -20,6 +20,7 @@ export class GroupedOptionsComponent implements OnInit {
     return this.groupedOptions;
   }
   @Output() selectOption = new EventEmitter<any>();
+  @Output() selectGroup = new EventEmitter<any>();
 
   constructor(private istevenMultiselectService: IstevenMultiselectService) { }
 
@@ -31,10 +32,10 @@ export class GroupedOptionsComponent implements OnInit {
   }
 
   groupOptionClick(group: any) {
-    // toggle flag
     group.ticked = !group.ticked;
-    // group.values = !group.ticked;
-    // select unselect
+    const { values } = group;
+    values.forEach(val => val.ticked = group.ticked);
+    this.selectGroup.emit(group);
   }
 
   select(option) {
