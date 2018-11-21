@@ -157,6 +157,10 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     this.viewToModel([]);
   }
 
+  selectGroup (group: any) {
+    
+  }
+
   reset() {
     this.viewToModel(this.initialValue);
     this.prepopulateOptions(this.initialValue);

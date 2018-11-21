@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { IstevenMultiselectService } from '../services/isteven-multiselect.service';
 
 @Component({
@@ -19,6 +19,7 @@ export class GroupedOptionsComponent implements OnInit {
   get options(){
     return this.groupedOptions;
   }
+  @Output() selectOption = new EventEmitter<any>();
 
   constructor(private istevenMultiselectService: IstevenMultiselectService) { }
 
@@ -29,6 +30,15 @@ export class GroupedOptionsComponent implements OnInit {
   ngOnInit() {
   }
 
-  select(option) {}
+  groupOptionClick(group: any) {
+    // toggle flag
+    group.ticked = !group.ticked;
+    // group.values = !group.ticked;
+    // select unselect
+  }
+
+  select(option) {
+    this.selectOption.emit(option);
+  }
 
 }
