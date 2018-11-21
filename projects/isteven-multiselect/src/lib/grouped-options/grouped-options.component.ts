@@ -28,6 +28,10 @@ export class GroupedOptionsComponent implements OnInit {
     return {'marked': option.ticked, disabled: (this.disabled || option.disabled)};
   }
 
+  getGroupOptionStyle(group: any) {
+    return {'marked': (group.ticked && group.values.every(v => v.ticked)), disabled: this.disabled};
+  }
+
   ngOnInit() {
   }
 
