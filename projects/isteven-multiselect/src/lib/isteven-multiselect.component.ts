@@ -49,6 +49,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
   get isOpen() { return this._isOpen; }
   @Input() disabled: boolean = false;
+  @Input() groupedProperty: string;
   @Input() ofPrimitiveType: boolean = false;
   @Input() showMaxLabels: number = 3;
   @Input() set propertyMap(val) {
@@ -61,7 +62,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     } else {
       let keys = Object.keys(this._defaultPropertyMap);
       this._optionsCopy = collection.map((item: any, index: number) => {
-        let obj = {};
+        let obj = { [this.groupedProperty]: item[this.groupedProperty] };
         keys.reduce((a: any, b: string) => { obj[b] = item[this._defaultPropertyMap[b]] }, obj);
         return obj;
       })
@@ -87,6 +88,10 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     this._options = options;
   }
 
+  getOptions() {
+    return [...this._options]
+  }
+
   isValueSelected() {
     return this._multiple ? this._selectedOptions.length : this._selectedOptions;
   }
@@ -96,7 +101,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   clear() {
-    this.setOptions([...this._options].map(o=> ({...o, ticked: false})));
+    this.setOptions(this.getOptions().map(o=> ({...o, ticked: false})));
     let values = this._multiple ? [] : null;
     this.viewToModel(values);
     this.close();
@@ -112,7 +117,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     let selectedIds = [];
     selectedIds = this._multiple ? (selected || []).map(i => i.id)
       : selected ? [selected.id]: [];
-    this.setOptions([...this._options].map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1})));
+    this.setOptions(this.getOptions().map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1})));
     //TODO: do we really need this reassignment?
     this.viewToModel(selected);
   }
@@ -133,7 +138,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     } else {
       // TODO: find optimized way to do below
       let val = option && option.id;
-      let changedOptions = [...this._options].map(o => ({...o, ticked: o.id == val}));
+      let changedOptions = this.getOptions().map(o => ({...o, ticked: o.id == val}));
       selectedOptions = changedOptions.find(i => i.ticked);
       this.setOptions(changedOptions);
       this.close();
@@ -142,14 +147,38 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   selectAll() {
-    let allSelectedOptions = [...this._options].map(o => ({ ...o, ticked: true}))
+    let allSelectedOptions = this.getOptions().map(o => ({ ...o, ticked: true}))
     this.setOptions(allSelectedOptions);
     this.viewToModel(allSelectedOptions);
   }
 
   selectNone () {
-    this.setOptions([...this._options].map(o => ({ ...o, ticked: false})))
+    this.setOptions(this.getOptions().map(o => ({ ...o, ticked: false})))
     this.viewToModel([]);
+  }
+
+  //TODO: Optimized below logic, it can be done in lesser steps
+  selectGroup (group: any) {
+    const { values } = group;
+    let selectedValues = [...this._selectedOptions]
+    //1. Select 
+    if (group.ticked) {
+      // All
+      let someAreTicked = values.some(v => v.ticked)
+      if (!someAreTicked) {
+        this.viewToModel([...selectedValues, values]);
+      }
+      // few
+      else {
+        this.viewToModel([...selectedValues, values.filter(val => !val.ticked)]);
+      }
+    }
+    //2. Unselect
+    else {
+      let selectedValuesIds = selectedValues.map(val => val.id)
+      selectedValues = selectedValues.filter(val => selectedValuesIds.indexOf(val.id) === -1)
+      this.viewToModel([selectedValues]);
+    }
   }
 
   reset() {
