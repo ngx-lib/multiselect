@@ -69,7 +69,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
       })
     }
     this.setOptions([...this._optionsCopy]);
-    if(this.isOperationPending()) this.finishOperation();
+    if(this.isOperationPending()) this.finishPendingOperations();
   }
 
   @Input()
