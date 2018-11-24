@@ -31,6 +31,6 @@
 <ngx-isteven-multiselect 
     [formControl]="withObservable"
     ngDefaultControl
-    [options]="observableOptions"
+    [options]="observableOptions | async"
     [multiple]="true">
 </ngx-isteven-multiselect>
