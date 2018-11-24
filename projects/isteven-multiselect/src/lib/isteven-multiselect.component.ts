@@ -35,12 +35,12 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     'name': 'name',
     'disabled': 'disabled'
   };
-  private _optionsCopy = []; //TODO: in future this will be master list
+  private _optionsCopy; //TODO: in future this will be master list
   private _isOpen: boolean = false;
   
   // public variables
   _selectedOptions: any | any[] = null;
-  _options = []; //TODO: this will be local list
+  _options; //TODO: this will be local list
 
   // Input bindings
   @Input() set isOpen(value) {
@@ -57,6 +57,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
   @Input()
   set options(collection) {
+    if(!collection) return;
     if (this.ofPrimitiveType) {
       this._optionsCopy = collection.map((item: any, index: number) => ({ id: index, name: item }));
     } else {
@@ -68,6 +69,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
       })
     }
     this.setOptions([...this._optionsCopy]);
+    if(this.isOperationPending()) this.finishPendingOperations();
   }
 
   @Input()
@@ -89,7 +91,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   getOptions() {
-    return [...this._options]
+    return this._options ? [...this._options]: []
   }
 
   isValueSelected() {
