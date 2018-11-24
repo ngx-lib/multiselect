@@ -29,6 +29,7 @@ export class AppComponent implements OnInit {
   ]);
 
   ngOnInit(): void {
+    // Retrieving data for dropdown
     this.singleSelectOptions = this.appService.getSingleSelectOptions()
     this.multipleSelectOptions = this.appService.getMultipleSelectOptions()
     this.groupingOptions = this.appService.getGroupingOptions()
