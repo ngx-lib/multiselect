@@ -57,6 +57,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
   @Input()
   set options(collection) {
+    if(!collection) collection = []
     if (this.ofPrimitiveType) {
       this._optionsCopy = collection.map((item: any, index: number) => ({ id: index, name: item }));
     } else {
