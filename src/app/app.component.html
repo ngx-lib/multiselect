@@ -11,7 +11,7 @@
 <ngx-isteven-multiselect 
     [formControl]="mutlipleSelect"
     ngDefaultControl
-    [options]="multipleSelectOptions | async"
+    [options]="multipleSelectOptions"
     [multiple]="true">
 </ngx-isteven-multiselect>
 <b>Selected Values: </b> {{mutlipleSelect?.value | json}}
