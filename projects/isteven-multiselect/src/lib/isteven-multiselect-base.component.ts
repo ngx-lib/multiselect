@@ -25,8 +25,13 @@ export abstract class IstevenMultiselectBaseComponent implements ControlValueAcc
     return this.operationPendingQueue.pop()
   }
 
+  /* 
+    In future this code is going to resides inside different Service,
+    This pendingOperation feature is fine grained in future, 
+    and can be used for multiple purpose like model update, collection update, etc.
+  */
   // Extracting and finishing all pending operation
-  finishOperation() {
+  finishPendingOperations() {
     let operation = this.popOperation();
     this.prepopulateOptions(operation);
   }
