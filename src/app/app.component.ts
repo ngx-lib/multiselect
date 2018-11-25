@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Subscription } from 'rxjs';
+
 import { AppService } from './app.service';
 
 @Component({
@@ -7,12 +9,15 @@ import { AppService } from './app.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
 
   singleSelectOptions;
   multipleSelectOptions;
   groupingOptions;
   observableOptions;
+  singleSelectOptionsSubscription: Subscription;
+  multipleSelectOptionsSubscription: Subscription;
+  groupingOptionsSubscription: Subscription;
 
   constructor (private appService: AppService) {}
 
@@ -30,11 +35,23 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     // Retrieving data for dropdown
-    this.singleSelectOptions = this.appService.getSingleSelectOptions()
-    this.multipleSelectOptions = this.appService.getMultipleSelectOptions()
-    this.groupingOptions = this.appService.getGroupingOptions()
+    this.singleSelectOptionsSubscription = this.appService.getSingleSelectOptions().subscribe(
+      data => this.singleSelectOptions = data
+    )
+    this.multipleSelectOptionsSubscription = this.appService.getMultipleSelectOptions().subscribe(
+      data => this.multipleSelectOptions = data
+    )
+    this.groupingOptionsSubscription = this.appService.getGroupingOptions().subscribe(
+      data => this.groupingOptions = data
+    )
     setTimeout(() => {
       this.observableOptions = this.appService.getObservableOptions()
     }, 5000)
+  }
+
+  ngOnDestroy () {
+    this.singleSelectOptionsSubscription.unsubscribe();
+    this.multipleSelectOptionsSubscription.unsubscribe();
+    this.groupingOptionsSubscription.unsubscribe();
   }
 }

@@ -55,7 +55,7 @@ export abstract class IstevenMultiselectBaseComponent implements ControlValueAcc
 
   writeValue(value) {
     if(value) this.initialValue = value
-    if(!this._options) this.addOperation(value)
+    if(!this._options && value) this.addOperation(value)
     // Set selected value for initial load of value
     this.prepopulateOptions(value);
   }
