@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
@@ -31,7 +30,7 @@ export class AppService {
 
   getObservableOptions () {
     return this.http.get(API_URL).pipe(
-      map((d: any) => of(d.observableOptions))
+      map((d: any) => d.observableOptions)
     );
   }
 }
