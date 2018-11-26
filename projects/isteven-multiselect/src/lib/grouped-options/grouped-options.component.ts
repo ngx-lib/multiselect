@@ -42,8 +42,10 @@ export class GroupedOptionsComponent implements OnInit {
     this.selectGroup.emit(group);
   }
 
-  select(option) {
+  select(groupOption, option) {
     this.selectOption.emit(option);
+    let allAreSelected = groupOption.values.every(v=>v.ticked)
+    groupOption.ticked = allAreSelected;
   }
 
 }
