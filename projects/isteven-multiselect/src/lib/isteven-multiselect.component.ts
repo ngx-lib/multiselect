@@ -166,21 +166,24 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     //1. Select 
     if (group.ticked) {
       // All
-      let someAreTicked = values.some(v => v.ticked)
-      if (!someAreTicked) {
-        this.viewToModel([...selectedValues, values]);
+      let allAreTicked = values.every(v => v.ticked)
+      if (allAreTicked) {
+        selectedValues = selectedValues.concat(values);
       }
       // few
       else {
-        this.viewToModel([...selectedValues, values.filter(val => !val.ticked)]);
+        selectedValues = selectedValues.concat(values.filter(val => !val.ticked));
       }
+      this.viewToModel(selectedValues);
     }
     //2. Unselect
     else {
-      let selectedValuesIds = selectedValues.map(val => val.id)
-      selectedValues = selectedValues.filter(val => selectedValuesIds.indexOf(val.id) === -1)
-      this.viewToModel([selectedValues]);
+      let groupOptionIds = selectedValues.map(val => val.id)
+      selectedValues = selectedValues.filter(val => groupOptionIds.indexOf(val.id) === -1)
+      this.viewToModel(selectedValues);
     }
+    let selectedIds = selectedValues.map(s=>s.id)
+    this.setOptions(this.getOptions().map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1})))
   }
 
   reset() {
@@ -199,7 +202,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   @HostListener('document:click', ['$event.target'])
   clickOutSide(event) {
     if (this.elementRef.nativeElement !== event && !this.istevenMultiselectService.closest(event, 'ngx-isteven-multiselect') && this.isOpen) {
-      this.close();
+      // this.close();
     }
   }
 }

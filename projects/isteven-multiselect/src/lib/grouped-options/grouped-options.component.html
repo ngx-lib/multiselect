@@ -4,7 +4,7 @@
     <div class="option" [ngClass]="getGroupOptionStyle(groupOption)" (click)="groupOptionClick(groupOption)">
       {{groupOption.name}}
     </div>
-    <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of groupOption.values" (click)="select(option)">
+    <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of groupOption.values" (click)="select(groupOption, option)">
       {{option.name}}
     </div>
   </div>
