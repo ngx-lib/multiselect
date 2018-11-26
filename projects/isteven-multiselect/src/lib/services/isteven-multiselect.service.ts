@@ -36,10 +36,14 @@ export class IstevenMultiselectService {
   optionsGrouping (options, groupByProperty): any[] {
     const getAllUniqueGroupByPropertyValue = [...Array.from(new Set(options.map(item => item[groupByProperty])))]
     const result = getAllUniqueGroupByPropertyValue.map(
-      group => ({
-        name: group,
-        values: options.filter(o => o[groupByProperty] === group)
-      })
+      group => {
+        const groupedValues = options.filter(o => o[groupByProperty] === group)
+        return {
+          name: group,
+          values: groupedValues,
+          ticked: groupedValues.every(o => o.ticked)
+        }
+      }
     )
     return result;
   }

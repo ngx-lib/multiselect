@@ -161,28 +161,17 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
 
   //TODO: Optimized below logic, it can be done in lesser steps
   selectGroup (group: any) {
-    const { values } = group;
+    const { values, ticked } = group;
     let selectedValues = [...this._selectedOptions]
-    //1. Select 
-    if (group.ticked) {
-      // All
-      let allAreTicked = values.every(v => v.ticked)
-      if (allAreTicked) {
-        selectedValues = selectedValues.concat(values);
-      }
-      // few
-      else {
-        selectedValues = selectedValues.concat(values.filter(val => !val.ticked));
-      }
-      this.viewToModel(selectedValues);
-    }
-    //2. Unselect
-    else {
-      let groupOptionIds = selectedValues.map(val => val.id)
-      selectedValues = selectedValues.filter(val => groupOptionIds.indexOf(val.id) === -1)
-      this.viewToModel(selectedValues);
-    }
     let selectedIds = selectedValues.map(s=>s.id)
+    // Get all ticked options
+    // concat with selected options
+    selectedValues = ticked ? selectedValues.concat(values): selectedValues.filter(o => selectedIds.indexOf(o.id) === -1);
+    // Find unique out of them
+    selectedIds = [...Array.from(new Set(selectedValues.map(item => item.id)))]
+    // build selectedOptions array again
+    selectedValues = this.getOptions().filter(o=> selectedIds.indexOf(o.id) !== -1)
+    this.viewToModel(selectedValues);
     this.setOptions(this.getOptions().map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1})))
   }
 
@@ -202,7 +191,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   @HostListener('document:click', ['$event.target'])
   clickOutSide(event) {
     if (this.elementRef.nativeElement !== event && !this.istevenMultiselectService.closest(event, 'ngx-isteven-multiselect') && this.isOpen) {
-      // this.close();
+      this.close();
     }
   }
 }
