@@ -1,10 +1,10 @@
 <div class="options-container">
   <!-- TODO: Default template should be below, consumer can add his own template -->
-  <div class="group" *ngFor="let groupOption of groupedOptions">
+  <div class="group" *ngFor="let groupOption of groupedOptions;trackBy: trackByGroup">
     <div class="option" [ngClass]="getGroupOptionStyle(groupOption)" (click)="groupOptionClick(groupOption)">
       {{groupOption.name}}
     </div>
-    <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of groupOption.values" (click)="select(groupOption, option)">
+    <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of groupOption.values;trackBy: trackByOption" (click)="select(groupOption, option)">
       {{option.name}}
     </div>
   </div>

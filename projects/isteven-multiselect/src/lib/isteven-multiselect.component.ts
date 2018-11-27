@@ -164,9 +164,10 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     const { values, ticked } = group;
     let selectedValues = [...this._selectedOptions]
     let selectedIds = selectedValues.map(s=>s.id)
+    let allGroupOptionIds = values.map(v=> v.id)
     // Get all ticked options
     // concat with selected options
-    selectedValues = ticked ? selectedValues.concat(values): selectedValues.filter(o => selectedIds.indexOf(o.id) === -1);
+    selectedValues = ticked ? selectedValues.concat(values): selectedValues.filter(o => allGroupOptionIds.indexOf(o.id) === -1);
     // Find unique out of them
     selectedIds = [...Array.from(new Set(selectedValues.map(item => item.id)))]
     // build selectedOptions array again

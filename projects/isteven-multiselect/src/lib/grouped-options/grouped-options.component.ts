@@ -32,6 +32,14 @@ export class GroupedOptionsComponent implements OnInit {
     return {'marked': (group.ticked && group.values.every(v => v.ticked)), disabled: this.disabled};
   }
 
+  trackByGroup (groupOption) {
+    return groupOption.name
+  }
+
+  trackByOption (option) {
+    return option.id
+  }
+
   ngOnInit() {
   }
 
