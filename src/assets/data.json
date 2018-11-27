@@ -47,23 +47,28 @@
     "groupingOptions": [
         {
             "id": 1,
-            "name": "Test 1', category: 'Cat 1"
+            "name": "Test 1",
+            "category": "Cat 1"
         },
         {
             "id": 2,
-            "name": "Test 2', category: 'Cat 1"
+            "name": "Test 2",
+            "category": "Cat 1"
         },
         {
             "id": 3,
-            "name": "Test 3', category: 'Cat 2"
+            "name": "Test 3",
+            "category": "Cat 2"
         },
         {
             "id": 4,
-            "name": "Test 4', category: 'Cat 2"
+            "name": "Test 4",
+            "category": "Cat 2"
         },
         {
             "id": 5,
-            "name": "Test 5', category: 'Cat 3"
+            "name": "Test 5",
+            "category": "Cat 3"
         }
     ],
     "observableOptions": [

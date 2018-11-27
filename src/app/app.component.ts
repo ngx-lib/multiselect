@@ -44,9 +44,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.groupingOptionsSubscription = this.appService.getGroupingOptions().subscribe(
       data => this.groupingOptions = data
     )
-    setTimeout(() => {
-      this.observableOptions = this.appService.getObservableOptions()
-    }, 5000)
+    this.observableOptions = this.appService.getObservableOptions();
   }
 
   ngOnDestroy () {

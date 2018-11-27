@@ -161,26 +161,19 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
 
   //TODO: Optimized below logic, it can be done in lesser steps
   selectGroup (group: any) {
-    const { values } = group;
+    const { values, ticked } = group;
     let selectedValues = [...this._selectedOptions]
-    //1. Select 
-    if (group.ticked) {
-      // All
-      let someAreTicked = values.some(v => v.ticked)
-      if (!someAreTicked) {
-        this.viewToModel([...selectedValues, values]);
-      }
-      // few
-      else {
-        this.viewToModel([...selectedValues, values.filter(val => !val.ticked)]);
-      }
-    }
-    //2. Unselect
-    else {
-      let selectedValuesIds = selectedValues.map(val => val.id)
-      selectedValues = selectedValues.filter(val => selectedValuesIds.indexOf(val.id) === -1)
-      this.viewToModel([selectedValues]);
-    }
+    let selectedIds = selectedValues.map(s=>s.id)
+    let allGroupOptionIds = values.map(v=> v.id)
+    // Get all ticked options
+    // concat with selected options
+    selectedValues = ticked ? selectedValues.concat(values): selectedValues.filter(o => allGroupOptionIds.indexOf(o.id) === -1);
+    // Find unique out of them
+    selectedIds = [...Array.from(new Set(selectedValues.map(item => item.id)))]
+    // build selectedOptions array again
+    selectedValues = this.getOptions().filter(o=> selectedIds.indexOf(o.id) !== -1)
+    this.viewToModel(selectedValues);
+    this.setOptions(this.getOptions().map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1})))
   }
 
   reset() {
