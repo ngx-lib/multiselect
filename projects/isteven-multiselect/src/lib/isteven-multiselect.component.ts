@@ -80,8 +80,12 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   filterOptionsList = (val) => {
-    if(!val) return this.setOptions([...this._optionsCopy]);
-    const options = this._optionsCopy.filter(i=> i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1);
+    if(!val) return this.prepopulateOptions(this._selectedOptions);
+    let selectedIds = [];
+    selectedIds = this._multiple ? (this._selectedOptions || []).map(i => i.id)
+      : this._selectedOptions ? [this._selectedOptions.id]: [];
+    const options = this._optionsCopy.filter(i=> i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1)
+                                     .map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1}));
     this.setOptions(options);
   }
 
