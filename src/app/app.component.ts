@@ -15,6 +15,7 @@ export class AppComponent implements OnInit, OnDestroy {
   multipleSelectOptions;
   groupingOptions;
   observableOptions;
+  customTemplateOptions;
   singleSelectOptionsSubscription: Subscription;
   multipleSelectOptionsSubscription: Subscription;
   groupingOptionsSubscription: Subscription;
@@ -32,11 +33,18 @@ export class AppComponent implements OnInit, OnDestroy {
   withObservable = new FormControl([
     {id: 1, name: 'Test 1'},
   ]);
-
+  customTemplateSelect: any = new FormControl([
+    {id: 1, name: 'a'},
+    {id: 2, name: 'b'}
+  ]);
+  
   ngOnInit(): void {
     // Retrieving data for dropdown
     this.singleSelectOptionsSubscription = this.appService.getSingleSelectOptions().subscribe(
-      data => this.singleSelectOptions = data
+      data => {
+        this.singleSelectOptions = [...data]
+        this.customTemplateOptions = [...data]
+      }
     )
     this.multipleSelectOptionsSubscription = this.appService.getMultipleSelectOptions().subscribe(
       data => this.multipleSelectOptions = data
