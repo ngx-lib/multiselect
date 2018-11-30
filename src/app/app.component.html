@@ -26,11 +26,18 @@
 </ngx-isteven-multiselect>
 <b>Selected Values: </b> {{groupingSupport?.value | json}}
 <hr />
-
 <h2>Multiple Select (With Observable)</h2>
 <ngx-isteven-multiselect 
     [formControl]="withObservable"
     ngDefaultControl
     [options]="observableOptions | async"
+    [multiple]="true">
+</ngx-isteven-multiselect>
+<hr />
+<h2>Custom Template</h2>
+<ngx-isteven-multiselect 
+    [formControl]="customTemplateSelect"
+    ngDefaultControl
+    [options]="customTemplateOptions"
     [multiple]="true">
 </ngx-isteven-multiselect>
