@@ -1,6 +1,6 @@
 import { 
-  Component, OnInit, Input, ChangeDetectionStrategy,  
-  Injector, forwardRef, ElementRef, HostListener
+  Component, Input, ChangeDetectionStrategy,  
+  Injector, forwardRef, ElementRef, HostListener, ContentChild, TemplateRef, AfterContentInit, ViewChild
 } from '@angular/core';
 import { IstevenMultiselectService } from './services/isteven-multiselect.service';
 import { IstevenMultiselectBaseComponent } from './isteven-multiselect-base.component';
@@ -19,7 +19,7 @@ export const DEFAULT_VALUE_ACCESSOR: any = {
   providers: [DEFAULT_VALUE_ACCESSOR],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent {
+export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent implements AfterContentInit {
 
   constructor(
     protected elementRef: ElementRef,
@@ -79,6 +79,11 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     this._multiple = value;
   }
 
+  @ContentChild(TemplateRef)
+  @Input() itemTemplate: TemplateRef<any>;
+
+  @ViewChild('defaultTemplate', {read: TemplateRef}) defaultTemplateRef: TemplateRef<any>;
+
   filterOptionsList = (val) => {
     if(!val) return this.setOptions([...this._optionsCopy]);
     const options = this._optionsCopy.filter(i=> i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1);
@@ -132,7 +137,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
       let selectedIds = selectedOptions.map(i => i.id);
       if (selectedIds.indexOf(option.id) === -1) {
         // if selected item not exist in collection, push it
-        selectedOptions.push(this._options.find(i => i.id == option.id));
+        selectedOptions.push(this.getOptions().find(i => i.id == option.id));
       } else {
         // if selected item exist in collection, post it
         this.removeItem(selectedOptions, option);
@@ -185,7 +190,13 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   viewToModel(options) {
     this._selectedOptions = options;
     this.onChange(options);
-  }  
+  }
+
+  ngAfterContentInit () {
+    if (!this.itemTemplate) {
+      this.itemTemplate = this.defaultTemplateRef;
+    }
+  }
 
   // TODO: Consider creating a directive for this.
   // TODO: Also convert below to be work for element specific
