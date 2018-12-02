@@ -1,6 +1,11 @@
 <div class="options-container">
-  <!-- TODO: Default template should be below, consumer can add his own template -->
-  <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of options;trackBy:trackByOption" (click)="select(option)">
-    {{option.name}}
-  </div>
+  <ng-container 
+    *ngTemplateOutlet="itemTemplate; context: { 
+      getOptionStyle: this.getOptionStyle, 
+      options: this.options, 
+      trackByOption: this.trackByOption, 
+      select: this.select,
+      selectOption: this.selectOption
+    }">
+  </ng-container>
 </div>
