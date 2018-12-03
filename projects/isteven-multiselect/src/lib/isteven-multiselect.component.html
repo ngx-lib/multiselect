@@ -17,10 +17,20 @@
     </im-helper-elements>
     <im-filter-options (filterOptionsList)="filterOptionsList($event)"></im-filter-options>
     <ng-container *ngIf="!groupedProperty else groupedTemplate">
-      <im-options [options]="_options" [disabled]="disabled" (selectOption)="select($event)"></im-options>
+      <im-options [itemTemplate]="itemTemplate" [options]="_options" [disabled]="disabled" (selectOption)="select($event)"></im-options>
     </ng-container>
   </div>
 </div>
 <ng-template #groupedTemplate>
-  <im-grouped-options [options]="_options" [disabled]="disabled" [groupedProperty]="groupedProperty" (selectOption)="select($event)" (selectGroup)="selectGroup($event)"></im-grouped-options>
+  <im-grouped-options [groupItemTemplate]="itemTemplate" [options]="_options" [disabled]="disabled" [groupedProperty]="groupedProperty" (selectOption)="select($event)" (selectGroup)="selectGroup($event)"></im-grouped-options>
+</ng-template>
+<ng-template #defaultItemTemplate let-getOptionStyle="getOptionStyle" let-options="options" let-trackByOption="trackByOption" let-select="select">
+  <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of options;trackBy:trackByOption" (click)="select(option)">
+    {{option.name}}
+  </div>
+</ng-template>
+<ng-template #defaultGroupItemTemplate let-getOptionStyle="getOptionStyle" let-options="options" let-trackByOption="trackByOption" let-select="select" let-groupOption="groupOption">
+  <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of options;trackBy:trackByOption" (click)="select(groupOption, option)">
+    {{option.name}}
+  </div>
 </ng-template>

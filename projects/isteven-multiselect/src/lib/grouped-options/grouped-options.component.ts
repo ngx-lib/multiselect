@@ -1,11 +1,13 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, Output, EventEmitter, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { IstevenMultiselectService } from '../services/isteven-multiselect.service';
 
 @Component({
   selector: 'im-grouped-options',
   templateUrl: './grouped-options.component.html',
   styleUrls: ['./grouped-options.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  // TODO: find better way, without encapsulation none thing
+  encapsulation: ViewEncapsulation.None
 })
 export class GroupedOptionsComponent implements OnInit {
 
@@ -13,6 +15,7 @@ export class GroupedOptionsComponent implements OnInit {
 
   @Input() groupedProperty: string;
   @Input() disabled: boolean = false;
+  @Input() groupItemTemplate: TemplateRef<any>;
   @Input() set options (value) {
     this.groupedOptions = this.istevenMultiselectService.optionsGrouping(value, this.groupedProperty);
   }
