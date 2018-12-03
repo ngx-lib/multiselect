@@ -1,5 +1,5 @@
-import { 
-  Component, OnInit, Input, ChangeDetectionStrategy,  
+import {
+  Component, OnInit, Input, ChangeDetectionStrategy,
   Injector, forwardRef, ElementRef, HostListener
 } from '@angular/core';
 import { IstevenMultiselectService } from './services/isteven-multiselect.service';
@@ -80,9 +80,13 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   filterOptionsList = (val) => {
-    if(!val) return this.setOptions([...this._optionsCopy]);
-    const options = this._optionsCopy.filter(i=> i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1);
-    this.setOptions(options);
+    if (!val) {
+      this.setOptions([...this._optionsCopy]);
+    } else {
+      const filteredOptions = this._optionsCopy.filter(i => i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1);
+      this.setOptions([...filteredOptions]);
+    }
+    this.prepopulateOptions(this._selectedOptions);
   }
 
   // All update to options should happen from below method.
