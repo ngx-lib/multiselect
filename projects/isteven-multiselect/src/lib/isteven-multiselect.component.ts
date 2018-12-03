@@ -82,13 +82,11 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   filterOptionsList = (val) => {
     if (!val) {
       this.setOptions([...this._optionsCopy]);
-      this.prepopulateOptions(this._selectedOptions);
     } else {
       const filteredOptions = this._optionsCopy.filter(i => i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1);
       this.setOptions([...filteredOptions]);
-      this.prepopulateOptions(this._selectedOptions);
     }
-
+    this.prepopulateOptions(this._selectedOptions);
   }
 
   // All update to options should happen from below method.
