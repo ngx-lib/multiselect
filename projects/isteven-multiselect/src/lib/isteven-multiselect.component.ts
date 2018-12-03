@@ -1,6 +1,7 @@
-import { 
-  Component, Input, ChangeDetectionStrategy,  
-  Injector, forwardRef, ElementRef, HostListener, ContentChild, TemplateRef, AfterContentInit, ViewChild
+import {
+  Component, Input, ChangeDetectionStrategy,
+  Injector, forwardRef, ElementRef, HostListener,
+  ContentChild, TemplateRef, AfterContentInit, ViewChild
 } from '@angular/core';
 import { IstevenMultiselectService } from './services/isteven-multiselect.service';
 import { IstevenMultiselectBaseComponent } from './isteven-multiselect-base.component';
@@ -86,9 +87,13 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   @ViewChild('defaultGroupItemTemplate', {read: TemplateRef})defaultGroupItemTemplate: TemplateRef<any>;
 
   filterOptionsList = (val) => {
-    if(!val) return this.setOptions([...this._optionsCopy]);
-    const options = this._optionsCopy.filter(i=> i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1);
-    this.setOptions(options);
+    if (!val) {
+      this.setOptions([...this._optionsCopy]);
+    } else {
+      const filteredOptions = this._optionsCopy.filter(i => i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1);
+      this.setOptions([...filteredOptions]);
+    }
+    this.prepopulateOptions(this._selectedOptions);
   }
 
   // All update to options should happen from below method.
