@@ -6,6 +6,7 @@
     <ng-container 
       *ngTemplateOutlet="groupItemTemplate; context: { 
         getOptionStyle: this.getOptionStyle, 
+        groupOption: groupOption,
         options: this.groupOption.values, 
         trackByOption: this.trackByOption, 
         select: this.select,
