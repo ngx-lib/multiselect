@@ -5,7 +5,7 @@
     overflow: hidden;
 }
 
-.option {
+.group .option {
     display: block;
     padding: 3px;
     color: #444;
@@ -21,14 +21,14 @@
 }
 
 
-.option:hover, .group .option:first-child:hover {
+.group .option:hover, .group .option:first-child:hover {
     background-image: linear-gradient( #c1c1c1, #999 ) !important;
     color: #fff !important;
     cursor: pointer;
     border: 1px solid #ccc !important;
 }
 
-.option.marked {
+.group .option.marked {
     background-image: linear-gradient( #e9e9e9, #f1f1f1 );
     color: #555;
     cursor: pointer;
@@ -37,19 +37,19 @@
     border-right: 1px solid #d9d9d9;
 }
 
-.marked::after {
+.group .marked::after {
     content: '✓';
     margin: 0 5px 0;
     right: 0;
     position: absolute;
 }
 
-.option.disabled, .option.disabled:hover, .option.disabled label input:hover ~ span {
+.group .option.disabled, .group .option.disabled:hover, .group .option.disabled label input:hover ~ span {
     color: #c4c4c4 !important;
     pointer-events:none;
     cursor: not-allowed !important;
 }
 
-.option:not(:first-child) {
+.group .option:not(:first-child) {
     margin-left: 15px;
 }

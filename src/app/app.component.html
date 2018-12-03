@@ -40,7 +40,11 @@
   ngDefaultControl 
   [options]="customTemplateOptions"
   [multiple]="true">
-  <ng-template #itemTemplate let-getOptionStyle="getOptionStyle" let-options="options" let-trackByOption="trackByOption"
+  <!-- TODO: Check on below let attributes are neccessary -->
+  <ng-template
+    let-getOptionStyle="getOptionStyle"
+    let-options="options"
+    let-trackByOption="trackByOption"
     let-select="select">
     <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of options;trackBy:trackByOption" (click)="select(option)">
       {{option.name}} Test

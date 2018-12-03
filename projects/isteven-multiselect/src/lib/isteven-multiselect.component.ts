@@ -82,7 +82,8 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   @ContentChild(TemplateRef)
   @Input() itemTemplate: TemplateRef<any>;
 
-  @ViewChild('defaultTemplate', {read: TemplateRef}) defaultTemplateRef: TemplateRef<any>;
+  @ViewChild('defaultItemTemplate', {read: TemplateRef})defaultItemTemplate: TemplateRef<any>;
+  @ViewChild('defaultGroupItemTemplate', {read: TemplateRef})defaultGroupItemTemplate: TemplateRef<any>;
 
   filterOptionsList = (val) => {
     if(!val) return this.setOptions([...this._optionsCopy]);
@@ -194,7 +195,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
 
   ngAfterContentInit () {
     if (!this.itemTemplate) {
-      this.itemTemplate = this.defaultTemplateRef;
+      this.itemTemplate = !this.groupedProperty ? this.defaultItemTemplate: this.defaultGroupItemTemplate;
     }
   }
 
