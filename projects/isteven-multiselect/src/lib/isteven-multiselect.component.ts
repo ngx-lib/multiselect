@@ -1,17 +1,12 @@
 import {
   Component, Input, ChangeDetectionStrategy,
-  Injector, forwardRef, ElementRef, HostListener,
+  Injector, ElementRef, HostListener,
   ContentChild, TemplateRef, AfterContentInit, ViewChild
 } from '@angular/core';
+
 import { IstevenMultiselectService } from './services/isteven-multiselect.service';
 import { IstevenMultiselectBaseComponent } from './isteven-multiselect-base.component';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
-
-export const DEFAULT_VALUE_ACCESSOR: any = {
-  provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => IstevenMultiselectComponent),
-  multi: true
-}
+import { DEFAULT_VALUE_ACCESSOR } from './default-value-accessor';
 
 @Component({
   selector: 'ngx-isteven-multiselect',
