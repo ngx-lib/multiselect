@@ -19,13 +19,13 @@ This plans are based on current idea, it could change in future. First thing I'd
  6. ~~Output Events~~
  7. ~~Helper Elements~~
  8. ~~Grouping~~
- 9. Dynamic Update datasource
-10. Observable Friendly
+ 9. ~~Dynamic Update datasource~~
+10. ~~Observable Friendly~~
 11. Lazy loading smooth support.
-12. Small component for each small component
+12. ~~Small component for each small component
     a) Input filter template
     b) Helper buttons
-    c) List options
+    c) List options~~
 13. Configuration Super Easy
 14. NgIvy friendly
 15. Angular Elements friendly

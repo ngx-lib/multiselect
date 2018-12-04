@@ -1,6 +1,6 @@
 {
   "name": "ngx-isteven-multiselect",
-  "version": "0.0.0",
+  "version": "0.0.1-beta.0",
   "scripts": {
     "ng": "ng",
     "start": "ng build isteven-multiselect && ng serve",
@@ -10,12 +10,13 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "release": "standard-version",
     "build_lib": "ng build isteven-multiselect",
     "copy-license": "copy .\\LICENSE .\\dist\\isteven-multiselect",
     "copy-readme": "copy .\\README.md .\\dist\\isteven-multiselect",
     "copy-files": "npm run copy-license && npm run copy-readme",
     "npm_pack": "cd dist/isteven-multiselect && npm pack",
-    "package": "npm run build_lib && npm run copy-files && npm run npm_pack"
+    "package": "npm run release -- --prerelease beta && npm run build_lib && npm run copy-files && npm run npm_pack"
   },
   "private": true,
   "dependencies": {
@@ -52,6 +53,7 @@
     "ng-packagr": "^3.0.0",
     "onchange": "^4.0.0",
     "protractor": "^5.4.0",
+    "standard-version": "^4.4.0",
     "ts-node": "~5.0.1",
     "tsickle": ">=0.29.0",
     "tslib": "^1.9.0",
