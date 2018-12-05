@@ -14,7 +14,7 @@ export class GroupedOptionsComponent implements OnInit {
   groupedOptions = [];
 
   @Input() groupedProperty: string;
-  @Input() disabled: boolean = false;
+  @Input() disabled = false;
   @Input() groupItemTemplate: TemplateRef<any>;
   @Input() set options (value) {
     this.groupedOptions = this.istevenMultiselectService.optionsGrouping(value, this.groupedProperty);
@@ -55,7 +55,7 @@ export class GroupedOptionsComponent implements OnInit {
 
   select(groupOption, option) {
     this.selectOption.emit(option);
-    let allAreSelected = groupOption.values.every(v=>v.ticked)
+    const allAreSelected = groupOption.values.every(v => v.ticked)
     groupOption.ticked = allAreSelected;
   }
 
