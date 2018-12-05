@@ -12,7 +12,7 @@ export class IstevenMultiselectService {
     let matchesFn;
     // find vendor prefix
     matchSelectors.some(function (fn) {
-      if (typeof document.body[fn] == 'function') {
+      if (typeof document.body[fn] === 'function') {
         matchesFn = fn;
         return true;
       }

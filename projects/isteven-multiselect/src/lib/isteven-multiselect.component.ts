@@ -1,6 +1,5 @@
 import {
-  Component, Input, ChangeDetectionStrategy,
-  Injector, ElementRef, HostListener,
+  Component, Input, ChangeDetectionStrategy, ElementRef, HostListener,
   ContentChild, TemplateRef, AfterContentInit, ViewChild
 } from '@angular/core';
 
@@ -19,9 +18,8 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
 
   constructor(
     protected elementRef: ElementRef,
-    protected istevenMultiselectService: IstevenMultiselectService,
-    protected injector: Injector) {
-    super(injector);
+    protected istevenMultiselectService: IstevenMultiselectService) {
+    super();
   }
 
   // private variables
@@ -58,7 +56,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
       this._optionsCopy = collection.map((item: any, index: number) => ({ id: index, name: item }));
     } else {
       let keys = Object.keys(this._defaultPropertyMap);
-      this._optionsCopy = collection.map((item: any, index: number) => {
+      this._optionsCopy = collection.map((item: any) => {
         let obj = { [this.groupedProperty]: item[this.groupedProperty] };
         keys.reduce((a: any, b: string) => { obj[b] = item[this._defaultPropertyMap[b]] }, obj);
         return obj;
@@ -110,14 +108,14 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
 
   clear() {
     this.setOptions(this.getOptions().map(o=> ({...o, ticked: false})));
-    let values = this._multiple ? [] : null;
+    const values = this._multiple ? [] : null;
     this.viewToModel(values);
     this.close();
   }
 
   removeItem(collection, item) {
     item.ticked = false;
-    let index = collection.findIndex(o => o.id === item.id);
+    const index = collection.findIndex(o => o.id === item.id);
     collection.splice(index, 1);
   }
 
@@ -170,7 +168,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     const { values, ticked } = group;
     let selectedValues = [...this._selectedOptions]
     let selectedIds = selectedValues.map(s=>s.id)
-    let allGroupOptionIds = values.map(v=> v.id)
+    const allGroupOptionIds = values.map(v=> v.id)
     // Get all ticked options
     // concat with selected options
     selectedValues = ticked ? selectedValues.concat(values): selectedValues.filter(o => allGroupOptionIds.indexOf(o.id) === -1);
