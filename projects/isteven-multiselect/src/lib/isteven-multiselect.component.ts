@@ -5,7 +5,7 @@ import {
 
 import { IstevenMultiselectService } from './services/isteven-multiselect.service';
 import { IstevenMultiselectBaseComponent } from './isteven-multiselect-base.component';
-import { DEFAULT_VALUE_ACCESSOR } from './default-value-accessor';
+import { DEFAULT_VALUE_ACCESSOR } from './services/default-value-accessor';
 
 @Component({
   selector: 'ngx-isteven-multiselect',
