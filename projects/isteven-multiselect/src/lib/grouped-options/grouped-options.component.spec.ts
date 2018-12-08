@@ -45,13 +45,22 @@ describe('GroupedOptionsComponent', () => {
     it('should de-select an option on click of selected option', () => {
       expect(true).toBeTruthy();
     });
+    it('should select / de-select option should change the selectedOptions', () => {
+      expect(true).toBeTruthy();
+    });
   })
   
   describe('Styling', () => {
-    it('on select of option should apply correct CSS', () => {
+    it('on select of option should apply correct CSS to option', () => {
       expect(true).toBeTruthy();
     });
     it('mark class should removed based on click on selected optioin', () => {
+      expect(true).toBeTruthy();
+    });
+    it('on select of groupOption should apply correct CSS to option', () => {
+      expect(true).toBeTruthy();
+    });
+    it('mark class should removed based on click on selected groupOption', () => {
       expect(true).toBeTruthy();
     });
   })

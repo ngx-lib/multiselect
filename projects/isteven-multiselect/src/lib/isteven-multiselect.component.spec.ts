@@ -1,6 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { IstevenMultiselectComponent } from './isteven-multiselect.component';
+import { FilterOptionsComponent } from './filter-options/filter-options.component';
+import { GroupedOptionsComponent } from './grouped-options/grouped-options.component';
+import { DisplaySelectedValuePipe } from './pipes/display-selected-value.pipe';
+import { HelperElementsComponent } from './helper-elements/helper-elements.component';
+import { OptionsComponent } from './options/options.component';
 
 describe('IstevenMultiselectComponent', () => {
   let component: IstevenMultiselectComponent;
@@ -8,7 +15,11 @@ describe('IstevenMultiselectComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IstevenMultiselectComponent ]
+      declarations: [ 
+        IstevenMultiselectComponent, FilterOptionsComponent, GroupedOptionsComponent, 
+        DisplaySelectedValuePipe, HelperElementsComponent, OptionsComponent
+      ],
+      imports: [FormsModule, ReactiveFormsModule, BrowserModule]
     })
     .compileComponents();
   }));
