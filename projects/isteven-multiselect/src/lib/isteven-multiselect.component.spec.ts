@@ -118,6 +118,11 @@ describe('IstevenMultiselectComponent', () => {
         expect(true).toBeTruthy();
       });
     });
+
+    // TODO: check where to keep this test case
+    it('for empty input field, it should show all option', () => {
+      expect(true).toBeTruthy();
+    });
   }
 
   // without observable
@@ -125,5 +130,7 @@ describe('IstevenMultiselectComponent', () => {
   executeTests();
 
   // TODO: with observable
+  // beforeEachSetup();
+  // executeTests();
 
 });
