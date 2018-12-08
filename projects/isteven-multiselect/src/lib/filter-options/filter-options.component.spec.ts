@@ -4,6 +4,7 @@ import { BrowserModule, By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { FilterOptionsComponent } from './filter-options.component';
+import { IstevenMultiselectService } from '../services/isteven-multiselect.service';
 
 describe('FilterOptionsComponent', () => {
   let component: FilterOptionsComponent;
@@ -43,10 +44,11 @@ describe('FilterOptionsComponent', () => {
   // TODO: check below, how this test can be handled
   it('By default input elemenet is focused', () => {
     // arrangment
+    const input = debugElement.query(By.css('input'));
+    const service = new IstevenMultiselectService()
     // act
     // assert
-    const input = debugElement.query(By.css('input'));
-    console.dir(document.activeElement, document.activeElement === input.nativeElement);
+    console.dir(service.pseudoClassExist(input.nativeElement, ':focus'));
     expect(true).toBeTruthy();
   });
 

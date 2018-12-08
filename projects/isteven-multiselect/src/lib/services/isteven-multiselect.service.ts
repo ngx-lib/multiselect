@@ -7,7 +7,16 @@ const matchSelectors = ['matches', 'webkitMatchesSelector', 'mozMatchesSelector'
 })
 export class IstevenMultiselectService {
   constructor() { }
-  
+
+  pseudoClassExist(node, selector) {
+    const nativeMatches = ( node.matches || node.msMatchesSelector );
+    try {
+      return (nativeMatches.call(node, selector));
+    } catch (error) {
+      return (false);
+    }
+  }
+
   closest(el, selector): boolean {
     let matchesFn;
     // find vendor prefix
@@ -33,7 +42,7 @@ export class IstevenMultiselectService {
     return false;
   }
 
-  optionsGrouping (options, groupByProperty): any[] {
+  optionsGrouping(options, groupByProperty): any[] {
     const getAllUniqueGroupByPropertyValue = [...Array.from(new Set(options.map(item => item[groupByProperty])))]
     const result = getAllUniqueGroupByPropertyValue.map(
       group => {
