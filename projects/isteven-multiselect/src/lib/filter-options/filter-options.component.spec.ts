@@ -1,13 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
 
 import { FilterOptionsComponent } from './filter-options.component';
 
 describe('FilterOptionsComponent', () => {
   let component: FilterOptionsComponent;
   let fixture: ComponentFixture<FilterOptionsComponent>;
-
+  let debugElement: DebugElement;
+  let filterText: string;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ FilterOptionsComponent ],
@@ -19,39 +21,70 @@ describe('FilterOptionsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FilterOptionsComponent);
     component = fixture.componentInstance;
+    component.filterOptionsList.subscribe(text =>{
+      filterText = text;
+    })
+    component.filterOptionsList.subscribe(text =>{
+      filterText = text;
+    })
+    debugElement = fixture.debugElement
+    fixture.detectChanges();
+    component.filterName.patchValue('some text');
     fixture.detectChanges();
   });
 
   it('Component should gets added into the DOM', () => {
-    expect(true).toBeTruthy();
+    // arrangment
+    // act
+    // assert
+    expect(component).not.toBeUndefined();
   });
 
+  // TODO: check below, how this test can be handled
   it('By default input elemenet is focused', () => {
+    // arrangment
+    // act
+    // assert
+    const input = debugElement.query(By.css('input'));
+    console.dir(document.activeElement, document.activeElement === input.nativeElement);
     expect(true).toBeTruthy();
   });
 
   describe('Input text change', () => {
     it('Adding text into input box, should filter the result', () => {
-      expect(true).toBeTruthy();
+      // arrangement
+      // act
+      let changedValue = 'changed value';
+      component.filterName.patchValue(changedValue);
+      // assert
+      expect(filterText).toBe(changedValue);
     });
     it('Removing text into input box, should filter the result', () => {
-      expect(true).toBeTruthy();
-    });
-    it('for empty input field, it should show all optoin', () => {
-      expect(true).toBeTruthy();
-    });
-    it('initially all group options selected, removal any of them should unmark group option', () => {
-      expect(true).toBeTruthy();
+      // arrangement
+      // act
+      let changedValue = 'some'
+      component.filterName.patchValue(changedValue);
+      // assert
+      expect(filterText).toBe(changedValue);
     });
   })
 
   describe('Clear button', () => {
-    it('it should emit an event to parent component', () => {
-      expect(true).toBeTruthy();
+    it('it should emit an event to parent component with blank value', () => {
+      // arrangement
+      // act
+      component.clearText()
+      // assert
+      expect(filterText).toBe('');
     });
-    it('it should clear all selected options', () => {
-      expect(true).toBeTruthy();
+    it('trigger button from ui should clear filterText', () => {
+      // arrangement
+      // act
+      const button = debugElement.query(By.css('button'));
+      button.triggerEventHandler('click', {});
+      // assert
+      expect(filterText).toBe('');
     });
-  })
+  });
   
 });
