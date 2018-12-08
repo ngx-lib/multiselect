@@ -24,7 +24,7 @@ describe('GroupedOptionsComponent', () => {
   });
 
   describe('Group option', () => {
-    it('on click on group options should select all underlying options', () => {
+    it('on click on group options, it should select all underlying options', () => {
       expect(true).toBeTruthy();
     });
     it('on click of selected group options should de-select all underlying options', () => {
@@ -66,6 +66,8 @@ describe('GroupedOptionsComponent', () => {
   })
 
   describe('Disabled option', () => {
+    console.log('Describe')
+
     it('if some option is disabled, then toggle disabled flag of option', () => {
       expect(true).toBeTruthy();
     })
