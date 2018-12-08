@@ -1,14 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { BrowserModule } from '@angular/platform-browser';
 
 import { FilterOptionsComponent } from './filter-options.component';
 
-describe('GroupedOptionsComponent', () => {
+describe('FilterOptionsComponent', () => {
   let component: FilterOptionsComponent;
   let fixture: ComponentFixture<FilterOptionsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FilterOptionsComponent ]
+      declarations: [ FilterOptionsComponent ],
+      imports: [FormsModule, ReactiveFormsModule, BrowserModule]
     })
     .compileComponents();
   }));
