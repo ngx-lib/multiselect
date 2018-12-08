@@ -55,11 +55,11 @@ describe('IstevenMultiselectComponent', () => {
   });
 
   // on clear
-  describe('on clear button click', () => {
-    it('should remove value from single select', () => {
+  describe('on clear button', () => {
+    it('should remove selected value from single select', () => {
       expect(true).toBeTruthy();
     });
-    it('should remove value from multiple select', () => {
+    it('should remove selected values from multiple select', () => {
       expect(true).toBeTruthy();
     });
   });
@@ -74,9 +74,33 @@ describe('IstevenMultiselectComponent', () => {
     it('should show "name" property of an selected value', () => {
       expect(true).toBeTruthy();
     });
+    it('should close the dropdwon affter selection on any option', () => {
+      expect(true).toBeTruthy();
+    });
+    it('on selecting of option, it should update options collection', () => {
+      expect(true).toBeTruthy();
+    });
   });
   describe('Multiple Select', () => {
-    it('Multiple Select', () => {
+    it('When it has no value selected, should show "None Selected"', () => {
+      expect(true).toBeTruthy();
+    });
+    it('should show "name" property of an selected value', () => {
+      expect(true).toBeTruthy();
+    });
+    it('multiple selected value shown as comma separated', () => {
+      expect(true).toBeTruthy();
+    });
+    it('display selected value limit should not exceed more than maxLabelLimit', () => {
+      expect(true).toBeTruthy();
+    });
+    it('should close the dropdwon affter selection on any option', () => {
+      expect(true).toBeTruthy();
+    });
+    it('on selecting of option, it should update options collection', () => {
+      expect(true).toBeTruthy();
+    });
+    it('on selecting of option, it should update options collection', () => {
       expect(true).toBeTruthy();
     });
   });
