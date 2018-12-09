@@ -36,18 +36,33 @@ describe('IstevenMultiselectComponent', () => {
     // isOpen flag
     describe('IsOpen flag', () => {
       it('On click of button isOpen property should be true', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
       it('On click outside drodown, it should close dropdown', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
       it('clicking on open dropdown button should change make isOpen false', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
       it('clicking on open dropdown button should change make isOpen false', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
       it('when isOpen true, helper element, filter options and options should exists', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
     });
@@ -55,15 +70,27 @@ describe('IstevenMultiselectComponent', () => {
     // Template
     describe('Templating', () => {
       it('should pass on older template incase none of the opton is passed', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
       it('should pass on newer template incase none of the opton is passed', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
       it('should pass on newer template for grouping, incase none of the opton is passed', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
       it('should pass on newer template for grouping, incase none of the opton is passed', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
     });
@@ -71,56 +98,101 @@ describe('IstevenMultiselectComponent', () => {
     // on clear
     describe('on clear button', () => {
       it('should remove selected value from single select', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
       it('should remove selected values from multiple select', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
     });
 
     describe('Single Select', () => {
       it('When it has no value, should show "None Selected"', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
       it('should show "name" property of an selected value', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
       it('should show "name" property of an selected value', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
       it('should close the dropdwon affter selection on any option', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
       it('on selecting of option, it should update options collection', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
     });
     describe('Multiple Select', () => {
       it('When it has no value selected, should show "None Selected"', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
       it('should show "name" property of an selected value', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
       it('multiple selected value shown as comma separated', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
       it('display selected value limit should not exceed more than maxLabelLimit', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
       it('should close the dropdwon affter selection on any option', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
       it('on selecting of option, it should update options collection', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
       it('on selecting of option, it should update options collection', () => {
+        // arrange
+        // act
+        // assert
         expect(true).toBeTruthy();
       });
     });
 
     // TODO: check where to keep this test case
     it('for empty input field, it should show all option', () => {
+      // arrange
+      // act
+      // assert
       expect(true).toBeTruthy();
     });
   }
