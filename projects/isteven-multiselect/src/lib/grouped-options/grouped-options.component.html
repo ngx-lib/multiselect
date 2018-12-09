@@ -3,8 +3,7 @@
     <div class="option" [ngClass]="getGroupOptionStyle(groupOption)" (click)="groupOptionClick(groupOption)">
       {{groupOption.name}}
     </div>
-    <ng-container 
-      *ngTemplateOutlet="groupItemTemplate; context: { 
+    <ng-container *ngTemplateOutlet="optionsTemplate; context: { 
         getOptionStyle: this.getOptionStyle, 
         groupOption: groupOption,
         options: this.groupOption.values, 
@@ -15,3 +14,8 @@
     </ng-container>
   </div>
 </div>
+<ng-template #defaultOptionsTemplate let-getOptionStyle="getOptionStyle" let-options="options" let-trackByOption="trackByOption" let-select="select" let-groupOption="groupOption">
+  <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of options;trackBy:trackByOption" (click)="select(groupOption, option)">
+    {{option.name}}
+  </div>
+</ng-template>
