@@ -1,6 +1,6 @@
 <div class="options-container">
   <ng-container 
-    *ngTemplateOutlet="itemTemplate; context: { 
+    *ngTemplateOutlet="optionsTemplate; context: { 
       getOptionStyle: this.getOptionStyle, 
       options: this.options, 
       trackByOption: this.trackByOption, 
@@ -9,3 +9,8 @@
     }">
   </ng-container>
 </div>
+<ng-template #defaultOptionsTemplate let-getOptionStyle="getOptionStyle" let-options="options" let-trackByOption="trackByOption" let-select="select">
+  <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of options;trackBy:trackByOption" (click)="select(option)">
+    {{option.name}}
+  </div>
+</ng-template>

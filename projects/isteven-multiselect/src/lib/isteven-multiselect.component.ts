@@ -1,6 +1,6 @@
 import {
-  Component, Input, ChangeDetectionStrategy, ElementRef, HostListener,
-  ContentChild, TemplateRef, AfterContentInit, ViewChild
+  Component, Input, ChangeDetectionStrategy, ElementRef,
+  ContentChild, TemplateRef, HostListener
 } from '@angular/core';
 
 import { IstevenMultiselectService } from './services/isteven-multiselect.service';
@@ -14,7 +14,7 @@ import { DEFAULT_VALUE_ACCESSOR } from './services/default-value-accessor';
   providers: [DEFAULT_VALUE_ACCESSOR],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent implements AfterContentInit {
+export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent {
 
   constructor(
     protected elementRef: ElementRef,
@@ -74,10 +74,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   @ContentChild(TemplateRef)
-  @Input() itemTemplate: TemplateRef<any>;
-
-  @ViewChild('defaultItemTemplate', {read: TemplateRef})defaultItemTemplate: TemplateRef<any>;
-  @ViewChild('defaultGroupItemTemplate', {read: TemplateRef})defaultGroupItemTemplate: TemplateRef<any>;
+  @Input() optionsTemplate: TemplateRef<any>;
 
   filterOptionsList = (val) => {
     if (!val) {
@@ -189,12 +186,6 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   viewToModel(options) {
     this._selectedOptions = options;
     this.onChange(options);
-  }
-
-  ngAfterContentInit () {
-    if (!this.itemTemplate) {
-      this.itemTemplate = !this.groupedProperty ? this.defaultItemTemplate: this.defaultGroupItemTemplate;
-    }
   }
 
   // TODO: Consider creating a directive for this.
