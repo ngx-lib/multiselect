@@ -8,7 +8,7 @@ import { Component, OnInit, EventEmitter, Output, Input, ChangeDetectionStrategy
 })
 export class HelperElementsComponent {
 
-  @Input() multiple: boolean = false;
+  @Input() multiple = false;
 
   @Output() selectAllClicked = new EventEmitter();
   @Output() selectNoneClicked = new EventEmitter();

@@ -1,4 +1,4 @@
-import { NgModule, forwardRef } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { IstevenMultiselectComponent } from './isteven-multiselect.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,8 +15,8 @@ import { GroupedOptionsComponent } from './grouped-options/grouped-options.compo
     ReactiveFormsModule
   ],
   declarations: [
-    IstevenMultiselectComponent, 
-    DisplaySelectedValuePipe, 
+    IstevenMultiselectComponent,
+    DisplaySelectedValuePipe,
     HelperElementsComponent,
     FilterOptionsComponent,
     OptionsComponent,

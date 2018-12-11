@@ -1,12 +1,11 @@
 import {
-  Component, Input, ChangeDetectionStrategy,
-  Injector, ElementRef, HostListener,
-  ContentChild, TemplateRef, AfterContentInit, ViewChild
+  Component, Input, ChangeDetectionStrategy, ElementRef,
+  ContentChild, TemplateRef, HostListener
 } from '@angular/core';
 
 import { IstevenMultiselectService } from './services/isteven-multiselect.service';
 import { IstevenMultiselectBaseComponent } from './isteven-multiselect-base.component';
-import { DEFAULT_VALUE_ACCESSOR } from './default-value-accessor';
+import { DEFAULT_VALUE_ACCESSOR } from './services/default-value-accessor';
 
 @Component({
   selector: 'ngx-isteven-multiselect',
@@ -15,13 +14,12 @@ import { DEFAULT_VALUE_ACCESSOR } from './default-value-accessor';
   providers: [DEFAULT_VALUE_ACCESSOR],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent implements AfterContentInit {
+export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent {
 
   constructor(
     protected elementRef: ElementRef,
-    protected istevenMultiselectService: IstevenMultiselectService,
-    protected injector: Injector) {
-    super(injector);
+    protected istevenMultiselectService: IstevenMultiselectService) {
+    super();
   }
 
   // private variables
@@ -58,7 +56,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
       this._optionsCopy = collection.map((item: any, index: number) => ({ id: index, name: item }));
     } else {
       let keys = Object.keys(this._defaultPropertyMap);
-      this._optionsCopy = collection.map((item: any, index: number) => {
+      this._optionsCopy = collection.map((item: any) => {
         let obj = { [this.groupedProperty]: item[this.groupedProperty] };
         keys.reduce((a: any, b: string) => { obj[b] = item[this._defaultPropertyMap[b]] }, obj);
         return obj;
@@ -76,10 +74,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   }
 
   @ContentChild(TemplateRef)
-  @Input() itemTemplate: TemplateRef<any>;
-
-  @ViewChild('defaultItemTemplate', {read: TemplateRef})defaultItemTemplate: TemplateRef<any>;
-  @ViewChild('defaultGroupItemTemplate', {read: TemplateRef})defaultGroupItemTemplate: TemplateRef<any>;
+  @Input() optionsTemplate: TemplateRef<any>;
 
   filterOptionsList = (val) => {
     if (!val) {
@@ -110,14 +105,14 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
 
   clear() {
     this.setOptions(this.getOptions().map(o=> ({...o, ticked: false})));
-    let values = this._multiple ? [] : null;
+    const values = this._multiple ? [] : null;
     this.viewToModel(values);
     this.close();
   }
 
   removeItem(collection, item) {
     item.ticked = false;
-    let index = collection.findIndex(o => o.id === item.id);
+    const index = collection.findIndex(o => o.id === item.id);
     collection.splice(index, 1);
   }
 
@@ -170,7 +165,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     const { values, ticked } = group;
     let selectedValues = [...this._selectedOptions]
     let selectedIds = selectedValues.map(s=>s.id)
-    let allGroupOptionIds = values.map(v=> v.id)
+    const allGroupOptionIds = values.map(v=> v.id)
     // Get all ticked options
     // concat with selected options
     selectedValues = ticked ? selectedValues.concat(values): selectedValues.filter(o => allGroupOptionIds.indexOf(o.id) === -1);
@@ -191,12 +186,6 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   viewToModel(options) {
     this._selectedOptions = options;
     this.onChange(options);
-  }
-
-  ngAfterContentInit () {
-    if (!this.itemTemplate) {
-      this.itemTemplate = !this.groupedProperty ? this.defaultItemTemplate: this.defaultGroupItemTemplate;
-    }
   }
 
   // TODO: Consider creating a directive for this.

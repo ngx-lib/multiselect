@@ -1,6 +1,6 @@
 import { 
   Component, OnInit, Input, EventEmitter, Output,
-  ChangeDetectionStrategy, TemplateRef, ViewEncapsulation
+  ChangeDetectionStrategy, TemplateRef, ViewEncapsulation, ViewChild
 } from '@angular/core';
 
 @Component({
@@ -15,8 +15,10 @@ export class OptionsComponent implements OnInit {
 
   @Input() disabled: boolean = false;
   @Input() options: any[];
-  @Input() itemTemplate: TemplateRef<any>;
+  @Input() optionsTemplate: TemplateRef<any>;
   @Output() selectOption = new EventEmitter<any>();
+  @ViewChild('defaultOptionsTemplate') defaultOptionsTemplate: TemplateRef<any>;
+
   constructor() { }
 
   getOptionStyle(option: any) {
@@ -32,6 +34,9 @@ export class OptionsComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(!this.optionsTemplate) {
+      this.optionsTemplate = this.defaultOptionsTemplate;
+    }
   }
 
 }
