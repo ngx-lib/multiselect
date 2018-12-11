@@ -60,9 +60,19 @@ describe('GroupedOptionsComponent', () => {
   describe('Group option', () => {
     it('on click on group options, it should select all underlying options', () => {
       // arrange
+      const group = debugElement.query(By.css('.group'))
+
       // act
+      group.triggerEventHandler('click', {})
+      fixture.detectChanges()
+
       // assert
-      expect(true).toBeTruthy();
+      const optionsElements = debugElement.queryAll(By.css('.option.marked'))
+      const groupElement = debugElement.query(By.css('.group.options.marked'))
+      console.log(groupElement)
+      let options = optionsElements ? Array.from(optionsElements): []
+      expect(options.length).toBe(2)
+      expect(groupElement).toBeDefined()
     });
     it('on click of selected group options should de-select all underlying options', () => {
       // arrange
