@@ -23,7 +23,9 @@ export class FilterOptionsComponent implements OnInit, OnDestroy {
   }
 
   clearInputFilter() {
-    if (this.filterName.value) this.filterName.setValue('');
+    if (this.filterName.value) {
+      this.filterName.setValue('');
+    }
   }
 
   ngOnInit() {

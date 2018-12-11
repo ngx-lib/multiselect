@@ -1,19 +1,9 @@
-import { ElementRef, Injector } from '@angular/core';
-import { IstevenMultiselectService } from './services/isteven-multiselect.service';
 import { ControlValueAccessor } from '@angular/forms';
 
 export abstract class IstevenMultiselectBaseComponent implements ControlValueAccessor {
   
-  private _istevenMultiselectService: IstevenMultiselectService;
-  private _elementRef: ElementRef;
   private operationPendingQueue: any[] = [];
   abstract _options: any[];
-
-  constructor(
-    protected injector: Injector) {
-      this._elementRef = injector.get(ElementRef);
-      this._istevenMultiselectService = injector.get(IstevenMultiselectService);
-  }
 
   // Adding pending operation in queue
   addOperation(item) {
@@ -32,7 +22,7 @@ export abstract class IstevenMultiselectBaseComponent implements ControlValueAcc
   */
   // Extracting and finishing all pending operation
   finishPendingOperations() {
-    let operation = this.popOperation();
+    const operation = this.popOperation();
     this.prepopulateOptions(operation);
   }
 

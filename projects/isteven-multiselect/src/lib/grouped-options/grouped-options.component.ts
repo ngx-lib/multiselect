@@ -1,4 +1,7 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, Output, EventEmitter, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { 
+  Component, OnInit, Input, ChangeDetectionStrategy, Output, 
+  EventEmitter, TemplateRef, ViewEncapsulation, ViewChild
+} from '@angular/core';
 import { IstevenMultiselectService } from '../services/isteven-multiselect.service';
 
 @Component({
@@ -14,8 +17,8 @@ export class GroupedOptionsComponent implements OnInit {
   groupedOptions = [];
 
   @Input() groupedProperty: string;
-  @Input() disabled: boolean = false;
-  @Input() groupItemTemplate: TemplateRef<any>;
+  @Input() disabled = false;
+  @Input() optionsTemplate: TemplateRef<any>;
   @Input() set options (value) {
     this.groupedOptions = this.istevenMultiselectService.optionsGrouping(value, this.groupedProperty);
   }
@@ -24,6 +27,8 @@ export class GroupedOptionsComponent implements OnInit {
   }
   @Output() selectOption = new EventEmitter<any>();
   @Output() selectGroup = new EventEmitter<any>();
+
+  @ViewChild('defaultOptionsTemplate') defaultOptionsTemplate: TemplateRef<any>;
 
   constructor(private istevenMultiselectService: IstevenMultiselectService) { }
 
@@ -44,6 +49,9 @@ export class GroupedOptionsComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(!this.optionsTemplate) {
+      this.optionsTemplate = this.defaultOptionsTemplate;
+    }
   }
 
   groupOptionClick(group: any) {
@@ -55,7 +63,7 @@ export class GroupedOptionsComponent implements OnInit {
 
   select(groupOption, option) {
     this.selectOption.emit(option);
-    let allAreSelected = groupOption.values.every(v=>v.ticked)
+    const allAreSelected = groupOption.values.every(v => v.ticked)
     groupOption.ticked = allAreSelected;
   }
 
