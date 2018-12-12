@@ -103,13 +103,6 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     this.isOpen = false;
   }
 
-  clear() {
-    this.setOptions(this.getOptions().map(o=> ({...o, ticked: false})));
-    const values = this._multiple ? [] : null;
-    this.viewToModel(values);
-    this.close();
-  }
-
   removeItem(collection, item) {
     item.ticked = false;
     const index = collection.findIndex(o => o.id === item.id);
