@@ -1,6 +1,6 @@
 import {
   Component, Input, ChangeDetectionStrategy, ElementRef,
-  ContentChild, TemplateRef, HostListener
+  ContentChild, TemplateRef, HostListener, Output, EventEmitter
 } from '@angular/core';
 
 import { IstevenMultiselectService } from './services/isteven-multiselect.service';
@@ -39,7 +39,10 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   // Input bindings
   @Input() set isOpen(value) {
     this._isOpen = value;
-    if (value) this.onTouched();
+    if (value) {
+      this.onTouched();
+      this.onOpen.emit()
+    }
   }
   get isOpen() { return this._isOpen; }
   @Input() disabled: boolean = false;
@@ -75,6 +78,15 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
 
   @ContentChild(TemplateRef)
   @Input() optionsTemplate: TemplateRef<any>;
+  @Output() onOpen: EventEmitter<any> = new EventEmitter<void>();
+  @Output() onClose: EventEmitter<any> = new EventEmitter<void>();
+  @Output() onItemClick: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onGroupItemClick: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onSelectAll: EventEmitter<any> = new EventEmitter<void>();
+  @Output() onSelectNone: EventEmitter<any> = new EventEmitter<void>();
+  @Output() onReset: EventEmitter<any> = new EventEmitter<void>();
+  @Output() onClear: EventEmitter<any> = new EventEmitter<void>();
+  @Output() onSearchChange: EventEmitter<any> = new EventEmitter<string>();
 
   filterOptionsList = (val) => {
     if (!val) {
@@ -101,6 +113,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
 
   close() {
     this.isOpen = false;
+    this.onClose.emit();
   }
 
   removeItem(collection, item) {
@@ -140,39 +153,44 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
       this.close();
     }
     this.viewToModel(selectedOptions);
+    this.onItemClick.emit(option);
   }
 
   selectAll() {
     let allSelectedOptions = this.getOptions().map(o => ({ ...o, ticked: true}))
     this.setOptions(allSelectedOptions);
     this.viewToModel(allSelectedOptions);
+    this.onSelectAll.emit();
   }
 
   selectNone () {
     this.setOptions(this.getOptions().map(o => ({ ...o, ticked: false})))
     this.viewToModel([]);
+    this.onSelectNone.emit();
   }
 
   //TODO: Optimized below logic, it can be done in lesser steps
   selectGroup (group: any) {
     const { values, ticked } = group;
-    let selectedValues = [...this._selectedOptions]
-    let selectedIds = selectedValues.map(s=>s.id)
-    const allGroupOptionIds = values.map(v=> v.id)
+    let selectedValues = [...this._selectedOptions];
+    let selectedIds = selectedValues.map(s=>s.id);
+    const allGroupOptionIds = values.map(v=> v.id);
     // Get all ticked options
     // concat with selected options
     selectedValues = ticked ? selectedValues.concat(values): selectedValues.filter(o => allGroupOptionIds.indexOf(o.id) === -1);
     // Find unique out of them
-    selectedIds = [...Array.from(new Set(selectedValues.map(item => item.id)))]
+    selectedIds = [...Array.from(new Set(selectedValues.map(item => item.id)))];
     // build selectedOptions array again
-    selectedValues = this.getOptions().filter(o=> selectedIds.indexOf(o.id) !== -1)
+    selectedValues = this.getOptions().filter(o=> selectedIds.indexOf(o.id) !== -1);
     this.viewToModel(selectedValues);
-    this.setOptions(this.getOptions().map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1})))
+    this.setOptions(this.getOptions().map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1})));
+    this.onGroupItemClick.emit(group);
   }
 
   reset() {
     this.viewToModel(this.initialValue);
     this.prepopulateOptions(this.initialValue);
+    this.onReset.emit();
   }
 
   // Responsible for updating value from view to model
