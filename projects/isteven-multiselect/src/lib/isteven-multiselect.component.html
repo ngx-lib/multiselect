@@ -10,8 +10,10 @@
     </div>
   </button>
   <div class="listing-wrapper" *ngIf="isOpen">
-    <im-helper-elements [multiple]="multiple" (resetClicked)="reset()" (selectAllClicked)="selectAll()"
-      (selectNoneClicked)="selectNone()">
+    <im-helper-elements [multiple]="multiple"
+      (onClear)="onClear.emit()" (resetClicked)="reset()"
+      (onSearchChange)="onSearchChange.emit($event)" (selectNoneClicked)="selectNone()"
+      (selectAllClicked)="selectAll()" (selectNoneClicked)="selectNone()">
     </im-helper-elements>
     <im-filter-options (filterOptionsList)="filterOptionsList($event)"></im-filter-options>
     <ng-container *ngIf="!groupedProperty else groupedTemplate">
