@@ -56,4 +56,13 @@ export class IstevenMultiselectService {
     )
     return result;
   }
+
+  mapDatasourceToFields (collection: any[], propertyMap, groupedProperty?) {
+    let keys = Object.keys(propertyMap);
+    return collection.map((item: any) => {
+      let obj = groupedProperty ? { [groupedProperty]: item[groupedProperty] }: {}
+      keys.reduce((a: any, b: string) => { obj[b] = item[propertyMap[b]] }, obj);
+      return obj;
+    })
+  }
 }
