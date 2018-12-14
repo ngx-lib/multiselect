@@ -55,6 +55,10 @@ export class AppComponent implements OnInit, OnDestroy {
     this.observableOptions = this.appService.getObservableOptions();
   }
 
+  genericEvent($event, eventName) {
+    console.log('Event fired '+ eventName, $event)
+  }
+
   ngOnDestroy () {
     this.singleSelectOptionsSubscription.unsubscribe();
     this.multipleSelectOptionsSubscription.unsubscribe();
