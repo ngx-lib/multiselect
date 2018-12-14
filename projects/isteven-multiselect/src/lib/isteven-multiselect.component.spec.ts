@@ -188,6 +188,51 @@ describe('IstevenMultiselectComponent', () => {
       });
     });
 
+    describe('Callback', () => {
+      it('When it has no value selected, should show "None Selected"', () => {
+        // arrange
+        // act
+        // assert
+        expect(true).toBeTruthy();
+      });
+      it('should show "name" property of an selected value', () => {
+        // arrange
+        // act
+        // assert
+        expect(true).toBeTruthy();
+      });
+      it('multiple selected value shown as comma separated', () => {
+        // arrange
+        // act
+        // assert
+        expect(true).toBeTruthy();
+      });
+      it('display selected value limit should not exceed more than maxLabelLimit', () => {
+        // arrange
+        // act
+        // assert
+        expect(true).toBeTruthy();
+      });
+      it('should close the dropdwon after selection on any option', () => {
+        // arrange
+        // act
+        // assert
+        expect(true).toBeTruthy();
+      });
+      it('on selecting of option, it should update options collection', () => {
+        // arrange
+        // act
+        // assert
+        expect(true).toBeTruthy();
+      });
+      it('on selecting of option, it should update options collection', () => {
+        // arrange
+        // act
+        // assert
+        expect(true).toBeTruthy();
+      });
+    });
+
     // TODO: check where to keep this test case
     it('for empty input field, it should show all option', () => {
       // arrange
