@@ -15,7 +15,9 @@
       (onSearchChange)="onSearchChange.emit($event)" (selectNoneClicked)="selectNone()"
       (selectAllClicked)="selectAll()" (selectNoneClicked)="selectNone()">
     </im-helper-elements>
-    <im-filter-options (filterOptionsList)="filterOptionsList($event)"></im-filter-options>
+    <im-filter-options (filterOptionsList)="filterOptionsList($event)"
+      (onClear)="onClear.emit()" (onSearchChange)="onSearchChange.emit($event)"
+    ></im-filter-options>
     <ng-container *ngIf="!groupedProperty else groupedTemplate">
       <im-options [optionsTemplate]="optionsTemplate" [options]="_options" [disabled]="disabled" (selectOption)="select($event)"></im-options>
     </ng-container>
