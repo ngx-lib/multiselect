@@ -1,3 +1,15 @@
+<h2>Single Select (with Property Map)</h2>
+<!-- [ofPrimitiveType]="true" -->
+<ngx-isteven-multiselect 
+  [(ngModel)]="propertyMapValue"
+  [propertyMap]="{
+    'EmpId': 'id',
+    'EmpName': 'name'
+  }"
+  [options]="propertyMapOptions"
+  ngDefaultControl
+></ngx-isteven-multiselect>
+
 <h2>Single Select (Template Driven form with callback events check)</h2>
 <!-- [ofPrimitiveType]="true" -->
 <ngx-isteven-multiselect 
