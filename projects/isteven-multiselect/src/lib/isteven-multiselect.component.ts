@@ -37,6 +37,13 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   _options; //TODO: this will be local list
 
   // Input bindings
+  @Input() disabled: boolean = false;
+  @Input() groupedProperty: string;
+  @Input() showMaxLabels: number = 3;
+  @ContentChild(TemplateRef)
+  @Input() optionsTemplate: TemplateRef<any>;
+  
+  // Input binding with getter / setter
   @Input() set isOpen(value) {
     this._isOpen = value;
     if (value) {
@@ -45,26 +52,13 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     }
   }
   get isOpen() { return this._isOpen; }
-  @Input() disabled: boolean = false;
-  @Input() groupedProperty: string;
-  @Input() ofPrimitiveType: boolean = false;
-  @Input() showMaxLabels: number = 3;
   @Input() set propertyMap(val) {
     this._defaultPropertyMap = { ...this._defaultPropertyMap, ...val };
   }
   @Input()
   set options(collection) {
     if(!collection) return;
-    if (this.ofPrimitiveType) {
-      this._optionsCopy = collection.map((item: any, index: number) => ({ id: index, name: item }));
-    } else {
-      let keys = Object.keys(this._defaultPropertyMap);
-      this._optionsCopy = collection.map((item: any) => {
-        let obj = { [this.groupedProperty]: item[this.groupedProperty] };
-        keys.reduce((a: any, b: string) => { obj[b] = item[this._defaultPropertyMap[b]] }, obj);
-        return obj;
-      })
-    }
+    this._optionsCopy = this.istevenMultiselectService.mapDatasourceToFields(collection, this._defaultPropertyMap, this.groupedProperty)
     this.setOptions([...this._optionsCopy]);
     if(this.isOperationPending()) this.finishPendingOperations();
   }
@@ -76,8 +70,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
     this._multiple = value;
   }
 
-  @ContentChild(TemplateRef)
-  @Input() optionsTemplate: TemplateRef<any>;
+  // Output bindings
   @Output() onOpen: EventEmitter<any> = new EventEmitter<void>();
   @Output() onClose: EventEmitter<any> = new EventEmitter<void>();
   @Output() onItemClick: EventEmitter<any> = new EventEmitter<any>();

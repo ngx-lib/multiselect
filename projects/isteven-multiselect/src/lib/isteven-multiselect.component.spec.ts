@@ -232,6 +232,20 @@ describe('IstevenMultiselectComponent', () => {
         expect(true).toBeTruthy();
       });
     });
+    describe('Property Map', () => {
+      it('Default property map should work', () => {
+        // arrange
+        // act
+        // assert
+        expect(true).toBeTruthy();
+      });
+      it('modified property map should function properly', () => {
+        // arrange
+        // act
+        // assert
+        expect(true).toBeTruthy();
+      });
+    });
 
     // TODO: check where to keep this test case
     it('for empty input field, it should show all option', () => {

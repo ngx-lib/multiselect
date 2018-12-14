@@ -12,6 +12,7 @@ import { AppService } from './app.service';
 export class AppComponent implements OnInit, OnDestroy {
 
   singleSelectOptions;
+  propertyMapOptions;
   multipleSelectOptions;
   groupingOptions;
   observableOptions;
@@ -23,6 +24,7 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor (private appService: AppService) {}
 
   singleSelect: any = {id: 1, name: 'a'}
+  propertyMapValue: any = {id: 2, name: 'b'}
   mutlipleSelect = new FormControl([
     {id: 1, name: 'Test 1'},
     {id: 2, name: 'Test 2'}
@@ -42,6 +44,7 @@ export class AppComponent implements OnInit, OnDestroy {
     // Retrieving data for dropdown
     this.singleSelectOptionsSubscription = this.appService.getSingleSelectOptions().subscribe(
       data => {
+        this.propertyMapOptions = [...data]
         this.singleSelectOptions = [...data]
         this.customTemplateOptions = [...data]
       }
