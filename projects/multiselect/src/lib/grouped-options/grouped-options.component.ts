@@ -62,7 +62,7 @@ export class GroupedOptionsComponent implements OnInit {
   select(groupOption, option) {
     this.selectOption.emit(option);
     // TODO: check why later part works well?
-    if (!this.multiple) {
+    if (this.multiple) {
       const allAreSelected = groupOption.values.every(v => v.ticked)
       groupOption.ticked = allAreSelected;
     }
