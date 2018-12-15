@@ -24,5 +24,8 @@
   </div>
 </div>
 <ng-template #groupedTemplate>
-  <ms-grouped-options [optionsTemplate]="optionsTemplate" [options]="_options" [disabled]="disabled" [groupedProperty]="groupedProperty" (selectOption)="select($event)" (selectGroup)="selectGroup($event)"></ms-grouped-options>
+  <ms-grouped-options [multiple]="multiple" [optionsTemplate]="optionsTemplate"
+    [options]="_options" [disabled]="disabled" [groupedProperty]="groupedProperty" 
+    (selectOption)="select($event)" (selectGroup)="selectGroup($event)">
+  </ms-grouped-options>
 </ng-template>
