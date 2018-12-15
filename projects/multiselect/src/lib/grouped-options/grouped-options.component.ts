@@ -2,7 +2,7 @@ import {
   Component, OnInit, Input, ChangeDetectionStrategy, Output, 
   EventEmitter, TemplateRef, ViewEncapsulation, ViewChild
 } from '@angular/core';
-import { IstevenMultiselectService } from '../services/multiselect.service';
+import { NgxMultiselectService } from '../services/multiselect.service';
 
 @Component({
   selector: 'im-grouped-options',
@@ -30,7 +30,7 @@ export class GroupedOptionsComponent implements OnInit {
 
   @ViewChild('defaultOptionsTemplate') defaultOptionsTemplate: TemplateRef<any>;
 
-  constructor(private istevenMultiselectService: IstevenMultiselectService) { }
+  constructor(private istevenMultiselectService: NgxMultiselectService) { }
 
   getOptionStyle(option: any) {
     return {'marked': option.ticked, disabled: (this.disabled || option.disabled)};

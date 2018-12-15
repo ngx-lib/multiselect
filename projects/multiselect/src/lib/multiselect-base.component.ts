@@ -1,6 +1,6 @@
 import { ControlValueAccessor } from '@angular/forms';
 
-export abstract class IstevenMultiselectBaseComponent implements ControlValueAccessor {
+export abstract class NgxMultiselectBaseComponent implements ControlValueAccessor {
   
   private operationPendingQueue: any[] = [];
   abstract _options: any[];

@@ -3,8 +3,8 @@ import {
   ContentChild, TemplateRef, HostListener, Output, EventEmitter
 } from '@angular/core';
 
-import { IstevenMultiselectService } from './services/multiselect.service';
-import { IstevenMultiselectBaseComponent } from './multiselect-base.component';
+import { NgxMultiselectService } from './services/multiselect.service';
+import { NgxMultiselectBaseComponent } from './multiselect-base.component';
 import { DEFAULT_VALUE_ACCESSOR } from './services/default-value-accessor';
 
 @Component({
@@ -14,11 +14,11 @@ import { DEFAULT_VALUE_ACCESSOR } from './services/default-value-accessor';
   providers: [DEFAULT_VALUE_ACCESSOR],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent {
+export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
 
   constructor(
     protected elementRef: ElementRef,
-    protected istevenMultiselectService: IstevenMultiselectService) {
+    protected istevenMultiselectService: NgxMultiselectService) {
     super();
   }
 

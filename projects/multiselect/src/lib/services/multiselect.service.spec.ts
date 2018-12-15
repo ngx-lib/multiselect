@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { IstevenMultiselectService } from './multiselect.service';
+import { NgxMultiselectService } from './multiselect.service';
 
 describe('IstevenMultiselectService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [IstevenMultiselectService]
+      providers: [NgxMultiselectService]
     });
   });
 
-  it('should be find out closest element when element tag have been passed to it', inject([IstevenMultiselectService], (service: IstevenMultiselectService) => {
+  it('should be find out closest element when element tag have been passed to it', inject([NgxMultiselectService], (service: NgxMultiselectService) => {
     // arrange
     // act
     // assert

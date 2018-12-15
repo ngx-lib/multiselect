@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { IstevenMultiselectComponent } from './multiselect.component';
+import { NgxMultiselectComponent as NgxMultiselectComponent } from './multiselect.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DisplaySelectedValuePipe } from './pipes/display-selected-value.pipe';
@@ -15,7 +15,7 @@ import { GroupedOptionsComponent } from './grouped-options/grouped-options.compo
     ReactiveFormsModule
   ],
   declarations: [
-    IstevenMultiselectComponent,
+    NgxMultiselectComponent,
     DisplaySelectedValuePipe,
     HelperElementsComponent,
     FilterOptionsComponent,
@@ -23,8 +23,8 @@ import { GroupedOptionsComponent } from './grouped-options/grouped-options.compo
     GroupedOptionsComponent
   ],
   exports: [
-    IstevenMultiselectComponent,
+    NgxMultiselectComponent,
     DisplaySelectedValuePipe
   ]
 })
-export class IstevenMultiselectModule { }
+export class NgxMultiselectModule { }
