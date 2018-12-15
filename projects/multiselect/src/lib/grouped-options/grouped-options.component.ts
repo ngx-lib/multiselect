@@ -2,7 +2,7 @@ import {
   Component, OnInit, Input, ChangeDetectionStrategy, Output, 
   EventEmitter, TemplateRef, ViewEncapsulation, ViewChild
 } from '@angular/core';
-import { IstevenMultiselectService } from '../services/isteven-multiselect.service';
+import { IstevenMultiselectService } from '../services/multiselect.service';
 
 @Component({
   selector: 'im-grouped-options',

@@ -1,10 +1,10 @@
 /*
- * Public API Surface of isteven-multiselect
+ * Public API Surface of multiselect
  */
 
-export * from './lib/isteven-multiselect.module';
+export * from './lib/multiselect.module';
 export * from './lib/pipes/display-selected-value.pipe';
-export * from './lib/services/isteven-multiselect.service';
+export * from './lib/services/multiselect.service';
 export * from './lib/services/default-value-accessor';
 export * from './lib/grouped-options/grouped-options.component';
 export * from './lib/options/options.component';

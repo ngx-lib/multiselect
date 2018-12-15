@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { IstevenMultiselectComponent } from './isteven-multiselect.component';
+import { IstevenMultiselectComponent } from './multiselect.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DisplaySelectedValuePipe } from './pipes/display-selected-value.pipe';

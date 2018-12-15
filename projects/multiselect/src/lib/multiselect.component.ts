@@ -3,14 +3,14 @@ import {
   ContentChild, TemplateRef, HostListener, Output, EventEmitter
 } from '@angular/core';
 
-import { IstevenMultiselectService } from './services/isteven-multiselect.service';
-import { IstevenMultiselectBaseComponent } from './isteven-multiselect-base.component';
+import { IstevenMultiselectService } from './services/multiselect.service';
+import { IstevenMultiselectBaseComponent } from './multiselect-base.component';
 import { DEFAULT_VALUE_ACCESSOR } from './services/default-value-accessor';
 
 @Component({
-  selector: 'ngx-isteven-multiselect',
-  templateUrl: './isteven-multiselect.component.html',
-  styleUrls: ['./isteven-multiselect.component.css'],
+  selector: 'ngx-multiselect',
+  templateUrl: './multiselect.component.html',
+  styleUrls: ['./multiselect.component.css'],
   providers: [DEFAULT_VALUE_ACCESSOR],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -196,7 +196,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   // TODO: Also convert below to be work for element specific
   @HostListener('document:click', ['$event.target'])
   clickOutSide(event) {
-    if (this.elementRef.nativeElement !== event && !this.istevenMultiselectService.closest(event, 'ngx-isteven-multiselect') && this.isOpen) {
+    if (this.elementRef.nativeElement !== event && !this.istevenMultiselectService.closest(event, 'ngx-multiselect') && this.isOpen) {
       this.close();
     }
   }
