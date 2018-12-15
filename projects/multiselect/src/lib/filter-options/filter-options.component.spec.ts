@@ -4,7 +4,7 @@ import { BrowserModule, By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { FilterOptionsComponent } from './filter-options.component';
-import { IstevenMultiselectService } from '../services/isteven-multiselect.service';
+import { IstevenMultiselectService } from '../services/multiselect.service';
 
 describe('FilterOptionsComponent', () => {
   let component: FilterOptionsComponent;

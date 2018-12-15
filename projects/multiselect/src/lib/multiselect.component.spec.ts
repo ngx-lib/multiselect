@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { IstevenMultiselectComponent } from './isteven-multiselect.component';
+import { IstevenMultiselectComponent } from './multiselect.component';
 import { FilterOptionsComponent } from './filter-options/filter-options.component';
 import { GroupedOptionsComponent } from './grouped-options/grouped-options.component';
 import { DisplaySelectedValuePipe } from './pipes/display-selected-value.pipe';

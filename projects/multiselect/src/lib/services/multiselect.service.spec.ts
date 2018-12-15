@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { IstevenMultiselectService } from './isteven-multiselect.service';
+import { IstevenMultiselectService } from './multiselect.service';
 
 describe('IstevenMultiselectService', () => {
   beforeEach(() => {

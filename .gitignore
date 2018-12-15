@@ -39,4 +39,4 @@ testem.log
 Thumbs.db
 
 # Projects
-projects/isteven-multiselect/node_modules
+projects/multiselect/node_modules

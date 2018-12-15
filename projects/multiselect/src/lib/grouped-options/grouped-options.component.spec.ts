@@ -100,14 +100,14 @@ describe('GroupedOptionsComponent', () => {
       expect(options.length).toBe(0)
       expect(groupElement).toBeNull()
     });
-    // TODO: How to test this, we can test this in isteven-multiselect smart component?
+    // TODO: How to test this, we can test this in multiselect smart component?
     it('when all the options of group were selected, then it should tick the group option automatically', () => {
       // arrange
       // act
       // assert
       expect(true).toBeTruthy();
     });
-    // TODO: How to test this, we can test this in isteven-multiselect smart component?
+    // TODO: How to test this, we can test this in multiselect smart component?
     it('initially all group options selected, removal any of them should unmark group option', () => {
       // arrange
       // act
@@ -138,14 +138,14 @@ describe('GroupedOptionsComponent', () => {
   })
 
   describe('Styling', () => {
-    // TODO: Moved out to isteven-multiselect?
+    // TODO: Moved out to multiselect?
     it('on select of option should apply correct CSS to option', () => {
       // arrange
       // act
       // assert
       expect(true).toBeTruthy();
     });
-    // TODO: Moved out to isteven-multiselect?
+    // TODO: Moved out to multiselect?
     it('mark class should removed based on click on selected optioin', () => {
       // arrange
       // act

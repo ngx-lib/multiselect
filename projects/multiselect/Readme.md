@@ -43,7 +43,7 @@ I've not started the work
 ## Development server
 
 This project is highly under construction. To run this project you have to run below commands
-1. `ng build isteven-multiselect`
+1. `ng build multiselect`
 2. `ng serve`
 
 To play around with this repository you have to run below two commands
