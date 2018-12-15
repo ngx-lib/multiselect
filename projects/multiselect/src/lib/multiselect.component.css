@@ -1,4 +1,4 @@
-/* Most of the CSS inherited from isteven multiselect */
+/* CSS multiselect */
 
 .caret{
   right: 0;
@@ -10,7 +10,7 @@
   background-color: green
 }
 
-.isteven-wrapper {
+.multiselect-wrapper {
   width: 240px;
 }
 

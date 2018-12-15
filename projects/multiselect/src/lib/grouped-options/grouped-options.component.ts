@@ -20,7 +20,7 @@ export class GroupedOptionsComponent implements OnInit {
   @Input() disabled = false;
   @Input() optionsTemplate: TemplateRef<any>;
   @Input() set options (value) {
-    this.groupedOptions = this.istevenMultiselectService.optionsGrouping(value, this.groupedProperty);
+    this.groupedOptions = this.multiselectService.optionsGrouping(value, this.groupedProperty);
   }
   get options(){
     return this.groupedOptions;
@@ -30,7 +30,7 @@ export class GroupedOptionsComponent implements OnInit {
 
   @ViewChild('defaultOptionsTemplate') defaultOptionsTemplate: TemplateRef<any>;
 
-  constructor(private istevenMultiselectService: NgxMultiselectService) { }
+  constructor(private multiselectService: NgxMultiselectService) { }
 
   getOptionStyle(option: any) {
     return {'marked': option.ticked, disabled: (this.disabled || option.disabled)};

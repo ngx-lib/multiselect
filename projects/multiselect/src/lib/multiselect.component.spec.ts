@@ -9,7 +9,7 @@ import { DisplaySelectedValuePipe } from './pipes/display-selected-value.pipe';
 import { HelperElementsComponent } from './helper-elements/helper-elements.component';
 import { OptionsComponent } from './options/options.component';
 
-describe('IstevenMultiselectComponent', () => {
+describe('MultiselectComponent', () => {
   let component: NgxMultiselectComponent;
   let fixture: ComponentFixture<NgxMultiselectComponent>;
 

@@ -18,7 +18,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
 
   constructor(
     protected elementRef: ElementRef,
-    protected istevenMultiselectService: NgxMultiselectService) {
+    protected multiselectService: NgxMultiselectService) {
     super();
   }
 
@@ -58,7 +58,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   @Input()
   set options(collection) {
     if(!collection) return;
-    this._optionsCopy = this.istevenMultiselectService.mapDatasourceToFields(collection, this._defaultPropertyMap, this.groupedProperty)
+    this._optionsCopy = this.multiselectService.mapDatasourceToFields(collection, this._defaultPropertyMap, this.groupedProperty)
     this.setOptions([...this._optionsCopy]);
     if(this.isOperationPending()) this.finishPendingOperations();
   }
@@ -196,7 +196,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   // TODO: Also convert below to be work for element specific
   @HostListener('document:click', ['$event.target'])
   clickOutSide(event) {
-    if (this.elementRef.nativeElement !== event && !this.istevenMultiselectService.closest(event, 'ngx-multiselect') && this.isOpen) {
+    if (this.elementRef.nativeElement !== event && !this.multiselectService.closest(event, 'ngx-multiselect') && this.isOpen) {
       this.close();
     }
   }
