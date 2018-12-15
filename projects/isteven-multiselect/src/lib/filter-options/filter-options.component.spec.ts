@@ -25,9 +25,6 @@ describe('FilterOptionsComponent', () => {
     component.filterOptionsList.subscribe(text =>{
       filterText = text;
     })
-    component.filterOptionsList.subscribe(text =>{
-      filterText = text;
-    })
     debugElement = fixture.debugElement
     fixture.detectChanges();
     component.filterName.patchValue('some text');

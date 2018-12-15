@@ -1,8 +1,28 @@
-<h2>Single Select (Template Driven form)</h2>
+<h2>Single Select (with Property Map)</h2>
+<!-- [ofPrimitiveType]="true" -->
+<ngx-isteven-multiselect 
+  [(ngModel)]="propertyMapValue"
+  [propertyMap]="{
+    'EmpId': 'id',
+    'EmpName': 'name'
+  }"
+  [options]="propertyMapOptions"
+  ngDefaultControl
+></ngx-isteven-multiselect>
+
+<h2>Single Select (Template Driven form with callback events check)</h2>
 <!-- [ofPrimitiveType]="true" -->
 <ngx-isteven-multiselect 
   [(ngModel)]="singleSelect"
   [options]="singleSelectOptions"
+  (onOpen)="genericEvent($event, 'onOpen')"
+  (onClose)="genericEvent($event, 'onClose')"
+  (onItemClick)="genericEvent($event, 'onItemClick')"
+  (onSelectAll)="genericEvent($event, 'onSelectAll')"
+  (onSelectNone)="genericEvent($event, 'onSelectNone')"
+  (onReset)="genericEvent($event, 'onReset')"
+  (onClear)="genericEvent($event, onClear)"
+  (onSearchChange)="genericEvent($event, 'onSearchChange')"
   ngDefaultControl
 ></ngx-isteven-multiselect>
 <b>Selected Value: </b> {{singleSelect | json}}
