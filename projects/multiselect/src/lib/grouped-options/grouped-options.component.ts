@@ -18,6 +18,7 @@ export class GroupedOptionsComponent implements OnInit {
 
   @Input() groupedProperty: string;
   @Input() disabled = false;
+  @Input() multiple = false;
   @Input() optionsTemplate: TemplateRef<any>;
   @Input() set options (value) {
     this.groupedOptions = this.multiselectService.optionsGrouping(value, this.groupedProperty);
