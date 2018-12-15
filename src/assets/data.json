@@ -81,12 +81,14 @@
     {
       "id": 3,
       "name": "Test 3",
-      "category": "Cat 2"
+      "category": "Cat 2",
+      "disabled": true
     },
     {
       "id": 4,
       "name": "Test 4",
-      "category": "Cat 2"
+      "category": "Cat 2",
+      "disabled": true
     },
     {
       "id": 5,
