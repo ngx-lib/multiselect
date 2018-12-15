@@ -1,6 +1,6 @@
 {
-  "name": "ngx-isteven-multiselect",
-  "version": "0.0.5",
+  "name": "@ngx-lib/multiselect",
+  "version": "0.0.1",
   "keywords": [
     "angular",
     "multiselect",
