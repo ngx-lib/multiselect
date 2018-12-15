@@ -2,21 +2,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { IstevenMultiselectComponent } from './isteven-multiselect.component';
+import { NgxMultiselectComponent } from './multiselect.component';
 import { FilterOptionsComponent } from './filter-options/filter-options.component';
 import { GroupedOptionsComponent } from './grouped-options/grouped-options.component';
 import { DisplaySelectedValuePipe } from './pipes/display-selected-value.pipe';
 import { HelperElementsComponent } from './helper-elements/helper-elements.component';
 import { OptionsComponent } from './options/options.component';
 
-describe('IstevenMultiselectComponent', () => {
-  let component: IstevenMultiselectComponent;
-  let fixture: ComponentFixture<IstevenMultiselectComponent>;
+describe('MultiselectComponent', () => {
+  let component: NgxMultiselectComponent;
+  let fixture: ComponentFixture<NgxMultiselectComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        IstevenMultiselectComponent, FilterOptionsComponent, GroupedOptionsComponent,
+        NgxMultiselectComponent, FilterOptionsComponent, GroupedOptionsComponent,
         DisplaySelectedValuePipe, HelperElementsComponent, OptionsComponent
       ],
       imports: [FormsModule, ReactiveFormsModule, BrowserModule]
@@ -26,7 +26,7 @@ describe('IstevenMultiselectComponent', () => {
 
   function beforeEachSetup() {
     beforeEach(() => {
-      fixture = TestBed.createComponent(IstevenMultiselectComponent);
+      fixture = TestBed.createComponent(NgxMultiselectComponent);
       component = fixture.componentInstance;
       fixture.detectChanges();
     });

@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'im-filter-options',
+  selector: 'ms-filter-options',
   templateUrl: './filter-options.component.html',
   styleUrls: ['./filter-options.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush

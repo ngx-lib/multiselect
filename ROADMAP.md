@@ -2,7 +2,7 @@ Using Angular 7 version right now. Slowly I'll try to downgrade and will add a s
 
 ## Plans
 
-This plans are based on current idea, it could change in future. First thing I'd like to cover all the features that have been used in isteven branch. Each feature will make sure that it should done in optimistic way of 
+This plans are based on current idea, it could change in future. First thing I'd like to cover all the features that have been used in the branch. Each feature will make sure that it should done in optimistic way of 
 
  1. ~~Single Select~~
  2. ~~Multiple Select~~

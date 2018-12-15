@@ -1,7 +1,7 @@
-import { Component, OnInit, EventEmitter, Output, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, EventEmitter, Output, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'im-helper-elements',
+  selector: 'ms-helper-elements',
   templateUrl: './helper-elements.component.html',
   styleUrls: ['./helper-elements.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'im-options',
+  selector: 'ms-options',
   templateUrl: './options.component.html',
   styleUrls: ['./options.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
