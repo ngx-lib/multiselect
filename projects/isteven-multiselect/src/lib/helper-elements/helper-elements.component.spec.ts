@@ -1,13 +1,16 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { HelperElementsComponent } from './helper-elements.component';
 import { DebugElement, ChangeDetectionStrategy } from '@angular/core';
 import { By } from '@angular/platform-browser';
+import { checkElementForText } from './helper-elements.component.specHelper';
 
 describe('HelperElementsComponent', () => {
   let component: HelperElementsComponent;
   let fixture: ComponentFixture<HelperElementsComponent>;
   let debugElement: DebugElement;
+  const SELECT_ALL = 'select all';
+  const SELECT_NONE = 'select none';
+  const RESET = 'reset';
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -26,7 +29,7 @@ describe('HelperElementsComponent', () => {
     debugElement = fixture.debugElement;
     fixture.detectChanges();
   });
-
+  
   it('Component should gets added into the DOM', () => {
     // arrange
     // act
@@ -70,7 +73,7 @@ describe('HelperElementsComponent', () => {
       });
       // act
       const selectNoneBtn = debugElement.queryAll(By.css('button.helper-button'))
-            .find(btn => btn.nativeElement.textContent.toLowerCase().indexOf('select none') !== -1);
+            .find(btn => checkElementForText(btn, SELECT_NONE));
       selectNoneBtn.triggerEventHandler('click', {});
       // assert
       expect(selectNoneBtnClicked).toBe(true);
@@ -95,7 +98,7 @@ describe('HelperElementsComponent', () => {
      });
      // act
      const resetBtn = debugElement.queryAll(By.css('button.helper-button'))
-            .find(btn => btn.nativeElement.textContent.toLowerCase().indexOf('reset') !== -1);
+            .find(btn => checkElementForText(btn, RESET));
       resetBtn.triggerEventHandler('click', {});
      // assert
      expect(resetBtnClicked).toBe(true);
@@ -116,8 +119,8 @@ describe('HelperElementsComponent', () => {
       component.multiple = true;
       fixture.detectChanges();
       const buttons = debugElement.queryAll(By.css('button.helper-button'));
-      const selectAllBtn = buttons.filter(btn => btn.nativeElement.textContent.toLowerCase().indexOf('select all') !== -1);
-      const selectNoneBtn = buttons.filter(btn => btn.nativeElement.textContent.toLowerCase().indexOf('select none') !== -1);
+      const selectAllBtn = buttons.filter(btn => checkElementForText(btn, SELECT_ALL));
+      const selectNoneBtn = buttons.filter(btn => checkElementForText(btn, SELECT_NONE));
       // act
       // assert
       expect(selectAllBtn.length).toBe(1);
@@ -129,8 +132,8 @@ describe('HelperElementsComponent', () => {
       component.multiple = false;
       fixture.detectChanges();
       const buttons = debugElement.queryAll(By.css('button.helper-button'));
-      const selectAllBtn = buttons.filter(btn => btn.nativeElement.textContent.toLowerCase().indexOf('select all') !== -1);
-      const selectNoneBtn = buttons.filter(btn => btn.nativeElement.textContent.toLowerCase().indexOf('select none') !== -1);
+      const selectAllBtn = buttons.filter(btn => checkElementForText(btn, SELECT_ALL));
+      const selectNoneBtn = buttons.filter(btn => checkElementForText(btn, SELECT_NONE));
       // act
       // assert
       expect(selectAllBtn.length).toBe(0);
@@ -144,13 +147,13 @@ describe('HelperElementsComponent', () => {
       component.multiple = false;
       fixture.detectChanges();
       const buttons = debugElement.queryAll(By.css('button.helper-button'));
-      let resetBtn = buttons.filter(btn => btn.nativeElement.textContent.toLowerCase().indexOf('reset') !== -1);
+      let resetBtn = buttons.filter(btn => btn => checkElementForText(btn, RESET));
       // act
       // assert
       expect(resetBtn.length).toBe(1);
       component.multiple = true;
       fixture.detectChanges();
-      resetBtn = buttons.filter(btn => btn.nativeElement.textContent.toLowerCase().indexOf('reset') !== -1);
+      resetBtn = buttons.filter(btn => btn => checkElementForText(btn, RESET));
       expect(resetBtn.length).toBe(1);
     });
   });
