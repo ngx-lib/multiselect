@@ -7,7 +7,7 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "im",
+      "prefix": "ms",
       "schematics": {},
       "architect": {
         "build": {
@@ -126,7 +126,7 @@
       "root": "projects/multiselect",
       "sourceRoot": "projects/multiselect/src",
       "projectType": "library",
-      "prefix": "lib",
+      "prefix": "ms",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",

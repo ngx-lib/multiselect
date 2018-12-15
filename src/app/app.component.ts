@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { AppService } from './app.service';
 
 @Component({
-  selector: 'im-root',
+  selector: 'ms-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

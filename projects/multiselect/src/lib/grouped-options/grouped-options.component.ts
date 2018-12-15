@@ -5,7 +5,7 @@ import {
 import { NgxMultiselectService } from '../services/multiselect.service';
 
 @Component({
-  selector: 'im-grouped-options',
+  selector: 'ms-grouped-options',
   templateUrl: './grouped-options.component.html',
   styleUrls: ['./grouped-options.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
