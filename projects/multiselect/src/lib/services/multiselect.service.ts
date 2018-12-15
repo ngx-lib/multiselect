@@ -5,7 +5,7 @@ const matchSelectors = ['matches', 'webkitMatchesSelector', 'mozMatchesSelector'
 @Injectable({
   providedIn: 'root'
 })
-export class IstevenMultiselectService {
+export class NgxMultiselectService {
   constructor() { }
 
   pseudoClassExist(node, selector) {

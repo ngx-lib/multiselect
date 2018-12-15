@@ -1,13 +1,13 @@
-# Isteven Multiselect
+# Multiselect
 
 This project basically gonna help using dropdown / select in efficient manner. This idea has been inspired by AngularJS [isteven-multiselect](http://isteven.github.io/angular-multi-select). In terms of UI it will look somewhat similar to isteven multiselect, but interms of code it may not exactly architectured in the same way.
-Currently I'm planning to support the feature provided by isteven-multiselect, plus other features (list going to updated soon). Still this library is under alpha version.
+Currently I'm planning to support the feature provided by isteven-multiselect, plus other features. Still this library is under beta version.
 
 Using Angular 7 version right now.
 
 ## Plans
 
-This plans are based on current idea, it could change in future. First thing I'd like to cover all the features that have been used in isteven branch. Each feature will make sure that it should done in optimistic way of 
+This plans are based on current idea, it could change in future. First thing I'd like to cover all the features that have been used in the branch. Each feature will make sure that it should done in optimistic way of 
 
  1. ~~Single Select~~
  2. ~~Multiple Select~~
@@ -43,12 +43,12 @@ I've not started the work
 ## Development server
 
 This project is highly under construction. To run this project you have to run below commands
-1. `ng build isteven-multiselect`
+1. `ng build multiselect`
 2. `ng serve`
 
 To play around with this repository you have to run below two commands
-1. `npm run isteven-watch` - This command will help to build isteven library everytime when you change any file from it.  
-2. `ng serve` - To run application, it will consume live isteven library
+1. `npm run multiselect-watch` - This command will help to build multiselect library everytime when you change any file from it.  
+2. `ng serve` - To run application, it will consume live multiselect library
 
 ## Track Realtime Status of Feature
 

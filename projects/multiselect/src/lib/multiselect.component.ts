@@ -3,22 +3,22 @@ import {
   ContentChild, TemplateRef, HostListener, Output, EventEmitter
 } from '@angular/core';
 
-import { IstevenMultiselectService } from './services/isteven-multiselect.service';
-import { IstevenMultiselectBaseComponent } from './isteven-multiselect-base.component';
+import { NgxMultiselectService } from './services/multiselect.service';
+import { NgxMultiselectBaseComponent } from './multiselect-base.component';
 import { DEFAULT_VALUE_ACCESSOR } from './services/default-value-accessor';
 
 @Component({
-  selector: 'ngx-isteven-multiselect',
-  templateUrl: './isteven-multiselect.component.html',
-  styleUrls: ['./isteven-multiselect.component.css'],
+  selector: 'ngx-multiselect',
+  templateUrl: './multiselect.component.html',
+  styleUrls: ['./multiselect.component.css'],
   providers: [DEFAULT_VALUE_ACCESSOR],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent {
+export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
 
   constructor(
     protected elementRef: ElementRef,
-    protected istevenMultiselectService: IstevenMultiselectService) {
+    protected multiselectService: NgxMultiselectService) {
     super();
   }
 
@@ -58,7 +58,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   @Input()
   set options(collection) {
     if(!collection) return;
-    this._optionsCopy = this.istevenMultiselectService.mapDatasourceToFields(collection, this._defaultPropertyMap, this.groupedProperty)
+    this._optionsCopy = this.multiselectService.mapDatasourceToFields(collection, this._defaultPropertyMap, this.groupedProperty)
     this.setOptions([...this._optionsCopy]);
     if(this.isOperationPending()) this.finishPendingOperations();
   }
@@ -196,7 +196,7 @@ export class IstevenMultiselectComponent extends IstevenMultiselectBaseComponent
   // TODO: Also convert below to be work for element specific
   @HostListener('document:click', ['$event.target'])
   clickOutSide(event) {
-    if (this.elementRef.nativeElement !== event && !this.istevenMultiselectService.closest(event, 'ngx-isteven-multiselect') && this.isOpen) {
+    if (this.elementRef.nativeElement !== event && !this.multiselectService.closest(event, 'ngx-multiselect') && this.isOpen) {
       this.close();
     }
   }

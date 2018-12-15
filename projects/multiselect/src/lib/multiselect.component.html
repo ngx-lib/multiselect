@@ -1,4 +1,4 @@
-<div class="isteven-wrapper">
+<div class="multiselect-wrapper">
   <button class="dropdown-button" (click)="isOpen = !isOpen">
     <div class="selection">
       <!-- TODO: None selected template should be ng-template -->
@@ -10,19 +10,19 @@
     </div>
   </button>
   <div class="listing-wrapper" *ngIf="isOpen">
-    <im-helper-elements [multiple]="multiple"
+    <ms-helper-elements [multiple]="multiple"
       (onClear)="onClear.emit()" (resetClicked)="reset()"
       (onSearchChange)="onSearchChange.emit($event)" (selectNoneClicked)="selectNone()"
       (selectAllClicked)="selectAll()" (selectNoneClicked)="selectNone()">
-    </im-helper-elements>
-    <im-filter-options (filterOptionsList)="filterOptionsList($event)"
+    </ms-helper-elements>
+    <ms-filter-options (filterOptionsList)="filterOptionsList($event)"
       (onClear)="onClear.emit()" (onSearchChange)="onSearchChange.emit($event)"
-    ></im-filter-options>
+    ></ms-filter-options>
     <ng-container *ngIf="!groupedProperty else groupedTemplate">
-      <im-options [optionsTemplate]="optionsTemplate" [options]="_options" [disabled]="disabled" (selectOption)="select($event)"></im-options>
+      <ms-options [optionsTemplate]="optionsTemplate" [options]="_options" [disabled]="disabled" (selectOption)="select($event)"></ms-options>
     </ng-container>
   </div>
 </div>
 <ng-template #groupedTemplate>
-  <im-grouped-options [optionsTemplate]="optionsTemplate" [options]="_options" [disabled]="disabled" [groupedProperty]="groupedProperty" (selectOption)="select($event)" (selectGroup)="selectGroup($event)"></im-grouped-options>
+  <ms-grouped-options [optionsTemplate]="optionsTemplate" [options]="_options" [disabled]="disabled" [groupedProperty]="groupedProperty" (selectOption)="select($event)" (selectGroup)="selectGroup($event)"></ms-grouped-options>
 </ng-template>

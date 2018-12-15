@@ -17,11 +17,11 @@
       "dom"
     ],
     "paths": {
-      "isteven-multiselect": [
-        "dist/isteven-multiselect"
+      "multiselect": [
+        "dist/multiselect"
       ],
-      "isteven-multiselect/*": [
-        "dist/isteven-multiselect/*"
+      "multiselect/*": [
+        "dist/multiselect/*"
       ]
     }
   }
