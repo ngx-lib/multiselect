@@ -50,7 +50,8 @@ export class NgxMultiselectService {
         return {
           name: group,
           values: groupedValues,
-          ticked: groupedValues.every(o => o.ticked)
+          ticked: groupedValues.every(o => o.ticked),
+          disabled: groupedValues.every(o => o.disabled),
         }
       }
     )
