@@ -1,6 +1,6 @@
 <h2>Single Select (with Property Map)</h2>
 <!-- [ofPrimitiveType]="true" -->
-<!-- <ngx-multiselect 
+<ngx-multiselect 
   [(ngModel)]="propertyMapValue"
   [propertyMap]="{
     'EmpId': 'id',
@@ -34,7 +34,7 @@
   [multiple]="true">
 </ngx-multiselect>
 <b>Selected Values: </b> {{mutlipleSelect?.value | json}}
-<hr /> -->
+<hr />
 <h2>Multiple Select Grouping Support</h2>
 <ngx-multiselect 
   [formControl]="groupingSupport"
@@ -44,7 +44,7 @@
   [multiple]="true">
 </ngx-multiselect>
 <b>Selected Values: </b> {{groupingSupport?.value | json}}
-<!-- <hr />
+<hr />
 <h2>Multiple Select (With Observable)</h2>
 <ngx-multiselect 
   [formControl]="withObservable"
@@ -58,9 +58,9 @@
   [formControl]="customTemplateSelect" 
   ngDefaultControl 
   [options]="customTemplateOptions"
-  [multiple]="true"> -->
+  [multiple]="true">
   <!-- TODO: Check on below let attributes are neccessary -->
-  <!-- <ng-template
+  <ng-template
     let-getOptionStyle="getOptionStyle"
     let-options="options"
     let-trackByOption="trackByOption"
@@ -69,4 +69,4 @@
       {{option.name}} Test
     </div>
   </ng-template>
-</ngx-multiselect> -->
+</ngx-multiselect>
