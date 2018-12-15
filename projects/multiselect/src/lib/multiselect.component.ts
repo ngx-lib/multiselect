@@ -2,10 +2,17 @@ import {
   Component, Input, ChangeDetectionStrategy, ElementRef,
   ContentChild, TemplateRef, HostListener, Output, EventEmitter
 } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { NgxMultiselectService } from './services/multiselect.service';
 import { NgxMultiselectBaseComponent } from './multiselect-base.component';
-import { DEFAULT_VALUE_ACCESSOR } from './services/default-value-accessor';
+import { forwardRef } from '@angular/core';
+
+export const DEFAULT_VALUE_ACCESSOR: any = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => NgxMultiselectComponent),
+  multi: true
+}
 
 @Component({
   selector: 'ngx-multiselect',
