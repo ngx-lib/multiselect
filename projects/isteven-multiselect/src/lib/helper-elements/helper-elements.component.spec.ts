@@ -48,7 +48,7 @@ describe('HelperElementsComponent', () => {
       });
       // act
       const selectAllBtn = debugElement.queryAll(By.css('button.helper-button'))
-            .find(btn => btn.nativeElement.textContent.toLowerCase().indexOf('select all') !== -1);
+            .find(btn => checkElementForText(btn, SELECT_ALL));
       selectAllBtn.triggerEventHandler('click', {});
       // assert
       expect(selectAllBtnClicked).toBe(true);
@@ -147,13 +147,13 @@ describe('HelperElementsComponent', () => {
       component.multiple = false;
       fixture.detectChanges();
       const buttons = debugElement.queryAll(By.css('button.helper-button'));
-      let resetBtn = buttons.filter(btn => btn => checkElementForText(btn, RESET));
+      let resetBtn = buttons.filter(btn => checkElementForText(btn, RESET));
       // act
       // assert
       expect(resetBtn.length).toBe(1);
       component.multiple = true;
       fixture.detectChanges();
-      resetBtn = buttons.filter(btn => btn => checkElementForText(btn, RESET));
+      resetBtn = buttons.filter(btn => checkElementForText(btn, RESET));
       expect(resetBtn.length).toBe(1);
     });
   });
