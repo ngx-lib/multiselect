@@ -37,7 +37,7 @@ export class GroupedOptionsComponent implements OnInit {
   }
 
   getGroupOptionStyle(group: any) {
-    return {'marked': (group.ticked && group.values.every(v => v.ticked)), disabled: this.disabled};
+    return {'marked': group.ticked, disabled: group.disabled};
   }
 
   trackByGroup (groupOption) {
