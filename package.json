@@ -6,7 +6,7 @@
     "start": "ng build multiselect && ng serve",
     "build": "ng build",
     "onchange": "onchange",
-    "isteven-watch": "npx onchange \"./projects/multiselect/src/lib/**/*.*\" -- ng build multiselect",
+    "multiselect-watch": "npx onchange \"./projects/multiselect/src/lib/**/*.*\" -- ng build multiselect",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
