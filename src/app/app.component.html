@@ -18,43 +18,7 @@
     </mat-sidenav>
 
     <mat-sidenav-content class="docs-sidenav-container">
-      <h2>Single Select (with Property Map)</h2>
-      <!-- [ofPrimitiveType]="true" -->
-      <ngx-multiselect [(ngModel)]="propertyMapValue" [propertyMap]="propertyMap" [options]="propertyMapOptions" ngDefaultControl></ngx-multiselect>
-
-      <h2>Single Select (Template Driven form with callback events check)</h2>
-      <ngx-multiselect [(ngModel)]="singleSelect" [options]="singleSelectOptions" (onOpen)="genericEvent($event, 'onOpen')"
-        (onClose)="genericEvent($event, 'onClose')" (onItemClick)="genericEvent($event, 'onItemClick')" (onSelectAll)="genericEvent($event, 'onSelectAll')"
-        (onSelectNone)="genericEvent($event, 'onSelectNone')" (onReset)="genericEvent($event, 'onReset')" (onClear)="genericEvent($event, onClear)"
-        (onSearchChange)="genericEvent($event, 'onSearchChange')" ngDefaultControl></ngx-multiselect>
-      <b>Selected Value: </b> {{singleSelect | json}}
-      <hr />
-      <h2>Multiple Select (Model Driven form)</h2>
-      <ngx-multiselect [formControl]="mutlipleSelect" ngDefaultControl [options]="multipleSelectOptions" [multiple]="true">
-      </ngx-multiselect>
-      <b>Selected Values: </b> {{mutlipleSelect?.value | json}}
-      <hr />
-      <h2>Multiple Select Grouping Support</h2>
-      <ngx-multiselect [formControl]="groupingSupport" ngDefaultControl [options]="groupingOptions" [groupedProperty]="'category'"
-        [multiple]="true">
-      </ngx-multiselect>
-      <b>Selected Values: </b> {{groupingSupport?.value | json}}
-      <hr />
-      <h2>Multiple Select (With Observable)</h2>
-      <ngx-multiselect [formControl]="withObservable" ngDefaultControl [options]="observableOptions | async" [multiple]="true">
-      </ngx-multiselect>
-      <hr />
-      <h2>Custom Template</h2>
-      <ngx-multiselect [formControl]="customTemplateSelect" ngDefaultControl [options]="customTemplateOptions" [multiple]="true">
-        <!-- TODO: Check on below let attributes are neccessary -->
-        <ng-template let-getOptionStyle="getOptionStyle" let-options="options" let-trackByOption="trackByOption"
-          let-select="select">
-          <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of options;trackBy:trackByOption"
-            (click)="select(option)">
-            {{option.name}} Test
-          </div>
-        </ng-template>
-      </ngx-multiselect>
+      <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
