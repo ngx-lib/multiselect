@@ -163,7 +163,8 @@ describe('GroupedOptionsComponent', () => {
       // assert
       const markedOtionsElements = debugElement.queryAll(By.css('.option.marked'))
       expect(markedOtionsElements.length).toBe(1)
-      expect(multiselectSelectSpy).toHaveBeenCalled();
+      expect(multiselectSelectSpy).toHaveBeenCalledWith(option);
+      expect(multiselectSelectSpy).toHaveBeenCalledTimes(1);
       expect(option.ticked).toBe(true)
     });
     it('should de-select an option on click of selected option', () => {
@@ -179,7 +180,8 @@ describe('GroupedOptionsComponent', () => {
       // assert
       const markedOtionsElements = debugElement.queryAll(By.css('.option.marked'))
       expect(markedOtionsElements.length).toBe(0)
-      expect(multiselectSelectSpy).toHaveBeenCalled();
+      expect(multiselectSelectSpy).toHaveBeenCalledWith(option);
+      expect(multiselectSelectSpy).toHaveBeenCalledTimes(2);
       expect(option.ticked).toBe(false)
     });
     it('should select / de-select option should change the selectedOptions', () => {
