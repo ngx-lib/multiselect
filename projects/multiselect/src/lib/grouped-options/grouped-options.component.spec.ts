@@ -9,6 +9,7 @@ import { NgxMultiselectService } from '../services/multiselect.service';
 
 describe('GroupedOptionsComponent', () => {
   let component: GroupedOptionsComponent;
+  let multiselect: NgxMultiselectComponent;
   let fixture: ComponentFixture<GroupedOptionsComponent>;
   let debugElement: DebugElement;
   let option: any;
@@ -38,7 +39,7 @@ describe('GroupedOptionsComponent', () => {
       { "id": 6, "name": "Test 6", "category": "Cat 3" }
     ];
     component.options = [...options]
-    const multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService())
+    multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService())
     multiselect.multiple = true;
     multiselect.setOptions(options);
     multiselect._selectedOptions = [];
@@ -47,13 +48,11 @@ describe('GroupedOptionsComponent', () => {
       option = selected;
       multiselect.select(option);
       component.options = multiselect.getOptions();
-      fixture.detectChanges();
     })
     component.selectGroup.subscribe(groupSelected => {
       group = groupSelected;
       multiselect.selectGroup(group);
       component.options = multiselect.getOptions();
-      fixture.detectChanges();
     });
     multiselectSelectSpy = spyOn(multiselect, 'select').and.callThrough();
     multiselectSelectGroupSpy = spyOn(multiselect, 'selectGroup').and.callThrough();
@@ -92,9 +91,9 @@ describe('GroupedOptionsComponent', () => {
       fixture.detectChanges()
 
       // assert
-      const optionsElements = debugElement.queryAll(By.css('.option.marked'))
+      const markedOptions = debugElement.queryAll(By.css('.option.marked'))
       const groupElement = debugElement.query(By.css('.group .option.marked'))
-      expect(optionsElements.length).toBe(3)
+      expect(markedOptions.length).toBe(3)
       expect(groupElement).toBeDefined()
       expect(groupElement.nativeElement.className).toBe('option marked')
     });
@@ -109,9 +108,9 @@ describe('GroupedOptionsComponent', () => {
       fixture.detectChanges()
 
       // assert
-      const optionsElements = debugElement.queryAll(By.css('.option.marked'))
+      const markedOptions = debugElement.queryAll(By.css('.option.marked'))
       const groupElement = debugElement.query(By.css('.group:first-child .option.marked'))
-      expect(optionsElements.length).toBe(0)
+      expect(markedOptions.length).toBe(0)
       expect(groupElement).toBeNull();
     });
     it('when all the options of group were selected, then it should tick the group option automatically', () => {
@@ -125,9 +124,9 @@ describe('GroupedOptionsComponent', () => {
       fixture.detectChanges()
 
       // assert
-      const optionsElements = debugElement.queryAll(By.css('.option.marked'))
+      const markedOptions = debugElement.queryAll(By.css('.option.marked'))
       const groupElement = debugElement.query(By.css('.group:first-child .option.marked'))
-      expect(optionsElements.length).toBe(3)
+      expect(markedOptions.length).toBe(3)
       expect(groupElement).toBeDefined()
       expect(groupElement.nativeElement.className).toBe('option marked')
     });
@@ -161,8 +160,8 @@ describe('GroupedOptionsComponent', () => {
       fixture.detectChanges()
 
       // assert
-      const markedOtionsElements = debugElement.queryAll(By.css('.option.marked'))
-      expect(markedOtionsElements.length).toBe(1)
+      const markedOptions = debugElement.queryAll(By.css('.option.marked'))
+      expect(markedOptions.length).toBe(1)
       expect(multiselectSelectSpy).toHaveBeenCalledWith(option);
       expect(multiselectSelectSpy).toHaveBeenCalledTimes(1);
       expect(option.ticked).toBe(true)
@@ -184,11 +183,57 @@ describe('GroupedOptionsComponent', () => {
       expect(multiselectSelectSpy).toHaveBeenCalledTimes(2);
       expect(option.ticked).toBe(false)
     });
-    it('should select / de-select option should change the selectedOptions', () => {
+    it('should select option should change the selectedOptions of multiselect component', () => {
       // arrange
+      const optionsElements = debugElement.queryAll(By.css('.group:first-child .option'))
+
       // act
+      optionsElements[1].triggerEventHandler('click', null)
+      fixture.detectChanges()
+      
       // assert
-      expect(true).toBeTruthy();
+      const markedOtionsElements = debugElement.queryAll(By.css('.option.marked'))
+      expect(markedOtionsElements.length).toBe(1)
+      expect(multiselectSelectSpy).toHaveBeenCalledWith(option);
+      expect(multiselectSelectSpy).toHaveBeenCalledTimes(1);
+      expect(option.ticked).toBe(true)
+      expect(multiselect._selectedOptions.length).toBe(1)
+    });
+    it('should de-select option should change the selectedOptions of multiselect component', () => {
+      // arrange
+      const optionsElements = debugElement.queryAll(By.css('.group:first-child .option'))
+      optionsElements[1].triggerEventHandler('click', null)
+      fixture.detectChanges()
+
+      // act
+      optionsElements[1].triggerEventHandler('click', null)
+      fixture.detectChanges()
+      
+      // assert
+      const markedOtionsElements = debugElement.queryAll(By.css('.option.marked'))
+      expect(markedOtionsElements.length).toBe(0)
+      expect(multiselectSelectSpy).toHaveBeenCalledWith(option);
+      expect(multiselectSelectSpy).toHaveBeenCalledTimes(2);
+      expect(option.ticked).toBe(false)
+      expect(multiselect._selectedOptions.length).toBe(0)
+    });
+    it('should allow to select multiple group options', () => {
+      // arrange
+      const groupOptionsElements = debugElement.queryAll(By.css('.group .option:first-child'))
+
+      // act
+      groupOptionsElements[0].triggerEventHandler('click', null)
+      groupOptionsElements[1].triggerEventHandler('click', null)
+      groupOptionsElements[2].triggerEventHandler('click', null)
+      fixture.detectChanges()
+      
+      // assert
+      const markedOtionsElements = debugElement.queryAll(By.css('.option.marked'))
+      const markedGroup = groupOptionsElements.filter((g) => ~g.nativeElement.className.indexOf('marked'))
+      expect(markedOtionsElements.length).toBe(9)
+      expect(markedGroup.length).toBe(3)
+      expect(multiselectSelectGroupSpy).toHaveBeenCalledTimes(3);
+      expect(multiselect._selectedOptions.length).toBe(multiselect.getOptions().length)
     });
   })
 
