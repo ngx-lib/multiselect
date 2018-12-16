@@ -86,6 +86,37 @@ describe('GroupedOptionsComponent', () => {
     expect(groupElements.length).toBe(3)
   });
 
+
+  it('grouping based on groupProperty should work fine', () => {
+    // arrange
+    // act
+    // assert
+    expect(component.groupedOptions).toBeDefined();
+    expect(component.groupedOptions.length).toBe(3);
+    // all categories should be covered
+    expect(component.groupedOptions.map(g => g.name).length).toBe(3);
+    // each groupOption should have to elements
+    component.groupedOptions.forEach(g => {
+      expect(g.values.length).toBe(2);
+    })
+  })
+
+  it('by default old default grouping template should be loaded', () => {
+    // arrange
+    // act
+    // assert
+    expect(component.defaultOptionsTemplate).toBe(component.optionsTemplate);
+  })
+
+  it('if new template is passed then it should be rendered on screen', () => {
+    // arrange
+    // act
+    component.optionsTemplate = <TemplateRef<any>>null;
+
+    // assert
+    expect(component.optionsTemplate).not.toBe(component.defaultOptionsTemplate);
+  })
+
   describe('Group option', () => {
     it('on click on group options, it should select all underlying options', () => {
       // arrange
@@ -306,17 +337,9 @@ describe('GroupedOptionsComponent', () => {
       // assert
       expect(group.nativeElement.className).toBe('option')
     })
+    // TODO: check how to restrict event on pointer-events: none? Alternative create event propagation directive.
     it('if some option is disabled, then toggle disabled flag of option', () => {
       // arrange
-      const opts = [...options]
-      opts[0].disabled = true;
-      component.options = opts;
-      fixture.detectChanges();
-
-      // TODO: check how can I Test, pointer-event thing to be restricted to be clicked
-      // firstGroupOptions[1].triggerEventHandler('click', null)
-      // fixture.detectChanges();
-
       // act
       // assert
       const firstOption = debugElement.query(By.css('.group .option.disabled'))
@@ -334,49 +357,39 @@ describe('GroupedOptionsComponent', () => {
 
   describe('Single select', () => {
     beforeEach(() => {
-      component.multiple = false;
+      multiselect.multiple = false;
+      multiselect.isOpen = true;
+      fixture.detectChanges();
     })
-    it('Should select single option, in case of single select', () => {
+    it('list should close based on option selection', () => {
       // arrange
       // act
+      const firstGroupOptions = debugElement.queryAll(By.css('.group .option'))
+      firstGroupOptions[1].triggerEventHandler('click', null)
+      fixture.detectChanges()
+
       // assert
-      expect(true).toBeTruthy();
+      const markedOptions = debugElement.queryAll(By.css('.group .option.marked'))
+      expect(multiselect.isOpen).toBe(false)
+      expect(multiselect._selectedOptions.id).toBe(options[0].id)
+      expect(markedOptions.length).toBe(1)
     })
-    it('should close on selecting an option', () => {
+    it('should select onlt single option', () => {
       // arrange
+      let firstGroupOptions = debugElement.queryAll(By.css('.group .option'))
+      firstGroupOptions[1].triggerEventHandler('click', null)
+      fixture.detectChanges()
+
       // act
+      firstGroupOptions[2].triggerEventHandler('click', null)
+      fixture.detectChanges()
+
       // assert
-      expect(true).toBeTruthy();
+      const markedOptions = debugElement.queryAll(By.css('.group .option.marked'))
+      expect(multiselect.isOpen).toBe(false)
+      expect(multiselect._selectedOptions.id).toBe(options[1].id)
+      expect(markedOptions.length).toBe(1)
     })
   })
 
-  it('grouping based on groupProperty should work fine', () => {
-    // arrange
-    // act
-    // assert
-    expect(component.groupedOptions).toBeDefined();
-    expect(component.groupedOptions.length).toBe(3);
-    // all categories should be covered
-    expect(component.groupedOptions.map(g => g.name).length).toBe(3);
-    // each groupOption should have to elements
-    component.groupedOptions.forEach(g => {
-      expect(g.values.length).toBe(2);
-    })
-  })
-
-  it('by default old default grouping template should be loaded', () => {
-    // arrange
-    // act
-    // assert
-    expect(component.defaultOptionsTemplate).toBe(component.optionsTemplate);
-  })
-
-  it('if new template is passed then it should be rendered on screen', () => {
-    // arrange
-    // act
-    component.optionsTemplate = <TemplateRef<any>>null;
-
-    // assert
-    expect(component.optionsTemplate).not.toBe(component.defaultOptionsTemplate);
-  })
 });
