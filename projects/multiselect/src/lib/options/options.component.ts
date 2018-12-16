@@ -29,8 +29,8 @@ export class OptionsComponent implements OnInit {
     this.selectOption.emit(option);
   }
 
-  trackByOption (option) {
-    return option.id
+  trackByOption (index) {
+    return index
   }
 
   ngOnInit() {
