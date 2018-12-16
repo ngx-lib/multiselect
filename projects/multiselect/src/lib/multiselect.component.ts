@@ -26,7 +26,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   constructor(
     protected elementRef: ElementRef,
     protected multiselectService: NgxMultiselectService) {
-    super();
+    super(elementRef, multiselectService);
   }
 
   // private variables
@@ -197,14 +197,5 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   viewToModel(options) {
     this._selectedOptions = options;
     this.onChange(options);
-  }
-
-  // TODO: Consider creating a directive for this.
-  // TODO: Also convert below to be work for element specific
-  @HostListener('document:click', ['$event.target'])
-  clickOutSide(event) {
-    if (this.elementRef.nativeElement !== event && !this.multiselectService.closest(event, 'ngx-multiselect') && this.isOpen) {
-      this.close();
-    }
   }
 }

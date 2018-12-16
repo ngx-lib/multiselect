@@ -1,9 +1,18 @@
 import { ControlValueAccessor } from '@angular/forms';
+import { HostListener, ElementRef } from '@angular/core';
+import { NgxMultiselectService } from './services/multiselect.service';
 
 export abstract class NgxMultiselectBaseComponent implements ControlValueAccessor {
   
   private operationPendingQueue: any[] = [];
   abstract _options: any[];
+  abstract isOpen: boolean;
+  abstract close(): void;
+
+  constructor(
+    protected elementRef: ElementRef,
+    protected multiselectService: NgxMultiselectService) {
+  }
 
   // Adding pending operation in queue
   addOperation(item) {
@@ -62,5 +71,14 @@ export abstract class NgxMultiselectBaseComponent implements ControlValueAccesso
 
   registerOnTouched(fn: () => any): void { 
     this.onTouched = fn;
+  }
+
+  // TODO: Consider creating a directive for this.
+  // TODO: Also convert below to be work for element specific
+  @HostListener('document:click', ['$event.target'])
+  clickOutSide(event) {
+    if (this.elementRef.nativeElement !== event && !this.multiselectService.closest(event, 'ngx-multiselect') && this.isOpen) {
+      this.close();
+    }
   }
 }
