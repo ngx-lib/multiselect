@@ -16,6 +16,7 @@ describe('GroupedOptionsComponent', () => {
   let group: any;
   let multiselectSelectSpy;
   let multiselectSelectGroupSpy;
+  let selectedFirstOption: any[];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -29,7 +30,6 @@ describe('GroupedOptionsComponent', () => {
     component = fixture.componentInstance;
     debugElement = fixture.debugElement;
     component.groupedProperty = 'category';
-    component.multiple = true;
     const options = [
       { "id": 1, "name": "Test 1", "category": "Cat 1" },
       { "id": 2, "name": "Test 2", "category": "Cat 1" },
@@ -38,6 +38,8 @@ describe('GroupedOptionsComponent', () => {
       { "id": 5, "name": "Test 5", "category": "Cat 3" },
       { "id": 6, "name": "Test 6", "category": "Cat 3" }
     ];
+    selectedFirstOption = options.filter(o => o.id)
+    component.multiple = true;
     component.options = [...options]
     multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService())
     multiselect.multiple = true;
@@ -130,7 +132,6 @@ describe('GroupedOptionsComponent', () => {
       expect(groupElement).toBeDefined()
       expect(groupElement.nativeElement.className).toBe('option marked')
     });
-    // TODO: How to test this, we can test this in multiselect smart component?
     it('initially all group options selected, removal any of them should unmark group option', () => {
       // arrange
       const options = debugElement.queryAll(By.css('.group:first-child .option'))
@@ -238,43 +239,53 @@ describe('GroupedOptionsComponent', () => {
   })
 
   describe('Styling', () => {
-    // TODO: Moved out to multiselect?
     it('on select of option should apply correct CSS to option', () => {
       // arrange
+      const firstGroupOptions = debugElement.query(By.css('.group:first-child .option:not(:first-child)'))
+
       // act
+      firstGroupOptions.triggerEventHandler('click', null)
+      fixture.detectChanges()
+
       // assert
-      expect(true).toBeTruthy();
+      expect(firstGroupOptions.nativeElement.className).toBe('option marked')
     });
-    // TODO: Moved out to multiselect?
     it('mark class should removed based on click on selected optioin', () => {
       // arrange
+      multiselect._selectedOptions = selectedFirstOption;
+      fixture.detectChanges()
+
       // act
+      const firstGroup = debugElement.query(By.css('.group:first-child .option:first-child'))
+      firstGroup.triggerEventHandler('click', null)
+      fixture.detectChanges()
+
       // assert
-      expect(true).toBeTruthy();
+      expect(firstGroup.nativeElement.className).toBe('option marked')
     });
     it('on select of groupOption should apply correct CSS to option', () => {
       // arrange
-      const group = debugElement.query(By.css('.group:first-child .option:first-child'))
+      const firstGroup = debugElement.query(By.css('.group:first-child .option:first-child'))
 
       // act
-      group.triggerEventHandler('click', null)
+      firstGroup.triggerEventHandler('click', null)
       fixture.detectChanges()
 
       // assert
-      expect(group.nativeElement.className).toBe('option marked')
+      expect(firstGroup.nativeElement.className).toBe('option marked')
     });
     it('mark class should removed based on click on selected groupOption', () => {
       // arrange
-      const group = debugElement.query(By.css('.group:first-child .option:first-child'))
-      group.triggerEventHandler('click', null)
+      const firstGroup = debugElement.query(By.css('.group:first-child .option:first-child'))
+      firstGroup.triggerEventHandler('click', null)
       fixture.detectChanges()
 
       // act
-      group.triggerEventHandler('click', null)
+      firstGroup.triggerEventHandler('click', null)
       fixture.detectChanges()
 
       // assert
-      expect(group.nativeElement.className).toBe('option')
+      expect(firstGroup.nativeElement.className).toBe('option')
     });
   })
 
