@@ -1,15 +1,14 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { AppService } from '../app.service';
 import { Subscription } from 'rxjs';
 
-import { AppService } from './app.service';
-
 @Component({
-  selector: 'ms-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'ms-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class DashboardComponent implements OnInit {
 
   singleSelectOptions;
   propertyMapOptions;
@@ -72,4 +71,5 @@ export class AppComponent implements OnInit, OnDestroy {
     this.multipleSelectOptionsSubscription.unsubscribe();
     this.groupingOptionsSubscription.unsubscribe();
   }
+
 }
