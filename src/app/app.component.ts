@@ -39,6 +39,11 @@ export class AppComponent implements OnInit, OnDestroy {
     {id: 1, name: 'a'},
     {id: 2, name: 'b'}
   ]);
+
+  propertyMap = {
+    'EmpId': 'id',
+    'EmpName': 'name'
+  };
   
   ngOnInit(): void {
     // Retrieving data for dropdown

@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
-import { NgxMultiselectModule } from 'multiselect';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { NgxMultiselectModule } from 'multiselect';
+
 import { AppComponent } from './app.component';
+import { CustomMaterialModule } from './custom-material/custom-material.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxMultiselectModule
+    NgxMultiselectModule,
+    BrowserAnimationsModule,
+    CustomMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
