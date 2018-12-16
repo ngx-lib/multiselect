@@ -1,9 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By, BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DebugElement, TemplateRef, ElementRef } from '@angular/core';
 
 import { GroupedOptionsComponent } from './grouped-options.component';
-import { DebugElement, TemplateRef } from '@angular/core';
+import { NgxMultiselectComponent } from '../multiselect.component';
+import { NgxMultiselectService } from '../services/multiselect.service';
 
 describe('GroupedOptionsComponent', () => {
   let component: GroupedOptionsComponent;
@@ -15,8 +17,7 @@ describe('GroupedOptionsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [GroupedOptionsComponent],
       imports: [FormsModule, ReactiveFormsModule, BrowserModule]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -24,14 +25,8 @@ describe('GroupedOptionsComponent', () => {
     component = fixture.componentInstance;
     debugElement = fixture.debugElement;
     component.groupedProperty = 'category';
-    component.selectOption.subscribe(selected => {
-      option = selected;
-    })
-    component.selectGroup.subscribe(groupSelected => {
-      group = groupSelected;
-    })
-
-    component.options = [
+    component.multiple = true;
+    const options = [
       { "id": 1, "name": "Test 1", "category": "Cat 1" },
       { "id": 2, "name": "Test 2", "category": "Cat 1" },
       { "id": 3, "name": "Test 3", "category": "Cat 2" },
@@ -39,6 +34,23 @@ describe('GroupedOptionsComponent', () => {
       { "id": 5, "name": "Test 5", "category": "Cat 3" },
       { "id": 6, "name": "Test 6", "category": "Cat 3" }
     ];
+    component.options = [...options]
+    const multiselect = new NgxMultiselectComponent(<ElementRef<any>>{}, new NgxMultiselectService())
+    multiselect.multiple = true;
+    multiselect.setOptions(options);
+    multiselect._selectedOptions = [];
+    component.selectOption.subscribe(selected => {
+      option = selected;
+      multiselect.select(option);
+      component.options = multiselect.getOptions();
+      fixture.detectChanges();
+    })
+    component.selectGroup.subscribe(groupSelected => {
+      group = groupSelected;
+      multiselect.selectGroup(group);
+      component.options = multiselect.getOptions();
+      fixture.detectChanges();
+    });
     fixture.detectChanges();
   });
 
@@ -58,12 +70,10 @@ describe('GroupedOptionsComponent', () => {
     // act
     const optionsElements = debugElement.queryAll(By.css('.option'))
     const groupElements = debugElement.queryAll(By.css('.group'))
-    let options = optionsElements ? Array.from(optionsElements) : []
-    let groups = groupElements ? Array.from(groupElements) : []
 
     // assert
-    expect(options.length).toBe(9)
-    expect(groups.length).toBe(3)
+    expect(optionsElements.length).toBe(9)
+    expect(groupElements.length).toBe(3)
   });
 
   describe('Group option', () => {
@@ -78,8 +88,7 @@ describe('GroupedOptionsComponent', () => {
       // assert
       const optionsElements = debugElement.queryAll(By.css('.option.marked'))
       const groupElement = debugElement.query(By.css('.group .option.marked'))
-      let options = optionsElements ? Array.from(optionsElements) : []
-      expect(options.length).toBe(3)
+      expect(optionsElements.length).toBe(3)
       expect(groupElement).toBeDefined()
       expect(groupElement.nativeElement.className).toBe('option marked')
     });
@@ -96,16 +105,25 @@ describe('GroupedOptionsComponent', () => {
       // assert
       const optionsElements = debugElement.queryAll(By.css('.option.marked'))
       const groupElement = debugElement.query(By.css('.group:first-child .option.marked'))
-      let options = optionsElements ? Array.from(optionsElements) : []
-      expect(options.length).toBe(0)
-      expect(groupElement).toBeNull()
+      expect(optionsElements.length).toBe(0)
+      expect(groupElement).toBeNull();
     });
-    // TODO: How to test this, we can test this in multiselect smart component?
     it('when all the options of group were selected, then it should tick the group option automatically', () => {
       // arrange
+      const group = debugElement.queryAll(By.css('.group .option'))
+      group[1].triggerEventHandler('click', {})
+      fixture.detectChanges()
+
       // act
+      group[2].triggerEventHandler('click', {})
+      fixture.detectChanges()
+
       // assert
-      expect(true).toBeTruthy();
+      const optionsElements = debugElement.queryAll(By.css('.option.marked'))
+      const groupElement = debugElement.query(By.css('.group:first-child .option.marked'))
+      expect(optionsElements.length).toBe(3)
+      expect(groupElement).toBeDefined()
+      expect(groupElement.nativeElement.className).toBe('option marked')
     });
     // TODO: How to test this, we can test this in multiselect smart component?
     it('initially all group options selected, removal any of them should unmark group option', () => {
@@ -199,6 +217,24 @@ describe('GroupedOptionsComponent', () => {
       expect(true).toBeTruthy();
     })
     it('on click of disabled option, it should not select / deselect element', () => {
+      // arrange
+      // act
+      // assert
+      expect(true).toBeTruthy();
+    })
+  })
+
+  describe('Single select', () => {
+    beforeEach(() => {
+      component.multiple = false;
+    })
+    it('Should select single option, in case of single select', () => {
+      // arrange
+      // act
+      // assert
+      expect(true).toBeTruthy();
+    })
+    it('should close on selecting an option', () => {
       // arrange
       // act
       // assert
