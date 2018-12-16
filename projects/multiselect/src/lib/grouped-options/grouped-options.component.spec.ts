@@ -17,6 +17,7 @@ describe('GroupedOptionsComponent', () => {
   let multiselectSelectSpy;
   let multiselectSelectGroupSpy;
   let selectedFirstOption: any[];
+  let options: any[];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -30,13 +31,13 @@ describe('GroupedOptionsComponent', () => {
     component = fixture.componentInstance;
     debugElement = fixture.debugElement;
     component.groupedProperty = 'category';
-    const options = [
+    options = [
       { "id": 1, "name": "Test 1", "category": "Cat 1" },
       { "id": 2, "name": "Test 2", "category": "Cat 1" },
       { "id": 3, "name": "Test 3", "category": "Cat 2" },
       { "id": 4, "name": "Test 4", "category": "Cat 2" },
       { "id": 5, "name": "Test 5", "category": "Cat 3" },
-      { "id": 6, "name": "Test 6", "category": "Cat 3" }
+      { "id": 6, "name": "Test 6", "category": "Cat 3", disabled: true }
     ];
     selectedFirstOption = options.filter(o => o.id)
     component.multiple = true;
@@ -50,12 +51,14 @@ describe('GroupedOptionsComponent', () => {
       option = selected;
       multiselect.select(option);
       component.options = multiselect.getOptions();
-    })
+    fixture.detectChanges();
+  })
     component.selectGroup.subscribe(groupSelected => {
       group = groupSelected;
       multiselect.selectGroup(group);
       component.options = multiselect.getOptions();
-    });
+    fixture.detectChanges();
+  });
     multiselectSelectSpy = spyOn(multiselect, 'select').and.callThrough();
     multiselectSelectGroupSpy = spyOn(multiselect, 'selectGroup').and.callThrough();
     fixture.detectChanges();
@@ -103,7 +106,6 @@ describe('GroupedOptionsComponent', () => {
       // arrange
       const group = debugElement.query(By.css('.group .option'))
       group.triggerEventHandler('click', null)
-      fixture.detectChanges()
 
       // act
       group.triggerEventHandler('click', null)
@@ -144,9 +146,9 @@ describe('GroupedOptionsComponent', () => {
       fixture.detectChanges()
 
       // assert
-      const optionsElements = debugElement.queryAll(By.css('.option.marked'))
+      const markedOptions = debugElement.queryAll(By.css('.option.marked'))
       const groupElement = debugElement.query(By.css('.group:first-child .option:first-child.marked'))
-      expect(optionsElements.length).toBe(1)
+      expect(markedOptions.length).toBe(1)
       expect(groupElement).toBeNull()
     });
   })
@@ -241,14 +243,15 @@ describe('GroupedOptionsComponent', () => {
   describe('Styling', () => {
     it('on select of option should apply correct CSS to option', () => {
       // arrange
-      const firstGroupOptions = debugElement.query(By.css('.group:first-child .option:not(:first-child)'))
+      let firstGroupOptions = debugElement.query(By.css('.group:first-child .option:not(:first-child)'))
 
       // act
       firstGroupOptions.triggerEventHandler('click', null)
       fixture.detectChanges()
 
       // assert
-      expect(firstGroupOptions.nativeElement.className).toBe('option marked')
+      firstGroupOptions = debugElement.query(By.css('.option.marked'))
+      expect(firstGroupOptions.classes.marked).toBe(true)
     });
     it('mark class should removed based on click on selected optioin', () => {
       // arrange
@@ -305,10 +308,22 @@ describe('GroupedOptionsComponent', () => {
     })
     it('if some option is disabled, then toggle disabled flag of option', () => {
       // arrange
+      const opts = [...options]
+      opts[0].disabled = true;
+      component.options = opts;
+      fixture.detectChanges();
+
+      // TODO: check how can I Test, pointer-event thing to be restricted to be clicked
+      // firstGroupOptions[1].triggerEventHandler('click', null)
+      // fixture.detectChanges();
+
       // act
       // assert
-      expect(true).toBeTruthy();
+      const firstOption = debugElement.query(By.css('.group .option.disabled'))
+      expect(firstOption.classes.disabled).toBe(true);
+      // expect(multiselect._selectedOptions.length).toBe(0);
     })
+    // TODO: check how to restrict event on pointer-events: none? Alternative create event propagation directive.
     it('on click of disabled option, it should not select / deselect element', () => {
       // arrange
       // act
