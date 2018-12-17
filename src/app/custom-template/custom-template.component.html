@@ -1,0 +1,17 @@
+<h2>Custom Template</h2>
+<ngx-multiselect
+  [formControl]="customTemplateSelect" 
+  ngDefaultControl 
+  [options]="customTemplateOptions"
+  [multiple]="true">
+  <!-- TODO: Check on below let attributes are neccessary -->
+  <ng-template
+    let-getOptionStyle="getOptionStyle"
+    let-options="options"
+    let-trackByOption="trackByOption"
+    let-select="select">
+    <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of options;trackBy:trackByOption" (click)="select(option)">
+      {{option.name}} Test
+    </div>
+  </ng-template>
+</ngx-multiselect> 
