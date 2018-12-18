@@ -122,6 +122,11 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     collection.splice(index, 1);
   }
 
+  toggleDropdown() {
+    this.isOpen = !this.isOpen
+    if(!this.onOpen) this.onClose.emit();
+  }
+
   prepopulateOptions(selected: any) {
     let selectedIds = [];
     selectedIds = this._multiple ? (selected || []).map(i => i.id)
