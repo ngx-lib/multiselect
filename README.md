@@ -21,4 +21,4 @@ To play around with this repository you have to run below two commands
 
 ## Running unit tests
 
-TODO
+`ng test --project='multiselect'`
