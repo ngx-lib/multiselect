@@ -8,7 +8,6 @@ import { NgxMultiselectModule } from 'multiselect';
 
 import { AppComponent } from './app.component';
 import { CustomMaterialModule } from './custom-material/custom-material.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ModelDrivenComponent } from './model-driven/model-driven.component';
 import { MultipleSelectGroupingComponent } from './multiple-select-grouping/multiple-select-grouping.component';
@@ -20,7 +19,6 @@ import { SingleSelectTemplateDrivenComponent } from './single-select-template-dr
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
     SingleSelectTemplateDrivenComponent,
     ModelDrivenComponent,
     MultipleSelectGroupingComponent,
