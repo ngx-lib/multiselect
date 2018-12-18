@@ -60,7 +60,7 @@ describe('OptionsComponent', () => {
       // arrange
       const optionsElements = debugElement.queryAll(By.css('.option'));
       // act
-      optionsElements[1].triggerEventHandler('click', {});
+      optionsElements[1].triggerEventHandler('click', null);
       fixture.detectChanges();
       // assert
       const markedOptions = debugElement.queryAll(By.css('.option.marked'));
@@ -73,7 +73,7 @@ describe('OptionsComponent', () => {
       // arrange
       const optionsElements = debugElement.queryAll(By.css('.option'));
       // act
-      optionsElements[1].triggerEventHandler('click', {});
+      optionsElements[1].triggerEventHandler('click', null);
       fixture.detectChanges();
       // assert
       const markedOptions = debugElement.queryAll(By.css('.option.marked'));
@@ -85,10 +85,10 @@ describe('OptionsComponent', () => {
     it('should de-select an option on click of selected option', () => {
       // arrange
       const optionsElements = debugElement.queryAll(By.css('.option'));
-      optionsElements[1].triggerEventHandler('click', {});
+      optionsElements[1].triggerEventHandler('click', null);
       fixture.detectChanges();
       // act
-      optionsElements[1].triggerEventHandler('click', {});
+      optionsElements[1].triggerEventHandler('click', null);
       fixture.detectChanges();
       // assert
       const markedOptions = debugElement.queryAll(By.css('.option.marked'));
@@ -104,7 +104,7 @@ describe('OptionsComponent', () => {
       // arrange
       const optionsElements = debugElement.queryAll(By.css('.option'));
       // act
-      optionsElements[1].triggerEventHandler('click', {});
+      optionsElements[1].triggerEventHandler('click', null);
       fixture.detectChanges();
       // assert
       expect(optionsElements[1].classes.marked).toBe(true);
@@ -112,10 +112,10 @@ describe('OptionsComponent', () => {
     it('mark class should removed based on click on selected optioin', () => {
       // arrange
       const optionsElements = debugElement.queryAll(By.css('.option'));
-      optionsElements[1].triggerEventHandler('click', {});
+      optionsElements[1].triggerEventHandler('click', null);
       fixture.detectChanges();
       // act
-      optionsElements[1].triggerEventHandler('click', {});
+      optionsElements[1].triggerEventHandler('click', null);
       fixture.detectChanges();
       // assert
       expect(optionsElements[1].classes.marked).toBe(false);
@@ -125,10 +125,10 @@ describe('OptionsComponent', () => {
   describe('Disabled option', () => {
     it('if some option is disabled, then it should have disable class', () => {
       // arrange
-      const optionsElements = debugElement.queryAll(By.css('.option'));
+      const disabledOption = debugElement.query(By.css('.option:last-child'));
       // act
       // assert
-      expect(optionsElements[5].classes.disabled).toBe(true);
+      expect(disabledOption.classes.disabled).toBe(true);
     })
     // TODO: find a way to test pointer-events
     it('on click of disabled option, it should not select / deselect selectedOptions value', () => {
@@ -163,16 +163,15 @@ describe('OptionsComponent', () => {
 
     it('list should close based on option selection', () => {
       // arrange
-      const optionsElements = debugElement.queryAll(By.css('.option'));
+      const optionsElement = debugElement.query(By.css('.option'));
       // act
-      optionsElements[1].triggerEventHandler('click', null);
+      optionsElement.triggerEventHandler('click', null);
       fixture.detectChanges();
       // assert
       const markedOptions = debugElement.queryAll(By.css('.option.marked'));
-      console.log(markedOptions);
       expect(markedOptions.length).toBe(1);
       expect(clickedOption.ticked).toBe(true);
-      expect(multiselect._selectedOptions.id).toBe(options[1].id);
+      expect(multiselect._selectedOptions.id).toBe(options[0].id);
       expect(multiselectSelectSpy).toHaveBeenCalled();
       expect(multiselectSelectSpy).toHaveBeenCalledWith(clickedOption);
       expect(multiselect.isOpen).toBe(false);
