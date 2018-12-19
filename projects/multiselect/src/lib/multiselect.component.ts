@@ -47,6 +47,8 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   @Input() disabled: boolean = false;
   @Input() groupedProperty: string;
   @Input() showMaxLabels: number = 3;
+  @Input() optionsLimit: number = 100;
+  @Input() lazyLoading: boolean = false;
   @ContentChild(TemplateRef)
   @Input() optionsTemplate: TemplateRef<any>;
   
@@ -88,11 +90,14 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   @Output() onClear: EventEmitter<any> = new EventEmitter<void>();
   @Output() onSearchChange: EventEmitter<any> = new EventEmitter<string>();
 
-  filterOptionsList = (val) => {
+  filterOptionsList = (val: string) => {
     if (!val) {
-      this.setOptions([...this._optionsCopy]);
+      const optionsCopy = [...this._optionsCopy];
+      if(this.lazyLoading) optionsCopy.length = this.optionsLimit;
+      this.setOptions(optionsCopy);
     } else {
       const filteredOptions = this._optionsCopy.filter(i => i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1);
+      if(this.lazyLoading) filteredOptions.length = this.optionsLimit;
       this.setOptions([...filteredOptions]);
     }
     this.prepopulateOptions(this._selectedOptions);
