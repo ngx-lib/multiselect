@@ -67,8 +67,10 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   @Input()
   set options(collection) {
     if(!collection) return;
-    this._optionsCopy = this.multiselectService.mapDatasourceToFields(collection, this._defaultPropertyMap, this.groupedProperty)
-    this.setOptions([...this._optionsCopy]);
+    this._optionsCopy = this.multiselectService.mapDatasourceToFields(collection, this._defaultPropertyMap, this.groupedProperty);
+    const optionsCopy = [...this._optionsCopy]
+    this.checkAndApplyLazyLoading(optionsCopy);
+    this.setOptions(optionsCopy);
     if(this.isOperationPending()) this.finishPendingOperations();
   }
 
@@ -90,14 +92,22 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   @Output() onClear: EventEmitter<any> = new EventEmitter<void>();
   @Output() onSearchChange: EventEmitter<any> = new EventEmitter<string>();
 
+  checkAndApplyLazyLoading(options) {
+    const {length} = options
+    if(this.lazyLoading && length && length > this.optionsLimit) {
+      options.length = this.optionsLimit;
+    }
+  }
+
   filterOptionsList = (val: string) => {
     if (!val) {
       const optionsCopy = [...this._optionsCopy];
-      if(this.lazyLoading) optionsCopy.length = this.optionsLimit;
+      // TODO: it shouldn't manipulate reference
+      this.checkAndApplyLazyLoading(optionsCopy);
       this.setOptions(optionsCopy);
     } else {
       const filteredOptions = this._optionsCopy.filter(i => i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1);
-      if(this.lazyLoading) filteredOptions.length = this.optionsLimit;
+      this.checkAndApplyLazyLoading(filteredOptions);
       this.setOptions([...filteredOptions]);
     }
     this.prepopulateOptions(this._selectedOptions);
