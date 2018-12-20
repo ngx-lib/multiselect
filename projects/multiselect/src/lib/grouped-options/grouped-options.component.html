@@ -1,4 +1,4 @@
-<div class="options-container">
+<div class="options-container" msBottomReached (bottomReached)="bottomReached()">
   <div class="group" *ngFor="let groupOption of groupedOptions;trackBy: trackByGroup">
     <div class="option" [ngClass]="getGroupOptionStyle(groupOption)" (click)="groupOptionClick(groupOption)">
       {{groupOption.name}}

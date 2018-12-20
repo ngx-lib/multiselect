@@ -1,11 +1,12 @@
-<div class="options-container">
+<div class="options-container" msBottomReached (bottomReached)="bottomReached()">
   <ng-container 
     *ngTemplateOutlet="optionsTemplate; context: { 
       getOptionStyle: this.getOptionStyle, 
       options: this.options, 
       trackByOption: this.trackByOption, 
       select: this.select,
-      selectOption: this.selectOption
+      selectOption: this.selectOption,
+      disabled: this.disabled
     }">
   </ng-container>
 </div>
