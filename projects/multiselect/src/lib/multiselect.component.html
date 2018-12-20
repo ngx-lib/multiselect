@@ -15,7 +15,7 @@
       (onSearchChange)="onSearchChange.emit($event)" (selectNoneClicked)="selectNone()"
       (selectAllClicked)="selectAll()" (selectNoneClicked)="selectNone()">
     </ms-helper-elements>
-    <ms-filter-options (filterOptionsList)="filterOptionsList($event)"
+    <ms-filter-options #filterOptions (filterOptionsList)="filterOptionsList($event)"
       (onClear)="onClear.emit()" (onSearchChange)="onSearchChange.emit($event)"
     ></ms-filter-options>
     <ng-container *ngIf="!groupedProperty else groupedTemplate">
