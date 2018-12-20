@@ -28,6 +28,7 @@ export class GroupedOptionsComponent implements OnInit {
   }
   @Output() selectOption = new EventEmitter<any>();
   @Output() selectGroup = new EventEmitter<any>();
+  @Output() loadMoreOptions = new EventEmitter<any>();
 
   @ViewChild('defaultOptionsTemplate') defaultOptionsTemplate: TemplateRef<any>;
 
@@ -66,6 +67,10 @@ export class GroupedOptionsComponent implements OnInit {
       const allAreSelected = groupOption.values.every(v => v.ticked)
       groupOption.ticked = allAreSelected;
     }
+  }
+
+  bottomReached() {
+    this.loadMoreOptions.emit();
   }
 
 }
