@@ -19,7 +19,8 @@
       (onClear)="onClear.emit()" (onSearchChange)="onSearchChange.emit($event)"
     ></ms-filter-options>
     <ng-container *ngIf="!groupedProperty else groupedTemplate">
-      <ms-options [optionsTemplate]="optionsTemplate" [options]="_options" [disabled]="disabled" (selectOption)="select($event)"></ms-options>
+      <ms-options [optionsTemplate]="optionsTemplate" [options]="_options" (loadMoreOptions)="loadMoreOptions()"
+        [disabled]="disabled" (selectOption)="select($event)"></ms-options>
     </ng-container>
   </div>
 </div>
