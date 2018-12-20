@@ -33,4 +33,10 @@ export class AppService {
       map((d: any) => d.observableOptions)
     );
   }
+
+  getPersons () {
+    return this.http.get(API_URL).pipe(
+      map((d: any) => d.persons)
+    );
+  }
 }

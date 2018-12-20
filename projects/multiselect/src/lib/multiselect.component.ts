@@ -1,12 +1,13 @@
 import {
   Component, Input, ChangeDetectionStrategy, ElementRef,
-  ContentChild, TemplateRef, HostListener, Output, EventEmitter
+  ContentChild, TemplateRef, Output, EventEmitter, ViewChild
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { NgxMultiselectService } from './services/multiselect.service';
 import { NgxMultiselectBaseComponent } from './multiselect-base.component';
 import { forwardRef } from '@angular/core';
+import { FilterOptionsComponent } from './filter-options/filter-options.component';
 
 export const DEFAULT_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -30,12 +31,8 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   }
 
   // private variables
+  private currentPage = 1;
   private _multiple = false;
-  private _defaultPropertyMap = {
-    'id': 'id',
-    'name': 'name',
-    'disabled': 'disabled'
-  };
   private _optionsCopy; //TODO: in future this will be master list
   private _isOpen: boolean = false;
   
@@ -47,6 +44,8 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   @Input() disabled: boolean = false;
   @Input() groupedProperty: string;
   @Input() showMaxLabels: number = 3;
+  @Input() optionsLimit: number = 100;
+  @Input() lazyLoading: boolean = false;
   @ContentChild(TemplateRef)
   @Input() optionsTemplate: TemplateRef<any>;
   
@@ -63,18 +62,19 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     this._defaultPropertyMap = { ...this._defaultPropertyMap, ...val };
   }
   @Input()
-  set options(collection) {
-    if(!collection) return;
-    this._optionsCopy = this.multiselectService.mapDatasourceToFields(collection, this._defaultPropertyMap, this.groupedProperty)
-    this.setOptions([...this._optionsCopy]);
-    if(this.isOperationPending()) this.finishPendingOperations();
-  }
-
-  @Input()
   get multiple() { return this._multiple; }
   set multiple(value: boolean) {
     if(value) this.viewToModel([]);
     this._multiple = value;
+  }
+
+  @Input()
+  set options(collection) {
+    if(!collection) return;
+    this._optionsCopy = this.multiselectService.mapDatasourceToFields(collection, this._defaultPropertyMap, this.groupedProperty);
+    const options = this.checkAndApplyLazyLoading(this.getOptionsCopy());
+    this.setOptions(options);
+    if(this.isOperationPending()) this.finishPendingOperations();
   }
 
   // Output bindings
@@ -88,15 +88,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   @Output() onClear: EventEmitter<any> = new EventEmitter<void>();
   @Output() onSearchChange: EventEmitter<any> = new EventEmitter<string>();
 
-  filterOptionsList = (val) => {
-    if (!val) {
-      this.setOptions([...this._optionsCopy]);
-    } else {
-      const filteredOptions = this._optionsCopy.filter(i => i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1);
-      this.setOptions([...filteredOptions]);
-    }
-    this.prepopulateOptions(this._selectedOptions);
-  }
+  @ViewChild('filterOptions', {read: FilterOptionsComponent}) filterOptions
 
   // All update to options should happen from below method.
   setOptions(options) {
@@ -107,12 +99,46 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     return this._options ? [...this._options]: []
   }
 
+  getOptionsCopy() {
+    return this._optionsCopy ? [...this._optionsCopy]: []
+  }
+
+  checkAndApplyLazyLoading(options) {
+    if(!this.lazyLoading) return options; 
+    const {length} = options
+    let pagesize = this.optionsLimit * this.currentPage
+    if (pagesize > length) {
+      pagesize = length
+    }
+    options.length = pagesize
+    return options.slice()
+  }
+
+  filterOptionsList = (val: string) => {
+    let optionsCopy = this.getOptionsCopy();
+    let result = []
+    if (!val) {
+      result = this.checkAndApplyLazyLoading(optionsCopy);
+    } else {
+      const filteredOptions = optionsCopy.filter(i => i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1);
+      result = this.checkAndApplyLazyLoading(filteredOptions);
+    }
+    this.setOptions(result);
+    this.prepopulateOptions(this._selectedOptions);
+  }
+
+  loadMoreOptions (){
+    ++this.currentPage;
+    this.filterOptionsList(this.filterOptions.filterName.value)
+  }
+
   isValueSelected() {
     return this._multiple ? this._selectedOptions.length : this._selectedOptions;
   }
 
   close() {
     this.isOpen = false;
+    this.currentPage = 1;
     this.onClose.emit();
   }
 

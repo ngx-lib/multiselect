@@ -15,16 +15,17 @@
       (onSearchChange)="onSearchChange.emit($event)" (selectNoneClicked)="selectNone()"
       (selectAllClicked)="selectAll()" (selectNoneClicked)="selectNone()">
     </ms-helper-elements>
-    <ms-filter-options (filterOptionsList)="filterOptionsList($event)"
+    <ms-filter-options #filterOptions (filterOptionsList)="filterOptionsList($event)"
       (onClear)="onClear.emit()" (onSearchChange)="onSearchChange.emit($event)"
     ></ms-filter-options>
     <ng-container *ngIf="!groupedProperty else groupedTemplate">
-      <ms-options [optionsTemplate]="optionsTemplate" [options]="_options" [disabled]="disabled" (selectOption)="select($event)"></ms-options>
+      <ms-options [optionsTemplate]="optionsTemplate" [options]="_options" (loadMoreOptions)="loadMoreOptions()"
+        [disabled]="disabled" (selectOption)="select($event)"></ms-options>
     </ng-container>
   </div>
 </div>
 <ng-template #groupedTemplate>
-  <ms-grouped-options [multiple]="multiple" [optionsTemplate]="optionsTemplate"
+  <ms-grouped-options [multiple]="multiple" [optionsTemplate]="optionsTemplate" (loadMoreOptions)="loadMoreOptions()"
     [options]="_options" [disabled]="disabled" [groupedProperty]="groupedProperty" 
     (selectOption)="select($event)" (selectGroup)="selectGroup($event)">
   </ms-grouped-options>

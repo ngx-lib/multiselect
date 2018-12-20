@@ -3,6 +3,8 @@
     display: block;
     padding: 8px;
     overflow: hidden;
+    height: 200px;
+    overflow-y: scroll;
 }
 
 .group .option {

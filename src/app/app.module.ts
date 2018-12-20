@@ -15,6 +15,7 @@ import { MultipleSelectWithObservableComponent } from './multiple-select-with-ob
 import { CustomTemplateComponent } from './custom-template/custom-template.component';
 import { SingleSelectWithPropertyMapComponent } from './single-select-with-property-map/single-select-with-property-map.component';
 import { SingleSelectTemplateDrivenComponent } from './single-select-template-driven/single-select-template-driven.component';
+import { OptionsLazyLoadingComponent } from './options-lazy-loading/options-lazy-loading.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SingleSelectTemplateDrivenComponent } from './single-select-template-dr
     MultipleSelectGroupingComponent,
     MultipleSelectWithObservableComponent,
     CustomTemplateComponent,
-    SingleSelectWithPropertyMapComponent
+    SingleSelectWithPropertyMapComponent,
+    OptionsLazyLoadingComponent
   ],
   imports: [
     BrowserModule,
