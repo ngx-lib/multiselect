@@ -92,6 +92,15 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   @Output() onClear: EventEmitter<any> = new EventEmitter<void>();
   @Output() onSearchChange: EventEmitter<any> = new EventEmitter<string>();
 
+  // All update to options should happen from below method.
+  setOptions(options) {
+    this._options = options;
+  }
+
+  getOptions() {
+    return this._options ? [...this._options]: []
+  }
+
   checkAndApplyLazyLoading(options) {
     const {length} = options
     if(this.lazyLoading && length && length > this.optionsLimit) {
@@ -113,13 +122,8 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     this.prepopulateOptions(this._selectedOptions);
   }
 
-  // All update to options should happen from below method.
-  setOptions(options) {
-    this._options = options;
-  }
-
-  getOptions() {
-    return this._options ? [...this._options]: []
+  loadMoreOptions (){
+    console.log('loadMoreOptions');
   }
 
   isValueSelected() {
