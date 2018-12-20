@@ -1,12 +1,13 @@
 import {
   Component, Input, ChangeDetectionStrategy, ElementRef,
-  ContentChild, TemplateRef, HostListener, Output, EventEmitter
+  ContentChild, TemplateRef, Output, EventEmitter, ViewChild
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { NgxMultiselectService } from './services/multiselect.service';
 import { NgxMultiselectBaseComponent } from './multiselect-base.component';
 import { forwardRef } from '@angular/core';
+import { FilterOptionsComponent } from './filter-options/filter-options.component';
 
 export const DEFAULT_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -30,12 +31,8 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   }
 
   // private variables
+  private currentPage = 1;
   private _multiple = false;
-  private _defaultPropertyMap = {
-    'id': 'id',
-    'name': 'name',
-    'disabled': 'disabled'
-  };
   private _optionsCopy; //TODO: in future this will be master list
   private _isOpen: boolean = false;
   
@@ -65,6 +62,13 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     this._defaultPropertyMap = { ...this._defaultPropertyMap, ...val };
   }
   @Input()
+  get multiple() { return this._multiple; }
+  set multiple(value: boolean) {
+    if(value) this.viewToModel([]);
+    this._multiple = value;
+  }
+
+  @Input()
   set options(collection) {
     if(!collection) return;
     this._optionsCopy = this.multiselectService.mapDatasourceToFields(collection, this._defaultPropertyMap, this.groupedProperty);
@@ -72,13 +76,6 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     this.checkAndApplyLazyLoading(optionsCopy);
     this.setOptions(optionsCopy);
     if(this.isOperationPending()) this.finishPendingOperations();
-  }
-
-  @Input()
-  get multiple() { return this._multiple; }
-  set multiple(value: boolean) {
-    if(value) this.viewToModel([]);
-    this._multiple = value;
   }
 
   // Output bindings
@@ -92,6 +89,8 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   @Output() onClear: EventEmitter<any> = new EventEmitter<void>();
   @Output() onSearchChange: EventEmitter<any> = new EventEmitter<string>();
 
+  @ViewChild('filterOptions', {read: FilterOptionsComponent}) filterOptions
+
   // All update to options should happen from below method.
   setOptions(options) {
     this._options = options;
@@ -102,10 +101,13 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   }
 
   checkAndApplyLazyLoading(options) {
+    if(!this.lazyLoading) return 
     const {length} = options
-    if(this.lazyLoading && length && length > this.optionsLimit) {
-      options.length = this.optionsLimit;
+    let pagesize = this.optionsLimit * this.currentPage
+    if (pagesize > length) {
+      pagesize = length
     }
+    options.length = this.optionsLimit;
   }
 
   filterOptionsList = (val: string) => {
@@ -123,7 +125,8 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   }
 
   loadMoreOptions (){
-    console.log('loadMoreOptions');
+    ++this.currentPage;
+    this.filterOptionsList(this.filterOptions.filterName.value)
   }
 
   isValueSelected() {
@@ -132,6 +135,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
 
   close() {
     this.isOpen = false;
+    this.currentPage = 1;
     this.onClose.emit();
   }
 

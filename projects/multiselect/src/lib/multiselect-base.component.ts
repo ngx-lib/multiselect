@@ -5,6 +5,11 @@ import { NgxMultiselectService } from './services/multiselect.service';
 export abstract class NgxMultiselectBaseComponent implements ControlValueAccessor {
   
   private operationPendingQueue: any[] = [];
+  protected _defaultPropertyMap = {
+    'id': 'id',
+    'name': 'name',
+    'disabled': 'disabled'
+  };
   abstract _options: any[];
   abstract isOpen: boolean;
   abstract close(): void;
