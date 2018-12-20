@@ -72,9 +72,8 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   set options(collection) {
     if(!collection) return;
     this._optionsCopy = this.multiselectService.mapDatasourceToFields(collection, this._defaultPropertyMap, this.groupedProperty);
-    const optionsCopy = [...this._optionsCopy]
-    this.checkAndApplyLazyLoading(optionsCopy);
-    this.setOptions(optionsCopy);
+    const options = this.checkAndApplyLazyLoading(this.getOptionsCopy());
+    this.setOptions(options);
     if(this.isOperationPending()) this.finishPendingOperations();
   }
 
@@ -100,27 +99,31 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     return this._options ? [...this._options]: []
   }
 
+  getOptionsCopy() {
+    return this._optionsCopy ? [...this._optionsCopy]: []
+  }
+
   checkAndApplyLazyLoading(options) {
-    if(!this.lazyLoading) return 
+    if(!this.lazyLoading) return options; 
     const {length} = options
     let pagesize = this.optionsLimit * this.currentPage
     if (pagesize > length) {
       pagesize = length
     }
-    options.length = this.optionsLimit;
+    options.length = pagesize
+    return options.slice()
   }
 
   filterOptionsList = (val: string) => {
+    let optionsCopy = this.getOptionsCopy();
+    let result = []
     if (!val) {
-      const optionsCopy = [...this._optionsCopy];
-      // TODO: it shouldn't manipulate reference
-      this.checkAndApplyLazyLoading(optionsCopy);
-      this.setOptions(optionsCopy);
+      result = this.checkAndApplyLazyLoading(optionsCopy);
     } else {
-      const filteredOptions = this._optionsCopy.filter(i => i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1);
-      this.checkAndApplyLazyLoading(filteredOptions);
-      this.setOptions([...filteredOptions]);
+      const filteredOptions = optionsCopy.filter(i => i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1);
+      result = this.checkAndApplyLazyLoading(filteredOptions);
     }
+    this.setOptions(result);
     this.prepopulateOptions(this._selectedOptions);
   }
 
