@@ -22,9 +22,7 @@ describe('FilterOptionsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FilterOptionsComponent);
     component = fixture.componentInstance;
-    component.filterOptionsList.subscribe(text =>{
-      filterText = text;
-    })
+    component.onSearchChange.subscribe(text => filterText = text)
     debugElement = fixture.debugElement
     fixture.detectChanges();
     component.filterName.patchValue('some text');
