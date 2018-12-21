@@ -246,6 +246,33 @@ describe('MultiselectComponent', () => {
         expect(true).toBeTruthy();
       });
     });
+    // TODO: add more test cases for lazy loading
+    describe('Lazy loading', () => {
+      it('Initially only 100 elements should be shown', () => {
+        // arrange
+        // act
+        // assert
+        expect(true).toBeTruthy();
+      });
+      it('Reaching to the bottom should fetch 100 more records', () => {
+        // arrange
+        // act
+        // assert
+        expect(true).toBeTruthy();
+      });
+      it('should fetch 100 records for filtered string', () => {
+        // arrange
+        // act
+        // assert
+        expect(true).toBeTruthy();
+      });
+      it('on clear should fetch 100 records with filterText blank', () => {
+        // arrange
+        // act
+        // assert
+        expect(true).toBeTruthy();
+      });
+    });
 
     // TODO: check where to keep this test case
     it('for empty input field, it should show all option', () => {
