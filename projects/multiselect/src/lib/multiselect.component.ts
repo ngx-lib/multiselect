@@ -136,9 +136,26 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     return this._multiple ? this._selectedOptions.length : this._selectedOptions;
   }
 
+  resetLazyloadingOptions () {
+    this.currentPage = 1;
+    this.checkAndApplyLazyLoading(this.getOptionsCopy());
+  }
+  
+  searchChange (val: string) {
+    this.resetLazyloadingOptions();
+    this.filterOptionsList(val);
+    this.onSearchChange.emit(val);
+  }
+
+  filterClear () {
+    this.resetLazyloadingOptions();
+    this.filterOptionsList('');
+    this.onClear.emit();
+  }
+
   close() {
     this.isOpen = false;
-    this.currentPage = 1;
+    this.resetLazyloadingOptions();
     this.onClose.emit();
   }
 

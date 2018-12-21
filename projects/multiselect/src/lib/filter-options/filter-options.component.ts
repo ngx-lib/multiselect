@@ -13,7 +13,6 @@ export class FilterOptionsComponent implements OnInit, OnDestroy {
   filterName: FormControl;
   filterNameSubscription: Subscription;
   
-  @Output() filterOptionsList = new EventEmitter<string>();
   @Output() onClear = new EventEmitter<string>();
   @Output() onSearchChange = new EventEmitter<string>();
 
@@ -21,7 +20,6 @@ export class FilterOptionsComponent implements OnInit, OnDestroy {
   
   clearText () {
     this.clearInputFilter();
-    this.filterOptionsList.emit('')
     this.onClear.emit()
   }
 
@@ -34,10 +32,7 @@ export class FilterOptionsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.filterName = new FormControl('')
     this.filterNameSubscription = this.filterName.valueChanges.subscribe(
-      val => {
-        this.filterOptionsList.emit(val);
-        this.onSearchChange.emit(val);
-      }
+      val => this.onSearchChange.emit(val)
     );
   }
 
