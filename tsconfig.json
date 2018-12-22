@@ -17,10 +17,10 @@
       "dom"
     ],
     "paths": {
-      "multiselect": [
+      "@ngx-lib/multiselect": [
         "dist/multiselect"
       ],
-      "multiselect/*": [
+      "@ngx-lib/multiselect/*": [
         "dist/multiselect/*"
       ]
     }
