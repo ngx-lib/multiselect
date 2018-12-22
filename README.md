@@ -21,4 +21,13 @@ To play around with this repository you have to run below two commands
 
 ## Running unit tests
 
+# Run test cases
+
 `ng test --project='multiselect'`
+
+# Check code coverage
+
+1. `ng test --project='multiselect' --code-coverage`
+2. `npx http-server -c-1 -o -p 9875 ./coverage`
+
+![alt text](https://raw.githubusercontent.com/ngx-lib/multiselect/master/code-coverage.png)
