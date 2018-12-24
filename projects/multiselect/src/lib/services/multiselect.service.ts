@@ -58,6 +58,14 @@ export class NgxMultiselectService {
     return result;
   }
 
+  swap(json){
+    const ret = {};
+    for(var key in json){
+      ret[json[key]] = key;
+    }
+    return ret;
+  }
+
   mapDatasourceToFields (collection: any[], propertyMap, groupedProperty?) {
     let keys = Object.keys(propertyMap);
     return collection.map((item: any) => {

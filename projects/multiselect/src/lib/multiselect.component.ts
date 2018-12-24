@@ -242,8 +242,15 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   }
 
   // Responsible for updating value from view to model
-  viewToModel(options) {
-    this._selectedOptions = options;
+  viewToModel(opts) {
+    this._selectedOptions = opts;
+    let options;
+    if (this.propertyMap){
+      const swappedPropertyMap = this.multiselectService.swap(this.propertyMap);
+      options = this.multiselectService.mapDatasourceToFields(opts, swappedPropertyMap)
+    } else {
+      options = opts
+    }
     this.onChange(options);
   }
 }
