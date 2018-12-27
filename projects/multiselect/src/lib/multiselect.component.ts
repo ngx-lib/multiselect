@@ -245,7 +245,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   viewToModel(opts) {
     this._selectedOptions = opts;
     let options;
-    if (this.propertyMap){
+    if (this._defaultPropertyMap){
       const swappedPropertyMap = this.multiselectService.swap(this.propertyMap);
       options = this.multiselectService.mapDatasourceToFields(opts, swappedPropertyMap)
     } else {
