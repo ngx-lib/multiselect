@@ -14,7 +14,7 @@ export class SingleSelectWithPropertyMapComponent implements OnInit {
 
   constructor (private appService: AppService) {}
 
-  propertyMapValue: any = {id: 2, name: 'b'};
+  propertyMapValue: any = {"EmpId": 3, "EmpName": "c"};
 
   propertyMap = {
     'EmpId': 'id',

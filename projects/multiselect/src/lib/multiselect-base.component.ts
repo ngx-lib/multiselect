@@ -61,12 +61,7 @@ export abstract class NgxMultiselectBaseComponent implements ControlValueAccesso
     // Set selected value for initial load of value
     if (value) {
       this.initialValue = value
-      if(!this._options) {
-        this.addOperation(value) 
-      } else {
-        this.prepopulateOptions(value);
-      }
-
+      this._options ? this.prepopulateOptions(value): this.addOperation(value) 
     }
   }
 
