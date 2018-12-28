@@ -6,7 +6,7 @@ This plans are based on current idea, it could change in future. First thing I'd
 
  1. ~~Single Select~~
  2. ~~Multiple Select~~
- 3. Callbacks
+ 3. ~~Callbacks~~
  4. ~~Enable / Disable~~
  5. ~~Form Support with ControlValueAccessor~~
     ~~a) Template Driven form~~
@@ -21,7 +21,7 @@ This plans are based on current idea, it could change in future. First thing I'd
     a) Input filter template
     b) Helper buttons
     c) List options~~
-13. Configuration Super Easy
+13. ~~Configuration Super Easy~~
 14. NgIvy friendly
 15. Angular Elements friendly
 16. i18 support.
@@ -30,7 +30,7 @@ This plans are based on current idea, it could change in future. First thing I'd
 19. Theming Support
 20. Angular 2+ Support (make it backword compatible).
 
-**Note:** If you're willing to contribute please ping me on pankajparkar@outlook.com.
+**Note:** If you're willing to contribute please feel free to reach to me, you can contact me on pankajparkar@outlook.com.
 
 ## Track Realtime Status of Feature
 

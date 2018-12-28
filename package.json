@@ -1,6 +1,6 @@
 {
   "name": "ngx-multiselect",
-  "version": "0.0.1-beta.0",
+  "version": "0.0.4",
   "homepage": "https://ngx-lib.github.io/multiselect/",
   "scripts": {
     "ng": "ng",
