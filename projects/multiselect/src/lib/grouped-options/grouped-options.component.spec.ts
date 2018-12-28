@@ -51,14 +51,14 @@ describe('GroupedOptionsComponent', () => {
       option = selected;
       multiselect.select(option);
       component.options = multiselect.getOptions();
-    fixture.detectChanges();
-  })
+      fixture.detectChanges();
+    })
     component.selectGroup.subscribe(groupSelected => {
       group = groupSelected;
       multiselect.selectGroup(group);
       component.options = multiselect.getOptions();
-    fixture.detectChanges();
-  });
+      fixture.detectChanges();
+    });
     multiselectSelectSpy = spyOn(multiselect, 'select').and.callThrough();
     multiselectSelectGroupSpy = spyOn(multiselect, 'selectGroup').and.callThrough();
     fixture.detectChanges();
@@ -209,7 +209,7 @@ describe('GroupedOptionsComponent', () => {
       // act
       optionsElements[1].triggerEventHandler('click', null)
       fixture.detectChanges()
-      
+
       // assert
       const markedOtionsElements = debugElement.queryAll(By.css('.option.marked'))
       expect(markedOtionsElements.length).toBe(0)
@@ -224,7 +224,7 @@ describe('GroupedOptionsComponent', () => {
       // act
       optionsElements[1].triggerEventHandler('click', null)
       fixture.detectChanges()
-      
+
       // assert
       const markedOtionsElements = debugElement.queryAll(By.css('.option.marked'))
       expect(markedOtionsElements.length).toBe(1)
@@ -242,7 +242,7 @@ describe('GroupedOptionsComponent', () => {
       // act
       optionsElements[1].triggerEventHandler('click', null)
       fixture.detectChanges()
-      
+
       // assert
       const markedOtionsElements = debugElement.queryAll(By.css('.option.marked'))
       expect(markedOtionsElements.length).toBe(0)
@@ -260,7 +260,7 @@ describe('GroupedOptionsComponent', () => {
       groupOptionsElements[1].triggerEventHandler('click', null)
       groupOptionsElements[2].triggerEventHandler('click', null)
       fixture.detectChanges()
-      
+
       // assert
       const markedOtionsElements = debugElement.queryAll(By.css('.option.marked'))
       const markedGroup = groupOptionsElements.filter((g) => ~g.nativeElement.className.indexOf('marked'))
@@ -391,5 +391,4 @@ describe('GroupedOptionsComponent', () => {
       expect(markedOptions.length).toBe(1)
     })
   })
-
 });
