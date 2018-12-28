@@ -9,7 +9,7 @@
     "build": "ng build",
     "onchange": "onchange",
     "multiselect-watch": "npx onchange \"./projects/multiselect/src/lib/**/*.*\" -- ng build multiselect",
-    "test": "ng test",
+    "test": "ng test --project=multiselect",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "release": "standard-version",
