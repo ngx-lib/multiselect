@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
-const API_URL = '/assets/data.json'
+const API_URL = 'assets/data.json'
 
 @Injectable({
   providedIn: 'root'
