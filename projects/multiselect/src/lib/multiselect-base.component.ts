@@ -10,8 +10,10 @@ export abstract class NgxMultiselectBaseComponent implements ControlValueAccesso
     'name': 'name',
     'disabled': 'disabled'
   };
+  protected _defaultPropertyMapLength = Object.keys(this._defaultPropertyMap).length
   abstract _options: any[];
   abstract isOpen: boolean;
+  abstract multiple: boolean;
   abstract close(): void;
 
   constructor(
@@ -61,12 +63,24 @@ export abstract class NgxMultiselectBaseComponent implements ControlValueAccesso
     // Set selected value for initial load of value
     if (value) {
       this.initialValue = value
-      if(!this._options) {
-        this.addOperation(value) 
-      } else {
-        this.prepopulateOptions(value);
-      }
-
+      this._options ? this.prepopulateOptions(value): this.addOperation(value)
+      this.formatPrepopulatedValues(value)
+    }
+  }
+  private formatPrepopulatedValues(value): any {
+    let options = value;
+    // TODO: can we improve below logic?
+    if (Object.keys(this._defaultPropertyMap).length == this._defaultPropertyMapLength) return;
+    const swappedPropertyMap: any = this.multiselectService.swap(this._defaultPropertyMap);
+    if(this.multiple) {
+      options.forEach(o => {
+        o.id = o[swappedPropertyMap.id]
+        o.name = o[swappedPropertyMap.name]
+      })
+    } else {
+      value.id = value[swappedPropertyMap.id]
+      value.name = value[swappedPropertyMap.name]
+      options = value
     }
   }
 
