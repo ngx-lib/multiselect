@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng build multiselect && ng serve",
-    "deploy-prod": "ng build --prod multiselect && ng build --prod --base-href /multiselect/",
+    "build-prod": "ng build --prod multiselect && ng build --prod --base-href /multiselect/",
     "build": "ng build",
     "onchange": "onchange",
     "multiselect-watch": "npx onchange \"./projects/multiselect/src/lib/**/*.*\" -- ng build multiselect",
@@ -22,7 +22,7 @@
     "prerelease": "npm run release -- --prerelease beta",
     "minor-release": "npm run release -- --release-as minor",
     "major-release": "npm run release -- --release-as major",
-    "predeploy": "npm run deploy-prod",
+    "predeploy": "npm run build-prod",
     "deploy": "gh-pages -d dist/ngx-multiselect",
     "only-deploy": "gh-pages -d dist/ngx-multiselect"
   },

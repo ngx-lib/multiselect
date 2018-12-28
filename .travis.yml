@@ -18,8 +18,8 @@ before_script:
  - sudo dpkg -i google-chrome*.deb
 
 script: 
+  - npm run build-prod 
   - npm test
-  - npm run deploy
 
 deploy:
   provider: pages
