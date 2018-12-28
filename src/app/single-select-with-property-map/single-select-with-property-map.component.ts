@@ -10,12 +10,14 @@ import { AppService } from '../app.service';
 export class SingleSelectWithPropertyMapComponent implements OnInit {
 
   propertyMapOptions;
+  propertyMapOptionsMultiselect;
   singleSelectOptionsSubscription: Subscription;
 
   constructor (private appService: AppService) {}
 
   // TODO: temporary fix to make propertyMap to pre populate value
-  propertyMapValue: any = {id: 3, name: "c", "EmpId": 3, "EmpName": "c"};
+  propertyMapValue: any = {"EmpId": 3, "EmpName": "c"};
+  propertyMapValueMultiselect: any = [{"EmpId": 3, "EmpName": "c"}];
 
   propertyMap = {
     'EmpId': 'id',
@@ -27,6 +29,7 @@ export class SingleSelectWithPropertyMapComponent implements OnInit {
     this.singleSelectOptionsSubscription = this.appService.getSingleSelectOptions().subscribe(
       data => {
         this.propertyMapOptions = [...data]
+        this.propertyMapOptionsMultiselect = [...data]
       }
     )
   }

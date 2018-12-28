@@ -16,3 +16,15 @@
 </ngx-multiselect>
 
 {{propertyMapValue | json}}
+
+<hr />
+
+<h2>Multiple Select (with Property Map)</h2>
+<ngx-multiselect 
+  [(ngModel)]="propertyMapValueMultiselect"
+  [propertyMap]="propertyMap"
+  [multiple]="true"
+  [options]="propertyMapOptionsMultiselect"
+  ngDefaultControl>
+</ngx-multiselect>
+{{propertyMapValueMultiselect | json}}
