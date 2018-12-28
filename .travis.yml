@@ -19,7 +19,7 @@ before_script:
 
 script: 
   - npm test
-  - ng build -bh "https://ngx-lib.github.io/multiselect/"
+  - npm run deploy
 
 deploy:
   provider: pages
