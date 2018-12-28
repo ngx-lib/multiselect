@@ -1,9 +1,11 @@
 {
   "name": "ngx-multiselect",
   "version": "0.0.1-beta.0",
+  "homepage": "https://ngx-lib.github.io/multiselect/",
   "scripts": {
     "ng": "ng",
     "start": "ng build multiselect && ng serve",
+    "build-prod": "ng build --prod multiselect && ng build --prod --base-href /multiselect/",
     "build": "ng build",
     "onchange": "onchange",
     "multiselect-watch": "npx onchange \"./projects/multiselect/src/lib/**/*.*\" -- ng build multiselect",
@@ -19,7 +21,10 @@
     "package": "npm run build_lib && npm run copy-files && npm run npm_pack",
     "prerelease": "npm run release -- --prerelease beta",
     "minor-release": "npm run release -- --release-as minor",
-    "major-release": "npm run release -- --release-as major"
+    "major-release": "npm run release -- --release-as major",
+    "predeploy": "npm run build-prod",
+    "deploy": "gh-pages -d dist/ngx-multiselect",
+    "only-deploy": "gh-pages -d dist/ngx-multiselect"
   },
   "private": true,
   "dependencies": {

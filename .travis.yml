@@ -18,8 +18,8 @@ before_script:
  - sudo dpkg -i google-chrome*.deb
 
 script: 
+  - npm run build-prod 
   - npm test
-  - ng build -bh "https://ngx-lib.github.io/multiselect/"
 
 deploy:
   provider: pages
