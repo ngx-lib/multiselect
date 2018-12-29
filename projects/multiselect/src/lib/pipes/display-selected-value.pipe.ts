@@ -7,7 +7,8 @@ const DOTS = ' ...';
   pure: false
 })
 export class DisplaySelectedValuePipe implements PipeTransform {
-  transform(value: any, maxLabelCount: number = 3): any {
+  defaultMaxLabelCount: number = 3
+  transform(value: any, maxLabelCount: number = this.defaultMaxLabelCount): any {
     if (value instanceof Array) {
       const collection = [...value]
       const condn = collection.length > maxLabelCount;

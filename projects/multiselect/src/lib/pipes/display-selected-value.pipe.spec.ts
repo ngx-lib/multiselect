@@ -40,33 +40,30 @@ describe('DisplaySelectedValuePipe', () => {
   it('More than 3 values will display 3 value, with elipsis (...) ', () => {
     // arrange
     // act
+    const result = pipe.transform(options)
     // assert
-    expect(true).toBeTruthy();
+    expect(result.indexOf('...')).toBeGreaterThan(-1);
   });
-  it('Should show top 3 as first thing', () => {
+  it('Should show top 3 comma separated result', () => {
     // arrange
     // act
     const result = pipe.transform(options)
     // assert
     expect(result.split(',').length).toBeTruthy(3);
-    expect(~result.indexOf('...')).toBeGreaterThan(-1);
+    expect(result.indexOf('...')).toBeGreaterThan(-1);
   });
   it('Default maxLabels count should be 3', () => {
     // arrange
     // act
     // assert
-    expect(true).toBeTruthy();
+    expect(pipe.defaultMaxLabelCount).toBe(3);
   });
-  it('Passed maxLabels count doesn\'t work', () => {
+  it('Passed maxLabels should work', () => {
     // arrange
     // act
+    const result = pipe.transform(options, 4)
     // assert
-    expect(true).toBeTruthy();
-  });
-  it('Single select will always single value on button', () => {
-    // arrange
-    // act
-    // assert
-    expect(true).toBeTruthy();
+    expect(result.split(',').length).toBeTruthy(4);
+    expect(result.indexOf('...')).toBeGreaterThan(-1);
   });
 });
