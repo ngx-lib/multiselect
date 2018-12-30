@@ -1,9 +1,5 @@
 import { NgModule } from '@angular/core';
 
-import {DragDropModule} from '@angular/cdk/drag-drop';
-import {ScrollingModule} from '@angular/cdk/scrolling';
-import {CdkTableModule} from '@angular/cdk/table';
-import {CdkTreeModule} from '@angular/cdk/tree';
 import {
   MatButtonModule,
   MatDividerModule,
@@ -17,16 +13,11 @@ import {
   MatSortModule,
   MatTableModule,
   MatTabsModule,
-  MatToolbarModule,
-  MatTooltipModule,
-  MatTreeModule,
+  MatToolbarModule
 } from '@angular/material';
 
 @NgModule({
   exports: [
-    CdkTableModule,
-    CdkTreeModule,
-    DragDropModule,
     MatButtonModule,
     MatDividerModule,
     MatExpansionModule,
@@ -39,10 +30,7 @@ import {
     MatSortModule,
     MatTableModule,
     MatTabsModule,
-    MatToolbarModule,
-    MatTooltipModule,
-    MatTreeModule,
-    ScrollingModule,
+    MatToolbarModule
   ]
 })
 export class CustomMaterialModule {}
