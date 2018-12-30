@@ -8,6 +8,7 @@ import { MultipleSelectWithObservableComponent } from './multiple-select-with-ob
 import { CustomTemplateComponent } from './custom-template/custom-template.component';
 import { SingleSelectTemplateDrivenComponent } from './single-select-template-driven/single-select-template-driven.component';
 import { OptionsLazyLoadingComponent } from './options-lazy-loading/options-lazy-loading.component';
+import { LargeVolumeDataComponent } from './large-volume-data/large-volume-data.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { OptionsLazyLoadingComponent } from './options-lazy-loading/options-lazy
       {path: 'multiple-select-with-observable', component: MultipleSelectWithObservableComponent },
       {path: 'custom-template', component: CustomTemplateComponent },
       {path: 'options-lazy-loading', component: OptionsLazyLoadingComponent },
+      {path: 'large-volume-data', component: LargeVolumeDataComponent },
       {path: '**', redirectTo: '/single-select-with-property-map'}
     ], {useHash: true})
   ],
