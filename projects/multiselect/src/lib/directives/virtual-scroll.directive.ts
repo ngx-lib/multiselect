@@ -7,10 +7,10 @@ export class VirtualScrollDirective {
   scrollOffset = 16
   @Input() itemHeight: number = 40
   @Input() totalCount: number
-  @ViewChild('top', {read: ElementRef}) top;
-  @ViewChild('bottom', {read: ElementRef}) bottom;
+  top
+  bottom
 
-  constructor() { }
+  constructor(private el: ElementRef) { }
 
   @HostListener('scroll', ['$event']) onscroll({target}) {
     const {scrollTop, scrollHeight, clientHeight} = target;
@@ -30,6 +30,14 @@ export class VirtualScrollDirective {
     console.log(itemStartRange, itemEndRange, bottomSpacing)
 
     // Step: 3 - Pass the range to the child directive (probably custom *ngFor)
+    this.top.style.height = topSpacing + 'px';
+    this.bottom.style.height = bottomSpacing + 'px';
+  }
+
+  ngAfterViewInit() {
+    // TODO: later think of usng ViewChild, instead of direct DOM manipulation.
+    this.top = this.el.nativeElement.querySelector('.top')
+    this.bottom = this.el.nativeElement.querySelector('.bottom')
   }
 
 }
