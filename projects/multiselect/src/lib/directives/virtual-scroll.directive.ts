@@ -19,9 +19,12 @@ export class VirtualScrollDirective {
 
     // Step: 2 - What are the possible collection that can be rendered
     const rangeStart = topSpacing
-    const rangeEnd = topSpacing + clientHeight
-    const difference = topSpacing % this.itemHeight
     const topNonVisible = topSpacing / this.itemHeight
+    const rangeOffset = rangeStart % this.itemHeight
+    const itemStartRange = topNonVisible + 1
+    let itemEndRange = itemStartRange + (rangeOffset? 9: 10)
+
+    console.log(itemStartRange, itemEndRange)
 
     // Step: 3 - Pass the range to the child directive (probably custom *ngFor)
   }
