@@ -1,5 +1,5 @@
 <div class="options-container" msVirtualScroll [totalCount]="326">
-  <div class="top"></div>
+  <div #top class="top"></div>
   <ng-container 
     *ngTemplateOutlet="optionsTemplate; context: { 
       getOptionStyle: this.getOptionStyle, 
@@ -10,7 +10,7 @@
       disabled: this.disabled
     }">
   </ng-container>
-  <div class="bottom"></div>
+  <div #bottom class="bottom"></div>
 </div>
 <ng-template #defaultOptionsTemplate let-getOptionStyle="getOptionStyle" let-options="options" let-trackByOption="trackByOption" let-select="select">
   <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of options;trackBy:trackByOption" (click)="select(option)">

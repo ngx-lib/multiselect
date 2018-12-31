@@ -1,4 +1,4 @@
-import { Directive, HostListener, Input } from '@angular/core';
+import { Directive, HostListener, Input, ElementRef, ViewChild } from '@angular/core';
 
 @Directive({
   selector: '[msVirtualScroll]'
@@ -7,6 +7,8 @@ export class VirtualScrollDirective {
   scrollOffset = 16
   @Input() itemHeight: number = 40
   @Input() totalCount: number
+  @ViewChild('top', {read: ElementRef}) top;
+  @ViewChild('bottom', {read: ElementRef}) bottom;
 
   constructor() { }
 
