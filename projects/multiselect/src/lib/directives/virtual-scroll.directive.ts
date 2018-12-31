@@ -14,8 +14,12 @@ export class VirtualScrollDirective {
     const {scrollToTop, scrollToBottom, scrollHeight, clientHeight} = target;
     console.log(event)
     // Step: 1 - Calculate the position
+    const topPadding = scrollToTop;
+    const remainingHeight = clientHeight - topPadding;
 
     // Step: 2 - What are the possible collection that can be rendered
+    const rangeStart = topPadding
+    const rangeEnd = topPadding + clientHeight
 
     // Step: 3 - Pass the range to the child directive (probably custom *ngFor)
   }
