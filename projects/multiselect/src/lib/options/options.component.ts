@@ -17,7 +17,6 @@ export class OptionsComponent implements OnInit {
   @Input() options: any[];
   @Input() optionsTemplate: TemplateRef<any>;
   @Output() selectOption = new EventEmitter<any>();
-  @Output() loadMoreOptions = new EventEmitter<any>();
 
   @ViewChild('defaultOptionsTemplate') defaultOptionsTemplate: TemplateRef<any>;
 
@@ -40,9 +39,4 @@ export class OptionsComponent implements OnInit {
       this.optionsTemplate = this.defaultOptionsTemplate;
     }
   }
-
-  bottomReached() {
-    this.loadMoreOptions.emit();
-  }
-
 }
