@@ -11,10 +11,10 @@ export class VirtualScrollDirective {
   constructor() { }
 
   @HostListener('scroll', ['$event']) onscroll({target}) {
-    const {scrollToTop, scrollToBottom, scrollHeight, clientHeight} = target;
-    console.log(event)
+    const {scrollTop, scrollHeight, clientHeight} = target;
+
     // Step: 1 - Calculate the position
-    const topSpacing = scrollToTop;
+    const topSpacing = scrollTop;
     const remainingHeight = clientHeight - topSpacing;
 
     // Step: 2 - What are the possible collection that can be rendered
@@ -22,7 +22,7 @@ export class VirtualScrollDirective {
     const topNonVisible = topSpacing / this.itemHeight
     const rangeOffset = rangeStart % this.itemHeight
     const itemStartRange = topNonVisible + 1
-    let itemEndRange = itemStartRange + (rangeOffset? 9: 10)
+    let itemEndRange = itemStartRange + (rangeOffset? 4: 5)
 
     console.log(itemStartRange, itemEndRange)
 
