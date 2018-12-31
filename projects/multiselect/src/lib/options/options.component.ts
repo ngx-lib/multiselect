@@ -18,6 +18,9 @@ export class OptionsComponent implements OnInit {
   @Input() optionsTemplate: TemplateRef<any>;
   @Output() selectOption = new EventEmitter<any>();
 
+  start: number = 1
+  end: number = 5
+
   @ViewChild('defaultOptionsTemplate') defaultOptionsTemplate: TemplateRef<any>;
 
   constructor() { }
@@ -32,6 +35,11 @@ export class OptionsComponent implements OnInit {
 
   trackByOption (index) {
     return index
+  }
+
+  updateRange ({start, end}) {
+    this.start = start
+    this.end = end
   }
 
   ngOnInit() {
