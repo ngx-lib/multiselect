@@ -21,8 +21,8 @@ export class VirtualScrollDirective {
     const rangeStart = topSpacing
     const topNonVisible = topSpacing / this.itemHeight
     const rangeOffset = rangeStart % this.itemHeight
-    const itemStartRange = topNonVisible + 1
-    let itemEndRange = itemStartRange + (rangeOffset? 4: 5)
+    const itemStartRange = Math.floor(topNonVisible + 1)
+    let itemEndRange = Math.ceil(itemStartRange) + (rangeOffset? 4: 5)
 
     console.log(itemStartRange, itemEndRange)
 
