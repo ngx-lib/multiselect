@@ -1,4 +1,4 @@
-<div class="options-container" msBottomReached (bottomReached)="bottomReached()">
+<div class="options-container" msBottomReached (bottomReached)="bottomReached()" msVirtualScroll>
   <ng-container 
     *ngTemplateOutlet="optionsTemplate; context: { 
       getOptionStyle: this.getOptionStyle, 

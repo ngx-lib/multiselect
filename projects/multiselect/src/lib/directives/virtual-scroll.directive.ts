@@ -1,4 +1,4 @@
-import { Directive } from '@angular/core';
+import { Directive, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[msVirtualScroll]'
@@ -6,5 +6,9 @@ import { Directive } from '@angular/core';
 export class VirtualScrollDirective {
 
   constructor() { }
+
+  @HostListener('scroll', ['$event']) onscroll(event) {
+    console.log(event)
+  }
 
 }
