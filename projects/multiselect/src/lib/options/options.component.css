@@ -1,7 +1,7 @@
 
 .options-container {
     display: block;
-    padding: 8px;
+    /* padding: 8px; */
     overflow: hidden;
     height: 200px;
     overflow-y: scroll;

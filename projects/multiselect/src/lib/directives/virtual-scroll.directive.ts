@@ -6,7 +6,7 @@ import { Directive, HostListener, Input, ElementRef, Output, EventEmitter } from
 export class VirtualScrollDirective {
   top: HTMLElement
   bottom: HTMLElement
-  scrollOffset = 16
+  scrollOffset = 0
   @Input() itemHeight: number = 40
   @Input() totalCount: number
   @Output() rangeChanged = new EventEmitter<any>()
@@ -44,7 +44,7 @@ export class VirtualScrollDirective {
   @HostListener('scroll', ['$event']) 
   onscroll({ target }) {
     console.log('target scroll', Date.now())
-    const minScrollTime = 100;
+    const minScrollTime = 500;
     const now = new Date().getTime();
 
     if (!this.scrollTimer) {
