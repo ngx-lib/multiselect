@@ -44,9 +44,7 @@ export class VirtualScrollDirective {
 
   @HostListener('scroll', ['$event']) 
   onscroll({ target }) {
-    console.log('target scroll', Date.now(), target)
-    console.dir(target)
-    const minScrollTime = 250;
+    const minScrollTime = 200;
     const now = new Date().getTime();
 
     if (!this.scrollTimer) {
@@ -56,7 +54,7 @@ export class VirtualScrollDirective {
       this.scrollTimer = setTimeout(() => {
         this.scrollTimer = null;
         this.lastScrollFireTime = new Date().getTime();
-        console.log('target scroll fired', Date.now())
+        console.dir(target)
         this.throttleScroll(target) 
       }, minScrollTime);
     }
@@ -67,7 +65,7 @@ export class VirtualScrollDirective {
     this.top = this.el.nativeElement.querySelector('.top')
     this.bottom = this.el.nativeElement.querySelector('.bottom')
     this.top.style.height = this.el.nativeElement.scrollTop + 'px';
-    this.bottom.style.height = this.itemHeight * this.totalCount + this.scrollOffset + 'px';
+    this.bottom.style.height = this.itemHeight * this.totalCount + this.scrollOffset - 200 + 'px';
   }
 
 }

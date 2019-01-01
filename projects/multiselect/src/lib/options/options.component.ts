@@ -20,6 +20,7 @@ export class OptionsComponent implements OnInit {
 
   start: number = 0
   end: number = 5
+  filteredOptions
 
   @ViewChild('defaultOptionsTemplate') defaultOptionsTemplate: TemplateRef<any>;
 
@@ -38,8 +39,13 @@ export class OptionsComponent implements OnInit {
   }
 
   updateRange ({start, end}) {
-    this.start = start
-    this.end = end
+    this.filteredOptions = [...this.options].slice(start, end+2)
+  }
+  
+  ngOnChanges ({options}) {
+    if(options.currentValue !== options.previousValue) {
+      this.updateRange({start: this.start, end: this.end})
+    }
   }
 
   ngOnInit() {

@@ -3,7 +3,7 @@
   <ng-container 
     *ngTemplateOutlet="optionsTemplate; context: { 
       getOptionStyle: this.getOptionStyle, 
-      options: this.options, 
+      options: this.filteredOptions, 
       trackByOption: this.trackByOption, 
       select: this.select,
       selectOption: this.selectOption,
@@ -13,7 +13,7 @@
   <div #bottom class="bottom"></div>
 </div>
 <ng-template #defaultOptionsTemplate let-getOptionStyle="getOptionStyle" let-options="options" let-trackByOption="trackByOption" let-select="select">
-  <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of options | slice: start: end;trackBy:trackByOption" (click)="select(option)">
+  <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of filteredOptions;trackBy:trackByOption" (click)="select(option)">
     {{option.name}}
   </div>
 </ng-template>
