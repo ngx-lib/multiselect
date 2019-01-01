@@ -21,7 +21,7 @@ export class VirtualScrollDirective {
     if (Number(scrollTo) === totalHeight) return;
     // Step: 1 - Calculate the position
     const topSpacing = scrollTop;
-    const maxItemsRange = clientHeight / this.itemHeight
+    const maxItemsRange = (clientHeight - this.scrollOffset) / this.itemHeight
 
     // Step: 2 - What are the possible collection that can be rendered
     const rangeStart = topSpacing
@@ -40,8 +40,10 @@ export class VirtualScrollDirective {
     this.rangeChanged.emit({ start: itemStartRange - 1, end: itemEndRange - 1 })
   }
 
-  @HostListener('scroll', ['$event']) onscroll({ target }) {
-    const minScrollTime = 50;
+  @HostListener('scroll', ['$event']) 
+  onscroll({ target }) {
+    console.log('target scroll', Date.now())
+    const minScrollTime = 100;
     const now = new Date().getTime();
 
     if (!this.scrollTimer) {
@@ -51,6 +53,7 @@ export class VirtualScrollDirective {
       this.scrollTimer = setTimeout(() => {
         this.scrollTimer = null;
         this.lastScrollFireTime = new Date().getTime();
+        console.log('target scroll fired', Date.now())
         this.throttleScroll(target) 
       }, minScrollTime);
     }
