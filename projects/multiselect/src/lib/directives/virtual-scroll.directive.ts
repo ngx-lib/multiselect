@@ -15,7 +15,7 @@ export class VirtualScrollDirective {
   constructor(private el: ElementRef) { }
 
   throttleScroll(target) {
-    const { scrollTop, clientHeight } = target;
+    const { scrollTop, clientHeight, scrollHeight } = target;
     const totalHeight = this.itemHeight * this.totalCount + this.scrollOffset;
     // TODO: remove below number conversion
     if (Number(scrollTo) === totalHeight) return;
@@ -26,9 +26,9 @@ export class VirtualScrollDirective {
     // Step: 2 - What are the possible collection that can be rendered
     const rangeStart = topSpacing
     const topNonVisible = topSpacing / this.itemHeight
-    const rangeOffset = rangeStart % this.itemHeight
+    // const rangeOffset = rangeStart % this.itemHeight
     const itemStartRange = Math.floor(topNonVisible + 1)
-    const calculatedEndRange = Math.ceil(itemStartRange) + (rangeOffset ? maxItemsRange - 1 : maxItemsRange)
+    const calculatedEndRange = Math.ceil(itemStartRange) + maxItemsRange
     const itemEndRange = calculatedEndRange > this.totalCount ? this.totalCount : calculatedEndRange
     const bottomSpacing = totalHeight - (rangeStart + clientHeight)
 
@@ -37,6 +37,7 @@ export class VirtualScrollDirective {
     // Step: 3 - Pass the range to the child directive (probably custom *ngFor)
     this.top.style.height = topSpacing + 'px';
     this.bottom.style.height = bottomSpacing + 'px';
+    console.log('All heights', topSpacing, bottomSpacing, scrollHeight)
     this.rangeChanged.emit({ start: itemStartRange - 1, end: itemEndRange - 1 })
   }
 
