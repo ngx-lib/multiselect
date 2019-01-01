@@ -16,23 +16,24 @@ export class VirtualScrollDirective {
 
   throttleScroll(target) {
     const { scrollTop, clientHeight, scrollHeight } = target;
-    const totalHeight = this.itemHeight * this.totalCount + this.scrollOffset;
+    const totalHeight = this.itemHeight * this.totalCount + this.scrollOffset + clientHeight;
+    if(this.el.nativeElement.querySelectorAll('.option').length < 5) return
     // TODO: remove below number conversion
-    if (Number(scrollTo) === totalHeight) return;
+    if (Number(scrollTop) === (totalHeight - clientHeight)) return;
     // Step: 1 - Calculate the position
     const topSpacing = scrollTop;
     const maxItemsRange = (clientHeight - this.scrollOffset) / this.itemHeight
 
     // Step: 2 - What are the possible collection that can be rendered
-    const rangeStart = topSpacing
+    const rangeOffset = topSpacing % this.itemHeight
+    const rangeStart = topSpacing - rangeOffset
     const topNonVisible = topSpacing / this.itemHeight
-    // const rangeOffset = rangeStart % this.itemHeight
     const itemStartRange = Math.floor(topNonVisible + 1)
     const calculatedEndRange = Math.ceil(itemStartRange) + maxItemsRange
     const itemEndRange = calculatedEndRange > this.totalCount ? this.totalCount : calculatedEndRange
-    const bottomSpacing = totalHeight - (rangeStart + clientHeight)
+    const bottomSpacing = totalHeight - (rangeStart + clientHeight) + rangeOffset
 
-    console.log(itemStartRange, itemEndRange, bottomSpacing)
+    console.log(itemStartRange, itemEndRange, bottomSpacing, rangeStart+200+bottomSpacing, (rangeStart+clientHeight+bottomSpacing)=== scrollHeight)
 
     // Step: 3 - Pass the range to the child directive (probably custom *ngFor)
     this.top.style.height = topSpacing + 'px';
@@ -43,8 +44,9 @@ export class VirtualScrollDirective {
 
   @HostListener('scroll', ['$event']) 
   onscroll({ target }) {
-    console.log('target scroll', Date.now())
-    const minScrollTime = 500;
+    console.log('target scroll', Date.now(), target)
+    console.dir(target)
+    const minScrollTime = 250;
     const now = new Date().getTime();
 
     if (!this.scrollTimer) {
