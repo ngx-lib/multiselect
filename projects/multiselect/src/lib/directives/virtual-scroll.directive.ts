@@ -1,4 +1,4 @@
-import { Directive, HostListener, Input, ElementRef, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Directive, HostListener, Input, ElementRef, Output, EventEmitter } from '@angular/core';
 
 @Directive({
   selector: '[msVirtualScroll]'
@@ -10,8 +10,24 @@ export class VirtualScrollDirective {
   @Input() itemHeight: number = 40
   @Input() totalCount: number
   @Output() rangeChanged = new EventEmitter<any>()
-
+  private scrollTimer
+  private lastScrollFireTime = 0
   constructor(private el: ElementRef) { }
+
+  throttleScroll () {
+    const minScrollTime = 100;
+    const now = new Date().getTime();
+  
+    if (!this.scrollTimer) {
+        if (now - this.lastScrollFireTime > (3 * minScrollTime)) {
+            this.lastScrollFireTime = now;
+        }
+        this.scrollTimer = setTimeout(() => {
+            this.scrollTimer = null;
+            this.lastScrollFireTime = new Date().getTime();
+        }, minScrollTime);
+    }
+  }
 
   @HostListener('scroll', ['$event']) onscroll({target}) {
     const {scrollTop, clientHeight} = target;
@@ -27,7 +43,8 @@ export class VirtualScrollDirective {
     const topNonVisible = topSpacing / this.itemHeight
     const rangeOffset = rangeStart % this.itemHeight
     const itemStartRange = Math.floor(topNonVisible + 1)
-    const itemEndRange = Math.ceil(itemStartRange) + (rangeOffset? maxItemsRange - 1: maxItemsRange)
+    const calculatedEndRange = Math.ceil(itemStartRange) + (rangeOffset? maxItemsRange - 1: maxItemsRange)
+    const itemEndRange = calculatedEndRange > this.totalCount ? this.totalCount :calculatedEndRange
     const bottomSpacing = totalHeight - (rangeStart + clientHeight)
 
     console.log(itemStartRange, itemEndRange, bottomSpacing)
@@ -35,7 +52,7 @@ export class VirtualScrollDirective {
     // Step: 3 - Pass the range to the child directive (probably custom *ngFor)
     this.top.style.height = topSpacing + 'px';
     this.bottom.style.height = bottomSpacing + 'px';
-    this.rangeChanged.emit({start: itemStartRange, end: itemEndRange})
+    this.rangeChanged.emit({ start: itemStartRange - 1, end: itemEndRange - 1 })
   }
 
   ngAfterViewInit() {
