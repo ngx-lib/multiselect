@@ -16,10 +16,10 @@ export class VirtualScrollDirective {
 
   throttleScroll(target) {
     const { scrollTop, clientHeight, scrollHeight } = target;
-    const totalHeight = this.itemHeight * this.totalCount + this.scrollOffset + clientHeight;
+    const totalHeight = this.itemHeight * this.totalCount + this.scrollOffset;
     if(this.el.nativeElement.querySelectorAll('.option').length < 5) return
     // TODO: remove below number conversion
-    if (Number(scrollTop) === (totalHeight - clientHeight)) return;
+    if (Number(scrollTop) >= (totalHeight - clientHeight)) return;
     // Step: 1 - Calculate the position
     const topSpacing = scrollTop;
     const maxItemsRange = (clientHeight - this.scrollOffset) / this.itemHeight
@@ -44,11 +44,11 @@ export class VirtualScrollDirective {
 
   @HostListener('scroll', ['$event']) 
   onscroll({ target }) {
-    const minScrollTime = 200;
+    const minScrollTime = 300;
     const now = new Date().getTime();
 
     if (!this.scrollTimer) {
-      if (now - this.lastScrollFireTime > (3 * minScrollTime)) {
+      if (now - this.lastScrollFireTime > minScrollTime) {
         this.lastScrollFireTime = now;
       }
       this.scrollTimer = setTimeout(() => {
