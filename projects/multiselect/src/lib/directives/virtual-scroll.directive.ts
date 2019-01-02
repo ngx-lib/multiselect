@@ -19,7 +19,9 @@ export class VirtualScrollDirective {
     const totalHeight = this.itemHeight * this.totalCount + this.scrollOffset;
     if(this.el.nativeElement.querySelectorAll('.option').length < 5) return
     // TODO: remove below number conversion
-    if (Number(scrollTop) >= (totalHeight - clientHeight)) return;
+    if (Number(scrollTop) >= (totalHeight - clientHeight)) {
+      return;
+    }
     // Step: 1 - Calculate the position
     const topSpacing = scrollTop;
     const maxItemsRange = (clientHeight - this.scrollOffset) / this.itemHeight
@@ -28,10 +30,10 @@ export class VirtualScrollDirective {
     const rangeOffset = topSpacing % this.itemHeight
     const rangeStart = topSpacing - rangeOffset
     const topNonVisible = topSpacing / this.itemHeight
-    const itemStartRange = Math.floor(topNonVisible + 1)
-    const calculatedEndRange = Math.ceil(itemStartRange) + maxItemsRange
+    const itemStartRange = Math.floor(topNonVisible)
+    const calculatedEndRange = Math.ceil(itemStartRange) + (rangeOffset ? maxItemsRange: maxItemsRange - 1)
     const itemEndRange = calculatedEndRange > this.totalCount ? this.totalCount : calculatedEndRange
-    const bottomSpacing = totalHeight - (rangeStart + clientHeight) + rangeOffset
+    const bottomSpacing = totalHeight - (rangeStart + clientHeight) + rangeOffset - (rangeOffset ? 40: 0)
 
     console.log(itemStartRange, itemEndRange, bottomSpacing, rangeStart+200+bottomSpacing, (rangeStart+clientHeight+bottomSpacing)=== scrollHeight)
 
