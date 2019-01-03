@@ -33,7 +33,7 @@ export class VirtualScrollDirective {
     const itemStartRange = Math.floor(topNonVisible)
     const calculatedEndRange = Math.ceil(itemStartRange) + (rangeOffset ? maxItemsRange: maxItemsRange - 1)
     const itemEndRange = calculatedEndRange > this.totalCount ? this.totalCount : calculatedEndRange
-    const bottomSpacing = totalHeight - (rangeStart + clientHeight) + rangeOffset - (rangeOffset ? 40: 0)
+    const bottomSpacing = totalHeight - (rangeStart + (itemEndRange - itemStartRange + 1) * 40)
 
     console.log(itemStartRange, itemEndRange, bottomSpacing, rangeStart+200+bottomSpacing, (rangeStart+clientHeight+bottomSpacing)=== scrollHeight)
 
