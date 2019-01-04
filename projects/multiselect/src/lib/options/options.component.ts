@@ -39,9 +39,9 @@ export class OptionsComponent implements OnInit {
   }
 
   updateRange ({start, end}) {
-    this.filteredOptions = [...this.options].slice(start, end+2)
+    this.filteredOptions = [...this.options].slice(start, end)
   }
-  
+
   ngOnChanges ({options}) {
     if(options.currentValue !== options.previousValue) {
       this.updateRange({start: this.start, end: this.end})

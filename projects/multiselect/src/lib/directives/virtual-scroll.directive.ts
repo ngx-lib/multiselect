@@ -17,7 +17,6 @@ export class VirtualScrollDirective {
   throttleScroll(target) {
     const { scrollTop, clientHeight, scrollHeight } = target;
     const totalHeight = this.itemHeight * this.totalCount + this.scrollOffset;
-    if(this.el.nativeElement.querySelectorAll('.option').length < 5) return
     // TODO: remove below number conversion
     if (Number(scrollTop) >= (totalHeight - clientHeight)) {
       return;
@@ -31,22 +30,19 @@ export class VirtualScrollDirective {
     const rangeStart = topSpacing - rangeOffset
     const topNonVisible = topSpacing / this.itemHeight
     const itemStartRange = Math.floor(topNonVisible)
-    const calculatedEndRange = Math.ceil(itemStartRange) + (rangeOffset ? maxItemsRange: maxItemsRange - 1)
-    const itemEndRange = calculatedEndRange > this.totalCount ? this.totalCount : calculatedEndRange
-    const bottomSpacing = totalHeight - (rangeStart + (itemEndRange - itemStartRange + 1) * 40)
-
-    console.log(itemStartRange, itemEndRange, bottomSpacing, rangeStart+200+bottomSpacing, (rangeStart+clientHeight+bottomSpacing)=== scrollHeight)
+    const calculatedEndRange = Math.ceil(itemStartRange + 1) + (rangeOffset ? maxItemsRange: maxItemsRange + 1)
+    const itemEndRange = calculatedEndRange >= this.totalCount ? this.totalCount : calculatedEndRange
+    const bottomSpacing = totalHeight - (rangeStart + (rangeOffset ? maxItemsRange + 1: maxItemsRange) * 40)
 
     // Step: 3 - Pass the range to the child directive (probably custom *ngFor)
-    this.top.style.height = topSpacing + 'px';
+    this.top.style.height = rangeStart + 'px';
     this.bottom.style.height = bottomSpacing + 'px';
-    console.log('All heights', topSpacing, bottomSpacing, scrollHeight)
-    this.rangeChanged.emit({ start: itemStartRange - 1, end: itemEndRange - 1 })
+    this.rangeChanged.emit({ start: itemStartRange, end: itemEndRange })
   }
 
   @HostListener('scroll', ['$event']) 
   onscroll({ target }) {
-    const minScrollTime = 300;
+    const minScrollTime = 100;
     const now = new Date().getTime();
 
     if (!this.scrollTimer) {
