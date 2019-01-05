@@ -32,7 +32,7 @@ export class VirtualScrollDirective {
     const itemEndRange = calculatedEndRange >= this.totalCount ? this.totalCount : calculatedEndRange
     const bottomSpacing = totalHeight - (rangeStart + rangeToBeIncreamented * this.itemHeight)
 
-    // Step: 3 - Pass the range to the child directive (probably custom *ngFor)
+    // Step: 3 - Pass the range to the child directive
     this.top.style.height = rangeStart + 'px';
     this.bottom.style.height = bottomSpacing + 'px';
     this.rangeChanged.emit({ start: itemStartRange, end: itemEndRange })
@@ -61,6 +61,7 @@ export class VirtualScrollDirective {
     this.bottom = this.el.nativeElement.querySelector('.bottom')
     this.top.style.height = this.el.nativeElement.scrollTop + 'px';
     this.bottom.style.height = this.itemHeight * this.totalCount + this.scrollOffset - 200 + 'px';
+    this.el.nativeElement.scrollTop = 0
   }
 
 }
