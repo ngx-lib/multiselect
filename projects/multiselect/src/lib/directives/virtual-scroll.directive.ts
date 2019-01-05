@@ -26,20 +26,20 @@ export class VirtualScrollDirective {
     const rangeStart = topSpacing - rangeOffset
     const topNonVisible = topSpacing / this.itemHeight
     const itemStartRange = Math.floor(topNonVisible)
-    const calculatedEndRange = Math.ceil(itemStartRange) + (rangeOffset ? maxItemsRange + 1: maxItemsRange)
+    const calculatedEndRange = itemStartRange + (rangeOffset ? maxItemsRange + 1: maxItemsRange)
     const itemEndRange = calculatedEndRange >= this.totalCount ? this.totalCount : calculatedEndRange
     const bottomSpacing = totalHeight - (rangeStart + (rangeOffset ? maxItemsRange + 1: maxItemsRange) * 40)
     // Step: 3 - Pass the range to the child directive (probably custom *ngFor)
     this.top.style.height = rangeStart + 'px';
     this.bottom.style.height = bottomSpacing + 'px';
     this.rangeChanged.emit({ start: itemStartRange, end: itemEndRange })
+    this.el.nativeElement.scrollTop = scrollTop
   }
 
   @HostListener('scroll', ['$event']) 
   onscroll({ target }) {
-    const minScrollTime = 100;
+    const minScrollTime = 50;
     const now = new Date().getTime();
-
     if (!this.scrollTimer) {
       if (now - this.lastScrollFireTime > minScrollTime) {
         this.lastScrollFireTime = now;
@@ -47,7 +47,7 @@ export class VirtualScrollDirective {
       this.scrollTimer = setTimeout(() => {
         this.scrollTimer = null;
         this.lastScrollFireTime = new Date().getTime();
-        this.throttleScroll(target) 
+        this.throttleScroll(target)
       }, minScrollTime);
     }
   }
