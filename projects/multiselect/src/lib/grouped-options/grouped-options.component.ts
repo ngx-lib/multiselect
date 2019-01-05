@@ -1,6 +1,6 @@
 import { 
-  Component, OnInit, Input, ChangeDetectionStrategy, Output, 
-  EventEmitter, TemplateRef, ViewEncapsulation, ViewChild
+  Component, OnInit, Input, ChangeDetectionStrategy, Output, SimpleChanges,
+  EventEmitter, TemplateRef, ViewEncapsulation, ViewChild, OnChanges
 } from '@angular/core';
 import { NgxMultiselectService } from '../services/multiselect.service';
 
@@ -12,9 +12,13 @@ import { NgxMultiselectService } from '../services/multiselect.service';
   // TODO: find better way, without encapsulation none thing
   encapsulation: ViewEncapsulation.None
 })
-export class GroupedOptionsComponent implements OnInit {
+export class GroupedOptionsComponent implements OnInit, OnChanges {
 
   groupedOptions = [];
+  start: number = 0
+  end: number = 5
+  totalCount: number = 0
+  filteredOptions
 
   @Input() groupedProperty: string;
   @Input() disabled = false;
@@ -22,13 +26,14 @@ export class GroupedOptionsComponent implements OnInit {
   @Input() optionsTemplate: TemplateRef<any>;
   @Input() set options (value) {
     this.groupedOptions = this.multiselectService.optionsGrouping(value, this.groupedProperty);
+    this.totalCount = 0
+    this.groupedOptions.forEach(g => ++this.totalCount && g.values.forEach(v => ++this.totalCount))
   }
   get options(){
     return this.groupedOptions;
   }
   @Output() selectOption = new EventEmitter<any>();
   @Output() selectGroup = new EventEmitter<any>();
-  @Output() loadMoreOptions = new EventEmitter<any>();
 
   @ViewChild('defaultOptionsTemplate') defaultOptionsTemplate: TemplateRef<any>;
 
@@ -50,9 +55,29 @@ export class GroupedOptionsComponent implements OnInit {
     return index;
   }
 
+  updateRange ({start, end}) {
+    console.log(start, end)
+    // this.filteredOptions = [...this.options].slice(start, end)
+    const filteredOptions = []
+    // Step 1: find out start
+
+    // Step 2: push into the array until end is figured out
+
+    // Step 3: there is need of prepending at least one or two elements inside group
+    // for better visualisation and less UI flickering
+
+    // Step 4: There might be a chance of end of the group might have empty values, we can add one if UI flickers
+  }
+
   ngOnInit() {
     if(!this.optionsTemplate) {
       this.optionsTemplate = this.defaultOptionsTemplate;
+    }
+  }
+
+  ngOnChanges ({options}: SimpleChanges) {
+    if(options.currentValue !== options.previousValue) {
+      this.updateRange({start: this.start, end: this.end})
     }
   }
 
@@ -67,10 +92,6 @@ export class GroupedOptionsComponent implements OnInit {
       const allAreSelected = groupOption.values.every(v => v.ticked)
       groupOption.ticked = allAreSelected;
     }
-  }
-
-  bottomReached() {
-    this.loadMoreOptions.emit();
   }
 
 }

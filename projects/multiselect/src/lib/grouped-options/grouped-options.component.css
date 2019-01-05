@@ -1,7 +1,6 @@
 
 .options-container {
     display: block;
-    padding: 8px;
     overflow: hidden;
     height: 200px;
     overflow-y: scroll;
@@ -46,12 +45,14 @@
     position: absolute;
 }
 
-.group .option.disabled, .group .option.disabled:hover, .group .option.disabled label input:hover ~ span {
+.group .option.disabled,
+.group .option.disabled:hover,
+.group .option.disabled label input:hover ~ span {
     color: #c4c4c4 !important;
     pointer-events:none;
     cursor: not-allowed !important;
 }
 
-.group .option:not(:first-child) {
+.group .option:not(.name) {
     margin-left: 15px;
 }

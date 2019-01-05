@@ -57,10 +57,11 @@ export class VirtualScrollDirective {
 
   ngAfterViewInit() {
     // TODO: later think of usng ViewChild, instead of direct DOM manipulation.
+    const {scrollTop, clientHeight} = this.el.nativeElement
     this.top = this.el.nativeElement.querySelector('.top')
     this.bottom = this.el.nativeElement.querySelector('.bottom')
-    this.top.style.height = this.el.nativeElement.scrollTop + 'px';
-    this.bottom.style.height = this.itemHeight * this.totalCount + this.scrollOffset - 200 + 'px';
+    this.top.style.height = scrollTop + 'px';
+    this.bottom.style.height = this.itemHeight * this.totalCount + this.scrollOffset - clientHeight + 'px';
     this.el.nativeElement.scrollTop = 0
   }
 
