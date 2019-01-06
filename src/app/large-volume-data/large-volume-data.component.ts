@@ -13,7 +13,7 @@ export class LargeVolumeDataComponent implements OnInit {
   largeDatasetOptionsSubscription: Subscription;
 
   constructor (private appService: AppService) {}
-  largeDatasetValue: any = {id: 1, name: 'a'}
+  largeDatasetValue: any = {id: 1, name: 'Wilkerson Roy'}
   
   ngOnInit(): void {
     // Retrieving data for dropdown
