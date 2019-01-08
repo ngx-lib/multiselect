@@ -18,23 +18,24 @@ describe('MultiselectComponent', () => {
   let options;
   let groupOptions;
 
-  beforeEach(async(() => {
-    TestBed.overrideComponent(NgxMultiselectComponent, {
-      set: new Component({
-        selector: 'ngx-multiselect',
-        templateUrl: './multiselect.component.html',
-        changeDetection: ChangeDetectionStrategy.Default
+  function beforeEachSetup () {
+    beforeEach(async(() => {
+      TestBed.overrideComponent(NgxMultiselectComponent, {
+        set: new Component({
+          selector: 'ngx-multiselect',
+          templateUrl: './multiselect.component.html',
+          changeDetection: ChangeDetectionStrategy.Default
+        })
+      });
+      TestBed.configureTestingModule({
+        declarations: [
+          NgxMultiselectComponent, FilterOptionsComponent, GroupedOptionsComponent,
+          DisplaySelectedValuePipe, HelperElementsComponent, OptionsComponent
+        ],
+        imports: [FormsModule, ReactiveFormsModule, BrowserModule]
       })
-    });
-    TestBed.configureTestingModule({
-      declarations: [
-        NgxMultiselectComponent, FilterOptionsComponent, GroupedOptionsComponent,
-        DisplaySelectedValuePipe, HelperElementsComponent, OptionsComponent
-      ],
-      imports: [FormsModule, ReactiveFormsModule, BrowserModule]
-    })
-      .compileComponents();
-  }));
+        .compileComponents();
+    }));
 
     beforeEach(() => {
       fixture = TestBed.createComponent(NgxMultiselectComponent);
@@ -59,7 +60,9 @@ describe('MultiselectComponent', () => {
       component.options = [...options];
       fixture.detectChanges();
     });
+  }
 
+   function executeTests() {
     // isOpen flag
     describe('IsOpen flag', () => {
 
@@ -67,7 +70,7 @@ describe('MultiselectComponent', () => {
         // assert
         expect(component.isOpen).toBe(false);
       });
-      
+
       // This test will check if on click of dropdown, isOpen property will be toggled or not and the test below will test
       // on toggle of isOpen, dropdown is closed or not
       it('On click of dropdown button, isOpen property of component should be toggled ', () => {
@@ -88,39 +91,28 @@ describe('MultiselectComponent', () => {
       it('when isOpen is toggled, helper element, filter options and options should also be removed or added', () => { 
         // component.isOpen = false;
         // component.isOpen will always be false by default checked in first test
-        let helperEleComponent = debugElement.query(By.css('.helper-buttons'));
-        let filterOptionsComponent = debugElement.query(By.css('.input-search'));
-        let optionsComponent = debugElement.query(By.css('.options-container'));
+        let helperEleComponent = debugElement.query(By.css('ms-helper-elements'));
+        let filterOptionsComponent = debugElement.query(By.css('ms-filter-options'));
+        let optionsComponent = debugElement.query(By.css('ms-options'));
         expect(helperEleComponent).toBeFalsy();
         expect(filterOptionsComponent).toBeFalsy();
         expect(optionsComponent).toBeFalsy();
         component.isOpen = true;
         fixture.detectChanges();
-        helperEleComponent = debugElement.query(By.css('.helper-buttons')).componentInstance;
-        filterOptionsComponent = debugElement.query(By.css('.input-search')).componentInstance;
-        optionsComponent = debugElement.query(By.css('.options-container')).componentInstance;
+        helperEleComponent = debugElement.query(By.css('ms-helper-elements')).componentInstance;
+        filterOptionsComponent = debugElement.query(By.css('ms-filter-options')).componentInstance;
+        optionsComponent = debugElement.query(By.css('ms-options')).componentInstance;
         expect(helperEleComponent).toBeTruthy();
         expect(filterOptionsComponent).toBeTruthy();
         expect(optionsComponent).toBeTruthy();
       });
 
-
+      // TODO: find a way to click outside the component and complete the test case
       it('On click outside drodown, it should close dropdown', () => {
         // arrange
-        component.isOpen = true;
-        fixture.detectChanges();
-        document.body.onclick = function(event) {
-          const isClickedOnDropdown = fixture.debugElement.nativeElement.contains(event.target);
-          // if clicked on component click again on document
-          if (isClickedOnDropdown) {
-            document.body.click();
-          } else {
-            // expect(component.isOpen).toBe(false);
-          }
-        };
-        document.body.click();
+        // act
+        // assert
       });
-
 
     });
 
@@ -131,10 +123,9 @@ describe('MultiselectComponent', () => {
         component.optionsTemplate = null;
         component.isOpen = true;
         fixture.detectChanges();
-        const optionsComponentDebugEle = debugElement.query(By.css('.options-container');
+        const optionsComponentDebugEle = debugElement.query(By.css('ms-options'));
         const optionsComponent = optionsComponentDebugEle.componentInstance;
         // assert
-        expect(optionsComponentDebugEle.parent.name).toBe('ms-options');
         expect(optionsComponent.defaultOptionsTemplate).toBeTruthy();
       });
 
@@ -152,10 +143,9 @@ describe('MultiselectComponent', () => {
         component.optionsTemplate = null;
         component.isOpen = true;
         fixture.detectChanges();
-        const groupOptionsComponentDebugEle = debugElement.query(By.css('.options-container');
+        const groupOptionsComponentDebugEle = debugElement.query(By.css('ms-grouped-options'));
         const groupOptionsComponent = groupOptionsComponentDebugEle.componentInstance;
         // assert
-        expect(groupOptionsComponentDebugEle.parent.name).toBe('ms-grouped-options');
         expect(groupOptionsComponent.defaultOptionsTemplate).toBeTruthy();
       });
 
@@ -355,10 +345,10 @@ describe('MultiselectComponent', () => {
       // assert
       expect(true).toBeTruthy();
     });
-
-  // without observable
-  // beforeEachSetup();
-  // executeTests();
+  }
+   // without observable
+   beforeEachSetup();
+   executeTests();
 
   // TODO: with observable
   // beforeEachSetup();
