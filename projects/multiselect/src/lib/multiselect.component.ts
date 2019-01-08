@@ -105,7 +105,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     const optionsCopy = this.getOptionsCopy();
     let result = optionsCopy
     if (val) {
-      const result = optionsCopy.filter(i => i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1);
+      result = optionsCopy.filter(i => i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1);
     }
     this.setOptions(result);
     this.prepopulateOptions(this._selectedOptions);
