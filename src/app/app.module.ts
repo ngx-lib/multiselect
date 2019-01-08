@@ -16,6 +16,7 @@ import { CustomTemplateComponent } from './custom-template/custom-template.compo
 import { SingleSelectWithPropertyMapComponent } from './single-select-with-property-map/single-select-with-property-map.component';
 import { SingleSelectTemplateDrivenComponent } from './single-select-template-driven/single-select-template-driven.component';
 import { OptionsLazyLoadingComponent } from './options-lazy-loading/options-lazy-loading.component';
+import { LargeVolumeDataComponent } from './large-volume-data/large-volume-data.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { OptionsLazyLoadingComponent } from './options-lazy-loading/options-lazy
     MultipleSelectWithObservableComponent,
     CustomTemplateComponent,
     SingleSelectWithPropertyMapComponent,
-    OptionsLazyLoadingComponent
+    OptionsLazyLoadingComponent,
+    LargeVolumeDataComponent
   ],
   imports: [
     BrowserModule,

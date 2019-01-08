@@ -1,0 +1,10 @@
+<h2>Load large data set</h2>
+
+<ngx-multiselect 
+  [(ngModel)]="largeDatasetValue"
+  [options]="largeDatasetOptions"
+  [multiple]="true"
+  ngDefaultControl>
+</ngx-multiselect>
+
+{{propertyMapValue | json}}

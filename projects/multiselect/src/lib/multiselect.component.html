@@ -20,13 +20,13 @@
       (onSearchChange)="searchChange($event)"
     ></ms-filter-options>
     <ng-container *ngIf="!groupedProperty else groupedTemplate">
-      <ms-options [optionsTemplate]="optionsTemplate" [options]="_options" (loadMoreOptions)="loadMoreOptions()"
+      <ms-options [optionsTemplate]="optionsTemplate" [options]="_options"
         [disabled]="disabled" (selectOption)="select($event)"></ms-options>
     </ng-container>
   </div>
 </div>
 <ng-template #groupedTemplate>
-  <ms-grouped-options [multiple]="multiple" [optionsTemplate]="optionsTemplate" (loadMoreOptions)="loadMoreOptions()"
+  <ms-grouped-options [multiple]="multiple" [optionsTemplate]="optionsTemplate"
     [options]="_options" [disabled]="disabled" [groupedProperty]="groupedProperty" 
     (selectOption)="select($event)" (selectGroup)="selectGroup($event)">
   </ms-grouped-options>

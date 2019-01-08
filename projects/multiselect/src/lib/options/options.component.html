@@ -1,17 +1,19 @@
-<div class="options-container" msBottomReached (bottomReached)="bottomReached()">
+<div class="options-container" msVirtualScroll [totalCount]="options.length" (rangeChanged)="updateRange($event)">
+  <div #top class="top"></div>
   <ng-container 
     *ngTemplateOutlet="optionsTemplate; context: { 
       getOptionStyle: this.getOptionStyle, 
-      options: this.options, 
+      options: this.filteredOptions, 
       trackByOption: this.trackByOption, 
       select: this.select,
       selectOption: this.selectOption,
       disabled: this.disabled
     }">
   </ng-container>
+  <div #bottom class="bottom"></div>
 </div>
 <ng-template #defaultOptionsTemplate let-getOptionStyle="getOptionStyle" let-options="options" let-trackByOption="trackByOption" let-select="select">
-  <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of options;trackBy:trackByOption" (click)="select(option)">
+  <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of filteredOptions;trackBy:trackByOption" (click)="select(option)">
     {{option.name}}
   </div>
 </ng-template>

@@ -31,7 +31,6 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   }
 
   // private variables
-  private currentPage = 1;
   private _multiple = false;
   private _optionsCopy; //TODO: in future this will be master list
   private _isOpen: boolean = false;
@@ -72,7 +71,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   set options(collection) {
     if(!collection) return;
     this._optionsCopy = this.multiselectService.mapDatasourceToFields(collection, this._defaultPropertyMap, this.groupedProperty);
-    const options = this.checkAndApplyLazyLoading(this.getOptionsCopy());
+    const options = this.getOptionsCopy();
     this.setOptions(options);
     if(this.isOperationPending()) this.finishPendingOperations();
   }
@@ -102,60 +101,32 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   getOptionsCopy() {
     return this._optionsCopy ? [...this._optionsCopy]: []
   }
-
-  checkAndApplyLazyLoading(options) {
-    if(!this.lazyLoading) return options; 
-    const {length} = options
-    let pagesize = this.optionsLimit * this.currentPage
-    if (pagesize > length) {
-      pagesize = length
-    }
-    options.length = pagesize
-    return options.slice()
-  }
-
   filterOptionsList = (val: string) => {
-    let optionsCopy = this.getOptionsCopy();
-    let result = []
-    if (!val) {
-      result = this.checkAndApplyLazyLoading(optionsCopy);
-    } else {
-      const filteredOptions = optionsCopy.filter(i => i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1);
-      result = this.checkAndApplyLazyLoading(filteredOptions);
+    const optionsCopy = this.getOptionsCopy();
+    let result = optionsCopy
+    if (val) {
+      const result = optionsCopy.filter(i => i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1);
     }
     this.setOptions(result);
     this.prepopulateOptions(this._selectedOptions);
   }
 
-  loadMoreOptions (){
-    ++this.currentPage;
-    this.filterOptionsList(this.filterOptions.filterName.value)
-  }
-
   isValueSelected() {
     return this._multiple ? this._selectedOptions.length : this._selectedOptions;
   }
-
-  resetLazyloadingOptions () {
-    this.currentPage = 1;
-    this.checkAndApplyLazyLoading(this.getOptionsCopy());
-  }
   
   searchChange (val: string) {
-    this.resetLazyloadingOptions();
     this.filterOptionsList(val);
     this.onSearchChange.emit(val);
   }
 
   filterClear () {
-    this.resetLazyloadingOptions();
     this.filterOptionsList('');
     this.onClear.emit();
   }
 
   close() {
     this.isOpen = false;
-    this.resetLazyloadingOptions();
     this.onClose.emit();
   }
 
