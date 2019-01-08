@@ -3,6 +3,7 @@
   [formControl]="customTemplateSelect" 
   ngDefaultControl 
   [options]="customTemplateOptions"
+  [propertyMap]="{'img': 'img'}"
   [multiple]="true">
   <!-- TODO: Check on below let attributes are neccessary -->
   <ng-template
@@ -11,7 +12,10 @@
     let-trackByOption="trackByOption"
     let-select="select">
     <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of options;trackBy:trackByOption" (click)="select(option)">
-      {{option.name}} Test
+      <div class="img">
+        <img [src]="option.img" width="40px" height="40px" [attr.alt]="option.name" />
+        {{option.name}}
+      </div>
     </div>
   </ng-template>
 </ngx-multiselect> 
