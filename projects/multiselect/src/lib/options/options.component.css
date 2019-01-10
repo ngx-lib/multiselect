@@ -41,8 +41,9 @@
 
 .marked::after {
     content: '✓';
-    margin: 0 5px 0;
+    margin: 0 5px;
     right: 0;
+    top: 5px;
     position: absolute;
 }
 
