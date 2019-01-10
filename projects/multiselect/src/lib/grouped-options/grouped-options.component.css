@@ -52,7 +52,3 @@
     pointer-events:none;
     cursor: not-allowed !important;
 }
-
-.group .option:not(.name) {
-    margin-left: 15px;
-}

@@ -26,6 +26,7 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
   @Input() optionsTemplate: TemplateRef<any>;
   @Input() set options(value) {
     this.groupedOptions = this.multiselectService.optionsGrouping(value, this.groupedProperty);
+    console.log(this.multiselectService.virtualOptionsGroupingFlatten(value, 'category'))
     this.totalCount = 0
     this.groupedOptions.forEach(g => ++this.totalCount && g.values.forEach(v => ++this.totalCount))
   }

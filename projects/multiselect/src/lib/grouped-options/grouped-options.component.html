@@ -18,7 +18,7 @@
   <div #bottom class="bottom"></div>
 </div>
 <ng-template #defaultOptionsTemplate let-getOptionStyle="getOptionStyle" let-options="options" let-trackByOption="trackByOption" let-select="select" let-groupOption="groupOption">
-  <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of options;trackBy:trackByOption" (click)="select(groupOption, option)">
+  <div class="option" [ngStyle]="{'marginLeft': ((option.depth || 1)* 15) + 'px'}" [ngClass]="getOptionStyle(option)" *ngFor="let option of options;trackBy:trackByOption" (click)="select(groupOption, option)">
     {{option.name}}
   </div>
 </ng-template>

@@ -64,12 +64,12 @@ export class NgxMultiselectService {
     let result = []
     allParentGroupedValues.forEach( group => {
       result.push({ name: group })
-      const groupedValues = options.filter(o => o[groupByProperty] === group && !o.parent)
+      const groupedValues = options.filter(o => o[groupByProperty] === group && !o.parent).map(v => ({...v, depth: 1}))
       result = [...result].concat(groupedValues)
       const childGroupedValues = subGroupedValues.filter((s: any) => s.parent === group)
       childGroupedValues.forEach( c => {
         result.push({ name: c })
-        const values = options.filter(o => o[groupByProperty] === c).map(v => ({...v, depth: 1}))
+        const values = options.filter(o => o[groupByProperty] === c).map(v => ({...v, depth: 2}))
         result.concat(values)
       })
     })
