@@ -42,6 +42,20 @@ export class NgxMultiselectService {
     return false;
   }
 
+  allDescendantsAreTicked (collection, groupProperty) {
+
+    // Loop over collection get first parent result
+
+    // Grand parent options, all will be flatten
+
+    // selectedOptions ids
+
+    // currently search result ids
+
+    // Check currently length of both && searchIds === selectedOptionsIds
+    
+  }
+
   optionsGrouping(options, groupByProperty): any[] {
     const getAllUniqueGroupByPropertyValue = [...Array.from(new Set(options.map(item => item[groupByProperty])))]
     const result = getAllUniqueGroupByPropertyValue.map(
@@ -75,7 +89,7 @@ export class NgxMultiselectService {
     )]
     let result = []
     allParentGroupedValues.forEach( group => {
-      result.push({ name: group })
+      result.push({ name: group, isGroup: true })
       const groupedValues = options
         .filter(o => o[groupByProperty] === group && !o.parent)
         .map(v => ({...v, depth: 1}))
@@ -83,7 +97,7 @@ export class NgxMultiselectService {
       const childGroupedValues = subGroupedValues
         .filter((s: any) => s.parent === group)
       childGroupedValues.forEach( c => {
-        result.push({ name: c, parent: group })
+        result.push({ name: c, parent: group, isGroup: true })
         const values = options
           .filter(o => o[groupByProperty] === c)
           .map(v => ({...v, depth: 2}))

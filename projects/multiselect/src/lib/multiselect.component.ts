@@ -158,7 +158,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
       let selectedIds = selectedOptions.map(i => i.id);
       if (selectedIds.indexOf(option.id) === -1) {
         // if selected item not exist in collection, push it
-        selectedOptions.push(this.getOptions().find(i => i.id == option.id));
+        selectedOptions.push(option);
       } else {
         // if selected item exist in collection, post it
         this.removeItem(selectedOptions, option);

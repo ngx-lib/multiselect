@@ -23,16 +23,18 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
   @Input() groupedProperty: string;
   @Input() disabled = false;
   @Input() multiple = false;
+  @Input() selectedOptions: any | any[];
   @Input() optionsTemplate: TemplateRef<any>;
   @Input() set options(value) {
-    this.groupedOptions = this.multiselectService.virtualOptionsGroupingFlatten(value, this.groupedProperty);
+    const values = this.multiselectService.virtualOptionsGroupingFlatten(value, this.groupedProperty)
+    let selectedIds = this.multiple ? this.selectedOptions.map(s => s.id): this.selectedOptions ? [this.selectedOptions.id]: []
+    this.groupedOptions = values.map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1}))
     this.totalCount = this.groupedOptions.length
   }
   get options() {
     return this.groupedOptions;
   }
   @Output() selectOption = new EventEmitter<any>();
-  @Output() selectGroup = new EventEmitter<any>();
 
   @ViewChild('defaultOptionsTemplate') defaultOptionsTemplate: TemplateRef<any>;
 
@@ -47,7 +49,7 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
   }
 
   updateRange({ start, end }) {
-    this.filteredOptions = [...this.groupedOptions].slice(start, end)
+    this.filteredOptions = [...this.options].slice(start, end)
   }
 
   ngOnInit() {
@@ -62,12 +64,11 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
     }
   }
 
-  groupOptionClick(group: any) {
-    this.selectGroup.emit({ values: group.values, ticked: !group.ticked });
-  }
 
-  select(option) {
-    this.selectOption.emit(option);
+  select (option) {
+    if (!option.isGroup) {
+      this.selectOption.emit(option);
+    }
     // // TODO: check, why below works after emit?
     // if (this.multiple) {
     //   const allAreSelected = groupOption.values.every(v => v.ticked)
