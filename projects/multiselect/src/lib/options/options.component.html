@@ -4,7 +4,6 @@
     *ngTemplateOutlet="optionsTemplate; context: { 
       getOptionStyle: this.getOptionStyle, 
       options: this.filteredOptions, 
-      trackByOption: this.trackByOption, 
       select: this.select,
       selectOption: this.selectOption,
       disabled: this.disabled
@@ -12,8 +11,8 @@
   </ng-container>
   <div #bottom class="bottom"></div>
 </div>
-<ng-template #defaultOptionsTemplate let-getOptionStyle="getOptionStyle" let-options="options" let-trackByOption="trackByOption" let-select="select">
-  <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of filteredOptions;trackBy:trackByOption" (click)="select(option)">
+<ng-template #defaultOptionsTemplate let-getOptionStyle="getOptionStyle" let-options="options" let-select="select">
+  <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of filteredOptions" (click)="select(option)">
     {{option.name}}
   </div>
 </ng-template>

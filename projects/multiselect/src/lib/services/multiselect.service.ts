@@ -59,17 +59,34 @@ export class NgxMultiselectService {
   }
 
   virtualOptionsGroupingFlatten(options, groupByProperty): any[] {
-    const allParentGroupedValues = [...Array.from(new Set(options.filter(o => !o.parent).map(item => item[groupByProperty])))]
-    const subGroupedValues = [...Array.from(new Set(options.filter(o => o.parent).map(({name, parent}) => ({name, parent}))))]
+    const allParentGroupedValues = [...Array.from(
+      new Set(
+        options
+          .filter(o => !o.parent)
+          .map(item => item[groupByProperty])
+      )
+    )]
+    const subGroupedValues = [...Array.from(
+      new Set(
+        options
+          .filter(o => o.parent)
+          .map(({name, parent}) => ({name, parent}))
+      )
+    )]
     let result = []
     allParentGroupedValues.forEach( group => {
       result.push({ name: group })
-      const groupedValues = options.filter(o => o[groupByProperty] === group && !o.parent).map(v => ({...v, depth: 1}))
+      const groupedValues = options
+        .filter(o => o[groupByProperty] === group && !o.parent)
+        .map(v => ({...v, depth: 1}))
       result = [...result].concat(groupedValues)
-      const childGroupedValues = subGroupedValues.filter((s: any) => s.parent === group)
+      const childGroupedValues = subGroupedValues
+        .filter((s: any) => s.parent === group)
       childGroupedValues.forEach( c => {
-        result.push({ name: c })
-        const values = options.filter(o => o[groupByProperty] === c).map(v => ({...v, depth: 2}))
+        result.push({ name: c, parent: group })
+        const values = options
+          .filter(o => o[groupByProperty] === c)
+          .map(v => ({...v, depth: 2}))
         result.concat(values)
       })
     })

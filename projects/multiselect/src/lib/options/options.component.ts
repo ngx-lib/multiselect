@@ -34,10 +34,6 @@ export class OptionsComponent implements OnInit, OnChanges {
     this.selectOption.emit(option);
   }
 
-  trackByOption (index) {
-    return index
-  }
-
   updateRange ({start, end}) {
     this.filteredOptions = [...this.options].slice(start, end)
   }

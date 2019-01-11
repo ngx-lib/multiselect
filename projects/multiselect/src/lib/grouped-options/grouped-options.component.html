@@ -1,24 +1,18 @@
 <div class="options-container" msVirtualScroll [totalCount]="totalCount" (rangeChanged)="updateRange($event)">
   <div #top class="top"></div>
-  <div class="group" *ngFor="let groupOption of groupedOptions;trackBy: trackByGroup">
-    <div class="option name" [ngClass]="getGroupOptionStyle(groupOption)" (click)="groupOptionClick(groupOption)">
-      {{groupOption.name}}
-    </div>
-    <ng-container *ngTemplateOutlet="optionsTemplate; context: { 
-        getOptionStyle: this.getOptionStyle, 
-        groupOption: groupOption,
-        options: this.groupOption.values, 
-        trackByOption: this.trackByOption, 
-        select: this.select,
-        selectOption: this.selectOption,
-        multiple: this.multiple
-      }">
-    </ng-container>
-  </div>
+  <ng-container 
+    *ngTemplateOutlet="optionsTemplate; context: { 
+      getOptionStyle: this.getOptionStyle, 
+      options: this.filteredOptions,
+      select: this.select,
+      selectOption: this.selectOption,
+      disabled: this.disabled
+    }">
+  </ng-container>
   <div #bottom class="bottom"></div>
 </div>
-<ng-template #defaultOptionsTemplate let-getOptionStyle="getOptionStyle" let-options="options" let-trackByOption="trackByOption" let-select="select" let-groupOption="groupOption">
-  <div class="option" [ngStyle]="{'marginLeft': ((option.depth || 1)* 15) + 'px'}" [ngClass]="getOptionStyle(option)" *ngFor="let option of options;trackBy:trackByOption" (click)="select(groupOption, option)">
+<ng-template #defaultOptionsTemplate let-getOptionStyle="getOptionStyle" let-options="filteredOptions" let-select="select">
+  <div class="option" [ngStyle]="{'marginLeft': (option.depth * 15) + 'px'}" [ngClass]="getOptionStyle(option)" *ngFor="let option of filteredOptions" (click)="select(option)">
     {{option.name}}
   </div>
 </ng-template>
