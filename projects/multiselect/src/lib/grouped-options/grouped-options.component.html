@@ -4,15 +4,21 @@
     *ngTemplateOutlet="optionsTemplate; context: { 
       getOptionStyle: this.getOptionStyle, 
       options: this.filteredOptions,
+      multiselectService: this.multiselectService,
+      multiple: this.multiple,
       select: this.select,
+      groupedProperty: this.groupedProperty,
+      selectGroup: this.selectGroup,
+      selectedOptions: this.selectedOptions,
       selectOption: this.selectOption,
-      disabled: this.disabled
+      disabled: this.disabled,
+      trackByFn: this.trackByFn
     }">
   </ng-container>
   <div #bottom class="bottom"></div>
 </div>
 <ng-template #defaultOptionsTemplate let-getOptionStyle="getOptionStyle" let-options="filteredOptions" let-select="select">
-  <div class="option" [ngStyle]="{'marginLeft': (option.depth * 15) + 'px'}" [ngClass]="getOptionStyle(option)" *ngFor="let option of filteredOptions" (click)="select(option)">
+  <div class="option" [ngStyle]="{'marginLeft': (option.depth * 15) + 'px'}" [ngClass]="getOptionStyle(option)" *ngFor="let option of filteredOptions;trackBy:trackByFn" (click)="select(option)">
     {{option.name}}
   </div>
 </ng-template>

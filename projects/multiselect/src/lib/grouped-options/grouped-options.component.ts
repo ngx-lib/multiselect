@@ -27,21 +27,28 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
   @Input() optionsTemplate: TemplateRef<any>;
   @Input() set options(value) {
     const values = this.multiselectService.virtualOptionsGroupingFlatten(value, this.groupedProperty)
-    let selectedIds = this.multiple ? this.selectedOptions.map(s => s.id): this.selectedOptions ? [this.selectedOptions.id]: []
-    this.groupedOptions = values.map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1}))
+    let selectedIds = this.multiple ? this.selectedOptions.map(s => s.id)
+      : this.selectedOptions ? [this.selectedOptions.id]: []
+    this.groupedOptions = values.map(v => ({...v, ticked: selectedIds.indexOf(v.id) !== -1}))
     this.totalCount = this.groupedOptions.length
   }
   get options() {
     return this.groupedOptions;
   }
-  @Output() selectOption = new EventEmitter<any>();
+
+  @Output() selectGroup = new EventEmitter<any>()
+  @Output() selectOption = new EventEmitter<any>()
 
   @ViewChild('defaultOptionsTemplate') defaultOptionsTemplate: TemplateRef<any>;
 
-  constructor(private multiselectService: NgxMultiselectService) { }
+  constructor(public multiselectService: NgxMultiselectService) { }
 
   getOptionStyle(option: any) {
     return { 'marked': option.ticked, disabled: (this.disabled || option.disabled) };
+  }
+
+  trackByFn (_, option) {
+    return option.id
   }
 
   getGroupOptionStyle(group: any) {
@@ -64,15 +71,18 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
     }
   }
 
-
   select (option) {
     if (!option.isGroup) {
       this.selectOption.emit(option);
-    }
-    // // TODO: check, why below works after emit?
-    // if (this.multiple) {
-    //   const allAreSelected = groupOption.values.every(v => v.ticked)
-    //   groupOption.ticked = allAreSelected;
+    } 
+    // else {
+    //   option.ticked = !option.ticked
+    //   const values = this.multiselectService.collectAllDescendants(this.options, this.groupedProperty, option.name)
+    //   this.selectGroup.emit({ ...option, values: values })
+    // }
+    // TODO: check, why below works after emit?
+    // if (this.multiple && option.isGroup) {
+    //   option.ticked = this.multiselectService.allDescendantsAreTicked(this.options, this.groupedProperty, option[this.groupedProperty])
     // }
   }
 

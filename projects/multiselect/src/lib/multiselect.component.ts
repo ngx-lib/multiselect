@@ -163,6 +163,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
         // if selected item exist in collection, post it
         this.removeItem(selectedOptions, option);
       }
+      this.setOptions(this.getOptions().map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1})));
     } else {
       // TODO: find optimized way to do below
       let val = option && option.id;
@@ -190,7 +191,8 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
 
   //TODO: Optimized below logic, it can be done in lesser steps
   selectGroup (group: any) {
-    const { values, ticked } = group;
+    const { ticked, values } = group
+    const options = this.getOptions()
     let selectedValues = [...this._selectedOptions];
     let selectedIds = selectedValues.map(s=>s.id);
     const allGroupOptionIds = values.map(v=> v.id);
@@ -198,11 +200,11 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     // concat with selected options
     selectedValues = ticked ? selectedValues.concat(values): selectedValues.filter(o => allGroupOptionIds.indexOf(o.id) === -1);
     // Find unique out of them
-    selectedIds = [...Array.from(new Set(selectedValues.map(item => item.id)))];
+    selectedIds = this.multiselectService.findUnique(selectedValues.map(item => item.id))
     // build selectedOptions array again
-    selectedValues = this.getOptions().filter(o=> selectedIds.indexOf(o.id) !== -1);
+    selectedValues = options.filter(o=> selectedIds.indexOf(o.id) !== -1);
     this.viewToModel(selectedValues);
-    this.setOptions(this.getOptions().map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1})));
+    this.setOptions(options.map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1})));
     this.onGroupItemClick.emit(group);
   }
 
