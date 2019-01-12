@@ -42,22 +42,25 @@ export class NgxMultiselectService {
     return false;
   }
 
-  allDescendantsAreTicked (collection, groupProperty) {
+  // TODO: make this logic to work to find all descendant groups
+  collectAllDescendants (collection, groupProperty, groupName) {
+    const allDescendants =  collection.filter(item => item[groupProperty] == groupName)
+    allDescendants.concat(
+      collection.filter(item => item.parent == groupName)
+    )
+    return allDescendants
+  }
 
-    // Loop over collection get first parent result
-
-    // Grand parent options, all will be flatten
-
-    // selectedOptions ids
-
-    // currently search result ids
-
-    // Check currently length of both && searchIds === selectedOptionsIds
-    
+  allDescendantsAreTicked (collection, groupProperty, groupName) {
+    const allDescendants = this.collectAllDescendants(collection, groupProperty, groupName)
+    const allAreTicked = allDescendants.every(d => d.ticked)
+    return allAreTicked    
   }
 
   optionsGrouping(options, groupByProperty): any[] {
-    const getAllUniqueGroupByPropertyValue = [...Array.from(new Set(options.map(item => item[groupByProperty])))]
+    const getAllUniqueGroupByPropertyValue = this.findUnique(
+      options.map(item => item[groupByProperty])
+    )
     const result = getAllUniqueGroupByPropertyValue.map(
       group => {
         const groupedValues = options.filter(o => o[groupByProperty] === group)
@@ -72,21 +75,23 @@ export class NgxMultiselectService {
     return result;
   }
 
+  findUnique (expression) {
+    return  [...Array.from(
+      new Set(expression)
+    )]
+  }
+
   virtualOptionsGroupingFlatten(options, groupByProperty): any[] {
-    const allParentGroupedValues = [...Array.from(
-      new Set(
-        options
-          .filter(o => !o.parent)
-          .map(item => item[groupByProperty])
-      )
-    )]
-    const subGroupedValues = [...Array.from(
-      new Set(
-        options
-          .filter(o => o.parent)
-          .map(({name, parent}) => ({name, parent}))
-      )
-    )]
+    const allParentGroupedValues = this.findUnique(
+      options
+        .filter(o => !o.parent)
+        .map(item => item[groupByProperty])
+    );
+    const subGroupedValues = this.findUnique(
+      options
+        .filter(o => o.parent)
+        .map(({name, parent}) => ({name, parent}))
+    )
     let result = []
     allParentGroupedValues.forEach( group => {
       result.push({ name: group, isGroup: true })
