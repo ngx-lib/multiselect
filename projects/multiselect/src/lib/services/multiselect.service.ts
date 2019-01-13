@@ -94,7 +94,7 @@ export class NgxMultiselectService {
     )
     let result = []
     allParentGroupedValues.forEach( group => {
-      result.push({ name: group, isGroup: true })
+      result.push({ name: group, isGroup: true, ticked: this.allDescendantsAreTicked(options, groupByProperty, group) })
       const groupedValues = options
         .filter(o => o[groupByProperty] === group && !o.parent)
         .map(v => ({...v, depth: 1}))

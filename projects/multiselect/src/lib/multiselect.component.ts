@@ -153,9 +153,10 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   select(option) {
     let selectedOptions;
     option.ticked = !option.ticked;
+    // TODO: Refactor below logic
     if (this._multiple) {
       selectedOptions = [...this._selectedOptions]
-      let selectedIds = selectedOptions.map(i => i.id);
+      let selectedIds = selectedOptions.map(i => i.id)
       if (selectedIds.indexOf(option.id) === -1) {
         // if selected item not exist in collection, push it
         selectedOptions.push(option);
@@ -163,6 +164,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
         // if selected item exist in collection, post it
         this.removeItem(selectedOptions, option);
       }
+      selectedIds = selectedOptions.map(i => i.id)
       this.setOptions(this.getOptions().map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1})));
     } else {
       // TODO: find optimized way to do below

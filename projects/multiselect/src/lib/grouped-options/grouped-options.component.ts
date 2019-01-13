@@ -29,7 +29,7 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
     const values = this.multiselectService.virtualOptionsGroupingFlatten(value, this.groupedProperty)
     let selectedIds = this.multiple ? this.selectedOptions.map(s => s.id)
       : this.selectedOptions ? [this.selectedOptions.id]: []
-    this.groupedOptions = values.map(v => ({...v, ticked: selectedIds.indexOf(v.id) !== -1}))
+    this.groupedOptions = values.map(v => ({...v, ticked: !v.isGroup ? selectedIds.indexOf(v.id) !== -1: v.ticked }))
     this.totalCount = this.groupedOptions.length
   }
   get options() {
@@ -80,8 +80,8 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
       const values = this.multiselectService.collectAllDescendants(this.options, this.groupedProperty, option.name)
       this.selectGroup.emit({ ...option, values: values })
     }
-    // TODO: check, why below works after emit?
-    // if (this.multiple && option.isGroup) {
+    // // TODO: check, why below works after emit?
+    // if (this.multiple && !option.isGroup) {
     //   option.ticked = this.multiselectService.allDescendantsAreTicked(this.options, this.groupedProperty, option[this.groupedProperty])
     // }
   }
