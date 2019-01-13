@@ -176,13 +176,13 @@ describe('GroupedOptionsComponent', () => {
     });
     it('initially all group options selected, removal any of them should unmark group option', () => {
       // arrange
-      const options = debugElement.queryAll(By.css('.group:first-child .option'))
-      // select 1st group
-      options[0].triggerEventHandler('click', null)
+      const groupOption = debugElement.query(By.css('.option.group'))
+      groupOption.triggerEventHandler('click', null)
       fixture.detectChanges()
 
       // act
-      options[1].triggerEventHandler('click', null)
+      const firstOption = debugElement.query(By.css('.option:not(.group)'))
+      firstOption.triggerEventHandler('click', null)
       fixture.detectChanges()
 
       // assert
@@ -196,7 +196,7 @@ describe('GroupedOptionsComponent', () => {
   describe('Option', () => {
     it('it should emit an event to parent component to select current option', () => {
       // arrange
-      const optionsElements = debugElement.queryAll(By.css('.group:first-child .option'))
+      const optionsElements = debugElement.queryAll(By.css('.group.option:first-child'))
 
       // act
       optionsElements[1].triggerEventHandler('click', null)
