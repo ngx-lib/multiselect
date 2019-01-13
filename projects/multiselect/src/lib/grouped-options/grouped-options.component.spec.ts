@@ -6,6 +6,7 @@ import { DebugElement, TemplateRef, ElementRef } from '@angular/core';
 import { GroupedOptionsComponent } from './grouped-options.component';
 import { NgxMultiselectComponent } from '../multiselect.component';
 import { NgxMultiselectService } from '../services/multiselect.service';
+import { VirtualScrollDirective } from '../directives/virtual-scroll.directive';
 
 describe('GroupedOptionsComponent', () => {
   let component: GroupedOptionsComponent;
@@ -21,7 +22,7 @@ describe('GroupedOptionsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [GroupedOptionsComponent],
+      declarations: [GroupedOptionsComponent, VirtualScrollDirective],
       imports: [FormsModule, ReactiveFormsModule, BrowserModule]
     }).compileComponents();
   }));

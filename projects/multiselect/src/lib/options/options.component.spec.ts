@@ -5,6 +5,7 @@ import { By } from '@angular/platform-browser';
 import { OptionsComponent } from './options.component';
 import { NgxMultiselectComponent } from '../multiselect.component';
 import { NgxMultiselectService } from '../services/multiselect.service';
+import { VirtualScrollDirective } from '../directives/virtual-scroll.directive';
 
 describe('OptionsComponent', () => {
   let component: OptionsComponent;
@@ -17,7 +18,7 @@ describe('OptionsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OptionsComponent ]
+      declarations: [ OptionsComponent, VirtualScrollDirective ]
     })
     .compileComponents();
   }));
