@@ -3,7 +3,8 @@
   <ng-container 
     *ngTemplateOutlet="optionsTemplate; context: { 
       getOptionStyle: this.getOptionStyle, 
-      options: this.filteredOptions,
+      options: this.options,
+      filteredOptions: this.filteredOptions,
       multiselectService: this.multiselectService,
       multiple: this.multiple,
       select: this.select,

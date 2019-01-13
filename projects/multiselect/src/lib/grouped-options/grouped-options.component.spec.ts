@@ -53,11 +53,13 @@ describe('GroupedOptionsComponent', () => {
       option = selected;
       multiselect.select(option);
       component.options = multiselect.getOptions();
+      component.selectedOptions = multiselect._selectedOptions
       fixture.detectChanges();
     })
     component.selectGroup.subscribe(groupSelected => {
       group = groupSelected;
       multiselect.selectGroup(group);
+      component.selectedOptions = multiselect._selectedOptions
       component.options = multiselect.getOptions();
       fixture.detectChanges();
     });
@@ -124,7 +126,7 @@ describe('GroupedOptionsComponent', () => {
   describe('Group option', () => {
     it('on click on group options, it should select all underlying options', () => {
       // arrange
-      const group = debugElement.query(By.css('.group:first-child .option:first-child'))
+      const group = debugElement.query(By.css('.option.group'))
 
       // act
       group.triggerEventHandler('click', null)
@@ -132,14 +134,15 @@ describe('GroupedOptionsComponent', () => {
 
       // assert
       const markedOptions = debugElement.queryAll(By.css('.option.marked'))
-      const groupElement = debugElement.query(By.css('.group .option.marked'))
+      const groupElement = debugElement.query(By.css('.group.option.marked'))
       expect(markedOptions.length).toBe(3)
       expect(groupElement).toBeDefined()
-      expect(groupElement.nativeElement.className).toBe('option marked')
+      expect(groupElement.classes.option).toBe(true)
+      expect(groupElement.classes.marked).toBe(true)
     });
     it('on click of selected group options should de-select all underlying options', () => {
       // arrange
-      const group = debugElement.query(By.css('.group .option'))
+      const group = debugElement.query(By.css('.group.option'))
       group.triggerEventHandler('click', null)
 
       // act
@@ -148,26 +151,28 @@ describe('GroupedOptionsComponent', () => {
 
       // assert
       const markedOptions = debugElement.queryAll(By.css('.option.marked'))
-      const groupElement = debugElement.query(By.css('.group:first-child .option.marked'))
+      const groupElement = debugElement.query(By.css('.group.option.marked'))
       expect(markedOptions.length).toBe(0)
       expect(groupElement).toBeNull();
     });
     it('when all the options of group were selected, then it should tick the group option automatically', () => {
       // arrange
-      const group = debugElement.queryAll(By.css('.group .option'))
-      group[1].triggerEventHandler('click', null)
+      const group = debugElement.queryAll(By.css('.group.option'))
+      group[0].triggerEventHandler('click', null)
       fixture.detectChanges()
 
       // act
-      group[2].triggerEventHandler('click', null)
+      group[1].triggerEventHandler('click', null)
       fixture.detectChanges()
 
       // assert
       const markedOptions = debugElement.queryAll(By.css('.option.marked'))
-      const groupElement = debugElement.query(By.css('.group:first-child .option.marked'))
-      expect(markedOptions.length).toBe(3)
+      const groupElement = debugElement.query(By.css('.group.option.marked'))
+      expect(markedOptions.length).toBe(5)
+      expect(component.selectedOptions.length).toBe(4)
       expect(groupElement).toBeDefined()
-      expect(groupElement.nativeElement.className).toBe('option marked')
+      expect(groupElement.classes.option).toBe(true)
+      expect(groupElement.classes.marked).toBe(true)
     });
     it('initially all group options selected, removal any of them should unmark group option', () => {
       // arrange
@@ -182,7 +187,7 @@ describe('GroupedOptionsComponent', () => {
 
       // assert
       const markedOptions = debugElement.queryAll(By.css('.option.marked'))
-      const groupElement = debugElement.query(By.css('.group:first-child .option:first-child.marked'))
+      const groupElement = debugElement.query(By.css('.group.option.marked'))
       expect(markedOptions.length).toBe(1)
       expect(groupElement).toBeNull()
     });
