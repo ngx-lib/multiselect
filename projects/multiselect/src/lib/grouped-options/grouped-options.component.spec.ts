@@ -43,11 +43,11 @@ describe('GroupedOptionsComponent', () => {
     selectedFirstOption = options.filter(o => o.id)
     component.multiple = true;
     component.selectedOptions = [];
-    component.options = [...options]
     multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService())
     multiselect.multiple = true;
     multiselect.setOptions(options);
-    multiselect._selectedOptions = [];
+    component.options = multiselect.getOptions();
+    multiselect._selectedOptions = component.selectedOptions
     // TODO: can we find more better way to call parent components method?
     component.selectOption.subscribe(selected => {
       option = selected;
@@ -66,6 +66,12 @@ describe('GroupedOptionsComponent', () => {
     fixture.detectChanges();
   });
 
+  // This is around to 
+  beforeEach(() => {
+    // component.options = [...options]
+    // fixture.detectChanges();
+  }) 
+
   it('Component should gets added into the DOM', () => {
     expect(component).toBeDefined();
   });
@@ -77,15 +83,15 @@ describe('GroupedOptionsComponent', () => {
     expect(component.groupedOptions.length).toBe(9)
   });
 
-  it('It should have 8 options and 3 group', () => {
+  it('It should have 5 options displayed on the screen, out of which 2 should be groups', () => {
     // arrange
     // act
     const optionsElements = debugElement.queryAll(By.css('.option'))
     const groupElements = debugElement.queryAll(By.css('.group'))
 
     // assert
-    expect(optionsElements.length).toBe(9)
-    expect(groupElements.length).toBe(3)
+    expect(optionsElements.length).toBe(5)
+    expect(groupElements.length).toBe(2)
   });
 
 
@@ -94,13 +100,9 @@ describe('GroupedOptionsComponent', () => {
     // act
     // assert
     expect(component.groupedOptions).toBeDefined();
-    expect(component.groupedOptions.length).toBe(3);
+    expect(component.groupedOptions.length).toBe(9);
     // all categories should be covered
-    expect(component.groupedOptions.map(g => g.name).length).toBe(3);
-    // each groupOption should have to elements
-    component.groupedOptions.forEach(g => {
-      expect(g.values.length).toBe(2);
-    })
+    expect(component.groupedOptions.filter(g => g.isGroup).length).toBe(3);
   })
 
   it('by default old default grouping template should be loaded', () => {

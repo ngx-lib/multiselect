@@ -12,7 +12,7 @@ import { NgxMultiselectService } from '../services/multiselect.service';
   // TODO: find better way, without encapsulation none thing
   encapsulation: ViewEncapsulation.None
 })
-export class GroupedOptionsComponent implements OnInit, OnChanges {
+export class GroupedOptionsComponent implements OnInit {
 
   groupedOptions = []
   start: number = 0
@@ -31,6 +31,7 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
       : this.selectedOptions ? [this.selectedOptions.id]: []
     this.groupedOptions = values.map(v => ({...v, ticked: !v.isGroup ? selectedIds.indexOf(v.id) !== -1: v.ticked }))
     this.totalCount = this.groupedOptions.length
+    this.updateRange({ start: this.start, end: this.end })
   }
   get options() {
     return this.groupedOptions;
@@ -58,12 +59,6 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
   ngOnInit() {
     if (!this.optionsTemplate) {
       this.optionsTemplate = this.defaultOptionsTemplate;
-    }
-  }
-
-  ngOnChanges({ options }: SimpleChanges) {
-    if (options.currentValue !== options.previousValue) {
-      this.updateRange({ start: this.start, end: this.end })
     }
   }
 
