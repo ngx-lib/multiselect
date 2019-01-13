@@ -48,7 +48,7 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
   }
 
   trackByFn (_, option) {
-    return option.id
+    return option.isGroup ? _: option.id
   }
 
   getGroupOptionStyle(group: any) {
