@@ -42,8 +42,25 @@ export class NgxMultiselectService {
     return false;
   }
 
+  // TODO: make this logic to work to find all descendant groups
+  collectAllDescendants (collection, groupProperty, groupName) {
+    const allDescendants =  collection.filter(item => item[groupProperty] == groupName)
+    allDescendants.concat(
+      collection.filter(item => item.parent == groupName)
+    )
+    return allDescendants
+  }
+
+  allDescendantsAreTicked (collection, groupProperty, groupName) {
+    const allDescendants = this.collectAllDescendants(collection, groupProperty, groupName)
+    const allAreTicked = allDescendants.every(d => d.ticked)
+    return allAreTicked    
+  }
+
   optionsGrouping(options, groupByProperty): any[] {
-    const getAllUniqueGroupByPropertyValue = [...Array.from(new Set(options.map(item => item[groupByProperty])))]
+    const getAllUniqueGroupByPropertyValue = this.findUnique(
+      options.map(item => item[groupByProperty])
+    )
     const result = getAllUniqueGroupByPropertyValue.map(
       group => {
         const groupedValues = options.filter(o => o[groupByProperty] === group)
@@ -58,18 +75,37 @@ export class NgxMultiselectService {
     return result;
   }
 
+  findUnique (expression) {
+    return  [...Array.from(
+      new Set(expression)
+    )]
+  }
+
   virtualOptionsGroupingFlatten(options, groupByProperty): any[] {
-    const allParentGroupedValues = [...Array.from(new Set(options.filter(o => !o.parent).map(item => item[groupByProperty])))]
-    const subGroupedValues = [...Array.from(new Set(options.filter(o => o.parent).map(({name, parent}) => ({name, parent}))))]
+    const allParentGroupedValues = this.findUnique(
+      options
+        .filter(o => !o.parent)
+        .map(item => item[groupByProperty])
+    );
+    const subGroupedValues = this.findUnique(
+      options
+        .filter(o => o.parent)
+        .map(({name, parent}) => ({name, parent}))
+    )
     let result = []
     allParentGroupedValues.forEach( group => {
-      result.push({ name: group })
-      const groupedValues = options.filter(o => o[groupByProperty] === group && !o.parent)
+      result.push({ name: group, isGroup: true, ticked: this.allDescendantsAreTicked(options, groupByProperty, group) })
+      const groupedValues = options
+        .filter(o => o[groupByProperty] === group && !o.parent)
+        .map(v => ({...v, depth: 1}))
       result = [...result].concat(groupedValues)
-      const childGroupedValues = subGroupedValues.filter((s: any) => s.parent === group)
+      const childGroupedValues = subGroupedValues
+        .filter((s: any) => s.parent === group)
       childGroupedValues.forEach( c => {
-        result.push({ name: c })
-        const values = options.filter(o => o[groupByProperty] === c).map(v => ({...v, depth: 1}))
+        result.push({ name: c, parent: group, isGroup: true })
+        const values = options
+          .filter(o => o[groupByProperty] === c)
+          .map(v => ({...v, depth: 2}))
         result.concat(values)
       })
     })
