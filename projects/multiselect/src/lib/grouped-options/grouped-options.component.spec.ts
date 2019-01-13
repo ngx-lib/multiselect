@@ -42,6 +42,7 @@ describe('GroupedOptionsComponent', () => {
     ];
     selectedFirstOption = options.filter(o => o.id)
     component.multiple = true;
+    component.selectedOptions = [];
     component.options = [...options]
     multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService())
     multiselect.multiple = true;
@@ -73,7 +74,7 @@ describe('GroupedOptionsComponent', () => {
     // arrange
     // act
     // assert
-    expect(component.groupedOptions.length).toBe(3)
+    expect(component.groupedOptions.length).toBe(9)
   });
 
   it('It should have 8 options and 3 group', () => {

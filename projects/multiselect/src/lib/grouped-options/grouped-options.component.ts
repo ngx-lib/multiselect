@@ -44,15 +44,11 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
   constructor(public multiselectService: NgxMultiselectService) { }
 
   getOptionStyle(option: any) {
-    return { 'marked': option.ticked, disabled: (this.disabled || option.disabled) };
+    return { 'group': option.isGroup, 'marked': option.ticked, disabled: (this.disabled || option.disabled) };
   }
 
   trackByFn (_, option) {
     return option.isGroup ? option.name: option.id
-  }
-
-  getGroupOptionStyle(group: any) {
-    return { 'marked': group.ticked, disabled: (!this.multiple || group.disabled) };
   }
 
   updateRange({ start, end }) {
