@@ -47,8 +47,8 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
     return { 'marked': option.ticked, disabled: (this.disabled || option.disabled) };
   }
 
-  trackByFn (index, option) {
-    return option.isGroup ? index: option.id
+  trackByFn (_, option) {
+    return option.isGroup ? option.name: option.id
   }
 
   getGroupOptionStyle(group: any) {
