@@ -211,7 +211,7 @@ describe('GroupedOptionsComponent', () => {
     });
     it('should de-select an option on click of selected option', () => {
       // arrange
-      const optionsElements = debugElement.queryAll(By.css('.group.option:first-child'))
+      const optionsElements = debugElement.queryAll(By.css('.option'))
       optionsElements[1].triggerEventHandler('click', null)
       fixture.detectChanges()
 
@@ -244,7 +244,7 @@ describe('GroupedOptionsComponent', () => {
     });
     it('should de-select option should change the selectedOptions of multiselect component', () => {
       // arrange
-      const optionsElements = debugElement.queryAll(By.css('.group:first-child.option'))
+      const optionsElements = debugElement.queryAll(By.css('.option'))
       optionsElements[1].triggerEventHandler('click', null)
       fixture.detectChanges()
 
@@ -267,16 +267,15 @@ describe('GroupedOptionsComponent', () => {
       // act
       groupOptionsElements[0].triggerEventHandler('click', null)
       groupOptionsElements[1].triggerEventHandler('click', null)
-      groupOptionsElements[2].triggerEventHandler('click', null)
       fixture.detectChanges()
 
       // assert
       const markedOtionsElements = debugElement.queryAll(By.css('.option.marked'))
-      const markedGroup = groupOptionsElements.filter((g) => ~g.nativeElement.className.indexOf('marked'))
-      expect(markedOtionsElements.length).toBe(9)
-      expect(markedGroup.length).toBe(3)
-      expect(multiselectSelectGroupSpy).toHaveBeenCalledTimes(3);
-      expect(multiselect._selectedOptions.length).toBe(multiselect.getOptions().length)
+      const markedGroup = groupOptionsElements.filter((g) => g.classes.marked)
+      expect(markedOtionsElements.length).toBe(5)
+      expect(markedGroup.length).toBe(2)
+      expect(multiselectSelectGroupSpy).toHaveBeenCalledTimes(2);
+      expect(multiselect._selectedOptions.length).toBe(4)
     });
   })
 
@@ -335,9 +334,17 @@ describe('GroupedOptionsComponent', () => {
   })
 
   describe('Disabled option', () => {
-    it('disabled flag should passon all the way from options to grouptions', () => {
+    beforeEach(() => {
+      const opts = [...options]
+      opts[2].disabled = true
+      component.options = opts
+      multiselect.options = opts
+      multiselect.isOpen = true
+      fixture.detectChanges()
+    })
+    it('disabled flag should pass-on all the way from options to grouptions', () => {
       // arrange
-      const group = debugElement.query(By.css('.group.option'))
+      const group = debugElement.query(By.css('.group.option.disabled'))
       group.triggerEventHandler('click', null)
       fixture.detectChanges()
 
@@ -346,7 +353,7 @@ describe('GroupedOptionsComponent', () => {
       fixture.detectChanges()
 
       // assert
-      expect(group.classes.option).toBe(true)
+      expect(group.classes.disabled).toBe(true)
     })
     // TODO: check how to restrict event on pointer-events: none? Alternative create event propagation directive.
     it('if some option is disabled, then toggle disabled flag of option', () => {
@@ -387,7 +394,7 @@ describe('GroupedOptionsComponent', () => {
     })
     it('should select onlt single option', () => {
       // arrange
-      let firstGroupOptions = debugElement.queryAll(By.css('.group .option'))
+      let firstGroupOptions = debugElement.queryAll(By.css('.group.option'))
       firstGroupOptions[1].triggerEventHandler('click', null)
       fixture.detectChanges()
 
@@ -396,7 +403,7 @@ describe('GroupedOptionsComponent', () => {
       fixture.detectChanges()
 
       // assert
-      const markedOptions = debugElement.queryAll(By.css('.group .option.marked'))
+      const markedOptions = debugElement.queryAll(By.css('.group.option.marked'))
       expect(multiselect.isOpen).toBe(false)
       expect(multiselect._selectedOptions.id).toBe(options[1].id)
       expect(markedOptions.length).toBe(1)
