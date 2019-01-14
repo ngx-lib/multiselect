@@ -12,12 +12,11 @@ import { NgxMultiselectService } from '../services/multiselect.service';
   // TODO: find better way, without encapsulation none thing
   encapsulation: ViewEncapsulation.None
 })
-export class GroupedOptionsComponent implements OnInit, OnChanges {
+export class GroupedOptionsComponent implements OnInit {
 
   groupedOptions = []
   start: number = 0
   end: number = 5
-  totalCount: number = 0
   filteredOptions
 
   @Input() groupedProperty: string;
@@ -30,7 +29,7 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
     let selectedIds = this.multiple ? this.selectedOptions.map(s => s.id)
       : this.selectedOptions ? [this.selectedOptions.id]: []
     this.groupedOptions = values.map(v => ({...v, ticked: !v.isGroup ? selectedIds.indexOf(v.id) !== -1: v.ticked }))
-    this.totalCount = this.groupedOptions.length
+    this.updateRange({ start: this.start, end: this.end })
   }
   get options() {
     return this.groupedOptions;
@@ -44,15 +43,11 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
   constructor(public multiselectService: NgxMultiselectService) { }
 
   getOptionStyle(option: any) {
-    return { 'marked': option.ticked, disabled: (this.disabled || option.disabled) };
+    return { 'group': option.isGroup, 'marked': option.ticked, disabled: (this.disabled || option.disabled) };
   }
 
   trackByFn (_, option) {
     return option.isGroup ? option.name: option.id
-  }
-
-  getGroupOptionStyle(group: any) {
-    return { 'marked': group.ticked, disabled: (!this.multiple || group.disabled) };
   }
 
   updateRange({ start, end }) {
@@ -62,12 +57,6 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
   ngOnInit() {
     if (!this.optionsTemplate) {
       this.optionsTemplate = this.defaultOptionsTemplate;
-    }
-  }
-
-  ngOnChanges({ options }: SimpleChanges) {
-    if (options.currentValue !== options.previousValue) {
-      this.updateRange({ start: this.start, end: this.end })
     }
   }
 

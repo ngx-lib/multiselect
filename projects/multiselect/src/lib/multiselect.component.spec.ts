@@ -9,6 +9,7 @@ import { DisplaySelectedValuePipe } from './pipes/display-selected-value.pipe';
 import { HelperElementsComponent } from './helper-elements/helper-elements.component';
 import { OptionsComponent } from './options/options.component';
 import { DebugElement, Component, ChangeDetectionStrategy } from '@angular/core';
+import { VirtualScrollDirective } from './directives/virtual-scroll.directive';
 
 
 describe('MultiselectComponent', () => {
@@ -30,7 +31,7 @@ describe('MultiselectComponent', () => {
       TestBed.configureTestingModule({
         declarations: [
           NgxMultiselectComponent, FilterOptionsComponent, GroupedOptionsComponent,
-          DisplaySelectedValuePipe, HelperElementsComponent, OptionsComponent
+          DisplaySelectedValuePipe, HelperElementsComponent, OptionsComponent, VirtualScrollDirective
         ],
         imports: [FormsModule, ReactiveFormsModule, BrowserModule]
       })

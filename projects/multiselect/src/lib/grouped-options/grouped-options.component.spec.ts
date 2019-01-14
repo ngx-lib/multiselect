@@ -6,6 +6,7 @@ import { DebugElement, TemplateRef, ElementRef } from '@angular/core';
 import { GroupedOptionsComponent } from './grouped-options.component';
 import { NgxMultiselectComponent } from '../multiselect.component';
 import { NgxMultiselectService } from '../services/multiselect.service';
+import { VirtualScrollDirective } from '../directives/virtual-scroll.directive';
 
 describe('GroupedOptionsComponent', () => {
   let component: GroupedOptionsComponent;
@@ -21,7 +22,7 @@ describe('GroupedOptionsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [GroupedOptionsComponent],
+      declarations: [GroupedOptionsComponent, VirtualScrollDirective],
       imports: [FormsModule, ReactiveFormsModule, BrowserModule]
     }).compileComponents();
   }));
@@ -41,21 +42,24 @@ describe('GroupedOptionsComponent', () => {
     ];
     selectedFirstOption = options.filter(o => o.id)
     component.multiple = true;
-    component.options = [...options]
+    component.selectedOptions = [];
     multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService())
     multiselect.multiple = true;
     multiselect.setOptions(options);
-    multiselect._selectedOptions = [];
+    component.options = multiselect.getOptions();
+    multiselect._selectedOptions = component.selectedOptions
     // TODO: can we find more better way to call parent components method?
     component.selectOption.subscribe(selected => {
       option = selected;
       multiselect.select(option);
+      component.selectedOptions = multiselect._selectedOptions
       component.options = multiselect.getOptions();
       fixture.detectChanges();
     })
     component.selectGroup.subscribe(groupSelected => {
       group = groupSelected;
       multiselect.selectGroup(group);
+      component.selectedOptions = multiselect._selectedOptions
       component.options = multiselect.getOptions();
       fixture.detectChanges();
     });
@@ -63,6 +67,12 @@ describe('GroupedOptionsComponent', () => {
     multiselectSelectGroupSpy = spyOn(multiselect, 'selectGroup').and.callThrough();
     fixture.detectChanges();
   });
+
+  // This is around to 
+  beforeEach(() => {
+    // component.options = [...options]
+    // fixture.detectChanges();
+  }) 
 
   it('Component should gets added into the DOM', () => {
     expect(component).toBeDefined();
@@ -72,18 +82,18 @@ describe('GroupedOptionsComponent', () => {
     // arrange
     // act
     // assert
-    expect(component.groupedOptions.length).toBe(3)
+    expect(component.groupedOptions.length).toBe(9)
   });
 
-  it('It should have 8 options and 3 group', () => {
+  it('It should have 5 options displayed on the screen, out of which 2 should be groups', () => {
     // arrange
     // act
     const optionsElements = debugElement.queryAll(By.css('.option'))
     const groupElements = debugElement.queryAll(By.css('.group'))
 
     // assert
-    expect(optionsElements.length).toBe(9)
-    expect(groupElements.length).toBe(3)
+    expect(optionsElements.length).toBe(5)
+    expect(groupElements.length).toBe(2)
   });
 
 
@@ -92,13 +102,9 @@ describe('GroupedOptionsComponent', () => {
     // act
     // assert
     expect(component.groupedOptions).toBeDefined();
-    expect(component.groupedOptions.length).toBe(3);
+    expect(component.groupedOptions.length).toBe(9);
     // all categories should be covered
-    expect(component.groupedOptions.map(g => g.name).length).toBe(3);
-    // each groupOption should have to elements
-    component.groupedOptions.forEach(g => {
-      expect(g.values.length).toBe(2);
-    })
+    expect(component.groupedOptions.filter(g => g.isGroup).length).toBe(3);
   })
 
   it('by default old default grouping template should be loaded', () => {
@@ -120,7 +126,7 @@ describe('GroupedOptionsComponent', () => {
   describe('Group option', () => {
     it('on click on group options, it should select all underlying options', () => {
       // arrange
-      const group = debugElement.query(By.css('.group:first-child .option:first-child'))
+      const group = debugElement.query(By.css('.option.group'))
 
       // act
       group.triggerEventHandler('click', null)
@@ -128,14 +134,15 @@ describe('GroupedOptionsComponent', () => {
 
       // assert
       const markedOptions = debugElement.queryAll(By.css('.option.marked'))
-      const groupElement = debugElement.query(By.css('.group .option.marked'))
+      const groupElement = debugElement.query(By.css('.group.option.marked'))
       expect(markedOptions.length).toBe(3)
       expect(groupElement).toBeDefined()
-      expect(groupElement.nativeElement.className).toBe('option marked')
+      expect(groupElement.classes.option).toBe(true)
+      expect(groupElement.classes.marked).toBe(true)
     });
     it('on click of selected group options should de-select all underlying options', () => {
       // arrange
-      const group = debugElement.query(By.css('.group .option'))
+      const group = debugElement.query(By.css('.group.option'))
       group.triggerEventHandler('click', null)
 
       // act
@@ -144,41 +151,43 @@ describe('GroupedOptionsComponent', () => {
 
       // assert
       const markedOptions = debugElement.queryAll(By.css('.option.marked'))
-      const groupElement = debugElement.query(By.css('.group:first-child .option.marked'))
+      const groupElement = debugElement.query(By.css('.group.option.marked'))
       expect(markedOptions.length).toBe(0)
       expect(groupElement).toBeNull();
     });
     it('when all the options of group were selected, then it should tick the group option automatically', () => {
       // arrange
-      const group = debugElement.queryAll(By.css('.group .option'))
+      const group = debugElement.queryAll(By.css('.group.option'))
+      group[0].triggerEventHandler('click', null)
+      fixture.detectChanges()
+
+      // act
       group[1].triggerEventHandler('click', null)
       fixture.detectChanges()
 
-      // act
-      group[2].triggerEventHandler('click', null)
-      fixture.detectChanges()
-
       // assert
       const markedOptions = debugElement.queryAll(By.css('.option.marked'))
-      const groupElement = debugElement.query(By.css('.group:first-child .option.marked'))
-      expect(markedOptions.length).toBe(3)
+      const groupElement = debugElement.query(By.css('.group.option.marked'))
+      expect(markedOptions.length).toBe(5)
+      expect(component.selectedOptions.length).toBe(4)
       expect(groupElement).toBeDefined()
-      expect(groupElement.nativeElement.className).toBe('option marked')
+      expect(groupElement.classes.option).toBe(true)
+      expect(groupElement.classes.marked).toBe(true)
     });
     it('initially all group options selected, removal any of them should unmark group option', () => {
       // arrange
-      const options = debugElement.queryAll(By.css('.group:first-child .option'))
-      // select 1st group
-      options[0].triggerEventHandler('click', null)
+      const groupOption = debugElement.query(By.css('.option.group'))
+      groupOption.triggerEventHandler('click', null)
       fixture.detectChanges()
 
       // act
-      options[1].triggerEventHandler('click', null)
+      const firstOption = debugElement.query(By.css('.option:not(.group)'))
+      firstOption.triggerEventHandler('click', null)
       fixture.detectChanges()
 
       // assert
       const markedOptions = debugElement.queryAll(By.css('.option.marked'))
-      const groupElement = debugElement.query(By.css('.group:first-child .option:first-child.marked'))
+      const groupElement = debugElement.query(By.css('.group.option.marked'))
       expect(markedOptions.length).toBe(1)
       expect(groupElement).toBeNull()
     });
@@ -187,7 +196,7 @@ describe('GroupedOptionsComponent', () => {
   describe('Option', () => {
     it('it should emit an event to parent component to select current option', () => {
       // arrange
-      const optionsElements = debugElement.queryAll(By.css('.group:first-child .option'))
+      const optionsElements = debugElement.queryAll(By.css('.option'))
 
       // act
       optionsElements[1].triggerEventHandler('click', null)
@@ -202,7 +211,7 @@ describe('GroupedOptionsComponent', () => {
     });
     it('should de-select an option on click of selected option', () => {
       // arrange
-      const optionsElements = debugElement.queryAll(By.css('.group:first-child .option'))
+      const optionsElements = debugElement.queryAll(By.css('.option'))
       optionsElements[1].triggerEventHandler('click', null)
       fixture.detectChanges()
 
@@ -219,7 +228,7 @@ describe('GroupedOptionsComponent', () => {
     });
     it('should select option should change the selectedOptions of multiselect component', () => {
       // arrange
-      const optionsElements = debugElement.queryAll(By.css('.group:first-child .option'))
+      const optionsElements = debugElement.queryAll(By.css('.option'))
 
       // act
       optionsElements[1].triggerEventHandler('click', null)
@@ -235,7 +244,7 @@ describe('GroupedOptionsComponent', () => {
     });
     it('should de-select option should change the selectedOptions of multiselect component', () => {
       // arrange
-      const optionsElements = debugElement.queryAll(By.css('.group:first-child .option'))
+      const optionsElements = debugElement.queryAll(By.css('.option'))
       optionsElements[1].triggerEventHandler('click', null)
       fixture.detectChanges()
 
@@ -253,28 +262,27 @@ describe('GroupedOptionsComponent', () => {
     });
     it('should allow to select multiple group options', () => {
       // arrange
-      const groupOptionsElements = debugElement.queryAll(By.css('.group .option:first-child'))
+      const groupOptionsElements = debugElement.queryAll(By.css('.group.option'))
 
       // act
       groupOptionsElements[0].triggerEventHandler('click', null)
       groupOptionsElements[1].triggerEventHandler('click', null)
-      groupOptionsElements[2].triggerEventHandler('click', null)
       fixture.detectChanges()
 
       // assert
       const markedOtionsElements = debugElement.queryAll(By.css('.option.marked'))
-      const markedGroup = groupOptionsElements.filter((g) => ~g.nativeElement.className.indexOf('marked'))
-      expect(markedOtionsElements.length).toBe(9)
-      expect(markedGroup.length).toBe(3)
-      expect(multiselectSelectGroupSpy).toHaveBeenCalledTimes(3);
-      expect(multiselect._selectedOptions.length).toBe(multiselect.getOptions().length)
+      const markedGroup = groupOptionsElements.filter((g) => g.classes.marked)
+      expect(markedOtionsElements.length).toBe(5)
+      expect(markedGroup.length).toBe(2)
+      expect(multiselectSelectGroupSpy).toHaveBeenCalledTimes(2);
+      expect(multiselect._selectedOptions.length).toBe(4)
     });
   })
 
   describe('Styling', () => {
     it('on select of option should apply correct CSS to option', () => {
       // arrange
-      let firstGroupOptions = debugElement.query(By.css('.group:first-child .option:not(:first-child)'))
+      let firstGroupOptions = debugElement.query(By.css('.option:not(.group)'))
 
       // act
       firstGroupOptions.triggerEventHandler('click', null)
@@ -290,27 +298,29 @@ describe('GroupedOptionsComponent', () => {
       fixture.detectChanges()
 
       // act
-      const firstGroup = debugElement.query(By.css('.group:first-child .option:first-child'))
+      const firstGroup = debugElement.query(By.css('.group.option'))
       firstGroup.triggerEventHandler('click', null)
       fixture.detectChanges()
 
       // assert
-      expect(firstGroup.nativeElement.className).toBe('option marked')
+      expect(firstGroup.classes.option).toBe(true)
+      expect(firstGroup.classes.marked).toBe(true)
     });
     it('on select of groupOption should apply correct CSS to option', () => {
       // arrange
-      const firstGroup = debugElement.query(By.css('.group:first-child .option:first-child'))
+      const firstGroup = debugElement.query(By.css('.group.option'))
 
       // act
       firstGroup.triggerEventHandler('click', null)
       fixture.detectChanges()
 
       // assert
-      expect(firstGroup.nativeElement.className).toBe('option marked')
+      expect(firstGroup.classes.option).toBe(true)
+      expect(firstGroup.classes.marked).toBe(true)
     });
     it('mark class should removed based on click on selected groupOption', () => {
       // arrange
-      const firstGroup = debugElement.query(By.css('.group:first-child .option:first-child'))
+      const firstGroup = debugElement.query(By.css('.group.option'))
       firstGroup.triggerEventHandler('click', null)
       fixture.detectChanges()
 
@@ -319,14 +329,22 @@ describe('GroupedOptionsComponent', () => {
       fixture.detectChanges()
 
       // assert
-      expect(firstGroup.nativeElement.className).toBe('option')
+      expect(firstGroup.classes.option).toBe(true)
     });
   })
 
   describe('Disabled option', () => {
-    it('disabled flag should passon all the way from options to grouptions', () => {
+    beforeEach(() => {
+      const opts = [...options]
+      opts[2].disabled = true
+      component.options = opts
+      multiselect.options = opts
+      multiselect.isOpen = true
+      fixture.detectChanges()
+    })
+    it('disabled flag should pass-on all the way from options to grouptions', () => {
       // arrange
-      const group = debugElement.query(By.css('.group:first-child .option:first-child'))
+      const group = debugElement.query(By.css('.group.option.disabled'))
       group.triggerEventHandler('click', null)
       fixture.detectChanges()
 
@@ -335,14 +353,14 @@ describe('GroupedOptionsComponent', () => {
       fixture.detectChanges()
 
       // assert
-      expect(group.nativeElement.className).toBe('option')
+      expect(group.classes.disabled).toBe(true)
     })
     // TODO: check how to restrict event on pointer-events: none? Alternative create event propagation directive.
     it('if some option is disabled, then toggle disabled flag of option', () => {
       // arrange
       // act
       // assert
-      const firstOption = debugElement.query(By.css('.group .option.disabled'))
+      const firstOption = debugElement.query(By.css('.group.option.disabled'))
       expect(firstOption.classes.disabled).toBe(true);
       // expect(multiselect._selectedOptions.length).toBe(0);
     })
@@ -364,19 +382,19 @@ describe('GroupedOptionsComponent', () => {
     it('list should close based on option selection', () => {
       // arrange
       // act
-      const firstGroupOptions = debugElement.queryAll(By.css('.group .option'))
+      const firstGroupOptions = debugElement.queryAll(By.css('.option'))
       firstGroupOptions[1].triggerEventHandler('click', null)
       fixture.detectChanges()
 
       // assert
-      const markedOptions = debugElement.queryAll(By.css('.group .option.marked'))
+      const markedOptions = debugElement.queryAll(By.css('option.marked'))
       expect(multiselect.isOpen).toBe(false)
       expect(multiselect._selectedOptions.id).toBe(options[0].id)
       expect(markedOptions.length).toBe(1)
     })
     it('should select onlt single option', () => {
       // arrange
-      let firstGroupOptions = debugElement.queryAll(By.css('.group .option'))
+      let firstGroupOptions = debugElement.queryAll(By.css('.group.option'))
       firstGroupOptions[1].triggerEventHandler('click', null)
       fixture.detectChanges()
 
@@ -385,7 +403,7 @@ describe('GroupedOptionsComponent', () => {
       fixture.detectChanges()
 
       // assert
-      const markedOptions = debugElement.queryAll(By.css('.group .option.marked'))
+      const markedOptions = debugElement.queryAll(By.css('.group.option.marked'))
       expect(multiselect.isOpen).toBe(false)
       expect(multiselect._selectedOptions.id).toBe(options[1].id)
       expect(markedOptions.length).toBe(1)
