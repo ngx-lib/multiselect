@@ -1,6 +1,6 @@
 import { DebugElement, ElementRef } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { By, BrowserModule } from '@angular/platform-browser';
 
 import { OptionsComponent } from './options.component';
 import { NgxMultiselectComponent } from '../multiselect.component';
@@ -18,7 +18,8 @@ describe('OptionsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OptionsComponent, VirtualScrollDirective ]
+      declarations: [ OptionsComponent, VirtualScrollDirective ],
+      imports: [BrowserModule]
     })
     .compileComponents();
   }));

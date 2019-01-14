@@ -17,7 +17,6 @@ export class GroupedOptionsComponent implements OnInit {
   groupedOptions = []
   start: number = 0
   end: number = 5
-  totalCount: number = 0
   filteredOptions
 
   @Input() groupedProperty: string;
@@ -30,7 +29,6 @@ export class GroupedOptionsComponent implements OnInit {
     let selectedIds = this.multiple ? this.selectedOptions.map(s => s.id)
       : this.selectedOptions ? [this.selectedOptions.id]: []
     this.groupedOptions = values.map(v => ({...v, ticked: !v.isGroup ? selectedIds.indexOf(v.id) !== -1: v.ticked }))
-    this.totalCount = this.groupedOptions.length
     this.updateRange({ start: this.start, end: this.end })
   }
   get options() {

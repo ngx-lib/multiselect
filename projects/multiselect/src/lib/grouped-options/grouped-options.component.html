@@ -1,4 +1,4 @@
-<div class="options-container" msVirtualScroll [totalCount]="totalCount" (rangeChanged)="updateRange($event)">
+<div class="options-container" msVirtualScroll [totalCount]="options.length" (rangeChanged)="updateRange($event)">
   <div #top class="top"></div>
   <ng-container 
     *ngTemplateOutlet="optionsTemplate; context: { 
