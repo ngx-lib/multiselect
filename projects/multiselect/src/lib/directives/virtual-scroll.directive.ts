@@ -4,11 +4,16 @@ import { Directive, HostListener, Input, ElementRef, Output, EventEmitter } from
   selector: '[msVirtualScroll]'
 })
 export class VirtualScrollDirective {
+  private _totalCount: number
   top: HTMLElement
   bottom: HTMLElement
   scrollOffset = 0
   @Input() itemHeight: number = 40
-  @Input() totalCount: number
+  @Input() set totalCount(count) { 
+    this._totalCount = count 
+    if(count) this.initialSetup()
+  }
+  get() { return this._totalCount } 
   @Output() rangeChanged = new EventEmitter<any>()
   private scrollTimer
   private lastScrollFireTime = 0
@@ -16,7 +21,7 @@ export class VirtualScrollDirective {
 
   throttleScroll(target) {
     const { scrollTop, clientHeight, scrollHeight } = target;
-    const totalHeight = this.itemHeight * this.totalCount + this.scrollOffset;
+    const totalHeight = this.itemHeight * this._totalCount + this.scrollOffset;
     
     // Step: 1 - Calculate the position
     const topSpacing = scrollTop;
@@ -29,7 +34,7 @@ export class VirtualScrollDirective {
     const itemStartRange = Math.floor(topNonVisible)
     const rangeToBeIncreamented = rangeOffset ? maxItemsRange + 1: maxItemsRange
     const calculatedEndRange = itemStartRange + rangeToBeIncreamented
-    const itemEndRange = calculatedEndRange >= this.totalCount ? this.totalCount : calculatedEndRange
+    const itemEndRange = calculatedEndRange >= this._totalCount ? this._totalCount : calculatedEndRange
     const bottomSpacing = totalHeight - (rangeStart + rangeToBeIncreamented * this.itemHeight)
 
     // Step: 3 - Pass the range to the child directive
@@ -55,13 +60,13 @@ export class VirtualScrollDirective {
     }
   }
 
-  ngAfterViewInit() {
+  initialSetup () {
     // TODO: later think of usng ViewChild, instead of direct DOM manipulation.
     const {scrollTop, clientHeight} = this.el.nativeElement
     this.top = this.el.nativeElement.querySelector('.top')
     this.bottom = this.el.nativeElement.querySelector('.bottom')
     this.top.style.height = scrollTop + 'px';
-    this.bottom.style.height = this.itemHeight * this.totalCount + this.scrollOffset - clientHeight + 'px';
+    this.bottom.style.height = this.itemHeight * this._totalCount + this.scrollOffset - clientHeight + 'px';
     this.el.nativeElement.scrollTop = 0
   }
 
