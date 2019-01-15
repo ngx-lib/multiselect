@@ -367,7 +367,9 @@ describe('Grouped Options Component', () => {
 
   describe('Single select', () => {
     beforeEach(() => {
+      // TODO: check why both multiple should have false
       component.multiple = false;
+      multiselect.multiple = false;
       fixture.detectChanges();
     })
     it('list should close based on option selection', () => {
