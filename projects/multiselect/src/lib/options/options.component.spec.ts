@@ -31,10 +31,10 @@ describe('Options Component', () => {
     options = [
       { "id": 1, "name": "Test 1"},
       { "id": 2, "name": "Test 2"},
-      { "id": 3, "name": "Test 3"},
+      { "id": 3, "name": "Test 3", disabled: true },
       { "id": 4, "name": "Test 4"},
       { "id": 5, "name": "Test 5"},
-      { "id": 6, "name": "Test 6", disabled: true }
+      { "id": 6, "name": "Test 6"}
     ];
     component.options = [...options];
     multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService());
@@ -109,7 +109,9 @@ describe('Options Component', () => {
       optionsElements[1].triggerEventHandler('click', null);
       fixture.detectChanges();
       // assert
-      expect(optionsElements[1].classes.marked).toBe(true);
+
+      const markedOption = debugElement.query(By.css('.option.marked'))
+      expect(markedOption.classes.marked).toBe(true);
     });
     it('mark class should removed based on click on selected optioin', () => {
       // arrange
@@ -127,7 +129,7 @@ describe('Options Component', () => {
   describe('Disabled option', () => {
     it('if some option is disabled, then it should have disable class', () => {
       // arrange
-      const disabledOption = debugElement.query(By.css('.option:last-child'));
+      const disabledOption = debugElement.query(By.css('.option.disabled'));
       // act
       // assert
       expect(disabledOption.classes.disabled).toBe(true);
