@@ -8,7 +8,7 @@ import { NgxMultiselectComponent } from '../multiselect.component';
 import { NgxMultiselectService } from '../services/multiselect.service';
 import { VirtualScrollDirective } from '../directives/virtual-scroll.directive';
 
-describe('GroupedOptionsComponent', () => {
+describe('Grouped Options Component', () => {
   let component: GroupedOptionsComponent;
   let multiselect: NgxMultiselectComponent;
   let fixture: ComponentFixture<GroupedOptionsComponent>;
@@ -35,10 +35,10 @@ describe('GroupedOptionsComponent', () => {
     options = [
       { "id": 1, "name": "Test 1", "category": "Cat 1" },
       { "id": 2, "name": "Test 2", "category": "Cat 1" },
-      { "id": 3, "name": "Test 3", "category": "Cat 2" },
+      { "id": 3, "name": "Test 3", "category": "Cat 2", disabled: true },
       { "id": 4, "name": "Test 4", "category": "Cat 2" },
       { "id": 5, "name": "Test 5", "category": "Cat 3" },
-      { "id": 6, "name": "Test 6", "category": "Cat 3", disabled: true }
+      { "id": 6, "name": "Test 6", "category": "Cat 3" }
     ];
     selectedFirstOption = options.filter(o => o.id)
     component.multiple = true;
@@ -334,17 +334,9 @@ describe('GroupedOptionsComponent', () => {
   })
 
   describe('Disabled option', () => {
-    beforeEach(() => {
-      const opts = [...options]
-      opts[2].disabled = true
-      component.options = opts
-      multiselect.options = opts
-      multiselect.isOpen = true
-      fixture.detectChanges()
-    })
     it('disabled flag should pass-on all the way from options to grouptions', () => {
       // arrange
-      const group = debugElement.query(By.css('.group.option.disabled'))
+      const group = debugElement.query(By.css('.option.disabled'))
       group.triggerEventHandler('click', null)
       fixture.detectChanges()
 
@@ -360,7 +352,7 @@ describe('GroupedOptionsComponent', () => {
       // arrange
       // act
       // assert
-      const firstOption = debugElement.query(By.css('.group.option.disabled'))
+      const firstOption = debugElement.query(By.css('.option.disabled'))
       expect(firstOption.classes.disabled).toBe(true);
       // expect(multiselect._selectedOptions.length).toBe(0);
     })
@@ -375,8 +367,7 @@ describe('GroupedOptionsComponent', () => {
 
   describe('Single select', () => {
     beforeEach(() => {
-      multiselect.multiple = false;
-      multiselect.isOpen = true;
+      component.multiple = false;
       fixture.detectChanges();
     })
     it('list should close based on option selection', () => {
@@ -387,14 +378,14 @@ describe('GroupedOptionsComponent', () => {
       fixture.detectChanges()
 
       // assert
-      const markedOptions = debugElement.queryAll(By.css('option.marked'))
+      const markedOptions = debugElement.queryAll(By.css('.option.marked'))
       expect(multiselect.isOpen).toBe(false)
       expect(multiselect._selectedOptions.id).toBe(options[0].id)
       expect(markedOptions.length).toBe(1)
     })
     it('should select onlt single option', () => {
       // arrange
-      let firstGroupOptions = debugElement.queryAll(By.css('.group.option'))
+      let firstGroupOptions = debugElement.queryAll(By.css('.option'))
       firstGroupOptions[1].triggerEventHandler('click', null)
       fixture.detectChanges()
 
@@ -403,7 +394,7 @@ describe('GroupedOptionsComponent', () => {
       fixture.detectChanges()
 
       // assert
-      const markedOptions = debugElement.queryAll(By.css('.group.option.marked'))
+      const markedOptions = debugElement.queryAll(By.css('.option.marked'))
       expect(multiselect.isOpen).toBe(false)
       expect(multiselect._selectedOptions.id).toBe(options[1].id)
       expect(markedOptions.length).toBe(1)

@@ -7,7 +7,7 @@ import { NgxMultiselectComponent } from '../multiselect.component';
 import { NgxMultiselectService } from '../services/multiselect.service';
 import { VirtualScrollDirective } from '../directives/virtual-scroll.directive';
 
-describe('OptionsComponent', () => {
+describe('Options Component', () => {
   let component: OptionsComponent;
   let fixture: ComponentFixture<OptionsComponent>;
   let debugElement: DebugElement;
