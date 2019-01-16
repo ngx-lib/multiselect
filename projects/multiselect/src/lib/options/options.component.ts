@@ -36,6 +36,10 @@ export class OptionsComponent implements OnInit {
     return {'marked': option.ticked, disabled: (this.disabled || option.disabled)};
   }
 
+  trackByFn (_, option) {
+    return option.id
+  }
+
   select (option) {
     this.selectOption.emit(option);
   }
