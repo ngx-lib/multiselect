@@ -41,12 +41,11 @@ export class VirtualScrollDirective {
     this.top.style.height = rangeStart + 'px';
     this.bottom.style.height = bottomSpacing + 'px';
     this.rangeChanged.emit({ start: itemStartRange, end: itemEndRange })
-    this.el.nativeElement.scrollTop = scrollTop
   }
 
   @HostListener('scroll', ['$event']) 
   onscroll({ target }) {
-    const minScrollTime = 50;
+    const minScrollTime = 100;
     const now = new Date().getTime();
     if (!this.scrollTimer) {
       if (now - this.lastScrollFireTime > minScrollTime) {
