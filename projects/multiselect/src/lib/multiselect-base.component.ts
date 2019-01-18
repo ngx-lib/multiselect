@@ -96,7 +96,7 @@ export abstract class NgxMultiselectBaseComponent implements ControlValueAccesso
   // TODO: Also convert below to be work for element specific
   @HostListener('document:click', ['$event.target'])
   clickOutSide(event) {
-    if (this.elementRef.nativeElement !== event && !this.multiselectService.closest(event, 'ngx-multiselect') && this.isOpen) {
+    if (this.isOpen && this.elementRef.nativeElement !== event && !this.multiselectService.closest(event, 'ngx-multiselect')) {
       this.close();
     }
   }

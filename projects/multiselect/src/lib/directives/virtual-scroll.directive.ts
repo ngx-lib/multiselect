@@ -45,7 +45,7 @@ export class VirtualScrollDirective {
 
   @HostListener('scroll', ['$event']) 
   onscroll({ target }) {
-    const minScrollTime = 100;
+    const minScrollTime = 50;
     const now = new Date().getTime();
     if (!this.scrollTimer) {
       if (now - this.lastScrollFireTime > minScrollTime) {
