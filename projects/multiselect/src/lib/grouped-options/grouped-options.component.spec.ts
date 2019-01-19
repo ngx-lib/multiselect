@@ -42,24 +42,24 @@ describe('Grouped Options Component', () => {
     ];
     selectedFirstOption = options.filter(o => o.id)
     component.multiple = true;
-    component.selectedOptions = [];
+    component._selectedOptions = [];
     multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService())
     multiselect.multiple = true;
     multiselect.setOptions(options);
     component.options = multiselect.getOptions();
-    multiselect._selectedOptions = component.selectedOptions
+    multiselect._selectedOptions = []
     // TODO: can we find more better way to call parent components method?
     component.selectOption.subscribe(selected => {
       option = selected;
       multiselect.select(option);
-      component.selectedOptions = multiselect._selectedOptions
+      component._selectedOptions = multiselect._selectedOptions
       component.options = multiselect.getOptions();
       fixture.detectChanges();
     })
     component.selectGroup.subscribe(groupSelected => {
       group = groupSelected;
       multiselect.selectGroup(group);
-      component.selectedOptions = multiselect._selectedOptions
+      component._selectedOptions = multiselect._selectedOptions
       component.options = multiselect.getOptions();
       fixture.detectChanges();
     });
@@ -169,7 +169,7 @@ describe('Grouped Options Component', () => {
       const markedOptions = debugElement.queryAll(By.css('.option.marked'))
       const groupElement = debugElement.query(By.css('.group.option.marked'))
       expect(markedOptions.length).toBe(5)
-      expect(component.selectedOptions.length).toBe(4)
+      expect(component._selectedOptions.length).toBe(4)
       expect(groupElement).toBeDefined()
       expect(groupElement.classes.option).toBe(true)
       expect(groupElement.classes.marked).toBe(true)
