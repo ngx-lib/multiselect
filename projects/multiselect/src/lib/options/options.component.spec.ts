@@ -1,4 +1,4 @@
-import { DebugElement, ElementRef } from '@angular/core';
+import { DebugElement, ElementRef, SimpleChange } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By, BrowserModule } from '@angular/platform-browser';
 
@@ -47,6 +47,10 @@ describe('Options Component', () => {
       fixture.detectChanges();
     });
     multiselectSelectSpy = spyOn(multiselect, 'select').and.callThrough();
+    // Woraround for firing ngOnChanges manually.
+    component.ngOnChanges({
+      options: new SimpleChange(options, undefined, false)
+    })
     fixture.detectChanges();
   });
 
