@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By, BrowserModule } from '@angular/platform-browser';
+import { By } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DebugElement, TemplateRef, ElementRef } from '@angular/core';
 
@@ -7,6 +7,7 @@ import { GroupedOptionsComponent } from './grouped-options.component';
 import { NgxMultiselectComponent } from '../multiselect.component';
 import { NgxMultiselectService } from '../services/multiselect.service';
 import { VirtualScrollDirective } from '../directives/virtual-scroll.directive';
+import { CommonModule } from '@angular/common';
 
 describe('Grouped Options Component', () => {
   let component: GroupedOptionsComponent;
@@ -23,7 +24,7 @@ describe('Grouped Options Component', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [GroupedOptionsComponent, VirtualScrollDirective],
-      imports: [FormsModule, ReactiveFormsModule, BrowserModule]
+      imports: [FormsModule, ReactiveFormsModule, CommonModule]
     }).compileComponents();
   }));
 

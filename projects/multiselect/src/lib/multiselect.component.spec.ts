@@ -354,5 +354,7 @@ describe('MultiselectComponent', () => {
   // TODO: with observable
   // beforeEachSetup();
   // executeTests();
-
+  afterEach(() => {
+    fixture.destroy()
+  })
 });

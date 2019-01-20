@@ -34,4 +34,4 @@ This plans are based on current idea, it could change in future. First thing I'd
 
 ## Track Realtime Status of Feature
 
-[Trello Board here](https://trello.com/b/fsr5Xewa/ngx-isteven-mutiselect)
+[Trello Board here](https://trello.com/b/fsr5Xewa/ngx-lib-multiselect)

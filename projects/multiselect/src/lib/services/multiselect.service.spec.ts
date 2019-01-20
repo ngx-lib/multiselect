@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { NgxMultiselectService } from './multiselect.service';
 
-describe('IstevenMultiselectService', () => {
+describe('MultiselectService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [NgxMultiselectService]
