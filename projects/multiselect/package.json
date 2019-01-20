@@ -7,8 +7,8 @@
     "dropdown",
     "select",
     "selectbox",
-    "isteven multiselect",
-    "ngx isteven",
+    "multiselect",
+    "ngx",
     "ngx multiselect"
   ],
   "peerDependencies": {

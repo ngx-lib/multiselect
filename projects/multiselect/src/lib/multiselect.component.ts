@@ -165,7 +165,6 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
         this.removeItem(selectedOptions, option);
       }
       selectedIds = selectedOptions.map(i => i.id)
-      this.setOptions(this.getOptions().map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1})));
     } else {
       // TODO: find optimized way to do below
       let val = option && option.id;
@@ -206,7 +205,6 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     // build selectedOptions array again
     selectedValues = options.filter(o=> selectedIds.indexOf(o.id) !== -1);
     this.viewToModel(selectedValues);
-    this.setOptions(options.map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1})));
     this.onGroupItemClick.emit(group);
   }
 

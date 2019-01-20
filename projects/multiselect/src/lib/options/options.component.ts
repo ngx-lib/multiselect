@@ -11,15 +11,14 @@ import {
   // TODO: find better way, without encapsulation none thing
   encapsulation: ViewEncapsulation.None
 })
-export class OptionsComponent implements OnInit {
+export class OptionsComponent implements OnInit, OnChanges {
 
   _options: any[] = []
 
   @Input() disabled: boolean = false;
   @Input() set options(value) {
     this._options = value
-    if(value) this.updateRange({start: this.start, end: this.end})
-  } 
+  }
   get () { return this._options }
   @Input() optionsTemplate: TemplateRef<any>;
   @Output() selectOption = new EventEmitter<any>();
@@ -47,6 +46,13 @@ export class OptionsComponent implements OnInit {
   ngOnInit() {
     if(!this.optionsTemplate) {
       this.optionsTemplate = this.defaultOptionsTemplate;
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const {options} = changes
+    if (options.currentValue !== options.previousValue) {
+      this.updateRange({start: this.start, end: this.end})
     }
   }
 }

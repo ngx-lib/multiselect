@@ -14,6 +14,8 @@ import { NgxMultiselectService } from '../services/multiselect.service';
 })
 export class GroupedOptionsComponent implements OnInit {
 
+  _options = []
+  _selectedOptions = []
   groupedOptions = []
   start: number = 0
   end: number = 5
@@ -22,14 +24,14 @@ export class GroupedOptionsComponent implements OnInit {
   @Input() groupedProperty: string;
   @Input() disabled = false;
   @Input() multiple = false;
-  @Input() selectedOptions: any | any[];
+  @Input() set selectedOptions (value) {
+    this._selectedOptions = value
+    this.formGroupOptions(this._options, this._selectedOptions)
+  }
   @Input() optionsTemplate: TemplateRef<any>;
   @Input() set options(value) {
-    const values = this.multiselectService.virtualOptionsGroupingFlatten(value, this.groupedProperty)
-    let selectedIds = this.multiple ? this.selectedOptions.map(s => s.id)
-      : this.selectedOptions ? [this.selectedOptions.id]: []
-    this.groupedOptions = values.map(v => ({...v, ticked: !v.isGroup ? selectedIds.indexOf(v.id) !== -1: v.ticked }))
-    this.updateRange({ start: this.start, end: this.end })
+    this._options = value
+    this.formGroupOptions(value, this._selectedOptions)
   }
   get options() {
     return this.groupedOptions;
@@ -42,15 +44,25 @@ export class GroupedOptionsComponent implements OnInit {
 
   constructor(public multiselectService: NgxMultiselectService) { }
 
+  formGroupOptions (collection, selectedOptions) {
+    let selectedIds = this.multiple ? selectedOptions.map(s => s.id)
+      : selectedOptions ? [selectedOptions.id]: []
+    const values = collection.map(v => ({...v, ticked: !v.isGroup ? selectedIds.indexOf(v.id) !== -1: v.ticked }))
+    this.groupedOptions = this.multiselectService.virtualOptionsGroupingFlatten(values, this.groupedProperty)
+    this.updateRange({ start: this.start, end: this.end })
+  }
+
   getOptionStyle(option: any) {
     return { 'group': option.isGroup, 'marked': option.ticked, disabled: (this.disabled || option.disabled) };
   }
 
   trackByFn (_, option) {
-    return option.isGroup ? option.name: option.id
+    return option.id
   }
 
   updateRange({ start, end }) {
+    this.start = start
+    this.end = end
     this.filteredOptions = [...this.options].slice(start, end)
   }
 
