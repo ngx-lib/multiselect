@@ -81,10 +81,5 @@ export class GroupedOptionsComponent implements OnInit {
       const values = this.multiselectService.collectAllDescendants(this.options, this.groupedProperty, option.name)
       this.selectGroup.emit({ ...option, values: values })
     }
-    // // TODO: check, why below works after emit?
-    // if (this.multiple && !option.isGroup) {
-    //   option.ticked = this.multiselectService.allDescendantsAreTicked(this.options, this.groupedProperty, option[this.groupedProperty])
-    // }
   }
-
 }
