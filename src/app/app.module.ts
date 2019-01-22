@@ -24,6 +24,7 @@ import { SetupComponent } from './setup/setup.component';
 import { TitleComponent } from './title/title.component';
 import { ContentComponent } from './content/content.component';
 import { NoteComponent } from './note/note.component';
+import { DocComponent } from './doc/doc.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { NoteComponent } from './note/note.component';
     SetupComponent,
     TitleComponent,
     ContentComponent,
-    NoteComponent
+    NoteComponent,
+    DocComponent
   ],
   imports: [
     BrowserModule,
