@@ -18,6 +18,9 @@ import { SingleSelectTemplateDrivenComponent } from './single-select-template-dr
 import { OptionsLazyLoadingComponent } from './options-lazy-loading/options-lazy-loading.component';
 import { LargeVolumeDataComponent } from './large-volume-data/large-volume-data.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { BannerComponent } from './banner/banner.component';
+import { HomeComponent } from './home/home.component';
+import { SetupComponent } from './setup/setup.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     SingleSelectWithPropertyMapComponent,
     OptionsLazyLoadingComponent,
     LargeVolumeDataComponent,
-    NavbarComponent
+    NavbarComponent,
+    BannerComponent,
+    HomeComponent,
+    SetupComponent
   ],
   imports: [
     BrowserModule,

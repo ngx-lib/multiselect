@@ -1,5 +1,6 @@
 <div class="mat-elevation-z8">
   <ms-navbar></ms-navbar>
+  <ms-home></ms-home>
   <mat-sidenav-container>
     <mat-sidenav class="docs-sidenav" #snav [mode]="'side'" [opened]="true" fixedTopGap="56">
       <mat-nav-list>
@@ -15,6 +16,7 @@
     </mat-sidenav>
 
     <mat-sidenav-content class="docs-sidenav-container">
+      
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
