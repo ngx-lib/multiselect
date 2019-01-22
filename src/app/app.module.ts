@@ -23,6 +23,7 @@ import { HomeComponent } from './home/home.component';
 import { SetupComponent } from './setup/setup.component';
 import { TitleComponent } from './title/title.component';
 import { ContentComponent } from './content/content.component';
+import { NoteComponent } from './note/note.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ContentComponent } from './content/content.component';
     HomeComponent,
     SetupComponent,
     TitleComponent,
-    ContentComponent
+    ContentComponent,
+    NoteComponent
   ],
   imports: [
     BrowserModule,
