@@ -1,10 +1,5 @@
 <div class="mat-elevation-z8">
-  <mat-toolbar color="primary">
-    <button mat-icon-button (click)="snav.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <h1>Ngx Library Multiselect</h1>
-  </mat-toolbar>
+  <ms-navbar></ms-navbar>
   <mat-sidenav-container>
     <mat-sidenav class="docs-sidenav" #snav [mode]="'side'" [opened]="true" fixedTopGap="56">
       <mat-nav-list>

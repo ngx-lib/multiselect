@@ -17,6 +17,7 @@ import { SingleSelectWithPropertyMapComponent } from './single-select-with-prope
 import { SingleSelectTemplateDrivenComponent } from './single-select-template-driven/single-select-template-driven.component';
 import { OptionsLazyLoadingComponent } from './options-lazy-loading/options-lazy-loading.component';
 import { LargeVolumeDataComponent } from './large-volume-data/large-volume-data.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { LargeVolumeDataComponent } from './large-volume-data/large-volume-data.
     CustomTemplateComponent,
     SingleSelectWithPropertyMapComponent,
     OptionsLazyLoadingComponent,
-    LargeVolumeDataComponent
+    LargeVolumeDataComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
