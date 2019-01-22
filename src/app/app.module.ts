@@ -21,6 +21,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { BannerComponent } from './banner/banner.component';
 import { HomeComponent } from './home/home.component';
 import { SetupComponent } from './setup/setup.component';
+import { TitleComponent } from './title/title.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SetupComponent } from './setup/setup.component';
     NavbarComponent,
     BannerComponent,
     HomeComponent,
-    SetupComponent
+    SetupComponent,
+    TitleComponent
   ],
   imports: [
     BrowserModule,
