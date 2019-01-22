@@ -22,6 +22,7 @@ import { BannerComponent } from './banner/banner.component';
 import { HomeComponent } from './home/home.component';
 import { SetupComponent } from './setup/setup.component';
 import { TitleComponent } from './title/title.component';
+import { ContentComponent } from './content/content.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { TitleComponent } from './title/title.component';
     BannerComponent,
     HomeComponent,
     SetupComponent,
-    TitleComponent
+    TitleComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,
