@@ -24,7 +24,7 @@ import { DocComponent } from './doc/doc.component';
       {path: 'options-lazy-loading', component: OptionsLazyLoadingComponent , outlet: 'sidenav'},
       {path: 'large-volume-data', component: LargeVolumeDataComponent , outlet: 'sidenav'},
       {path: 'home', component: HomeComponent },
-      {path: 'docs', component: DocComponent }
+      {path: 'docs', component: DocComponent },
       {path: '**', redirectTo: '/home'}
     ], {useHash: true})
   ],
