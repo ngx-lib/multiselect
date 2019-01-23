@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'ms-title',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./title.component.css']
 })
 export class TitleComponent implements OnInit {
+
+  @Input()
+  title : string;
 
   constructor() { }
 
