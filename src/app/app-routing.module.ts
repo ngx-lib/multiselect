@@ -15,14 +15,14 @@ import { DocComponent } from './doc/doc.component';
 @NgModule({
   imports: [
     RouterModule.forRoot([
-      {path: 'single-select-with-property-map', component: SingleSelectWithPropertyMapComponent , outlet: 'sidenav'},
-      {path: 'single-select-template-driven', component: SingleSelectTemplateDrivenComponent , outlet: 'sidenav'},
-      {path: 'model-driven', component: ModelDrivenComponent , outlet: 'sidenav'},
-      {path: 'multiple-select-grouping', component: MultipleSelectGroupingComponent , outlet: 'sidenav'},
-      {path: 'multiple-select-with-observable', component: MultipleSelectWithObservableComponent , outlet: 'sidenav'},
-      {path: 'custom-template', component: CustomTemplateComponent , outlet: 'sidenav'},
-      {path: 'options-lazy-loading', component: OptionsLazyLoadingComponent , outlet: 'sidenav'},
-      {path: 'large-volume-data', component: LargeVolumeDataComponent , outlet: 'sidenav'},
+      {path: 'single-select-with-property-map', component: SingleSelectWithPropertyMapComponent },
+      {path: 'single-select-template-driven', component: SingleSelectTemplateDrivenComponent },
+      {path: 'model-driven', component: ModelDrivenComponent },
+      {path: 'multiple-select-grouping', component: MultipleSelectGroupingComponent },
+      {path: 'multiple-select-with-observable', component: MultipleSelectWithObservableComponent },
+      {path: 'custom-template', component: CustomTemplateComponent },
+      {path: 'options-lazy-loading', component: OptionsLazyLoadingComponent },
+      {path: 'large-volume-data', component: LargeVolumeDataComponent },
       {path: 'home', component: HomeComponent },
       {path: 'docs', component: DocComponent },
       {path: '**', redirectTo: '/home'}
