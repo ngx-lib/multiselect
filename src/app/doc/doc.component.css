@@ -3,7 +3,6 @@
 }
 
 .docs-sidenav-container {
-    padding: 10px;
     width: 80rem;
     height: calc(100vh - 64px);
 }
