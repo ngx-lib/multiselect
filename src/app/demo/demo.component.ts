@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'ms-demo',
@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DemoComponent implements OnInit {
 
+  @Input()
+  demoName: string;
+  
   constructor() { }
 
   ngOnInit() {
