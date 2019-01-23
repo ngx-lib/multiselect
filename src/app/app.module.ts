@@ -25,6 +25,9 @@ import { TitleComponent } from './title/title.component';
 import { ContentComponent } from './content/content.component';
 import { NoteComponent } from './note/note.component';
 import { DocComponent } from './doc/doc.component';
+import { DemoContainerComponent } from './demo-container/demo-container.component';
+import { DemoComponent } from './demo/demo.component';
+import { CodeViewComponent } from './code-view/code-view.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,10 @@ import { DocComponent } from './doc/doc.component';
     TitleComponent,
     ContentComponent,
     NoteComponent,
-    DocComponent
+    DocComponent,
+    DemoContainerComponent,
+    DemoComponent,
+    CodeViewComponent
   ],
   imports: [
     BrowserModule,
