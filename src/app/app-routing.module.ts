@@ -9,6 +9,8 @@ import { CustomTemplateComponent } from './custom-template/custom-template.compo
 import { SingleSelectTemplateDrivenComponent } from './single-select-template-driven/single-select-template-driven.component';
 import { OptionsLazyLoadingComponent } from './options-lazy-loading/options-lazy-loading.component';
 import { LargeVolumeDataComponent } from './large-volume-data/large-volume-data.component';
+import { HomeComponent } from './home/home.component';
+import { DocComponent } from './doc/doc.component';
 
 @NgModule({
   imports: [
@@ -21,7 +23,9 @@ import { LargeVolumeDataComponent } from './large-volume-data/large-volume-data.
       {path: 'custom-template', component: CustomTemplateComponent },
       {path: 'options-lazy-loading', component: OptionsLazyLoadingComponent },
       {path: 'large-volume-data', component: LargeVolumeDataComponent },
-      {path: '**', redirectTo: '/single-select-with-property-map'}
+      {path: 'home', component: HomeComponent },
+      {path: 'docs', component: DocComponent },
+      {path: '**', redirectTo: '/home'}
     ], {useHash: true})
   ],
   exports: [RouterModule],

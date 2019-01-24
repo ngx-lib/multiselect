@@ -17,6 +17,17 @@ import { SingleSelectWithPropertyMapComponent } from './single-select-with-prope
 import { SingleSelectTemplateDrivenComponent } from './single-select-template-driven/single-select-template-driven.component';
 import { OptionsLazyLoadingComponent } from './options-lazy-loading/options-lazy-loading.component';
 import { LargeVolumeDataComponent } from './large-volume-data/large-volume-data.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { BannerComponent } from './banner/banner.component';
+import { HomeComponent } from './home/home.component';
+import { SetupComponent } from './setup/setup.component';
+import { TitleComponent } from './title/title.component';
+import { ContentComponent } from './content/content.component';
+import { NoteComponent } from './note/note.component';
+import { DocComponent } from './doc/doc.component';
+import { DemoContainerComponent } from './demo-container/demo-container.component';
+import { DemoComponent } from './demo/demo.component';
+import { CodeViewComponent } from './code-view/code-view.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +39,18 @@ import { LargeVolumeDataComponent } from './large-volume-data/large-volume-data.
     CustomTemplateComponent,
     SingleSelectWithPropertyMapComponent,
     OptionsLazyLoadingComponent,
-    LargeVolumeDataComponent
+    LargeVolumeDataComponent,
+    NavbarComponent,
+    BannerComponent,
+    HomeComponent,
+    SetupComponent,
+    TitleComponent,
+    ContentComponent,
+    NoteComponent,
+    DocComponent,
+    DemoContainerComponent,
+    DemoComponent,
+    CodeViewComponent
   ],
   imports: [
     BrowserModule,
