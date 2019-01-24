@@ -53,10 +53,6 @@ export class GroupedOptionsComponent implements OnInit {
   }
 
   getOptionStyle(option: any) {
-    if(option.isGroup){
-      let disableGroup = this.filteredOptions.filter(item => item.category === option.name).every(item => item.disabled===true);
-      option.disabled = disableGroup;
-    }
     return { 'group': option.isGroup, 'marked': option.ticked, disabled: (this.disabled || option.disabled) };
   }
 
