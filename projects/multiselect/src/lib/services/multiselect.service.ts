@@ -56,6 +56,11 @@ export class NgxMultiselectService {
     const allAreTicked = allDescendants.every(d => d.ticked)
     return allAreTicked    
   }
+  allDescendantsAreDisabled(collection, groupProperty, groupName) {
+    const allDescendants = this.collectAllDescendants(collection, groupProperty, groupName)
+    const allAreDisabled = allDescendants.every(d => d.disabled)
+    return allAreDisabled   
+  }
 
   optionsGrouping(options, groupByProperty): any[] {
     const getAllUniqueGroupByPropertyValue = this.findUnique(
@@ -94,7 +99,7 @@ export class NgxMultiselectService {
     )
     let result = []
     allParentGroupedValues.forEach( group => {
-      result.push({ name: group, isGroup: true, ticked: this.allDescendantsAreTicked(options, groupByProperty, group) })
+      result.push({ name: group, isGroup: true, ticked: this.allDescendantsAreTicked(options, groupByProperty, group) ,disabled:this.allDescendantsAreDisabled(options,groupByProperty,group)})
       const groupedValues = options
         .filter(o => o[groupByProperty] === group && !o.parent)
         .map(v => ({...v, depth: 1}))
