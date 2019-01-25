@@ -41,6 +41,7 @@
     "@angular/router": "6.0.4",
     "core-js": "^2.5.4",
     "hammerjs": "^2.0.8",
+    "highlight.js": "^9.13.1",
     "rxjs": "^6.2.2",
     "zone.js": "^0.8.26"
   },
