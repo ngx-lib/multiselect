@@ -1,21 +1,27 @@
 <mat-sidenav-container>
     <mat-sidenav class="docs-sidenav" #snav [mode]="'side'" [opened]="true" fixedTopGap="56">
       <mat-nav-list>
-        <a mat-list-item routerLink="/single-select-with-property-map">Single Select (with Property Map)</a>
-        <a mat-list-item routerLink="/single-select-template-driven">Single Select (Template Driven form with callback events check)</a>
-        <a mat-list-item routerLink="/model-driven">Multiple Select (Model Driven form)</a>
-        <a mat-list-item routerLink="/multiple-select-grouping">Multiple Select Grouping Support</a>
-        <a mat-list-item routerLink="/multiple-select-with-observable">Multiple Select (With Observable)</a>
-        <a mat-list-item routerLink="/custom-template">Custom Template</a>
-        <a mat-list-item routerLink="/options-lazy-loading">Lazy load options</a>
-        <a mat-list-item routerLink="/large-volume-data">Large Volume data</a>
+        <a mat-list-item >Getting Started</a>
+        <a mat-list-item >Property Configuration</a>
+        <a mat-list-item >Events Available</a>
+        <mat-divider>Demo</mat-divider>
+        <a mat-list-item >Simple Demo</a>
+        <a mat-list-item >Template Driven</a>
+        <a mat-list-item >Model Driven</a>
+        <a mat-list-item >Observable Data</a>
+        <a mat-list-item >Custom Template</a>
+        <a mat-list-item >Grouping</a>
+        <a mat-list-item >Enable/Disable</a>
+        <a mat-list-item >Property map</a>
+        <a mat-list-item >Callbacks</a>
+        <a mat-list-item >Helper Elements</a>
+        <a mat-list-item >Theming</a>
+        <a mat-list-item >Single Select</a>
+        <a mat-list-item >Virtual List</a>
       </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content class="docs-sidenav-container">
-      <ms-title [title]="data.title"></ms-title>
-      <ms-content [content]="data.content"></ms-content>
-      <ms-note [note]="data.note"></ms-note>
-      <ms-demo-container></ms-demo-container>
+      <ms-layout-renderer [data]="data"></ms-layout-renderer>
     </mat-sidenav-content>
   </mat-sidenav-container>

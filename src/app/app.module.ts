@@ -28,6 +28,7 @@ import { DocComponent } from './doc/doc.component';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { DemoComponent } from './demo/demo.component';
 import { CodeViewComponent } from './code-view/code-view.component';
+import { LayoutRendererComponent } from './layout-renderer/layout-renderer.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { CodeViewComponent } from './code-view/code-view.component';
     DocComponent,
     DemoContainerComponent,
     DemoComponent,
-    CodeViewComponent
+    CodeViewComponent,
+    LayoutRendererComponent
   ],
   imports: [
     BrowserModule,
