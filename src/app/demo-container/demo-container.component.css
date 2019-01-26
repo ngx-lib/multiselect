@@ -1,6 +1,10 @@
-.container{
-    border: 1px solid black;
+.code-view-tabs-container{
+    border: 1px solid rgba(0,0,0,.12);
     margin: 2px;
     max-width: 55rem;
     margin-top: 20px;
+}
+
+.no-margin {
+    margin: 0 auto;
 }
