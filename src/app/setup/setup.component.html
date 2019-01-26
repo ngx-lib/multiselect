@@ -1,8 +1,29 @@
-<h1>Only three steps needed</h1>
-<ul class="decimal">
-  <li>npm install @ngx-lib/multiselect</li>
-  <li>import {{ '{' }} NgxMultiselectModule {{ '}' }} from '@ngx-lib/multiselect';</li>
-  <li>
-      &lt;ngx-multiselect [(ngModel)]="selectedValue" [options]="Options" ngDefaultControl&gt;&lt;/ngx-multiselect&gt;
-  </li>
-</ul>
+<mat-card>
+  <h1 class="align-center">Only three steps needed</h1>
+  <mat-list class="steps">
+    <mat-list-item>
+      <p matLine>
+        <mat-chip-list>
+          <mat-chip color="primary" selected>1</mat-chip>
+          npm install @ngx-lib/multiselect
+        </mat-chip-list>
+      </p>
+    </mat-list-item>
+    <mat-list-item>
+      <p matLine>
+        <mat-chip-list>
+          <mat-chip color="primary" selected>2</mat-chip>
+          import {{ '{' }} NgxMultiselectModule {{ '}' }} from '@ngx-lib/multiselect';
+        </mat-chip-list>
+      </p>
+    </mat-list-item>
+    <mat-list-item>
+      <p matLine>
+        <mat-chip-list>
+          <mat-chip color="primary" selected>3</mat-chip>
+          &lt;ngx-multiselect [(ngModel)]="selectedValue" [options]="Options" ngDefaultControl&gt;&lt;/ngx-multiselect&gt;
+        </mat-chip-list>
+      </p>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
