@@ -6,10 +6,6 @@
   margin-right: 5px;
 }
 
-:host ::ng-deep .marked {
-  background-color: green
-}
-
 :host ::ng-deep .multiselect-wrapper {
   width: 240px;
 }
@@ -53,7 +49,7 @@
   opacity: 1;
   height: 200px;
   transform: scaleY(1);
-  overflow: hidden;
+  overflow: scroll;
   -webkit-overflow-scrolling: touch;
   padding-top: 0;
   padding-bottom: 0;
@@ -83,7 +79,7 @@
   box-sizing: border-box;
   align-items: center;
   -webkit-tap-highlight-color: transparent;
-  min-height: 32px;
+  max-height: 40px;
 }
 
 :host ::ng-deep .option:hover,
@@ -101,7 +97,7 @@
   content: '✓';
   margin: 0 5px;
   right: 0;
-  top: 5px;
+  top: -5px;
   position: absolute;
 }
 
