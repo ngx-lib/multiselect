@@ -1,14 +1,14 @@
-<div *ngFor="let compData of data">
-  <div *ngIf="compData.component === 'title'">
+<ng-container *ngFor="let compData of data">
+  <ng-container *ngIf="compData.component === 'title'">
     <ms-title [title]="compData.data"></ms-title>
-  </div>
-  <div *ngIf="compData.component === 'content'">
+  </ng-container>
+  <ng-container *ngIf="compData.component === 'content'">
     <ms-content [content]="compData.data"></ms-content>
-  </div>
-  <div *ngIf="compData.component === 'note'">
+  </ng-container>
+  <ng-container *ngIf="compData.component === 'note'">
     <ms-note [note]="compData.data"></ms-note>
-  </div>
-  <div *ngIf="compData.component === 'demoContainer'">
+  </ng-container>
+  <ng-container *ngIf="compData.component === 'demoContainer'">
     <ms-demo-container [data]="compData.data"></ms-demo-container>
-  </div>
-</div>
+  </ng-container>
+</ng-container>

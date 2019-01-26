@@ -1,8 +1,9 @@
 .docs-sidenav {
-    width: 20rem;
+    width: 15rem;
+    border-right: 1px solid rgba(0,0,0,.12)
 }
 
 .docs-sidenav-container {
-    width: 80rem;
+    width: 85rem;
     height: calc(100vh - 64px);
 }
