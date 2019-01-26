@@ -1,42 +1,64 @@
+:host {
+    width: 100%;
+    display: block;
+}
 
 .input-search {
+    width: 100%;
     position: relative;
-    padding: 2px 0px 4px 0px;
-    max-height: 30px;
+    max-height: 40px;
     overflow: hidden;
     box-sizing: content-box;
+    border-bottom: 1px solid black;
+    display: inline-flex;
 }
   
 .input-filter {
-    border-radius: 2px;
-    border: 1px solid #ccc;
-    height: 26px;
-    font-size: 14px;
+    font: inherit;
+    background: 0 0;
+    color: currentColor;
+    border: none;
+    outline: 0;
+    padding: 0;
+    margin: 0;
     width: 100%;
-    padding-left: 7px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    color: #888;
-    margin: 0px 0px 8px 0px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    max-width: 100%;
+    vertical-align: bottom;
+    text-align: inherit;
+    margin-top: -.0625em;
 }
 
+.field-infix {
+    display: block;
+    position: relative;
+    padding: 10px;
+    flex: auto;
+    min-width: 0;
+    width: 90%;
+    position: relative;
+}
+
+.field-infix:focus,
+.field-infix:active {
+    border-bottom: 1px solid #3f51b5;
+}
+
+.field-suffix {
+    white-space: nowrap;
+    flex: none;
+    position: relative;
+}
 
 .clear-button {
-    position: absolute;
-    display: inline;
-    text-align: center;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    line-height: 25px;
+    border-radius: 50%;
+    font-size: 25px;
+    border: none;
+    top: 5px;
+    right: 5px;
     cursor: pointer;
-    border: 1px solid #ccc;
-    height: 22px;
-    width: 22px;
-    font-size: 13px;
-    border-radius: 2px;
-    color: #666;
-    background-color: #f1f1f1;
-    line-height: 1.4;
-    right: 2px;
-    top: 4px;
+    position: relative;
 }

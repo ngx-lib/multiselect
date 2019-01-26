@@ -1,4 +1,8 @@
 <div class="input-search">
-  <input autofocus placeholder="Search..." type="text" [formControl]="filterName" ngDefaultControl class="input-filter">
-  <button type="button" (click)="clearText()" class="clear-button">×</button>
+  <div class="field-infix">
+    <input autofocus placeholder="Search..." type="text" [formControl]="filterName" ngDefaultControl class="input-filter">
+  </div>
+  <div class="field-suffix">
+    <button type="button" (click)="clearText()" class="clear-button">×</button>
+  </div>
 </div>
