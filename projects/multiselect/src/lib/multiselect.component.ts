@@ -1,6 +1,6 @@
 import {
   Component, Input, ChangeDetectionStrategy, ElementRef,
-  ContentChild, TemplateRef, Output, EventEmitter, ViewChild
+  ContentChild, TemplateRef, Output, EventEmitter, ViewChild // , HostBinding
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -38,6 +38,8 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   // public variables
   _selectedOptions: any | any[] = null;
   _options; //TODO: this will be local list
+
+  // @HostBinding('class.mat-multiselect') theme: boolean = true;
 
   // Input bindings
   @Input() disabled: boolean = false;
