@@ -1,16 +1,16 @@
 /* Material multiselect theme start*/
 
-:host ::ng-deep .mat-multiselect .caret{
+:host ::ng-deep .caret{
   right: 0;
   position: absolute;
   margin-right: 5px;
 }
 
-:host ::ng-deep .mat-multiselect .multiselect-wrapper {
+:host ::ng-deep .multiselect-wrapper {
   width: 240px;
 }
 
-:host ::ng-deep .mat-multiselect .dropdown-button {
+:host ::ng-deep .dropdown-button {
   width: 100%;
   text-align: left;
   display: inline-block;
@@ -32,7 +32,7 @@
   background-image: linear-gradient(#fff, #f7f7f7);
 }
 
-:host ::ng-deep .mat-multiselect .listing-wrapper {
+:host ::ng-deep .listing-wrapper {
   width: inherit;
   background-color: #fff;
   position: absolute;
@@ -43,7 +43,7 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
 }
 
-:host ::ng-deep .mat-multiselect .options-container {
+:host ::ng-deep .options-container {
   transform-origin: 50% 24px 0px;
   font-size: 16px;
   opacity: 1;
@@ -59,7 +59,7 @@
   background: #fff;
 }
 
-:host ::ng-deep .mat-multiselect .option {
+:host ::ng-deep .option {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -82,9 +82,9 @@
   max-height: 40px;
 }
 
-:host ::ng-deep .mat-multiselect .option:hover,
-:host ::ng-deep .mat-multiselect .option.marked:hover,
-:host ::ng-deep .mat-multiselect .option.marked {
+:host ::ng-deep .option:hover,
+:host ::ng-deep .option.marked:hover,
+:host ::ng-deep .option.marked {
   background-image: linear-gradient(#e9e9e9,#f1f1f1);
   color: #555;
   cursor: pointer;
@@ -93,7 +93,7 @@
   border-right: 1px solid #d9d9d9;
 }
 
-:host ::ng-deep .mat-multiselect .marked::after {
+:host ::ng-deep .marked::after {
   content: '✓';
   margin: 0 5px;
   right: 0;
@@ -101,9 +101,9 @@
   position: absolute;
 }
 
-:host ::ng-deep .mat-multiselect .option.disabled,
-:host ::ng-deep .mat-multiselect .option.disabled:hover,
-:host ::ng-deep .mat-multiselect .option.disabled label input:hover ~ span {
+:host ::ng-deep .option.disabled,
+:host ::ng-deep .option.disabled:hover,
+:host ::ng-deep .option.disabled label input:hover ~ span {
   color: #c4c4c4 !important;
   pointer-events:none;
   cursor: not-allowed !important;

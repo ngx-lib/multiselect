@@ -5,7 +5,7 @@
     display: block;
 }
 
-.mat-multiselect .input-search {
+.input-search {
     width: 100%;
     position: relative;
     max-height: 40px;
@@ -15,7 +15,7 @@
     display: inline-flex;
 }
   
-.mat-multiselect .input-filter {
+.input-filter {
     font: inherit;
     background: 0 0;
     color: currentColor;
@@ -30,7 +30,7 @@
     margin-top: -.0625em;
 }
 
-.mat-multiselect .field-infix {
+.field-infix {
     display: block;
     position: relative;
     padding: 10px;
@@ -40,7 +40,7 @@
     position: relative;
 }
 
-.mat-multiselect .field-suffix {
+.field-suffix {
     white-space: nowrap;
     flex: none;
     position: relative;
