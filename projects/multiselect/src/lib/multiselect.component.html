@@ -1,12 +1,12 @@
 <div class="multiselect-wrapper">
-  <button class="dropdown-button" (click)="toggleDropdown()">
+  <button class="dropdown-button" (click)="toggleDropdown()" [ngClass]="{open: isOpen}">
     <div class="selection">
       <!-- TODO: None selected template should be ng-template -->
       <span class="none-selected" *ngIf="!isValueSelected()">None selected</span>
       <span class="selected" *ngIf="isValueSelected()">
         <span class="text">{{_selectedOptions | displaySelectedValue: showMaxLabels}}</span>
       </span>
-      <span class="caret">▼</span>
+      <span class="caret"></span>
     </div>
   </button>
   <div class="listing-wrapper" *ngIf="isOpen">
