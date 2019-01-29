@@ -43,6 +43,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
 
   // Input bindings
   @Input() disabled: boolean = false;
+  @Input() color: string = 'blue';
   @Input() groupedProperty: string;
   @Input() showMaxLabels: number = 3;
   @Input() optionsLimit: number = 100;
@@ -190,6 +191,10 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     this.setOptions(this.getOptions().map(o => ({ ...o, ticked: false})))
     this.viewToModel([]);
     this.onSelectNone.emit();
+  }
+
+  borderBottom () {
+    return this._isOpen ? { borderBottom: this.color }: {}
   }
 
   //TODO: Optimized below logic, it can be done in lesser steps
