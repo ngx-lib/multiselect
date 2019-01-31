@@ -1,6 +1,6 @@
 <div class="multiselect-wrapper">
   <button class="dropdown-button" (click)="toggleDropdown()" [ngClass]="{open: isOpen}">
-    <div class="selection">
+    <div class="selection" [ngStyle]="borderBottom()">
       <!-- TODO: None selected template should be ng-template -->
       <span class="none-selected" *ngIf="!isValueSelected()">None selected</span>
       <span class="selected" *ngIf="isValueSelected()">

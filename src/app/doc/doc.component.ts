@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DocService } from '../doc.service';
 
 @Component({
@@ -11,7 +11,16 @@ export class DocComponent implements OnInit {
 
   data: any;
 
-  constructor(private _activatedRoute: ActivatedRoute, private _docService: DocService) { }
+  constructor(
+    private router: Router,
+    private _activatedRoute: ActivatedRoute,
+    private _docService: DocService
+  ) { }
+
+  isActive(instruction: any[]): boolean {
+    // Set the second parameter to true if you want to require an exact match.
+    return this.router.isActive(this.router.createUrlTree(instruction), false);
+  }
 
   ngOnInit() {
     this._activatedRoute.params.subscribe(params => {
