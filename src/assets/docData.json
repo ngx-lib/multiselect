@@ -1,14 +1,16 @@
 {
-    "getting-started": [{
-        "component": "title",
-        "data": "Sample Title"
-      }, {
+  "getting-started": {
+    "title": "Getting Started",
+    "content": [
+      {
         "component": "content",
         "data": "Sample content to describe title"
-      }, {
+      },
+      {
         "component": "note",
         "data": "Sample note in case needed"
-      }, {
+      },
+      {
         "component": "demoContainer",
         "data": {
           "component": "lazyLoading",
@@ -16,8 +18,11 @@
           "htmlCode": "PGgyPlNpbmdsZSBTZWxlY3QgKExhenkgbG9hZGluZyBvcHRpb25zKTwvaDI+CjxuZ3gtbXVsdGlzZWxlY3QgCiAgWyhuZ01vZGVsKV09InBlcnNvbiIKICBbb3B0aW9uc109InBlcnNvbnMiCiAgbmdEZWZhdWx0Q29udHJvbAo+PC9uZ3gtbXVsdGlzZWxlY3Q+Cgo8Yj5TZWxlY3RlZCBQZXJzb246IDwvYj4ge3twZXJzb24gfCBqc29ufX0=",
           "cssCode": ""
         }
-      }, {
+      },
+      {
         "component": "content",
         "data": "this content will contain another description"
-      }]
+      }
+    ]
+  }
 }

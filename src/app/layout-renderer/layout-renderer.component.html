@@ -1,7 +1,4 @@
 <ng-container *ngFor="let compData of data">
-  <ng-container *ngIf="compData.component === 'title'">
-    <ms-title [title]="compData.data"></ms-title>
-  </ng-container>
   <ng-container *ngIf="compData.component === 'content'">
     <ms-content [content]="compData.data"></ms-content>
   </ng-container>

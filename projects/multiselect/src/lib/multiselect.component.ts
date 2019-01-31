@@ -194,7 +194,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   }
 
   borderBottom () {
-    return this._isOpen ? { borderBottom: this.color }: {}
+    return this._isOpen ? { borderBottom: `1px solid ${this.color}` }: {}
   }
 
   //TODO: Optimized below logic, it can be done in lesser steps
