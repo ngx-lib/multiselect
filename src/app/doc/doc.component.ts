@@ -15,9 +15,7 @@ export class DocComponent implements OnInit {
 
   ngOnInit() {
     this._activatedRoute.params.subscribe(params => {
-      console.log(params['topic']);
       this._docService.getDocData(params['topic']).subscribe(data => {
-        console.log(data);
         this.data = data;
       });
     });

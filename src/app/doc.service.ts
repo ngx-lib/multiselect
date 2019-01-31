@@ -11,7 +11,6 @@ export class DocService {
   constructor(private _httpClient: HttpClient) { }
 
   getDocData(topic: string) {
-    console.log(topic);
     return this._httpClient.get(this.API_URL)
       .pipe(map(d => d[topic]));
   }
