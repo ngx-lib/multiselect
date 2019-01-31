@@ -15,16 +15,9 @@ import { DocComponent } from './doc/doc.component';
 @NgModule({
   imports: [
     RouterModule.forRoot([
-      {path: 'single-select-with-property-map', component: SingleSelectWithPropertyMapComponent },
-      {path: 'single-select-template-driven', component: SingleSelectTemplateDrivenComponent },
-      {path: 'model-driven', component: ModelDrivenComponent },
-      {path: 'multiple-select-grouping', component: MultipleSelectGroupingComponent },
-      {path: 'multiple-select-with-observable', component: MultipleSelectWithObservableComponent },
-      {path: 'custom-template', component: CustomTemplateComponent },
-      {path: 'options-lazy-loading', component: OptionsLazyLoadingComponent },
-      {path: 'large-volume-data', component: LargeVolumeDataComponent },
       {path: 'home', component: HomeComponent },
-      {path: 'docs', component: DocComponent },
+      {path: 'docs/:topic', component: DocComponent },
+      {path: 'docs', redirectTo: 'docs/gettingStarted' },
       {path: '**', redirectTo: '/home'}
     ], {useHash: true})
   ],
