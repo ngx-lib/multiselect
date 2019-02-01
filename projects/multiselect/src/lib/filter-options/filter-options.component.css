@@ -41,9 +41,17 @@
 }
 
 .field-suffix {
+    width: 25px;
+    height: 25px;
     white-space: nowrap;
     flex: none;
     position: relative;
+}
+.field-suffix button {
+    top: 5px;
+    position: relative;
+    border: none;
+    font-size: 20px;
 }
 
 /* Material CSS end */
