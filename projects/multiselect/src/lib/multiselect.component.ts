@@ -48,8 +48,6 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   @Input() color: string = 'blue';
   @Input() groupedProperty: string;
   @Input() showMaxLabels: number = 3;
-  @Input() optionsLimit: number = 100;
-  @Input() lazyLoading: boolean = false;
   @ContentChild(TemplateRef)
   @Input() optionsTemplate: TemplateRef<any>;
   @Input()
@@ -205,7 +203,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   }
 
   borderBottom () {
-    return this._isOpen ? { borderBottom: `1px solid ${this.color}` }: {}
+    return this._isOpen ? { borderBottom: `1px solid ${this.matMultiselect ? this.color: 'transperant'}` }: {}
   }
 
   //TODO: Optimized below logic, it can be done in lesser steps

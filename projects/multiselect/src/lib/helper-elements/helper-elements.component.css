@@ -1,11 +1,44 @@
 /* Material CSS start */
 
-.helper-buttons {
+.ms-multiselect :host .helper-buttons {
   border-bottom: 1px solid #ddd;
   padding: 4px;
 }
 
-.helper-button {
+.ms-multiselect :host .helper-button {
+  display: inline-block;
+  font-weight: 400;
+  color: #444;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: .13rem 0.13rem;
+  font-size: .75rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  border-color: rgba(0,0,0,.12);
+}
+
+.ms-multiselect :host .helper-button:not(:last-child) {
+  margin-right: 4px;
+}
+
+/* Material CSS end */
+
+/* Boostrap CSS start */
+
+.bs-multiselect :host .helper-buttons {
+  border-bottom: 1px solid #ddd;
+  padding: 4px 4px 4px;
+}
+
+.bs-multiselect :host .helper-button {
   max-height: 26px;
   height: 26px;
   border: 1px solid rgba(0,0,0,.12) !important;
@@ -30,33 +63,6 @@
   line-height: 25px;
   border-radius: 4px;
   overflow: visible;
-}
-
-.helper-button:not(:last-child) {
-  margin-right: 4px;
-}
-
-/* Material CSS end */
-
-/* Boostrap CSS start */
-
-.bs-multiselect .helper-buttons {
-  border-bottom: 1px solid #ddd;
-  padding: 8px 8px 0px 8px;
-}
-
-.bs-multiselect .helper-button {
-  display: inline;
-  text-align: center;
-  cursor: pointer;
-  border: 1px solid #ccc;
-  height: 26px;
-  font-size: 10px;
-  border-radius: 2px;
-  color: #666;
-  background-color: #f1f1f1;
-  line-height: 1.6;
-  margin: 0px 0px 8px 0px;
 }
 
 .bs-multiselect .helper-button:not(:last-child) {
