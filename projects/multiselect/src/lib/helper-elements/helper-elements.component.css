@@ -1,11 +1,11 @@
 /* Material CSS start */
 
-.ms-multiselect :host .helper-buttons {
+.mat-multiselect :host .helper-buttons {
   border-bottom: 1px solid #ddd;
   padding: 4px;
 }
 
-.ms-multiselect :host .helper-button {
+.mat-multiselect :host .helper-button {
   display: inline-block;
   font-weight: 400;
   color: #444;
@@ -25,7 +25,7 @@
   border-color: rgba(0,0,0,.12);
 }
 
-.ms-multiselect :host .helper-button:not(:last-child) {
+.mat-multiselect :host .helper-button:not(:last-child) {
   margin-right: 4px;
 }
 

@@ -1,9 +1,5 @@
 <h2>Single Select (Lazy loading options)</h2>
-<ngx-multiselect 
-  [(ngModel)]="person"
-  [options]="persons"
-  theme="bootstrap"
-  ngDefaultControl
-></ngx-multiselect>
-
+<div>
+  <ngx-multiselect [(ngModel)]="person" [options]="persons" theme="material" ngDefaultControl></ngx-multiselect>
+</div>
 <b>Selected Person: </b> {{person | json}}
