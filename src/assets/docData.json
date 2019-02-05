@@ -4,11 +4,11 @@
     "content": [
       {
         "component": "content",
-        "data": "Sample content to describe title"
+        "data": "Multiselect component is very easy to use. You just have to pass value of few property bindings, that's it!"
       },
       {
         "component": "note",
-        "data": "Sample note in case needed"
+        "data": "By default multiselect component worked as single select."
       },
       {
         "component": "demoContainer",

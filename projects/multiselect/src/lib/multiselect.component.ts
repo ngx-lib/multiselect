@@ -1,6 +1,6 @@
 import {
   Component, Input, ChangeDetectionStrategy, ElementRef,
-  ContentChild, TemplateRef, Output, EventEmitter, ViewChild // , HostBinding
+  ContentChild, TemplateRef, Output, EventEmitter, ViewChild, HostBinding
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -31,26 +31,35 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   }
 
   // private variables
-  private _multiple = false;
-  private _optionsCopy; //TODO: in future this will be master list
-  private _isOpen: boolean = false;
+  private _multiple = false
+  private _theme: string = 'material'
+  private _optionsCopy //TODO: in future this will be master list
+  private _isOpen: boolean = false
   
   // public variables
   _selectedOptions: any | any[] = null;
   _options; //TODO: this will be local list
 
-  // @HostBinding('class.mat-multiselect') theme: boolean = true;
+  @HostBinding('class.mat-multiselect') matMultiselect: boolean = true
+  @HostBinding('class.bs-multiselect') bsMultiselect: boolean = false
 
   // Input bindings
   @Input() disabled: boolean = false;
   @Input() color: string = 'blue';
   @Input() groupedProperty: string;
   @Input() showMaxLabels: number = 3;
-  @Input() optionsLimit: number = 100;
-  @Input() lazyLoading: boolean = false;
   @ContentChild(TemplateRef)
   @Input() optionsTemplate: TemplateRef<any>;
-  
+  @Input()
+  public get theme (): string {
+    return this._theme
+  }
+  public set theme (val: string) {
+    this._theme = val
+    this.matMultiselect = val === 'material'
+    this.bsMultiselect = val === 'bootstrap'
+  }
+
   // Input binding with getter / setter
   @Input() set isOpen(value) {
     this._isOpen = value;
@@ -194,7 +203,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   }
 
   borderBottom () {
-    return this._isOpen ? { borderBottom: `1px solid ${this.color}` }: {}
+    return this._isOpen ? { borderBottom: `1px solid ${this.matMultiselect ? this.color: 'transperant'}` }: {}
   }
 
   //TODO: Optimized below logic, it can be done in lesser steps

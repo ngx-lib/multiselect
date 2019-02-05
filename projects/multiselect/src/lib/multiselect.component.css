@@ -1,6 +1,10 @@
+:host {
+  display: inline-block;
+}
+
 /* Material multiselect theme start*/
 
-:host ::ng-deep .caret{
+:host.mat-multiselect ::ng-deep .caret{
   right: 0;
   position: absolute;
   margin-top: 5px;
@@ -11,11 +15,11 @@
   border-top: 5px solid;
 }
 
-:host ::ng-deep .multiselect-wrapper {
+:host.mat-multiselect ::ng-deep .multiselect-wrapper {
   width: 240px;
 }
 
-:host ::ng-deep .dropdown-button {
+:host.mat-multiselect ::ng-deep .dropdown-button {
   width: 100%;
   text-align: left;
   display: inline-block;
@@ -36,7 +40,7 @@
   background-color: #fff;
 }
 
-:host ::ng-deep .listing-wrapper {
+:host.mat-multiselect ::ng-deep .listing-wrapper {
   width: inherit;
   background-color: #fff;
   position: absolute;
@@ -47,7 +51,7 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
 }
 
-:host ::ng-deep .options-container {
+:host.mat-multiselect ::ng-deep .options-container {
   transform-origin: 50% 24px 0px;
   font-size: 16px;
   opacity: 1;
@@ -63,7 +67,7 @@
   background: #fff;
 }
 
-:host ::ng-deep .option {
+:host.mat-multiselect ::ng-deep .option {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -86,9 +90,9 @@
   max-height: 40px;
 }
 
-:host ::ng-deep .option:hover,
-:host ::ng-deep .option.marked:hover,
-:host ::ng-deep .option.marked {
+:host.mat-multiselect ::ng-deep .option:hover,
+:host.mat-multiselect ::ng-deep .option.marked:hover,
+:host.mat-multiselect ::ng-deep .option.marked {
   background-image: linear-gradient(#e9e9e9,#f1f1f1);
   color: #555;
   cursor: pointer;
@@ -97,7 +101,7 @@
   border-right: 1px solid #d9d9d9;
 }
 
-:host ::ng-deep .marked::after {
+:host.mat-multiselect ::ng-deep .marked::after {
   content: '✓';
   margin: 0 5px;
   right: 0;
@@ -105,35 +109,35 @@
   position: absolute;
 }
 
-:host ::ng-deep .option.disabled,
-:host ::ng-deep .option.disabled:hover,
-:host ::ng-deep .option.disabled label input:hover ~ span {
+:host.mat-multiselect ::ng-deep .option.disabled,
+:host.mat-multiselect ::ng-deep .option.disabled:hover,
+:host.mat-multiselect ::ng-deep .option.disabled label input:hover ~ span {
   color: #c4c4c4 !important;
   pointer-events:none;
   cursor: not-allowed !important;
 }
 
-:host ::ng-deep .none-selected {
+:host.mat-multiselect ::ng-deep .none-selected {
   color: #7a7a7a;
   -webkit-text-fill-color: #7a7a7a;
   transition: none;
 }
 
-:host ::ng-deep .dropdown-button {
+:host.mat-multiselect ::ng-deep .dropdown-button {
   color: black;
 }
 
-:host ::ng-deep .selection {
+:host.mat-multiselect ::ng-deep .selection {
   color: #000;
   padding-bottom: 10px;
   border-bottom: 1px solid black;
 }
 
-:host ::ng-deep .open .selection {
+:host.mat-multiselect ::ng-deep .open .selection {
   border-bottom: 1px solid blue;
 }
 /* 
-:host ::ng-deep .selection .open {
+:host.mat-multiselect ::ng-deep .selection .open {
   color: blue;
 } */
 
@@ -141,21 +145,21 @@
 
 /* Bootstrap multiselect theme start */
 
-:host ::ng-deep .bs-multiselect .caret{
+:host.bs-multiselect ::ng-deep .caret{
   right: 0;
   position: absolute;
   margin-right: 5px;
 }
 
-:host ::ng-deep .bs-multiselect .marked {
+:host.bs-multiselect ::ng-deep .marked {
   background-color: green
 }
 
-:host ::ng-deep .bs-multiselect .multiselect-wrapper {
+:host.bs-multiselect ::ng-deep .multiselect-wrapper {
   width: 240px;
 }
 
-:host ::ng-deep .bs-multiselect .dropdown-button {
+:host.bs-multiselect ::ng-deep .dropdown-button {
   width: 100%;
   text-align: left;
   display: inline-block;
@@ -177,7 +181,7 @@
   background-image: linear-gradient(#fff, #f7f7f7);
 }
 
-:host ::ng-deep .bs-multiselect .listing-wrapper {
+:host.bs-multiselect ::ng-deep .listing-wrapper {
   width: inherit;
   background-color: #fff;
   position: absolute;
@@ -188,14 +192,14 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
 }
 
-:host ::ng-deep .bs-multiselect .options-container {
+:host.bs-multiselect ::ng-deep .options-container {
   display: block;
   overflow: hidden;
   height: 200px;
   overflow-y: scroll;
 }
 
-:host ::ng-deep .bs-multiselect .option {
+:host.bs-multiselect ::ng-deep .option {
   display: block;
   padding: 3px;
   color: #444;
@@ -210,14 +214,14 @@
   min-height: 32px;
 }
 
-:host ::ng-deep .bs-multiselect .option:hover {
+:host.bs-multiselect ::ng-deep .option:hover {
   background-image: linear-gradient( #c1c1c1, #999 ) !important;
   color: #fff !important;
   cursor: pointer;
   border: 1px solid #ccc !important;
 }
 
-:host ::ng-deep .bs-multiselect .option.marked {
+:host.bs-multiselect ::ng-deep .option.marked {
   background-image: linear-gradient( #e9e9e9, #f1f1f1 );
   color: #555;
   cursor: pointer;
@@ -226,7 +230,7 @@
   border-right: 1px solid #d9d9d9;
 }
 
-:host ::ng-deep .bs-multiselect .marked::after {
+:host.bs-multiselect ::ng-deep .marked::after {
   content: '✓';
   margin: 0 5px;
   right: 0;
@@ -234,9 +238,9 @@
   position: absolute;
 }
 
-:host ::ng-deep .bs-multiselect .option.disabled,
-:host ::ng-deep .bs-multiselect .option.disabled:hover,
-:host ::ng-deep .bs-multiselect .option.disabled label input:hover ~ span {
+:host.bs-multiselect ::ng-deep .option.disabled,
+:host.bs-multiselect ::ng-deep .option.disabled:hover,
+:host.bs-multiselect ::ng-deep .option.disabled label input:hover ~ span {
   color: #c4c4c4 !important;
   pointer-events:none;
   cursor: not-allowed !important;
