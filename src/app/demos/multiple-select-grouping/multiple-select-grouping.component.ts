@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { AppService } from '../app.service';
+import { AppService } from '../../app.service';
 import { FormControl } from '@angular/forms';
 
 @Component({

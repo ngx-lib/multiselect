@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { AppService } from '../app.service';
+import { AppService } from '../../app.service';
 
 @Component({
   selector: 'ms-single-select',

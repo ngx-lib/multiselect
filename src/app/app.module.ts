@@ -5,18 +5,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { NgxMultiselectModule } from '@ngx-lib/multiselect';
-
-import { AppComponent } from './app.component';
 import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { AppRoutingModule } from './app-routing.module';
-import { ModelDrivenComponent } from './model-driven/model-driven.component';
-import { MultipleSelectGroupingComponent } from './multiple-select-grouping/multiple-select-grouping.component';
-import { MultipleSelectWithObservableComponent } from './multiple-select-with-observable/multiple-select-with-observable.component';
-import { CustomTemplateComponent } from './custom-template/custom-template.component';
-import { SingleSelectWithPropertyMapComponent } from './single-select-with-property-map/single-select-with-property-map.component';
-import { SingleSelectTemplateDrivenComponent } from './single-select-template-driven/single-select-template-driven.component';
-import { OptionsLazyLoadingComponent } from './options-lazy-loading/options-lazy-loading.component';
-import { LargeVolumeDataComponent } from './large-volume-data/large-volume-data.component';
+
+import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BannerComponent } from './banner/banner.component';
 import { HomeComponent } from './home/home.component';
@@ -29,6 +21,15 @@ import { DemoContainerComponent } from './demo-container/demo-container.componen
 import { DemoComponent } from './demo/demo.component';
 import { CodeViewComponent } from './code-view/code-view.component';
 import { LayoutRendererComponent } from './layout-renderer/layout-renderer.component';
+
+import { ModelDrivenComponent } from './demos/model-driven/model-driven.component';
+import { MultipleSelectGroupingComponent } from './demos/multiple-select-grouping/multiple-select-grouping.component';
+import { MultipleSelectWithObservableComponent } from './demos/multiple-select-with-observable/multiple-select-with-observable.component';
+import { CustomTemplateComponent } from './demos/custom-template/custom-template.component';
+import { SingleSelectWithPropertyMapComponent } from './demos/single-select-with-property-map/single-select-with-property-map.component';
+import { SingleSelectTemplateDrivenComponent } from './demos/single-select-template-driven/single-select-template-driven.component';
+import { OptionsLazyLoadingComponent } from './demos/options-lazy-loading/options-lazy-loading.component';
+import { LargeVolumeDataComponent } from './demos/large-volume-data/large-volume-data.component';
 import { SimpleDemoComponent } from './demos/simple-demo/simple-demo.component';
 
 @NgModule({
