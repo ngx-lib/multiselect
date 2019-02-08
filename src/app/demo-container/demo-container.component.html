@@ -1,13 +1,13 @@
 <mat-card>
   <ms-demo [component]="data.component"></ms-demo>
   <mat-tab-group class="code-view-tabs-container">
-    <mat-tab label="HTML">
+    <mat-tab *ngIf="!!data.htmlCode" label="HTML">
       <ms-code-view [code]="data.htmlCode" [language]="'html'"></ms-code-view>
     </mat-tab>
-    <mat-tab label="TS">
+    <mat-tab *ngIf="!!data.tsCode" label="TS">
       <ms-code-view [code]="data.tsCode" [language]="'typescript'"></ms-code-view>
     </mat-tab>
-    <mat-tab label="CSS">
+    <mat-tab *ngIf="!!data.cssCode" label="CSS">
       <ms-code-view [code]="data.cssCode" [language]="'css'"></ms-code-view>
     </mat-tab>
   </mat-tab-group>
