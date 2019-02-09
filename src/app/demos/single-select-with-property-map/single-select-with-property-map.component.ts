@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 import { AppService } from '../../app.service';
 
 @Component({
-  selector: 'ms-single-select',
+  selector: 'ms-single-select-property-map',
   templateUrl: './single-select-with-property-map.component.html',
   styleUrls: ['./single-select-with-property-map.component.css']
 })

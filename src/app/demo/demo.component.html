@@ -1,8 +1,35 @@
-<span [ngSwitch]="component">
-  <span *ngSwitchCase="'lazyLoading'">
-      <ms-options-lazy-loading></ms-options-lazy-loading>
-  </span>
-  <span *ngSwitchCase="'simpleDemo'">
+<div [ngSwitch]="component">
+  <ng-container *ngSwitchCase="'lazyLoading'">
+    <ms-options-lazy-loading></ms-options-lazy-loading>
+  </ng-container>
+  <ng-container *ngSwitchCase="'simpleDemo'">
     <ms-simple-demo></ms-simple-demo>
-</span>
-</span>
+  </ng-container>
+  <ng-container *ngSwitchCase="'tempateDriven'">
+    <ms-single-select></ms-single-select>
+  </ng-container>
+  <ng-container *ngSwitchCase="'modelDriven'">
+    <ms-model-driven></ms-model-driven>
+  </ng-container>
+  <ng-container *ngSwitchCase="'observable'">
+    <ms-multiple-select-with-observable></ms-multiple-select-with-observable>
+  </ng-container>
+  <ng-container *ngSwitchCase="'grouping'">
+    <ms-multiple-select-grouping></ms-multiple-select-grouping>
+  </ng-container>
+  <ng-container *ngSwitchCase="'disableOption'">
+    <ms-simple-demo></ms-simple-demo>
+  </ng-container>
+  <ng-container *ngSwitchCase="'propertyMap'">
+    <ms-single-select-property-map></ms-single-select-property-map>
+  </ng-container>
+  <ng-container *ngSwitchCase="'callback'">
+    <ms-single-select></ms-single-select>
+  </ng-container>
+  <ng-container *ngSwitchCase="'helperElements'">
+    <ms-simple-demo></ms-simple-demo>
+  </ng-container>
+  <ng-container *ngSwitchCase="'theming'">
+    <ms-simple-demo></ms-simple-demo>
+  </ng-container>
+</div>
