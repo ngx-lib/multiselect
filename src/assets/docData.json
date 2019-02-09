@@ -38,7 +38,7 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct" 
+        "data": "<h2>Template Driven</h2>Its very easy to get started with multiselct" 
       },
       {
         "component": "content",
@@ -57,7 +57,7 @@
         "component": "content",
         "data": "<h2>Live Demo</h2>"
       },{
-        "component": "demoContainer",
+        "component": "singleSelect",
         "data": {
           "component": "simpleDemo",
           "tsCode": "ZXhwb3J0IGNsYXNzIFNpbXBsZURlbW9Db21wb25lbnR7CgogIHNlbGVjdGVkQ291bnRyeSA9IHsKICAgIGlkOiAxLAogICAgbmFtZTogJ0luZGlhJwogIH07CgogIGNvdW50cmllcyA9IFt7CiAgICBpZDogMSwKICAgIG5hbWU6ICdJbmRpYScKICB9LCB7CiAgICBpZDogMiwKICAgIG5hbWU6ICdVU0EnCiAgfSwgewogICAgaWQ6IDMsCiAgICBuYW1lOiAnSmFwYW4nCiAgfSwgewogICAgaWQ6IDQsCiAgICBuYW1lOiAnQ2hpbmEnCiAgfSwgewogICAgaWQ6IDUsCiAgICBuYW1lOiAnQnJhemlsJwogIH0sIHsKICAgIGlkOiA2LAogICAgbmFtZTogJ0F1c3RyYWxpYScKICB9XTsKCn0=",
@@ -93,7 +93,7 @@
       },{
         "component": "demoContainer",
         "data": {
-          "component": "simpleDemo",
+          "component": "modelDriven",
           "tsCode": "ZXhwb3J0IGNsYXNzIFNpbXBsZURlbW9Db21wb25lbnR7CgogIHNlbGVjdGVkQ291bnRyeSA9IHsKICAgIGlkOiAxLAogICAgbmFtZTogJ0luZGlhJwogIH07CgogIGNvdW50cmllcyA9IFt7CiAgICBpZDogMSwKICAgIG5hbWU6ICdJbmRpYScKICB9LCB7CiAgICBpZDogMiwKICAgIG5hbWU6ICdVU0EnCiAgfSwgewogICAgaWQ6IDMsCiAgICBuYW1lOiAnSmFwYW4nCiAgfSwgewogICAgaWQ6IDQsCiAgICBuYW1lOiAnQ2hpbmEnCiAgfSwgewogICAgaWQ6IDUsCiAgICBuYW1lOiAnQnJhemlsJwogIH0sIHsKICAgIGlkOiA2LAogICAgbmFtZTogJ0F1c3RyYWxpYScKICB9XTsKCn0=",
           "htmlCode": "PG5neC1tdWx0aXNlbGVjdCAKICBbKG5nTW9kZWwpXT0ic2VsZWN0ZWRDb3VudHJ5IiAKICBbb3B0aW9uc109ImNvdW50cmllcyIgCiAgbmdEZWZhdWx0Q29udHJvbCA+Cjwvbmd4LW11bHRpc2VsZWN0Pgo=",
           "cssCode": ""
@@ -127,7 +127,7 @@
       },{
         "component": "demoContainer",
         "data": {
-          "component": "simpleDemo",
+          "component": "withObservable",
           "tsCode": "ZXhwb3J0IGNsYXNzIFNpbXBsZURlbW9Db21wb25lbnR7CgogIHNlbGVjdGVkQ291bnRyeSA9IHsKICAgIGlkOiAxLAogICAgbmFtZTogJ0luZGlhJwogIH07CgogIGNvdW50cmllcyA9IFt7CiAgICBpZDogMSwKICAgIG5hbWU6ICdJbmRpYScKICB9LCB7CiAgICBpZDogMiwKICAgIG5hbWU6ICdVU0EnCiAgfSwgewogICAgaWQ6IDMsCiAgICBuYW1lOiAnSmFwYW4nCiAgfSwgewogICAgaWQ6IDQsCiAgICBuYW1lOiAnQ2hpbmEnCiAgfSwgewogICAgaWQ6IDUsCiAgICBuYW1lOiAnQnJhemlsJwogIH0sIHsKICAgIGlkOiA2LAogICAgbmFtZTogJ0F1c3RyYWxpYScKICB9XTsKCn0=",
           "htmlCode": "PG5neC1tdWx0aXNlbGVjdCAKICBbKG5nTW9kZWwpXT0ic2VsZWN0ZWRDb3VudHJ5IiAKICBbb3B0aW9uc109ImNvdW50cmllcyIgCiAgbmdEZWZhdWx0Q29udHJvbCA+Cjwvbmd4LW11bHRpc2VsZWN0Pgo=",
           "cssCode": ""
@@ -161,7 +161,7 @@
       },{
         "component": "demoContainer",
         "data": {
-          "component": "simpleDemo",
+          "component": "customTemplate",
           "tsCode": "ZXhwb3J0IGNsYXNzIFNpbXBsZURlbW9Db21wb25lbnR7CgogIHNlbGVjdGVkQ291bnRyeSA9IHsKICAgIGlkOiAxLAogICAgbmFtZTogJ0luZGlhJwogIH07CgogIGNvdW50cmllcyA9IFt7CiAgICBpZDogMSwKICAgIG5hbWU6ICdJbmRpYScKICB9LCB7CiAgICBpZDogMiwKICAgIG5hbWU6ICdVU0EnCiAgfSwgewogICAgaWQ6IDMsCiAgICBuYW1lOiAnSmFwYW4nCiAgfSwgewogICAgaWQ6IDQsCiAgICBuYW1lOiAnQ2hpbmEnCiAgfSwgewogICAgaWQ6IDUsCiAgICBuYW1lOiAnQnJhemlsJwogIH0sIHsKICAgIGlkOiA2LAogICAgbmFtZTogJ0F1c3RyYWxpYScKICB9XTsKCn0=",
           "htmlCode": "PG5neC1tdWx0aXNlbGVjdCAKICBbKG5nTW9kZWwpXT0ic2VsZWN0ZWRDb3VudHJ5IiAKICBbb3B0aW9uc109ImNvdW50cmllcyIgCiAgbmdEZWZhdWx0Q29udHJvbCA+Cjwvbmd4LW11bHRpc2VsZWN0Pgo=",
           "cssCode": ""
@@ -195,7 +195,7 @@
       },{
         "component": "demoContainer",
         "data": {
-          "component": "simpleDemo",
+          "component": "grouping",
           "tsCode": "ZXhwb3J0IGNsYXNzIFNpbXBsZURlbW9Db21wb25lbnR7CgogIHNlbGVjdGVkQ291bnRyeSA9IHsKICAgIGlkOiAxLAogICAgbmFtZTogJ0luZGlhJwogIH07CgogIGNvdW50cmllcyA9IFt7CiAgICBpZDogMSwKICAgIG5hbWU6ICdJbmRpYScKICB9LCB7CiAgICBpZDogMiwKICAgIG5hbWU6ICdVU0EnCiAgfSwgewogICAgaWQ6IDMsCiAgICBuYW1lOiAnSmFwYW4nCiAgfSwgewogICAgaWQ6IDQsCiAgICBuYW1lOiAnQ2hpbmEnCiAgfSwgewogICAgaWQ6IDUsCiAgICBuYW1lOiAnQnJhemlsJwogIH0sIHsKICAgIGlkOiA2LAogICAgbmFtZTogJ0F1c3RyYWxpYScKICB9XTsKCn0=",
           "htmlCode": "PG5neC1tdWx0aXNlbGVjdCAKICBbKG5nTW9kZWwpXT0ic2VsZWN0ZWRDb3VudHJ5IiAKICBbb3B0aW9uc109ImNvdW50cmllcyIgCiAgbmdEZWZhdWx0Q29udHJvbCA+Cjwvbmd4LW11bHRpc2VsZWN0Pgo=",
           "cssCode": ""
@@ -229,7 +229,7 @@
       },{
         "component": "demoContainer",
         "data": {
-          "component": "simpleDemo",
+          "component": "enableDisable",
           "tsCode": "ZXhwb3J0IGNsYXNzIFNpbXBsZURlbW9Db21wb25lbnR7CgogIHNlbGVjdGVkQ291bnRyeSA9IHsKICAgIGlkOiAxLAogICAgbmFtZTogJ0luZGlhJwogIH07CgogIGNvdW50cmllcyA9IFt7CiAgICBpZDogMSwKICAgIG5hbWU6ICdJbmRpYScKICB9LCB7CiAgICBpZDogMiwKICAgIG5hbWU6ICdVU0EnCiAgfSwgewogICAgaWQ6IDMsCiAgICBuYW1lOiAnSmFwYW4nCiAgfSwgewogICAgaWQ6IDQsCiAgICBuYW1lOiAnQ2hpbmEnCiAgfSwgewogICAgaWQ6IDUsCiAgICBuYW1lOiAnQnJhemlsJwogIH0sIHsKICAgIGlkOiA2LAogICAgbmFtZTogJ0F1c3RyYWxpYScKICB9XTsKCn0=",
           "htmlCode": "PG5neC1tdWx0aXNlbGVjdCAKICBbKG5nTW9kZWwpXT0ic2VsZWN0ZWRDb3VudHJ5IiAKICBbb3B0aW9uc109ImNvdW50cmllcyIgCiAgbmdEZWZhdWx0Q29udHJvbCA+Cjwvbmd4LW11bHRpc2VsZWN0Pgo=",
           "cssCode": ""
@@ -263,7 +263,7 @@
       },{
         "component": "demoContainer",
         "data": {
-          "component": "simpleDemo",
+          "component": "propertyMap",
           "tsCode": "ZXhwb3J0IGNsYXNzIFNpbXBsZURlbW9Db21wb25lbnR7CgogIHNlbGVjdGVkQ291bnRyeSA9IHsKICAgIGlkOiAxLAogICAgbmFtZTogJ0luZGlhJwogIH07CgogIGNvdW50cmllcyA9IFt7CiAgICBpZDogMSwKICAgIG5hbWU6ICdJbmRpYScKICB9LCB7CiAgICBpZDogMiwKICAgIG5hbWU6ICdVU0EnCiAgfSwgewogICAgaWQ6IDMsCiAgICBuYW1lOiAnSmFwYW4nCiAgfSwgewogICAgaWQ6IDQsCiAgICBuYW1lOiAnQ2hpbmEnCiAgfSwgewogICAgaWQ6IDUsCiAgICBuYW1lOiAnQnJhemlsJwogIH0sIHsKICAgIGlkOiA2LAogICAgbmFtZTogJ0F1c3RyYWxpYScKICB9XTsKCn0=",
           "htmlCode": "PG5neC1tdWx0aXNlbGVjdCAKICBbKG5nTW9kZWwpXT0ic2VsZWN0ZWRDb3VudHJ5IiAKICBbb3B0aW9uc109ImNvdW50cmllcyIgCiAgbmdEZWZhdWx0Q29udHJvbCA+Cjwvbmd4LW11bHRpc2VsZWN0Pgo=",
           "cssCode": ""
@@ -297,7 +297,7 @@
       },{
         "component": "demoContainer",
         "data": {
-          "component": "simpleDemo",
+          "component": "callback",
           "tsCode": "ZXhwb3J0IGNsYXNzIFNpbXBsZURlbW9Db21wb25lbnR7CgogIHNlbGVjdGVkQ291bnRyeSA9IHsKICAgIGlkOiAxLAogICAgbmFtZTogJ0luZGlhJwogIH07CgogIGNvdW50cmllcyA9IFt7CiAgICBpZDogMSwKICAgIG5hbWU6ICdJbmRpYScKICB9LCB7CiAgICBpZDogMiwKICAgIG5hbWU6ICdVU0EnCiAgfSwgewogICAgaWQ6IDMsCiAgICBuYW1lOiAnSmFwYW4nCiAgfSwgewogICAgaWQ6IDQsCiAgICBuYW1lOiAnQ2hpbmEnCiAgfSwgewogICAgaWQ6IDUsCiAgICBuYW1lOiAnQnJhemlsJwogIH0sIHsKICAgIGlkOiA2LAogICAgbmFtZTogJ0F1c3RyYWxpYScKICB9XTsKCn0=",
           "htmlCode": "PG5neC1tdWx0aXNlbGVjdCAKICBbKG5nTW9kZWwpXT0ic2VsZWN0ZWRDb3VudHJ5IiAKICBbb3B0aW9uc109ImNvdW50cmllcyIgCiAgbmdEZWZhdWx0Q29udHJvbCA+Cjwvbmd4LW11bHRpc2VsZWN0Pgo=",
           "cssCode": ""
@@ -306,7 +306,7 @@
     ]
   },
   "helper-elements": {
-    "title": "Callbacks",
+    "title": "Helper Elements",
     "content": [
       {
         "component": "content",
@@ -331,7 +331,7 @@
       },{
         "component": "demoContainer",
         "data": {
-          "component": "simpleDemo",
+          "component": "helperElements",
           "tsCode": "ZXhwb3J0IGNsYXNzIFNpbXBsZURlbW9Db21wb25lbnR7CgogIHNlbGVjdGVkQ291bnRyeSA9IHsKICAgIGlkOiAxLAogICAgbmFtZTogJ0luZGlhJwogIH07CgogIGNvdW50cmllcyA9IFt7CiAgICBpZDogMSwKICAgIG5hbWU6ICdJbmRpYScKICB9LCB7CiAgICBpZDogMiwKICAgIG5hbWU6ICdVU0EnCiAgfSwgewogICAgaWQ6IDMsCiAgICBuYW1lOiAnSmFwYW4nCiAgfSwgewogICAgaWQ6IDQsCiAgICBuYW1lOiAnQ2hpbmEnCiAgfSwgewogICAgaWQ6IDUsCiAgICBuYW1lOiAnQnJhemlsJwogIH0sIHsKICAgIGlkOiA2LAogICAgbmFtZTogJ0F1c3RyYWxpYScKICB9XTsKCn0=",
           "htmlCode": "PG5neC1tdWx0aXNlbGVjdCAKICBbKG5nTW9kZWwpXT0ic2VsZWN0ZWRDb3VudHJ5IiAKICBbb3B0aW9uc109ImNvdW50cmllcyIgCiAgbmdEZWZhdWx0Q29udHJvbCA+Cjwvbmd4LW11bHRpc2VsZWN0Pgo=",
           "cssCode": ""
@@ -365,7 +365,7 @@
       },{
         "component": "demoContainer",
         "data": {
-          "component": "simpleDemo",
+          "component": "theming",
           "tsCode": "ZXhwb3J0IGNsYXNzIFNpbXBsZURlbW9Db21wb25lbnR7CgogIHNlbGVjdGVkQ291bnRyeSA9IHsKICAgIGlkOiAxLAogICAgbmFtZTogJ0luZGlhJwogIH07CgogIGNvdW50cmllcyA9IFt7CiAgICBpZDogMSwKICAgIG5hbWU6ICdJbmRpYScKICB9LCB7CiAgICBpZDogMiwKICAgIG5hbWU6ICdVU0EnCiAgfSwgewogICAgaWQ6IDMsCiAgICBuYW1lOiAnSmFwYW4nCiAgfSwgewogICAgaWQ6IDQsCiAgICBuYW1lOiAnQ2hpbmEnCiAgfSwgewogICAgaWQ6IDUsCiAgICBuYW1lOiAnQnJhemlsJwogIH0sIHsKICAgIGlkOiA2LAogICAgbmFtZTogJ0F1c3RyYWxpYScKICB9XTsKCn0=",
           "htmlCode": "PG5neC1tdWx0aXNlbGVjdCAKICBbKG5nTW9kZWwpXT0ic2VsZWN0ZWRDb3VudHJ5IiAKICBbb3B0aW9uc109ImNvdW50cmllcyIgCiAgbmdEZWZhdWx0Q29udHJvbCA+Cjwvbmd4LW11bHRpc2VsZWN0Pgo=",
           "cssCode": ""
@@ -433,7 +433,7 @@
       },{
         "component": "demoContainer",
         "data": {
-          "component": "simpleDemo",
+          "component": "optionsLazyLoading",
           "tsCode": "ZXhwb3J0IGNsYXNzIFNpbXBsZURlbW9Db21wb25lbnR7CgogIHNlbGVjdGVkQ291bnRyeSA9IHsKICAgIGlkOiAxLAogICAgbmFtZTogJ0luZGlhJwogIH07CgogIGNvdW50cmllcyA9IFt7CiAgICBpZDogMSwKICAgIG5hbWU6ICdJbmRpYScKICB9LCB7CiAgICBpZDogMiwKICAgIG5hbWU6ICdVU0EnCiAgfSwgewogICAgaWQ6IDMsCiAgICBuYW1lOiAnSmFwYW4nCiAgfSwgewogICAgaWQ6IDQsCiAgICBuYW1lOiAnQ2hpbmEnCiAgfSwgewogICAgaWQ6IDUsCiAgICBuYW1lOiAnQnJhemlsJwogIH0sIHsKICAgIGlkOiA2LAogICAgbmFtZTogJ0F1c3RyYWxpYScKICB9XTsKCn0=",
           "htmlCode": "PG5neC1tdWx0aXNlbGVjdCAKICBbKG5nTW9kZWwpXT0ic2VsZWN0ZWRDb3VudHJ5IiAKICBbb3B0aW9uc109ImNvdW50cmllcyIgCiAgbmdEZWZhdWx0Q29udHJvbCA+Cjwvbmd4LW11bHRpc2VsZWN0Pgo=",
           "cssCode": ""

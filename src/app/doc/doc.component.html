@@ -2,23 +2,16 @@
 <mat-sidenav-container>
   <mat-sidenav class="docs-sidenav" #snav [mode]="'side'" [opened]="true" fixedTopGap="56">
     <mat-nav-list>
-      <a mat-list-item [class.selected]="isActive(['/docs', 'getting-started'])">Getting Started</a>
-      <a mat-list-item [class.selected]="isActive(['/docs', 'property-configuration'])">Property Configuration</a>
-      <a mat-list-item [class.selected]="isActive(['/docs', 'events'])">Events Available</a>
-      <mat-divider>Demo</mat-divider>
-      <a mat-list-item [class.selected]="isActive(['/docs', 'simple-demo'])">Simple Demo</a>
-      <a mat-list-item [class.selected]="isActive(['/docs', 'template-driven'])">Template Driven</a>
-      <a mat-list-item [class.selected]="isActive(['/docs', 'model-driven'])">Model Driven</a>
-      <a mat-list-item [class.selected]="isActive(['/docs', 'observable-data'])">Observable Data</a>
-      <a mat-list-item [class.selected]="isActive(['/docs', 'custom-template'])">Custom Template</a>
-      <a mat-list-item [class.selected]="isActive(['/docs', 'grouping'])">Grouping</a>
-      <a mat-list-item [class.selected]="isActive(['/docs', 'enable-disable'])">Enable/Disable</a>
-      <a mat-list-item [class.selected]="isActive(['/docs', 'property-map'])">Property map</a>
-      <a mat-list-item [class.selected]="isActive(['/docs', 'call-backs'])">Callbacks</a>
-      <a mat-list-item [class.selected]="isActive(['/docs', 'helper-elements'])">Helper Elements</a>
-      <a mat-list-item [class.selected]="isActive(['/docs', 'theming'])">Theming</a>
-      <a mat-list-item [class.selected]="isActive(['/docs', 'simple-select'])">Single Select</a>
-      <a mat-list-item [class.selected]="isActive(['/docs', 'virtual-list'])">Virtual List</a>
+      <ng-container *ngFor="let link of apiLinks">
+          <a mat-list-item [routerLink]="link.link" routerLinkActive="router-link-active"  [class.selected]="isActive(link.link)">
+            {{link.text}}
+          </a>
+      </ng-container>
+      <ng-container *ngFor="let link of navLinks">
+          <a mat-list-item [routerLink]="link.link" [class.selected]="isActive(link.link)">
+            {{link.text}}
+          </a>
+      </ng-container>
     </mat-nav-list>
   </mat-sidenav>
 

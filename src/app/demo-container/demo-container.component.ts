@@ -20,7 +20,7 @@ export class DemoContainerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.data);
+    console.log('Route resolved document data ', this.data);
   }
 
 }

@@ -17,6 +17,28 @@ export class DocComponent implements OnInit {
     private _docService: DocService
   ) { }
 
+  apiLinks = [
+    {link: ['/docs', 'getting-started'], text: 'Getting Started'},
+    {link: ['/docs', 'property-configuration'], text: 'Property Configuration'},
+    {link: ['/docs', 'events'], text: 'Events'},
+  ]
+
+  navLinks = [
+    {link: ['/docs', 'simple-demo'], text: 'Simple Demo'},
+    {link: ['/docs', 'template-driven'], text: 'Template Driven'},
+    {link: ['/docs', 'model-driven'], text: 'Model Driven'},
+    {link: ['/docs', 'Observable'], text: 'Observable'},
+    {link: ['/docs', 'custom-template'], text: 'Custom Template'},
+    {link: ['/docs', 'Grouping'], text: 'Grouping'},
+    {link: ['/docs', 'disable-option'], text: 'Enable / Disable'},
+    {link: ['/docs', 'property-map'], text: 'Property Maping'},
+    {link: ['/docs', 'callbacks'], text: 'Callbacks'},
+    {link: ['/docs', 'helper-elements'], text: 'Helper Elements'},
+    {link: ['/docs', 'theming'], text: 'Theming'},
+    {link: ['/docs', 'simple-select'], text: 'Simple Select'},
+    {link: ['/docs', 'virtula-list'], text: 'Virtual List'}
+  ]
+
   isActive(instruction: any[]): boolean {
     // Set the second parameter to true if you want to require an exact match.
     return this.router.isActive(this.router.createUrlTree(instruction), false);
