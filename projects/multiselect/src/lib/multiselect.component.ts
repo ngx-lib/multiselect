@@ -35,7 +35,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   private _theme: string = 'material'
   private _optionsCopy //TODO: in future this will be master list
   private _isOpen: boolean = false
-  
+
   // public variables
   _selectedOptions: any | any[] = null;
   _options; //TODO: this will be local list
@@ -65,7 +65,9 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     this._isOpen = value;
     if (value) {
       this.onTouched();
-      this.onOpen.emit()
+      this.onOpen.emit();
+    }else{
+      this.onClose.emit();
     }
   }
   get isOpen() { return this._isOpen; }
@@ -126,7 +128,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   isValueSelected() {
     return this._multiple ? this._selectedOptions.length : this._selectedOptions;
   }
-  
+
   searchChange (val: string) {
     this.filterOptionsList(val);
     this.onSearchChange.emit(val);
@@ -149,8 +151,8 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   }
 
   toggleDropdown() {
-    this.isOpen = !this.isOpen
-    if(!this.onOpen) this.onClose.emit();
+    this.isOpen = !this.isOpen;
+    // onOpen and onClose event will be fired by isOpen setter
   }
 
   prepopulateOptions(selected: any) {
@@ -158,7 +160,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     selectedIds = this._multiple ? (selected || []).map(i => i.id)
       : selected ? [selected.id]: [];
     this.setOptions(this.getOptions().map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1})));
-    //TODO: do we really need this reassignment?
+    // TODO: do we really need this reassignment?
     this.viewToModel(selected);
   }
 
