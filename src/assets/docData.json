@@ -63,14 +63,14 @@
       },
       {
         "component": "content",
-        "data": "Event fired when one of the item from dropdown is clicked/selected"
+        "data": "Event fired when one of the item from dropdown is clicked/selected. The event will contain the clicked item data as shown in demo"
       },{
         "component": "content",
         "data": "<h3>4. onGroupItemClick</h3>"
       },
       {
         "component": "content",
-        "data": "Event fired when the items group(i.e. the parent of all items in case of grouping) is selected/clicked"
+        "data": "Event fired when the items group(i.e. the parent of all items in case of grouping) is selected/clicked.The event will contain whole group data as shown in demo"
       },{
         "component": "content",
         "data": "<u>Helper Elements Events</u>"
@@ -112,6 +112,17 @@
       {
         "component": "content",
         "data": "Event fired when the text is typed into a search box to filter the items"
+      },{
+        "component": "content",
+        "data": "<h2>Demo</h2>"
+      },{
+        "component": "demoContainer",
+        "data": {
+          "component": "eventsDemo",
+          "tsCode": "ZXhwb3J0IGNsYXNzIEV2ZW50RGVtb0NvbXBvbmVudCBpbXBsZW1lbnRzIE9uSW5pdCB7CgogIGdyb3VwaW5nT3B0aW9uczsKICBtZXNzYWdlOiBzdHJpbmc7CgogIGNvbnN0cnVjdG9yIChwcml2YXRlIGFwcFNlcnZpY2U6IEFwcFNlcnZpY2UpIHt9CgogIGdyb3VwaW5nU3VwcG9ydCA9IG5ldyBGb3JtQ29udHJvbChbCiAgICB7aWQ6IDEsIG5hbWU6ICdUZXN0IDEnfSwKICBdKTsKCiAgbmdPbkluaXQoKTogdm9pZCB7CiAgICAvLyBSZXRyaWV2aW5nIGRhdGEgZm9yIGRyb3Bkb3duCiAgICB0aGlzLmFwcFNlcnZpY2UuZ2V0R3JvdXBpbmdPcHRpb25zKCkuc3Vic2NyaWJlKAogICAgICBkYXRhID0+IHRoaXMuZ3JvdXBpbmdPcHRpb25zID0gZGF0YQogICAgKTsKICB9CgogIG9uT3BlbkZpcmVkKCkgewogICAgdGhpcy5tZXNzYWdlID0gJ0kgYW0gb3BlbiBub3csIHlvdSBjYW4gbm93IGNsaWNrIG9uIGFueSBvZiBteSBpdGVtcyAnOwogIH0KCiAgb25DbG9zZUZpcmVkKCkgewogICAgdGhpcy5tZXNzYWdlID0gJ09vcHMsIEkgYW0gY2xvc2VkJzsKICB9CgogIG9uSXRlbUNsaWNrRmlyZWQoJGV2ZW50OiBhbnkpIHsKICAgIHRoaXMubWVzc2FnZSA9ICdZYWF5LCB1IHNlbGVjdGVkIGFuIGl0ZW0gJyArICRldmVudC5uYW1lOwogIH0KCiAgb25Hcm91cEl0ZW1DbGlja0ZpcmVkKCRldmVudDogYW55KSB7CiAgICB0aGlzLm1lc3NhZ2UgPSBgT2hoLCB5b3UgYXJlIGEgcHJvLiBVIHNlbGVjdGVkIGEgZ3JvdXAgJHskZXZlbnQubmFtZX0gY29udGFpbmluZyAkeyRldmVudC52YWx1ZXMubGVuZ3RofSBuYW1lc2A7CiAgfQoKICBvblNlbGVjdEFsbEZpcmVkKCkgewogICAgdGhpcy5tZXNzYWdlID0gJ1lvdSBoYXZlIHNlbGVjdGVkIGFsbCB0aGUgaXRlbXMgb2YgbGlzdCc7CiAgfQoKICBvblNlbGVjdE5vbmVGaXJlZCgpIHsKICAgIHRoaXMubWVzc2FnZSA9ICdIbW0sIFlvdSBkb250IHdhbnQgYW55IHNlbGVjdGlvbic7CiAgfQoKICBvblJlc2V0RmlyZWQoKSB7CiAgICB0aGlzLm1lc3NhZ2UgPSAnTG9vayBsaWtlIHlvdSB3YW50IHRvIHJlc2V0IHRoZSBjb21wb25lbnQgdG8gaW5pdGlhbCBzdGF0ZSc7CiAgfQoKICBvbkNsZWFyRmlyZWQoKSB7CiAgICB0aGlzLm1lc3NhZ2UgPSAnWW91IGhhdmUgY2xlYXJlZCB0aGUgdGV4dCBmcm9tIGlucHV0IGJveC4gTm93IGl0cyBlbXB0eSc7CiAgfQoKICBvblNlYXJjaENoYW5nZUZpcmVkKCRldmVudDogYW55KSB7CiAgICB0aGlzLm1lc3NhZ2UgPSAnWW91IGhhdmUgY2hhbmdlZCB0aGUgc2VhcmNoIGlucHV0IGZvciBmaWx0ZXJpbmcuIFRoZSBuZXcgaW5wdXQgaXMgJyArICRldmVudDsKICB9Cn0K",
+          "htmlCode": "PG5neC1tdWx0aXNlbGVjdAogIFtmb3JtQ29udHJvbF09Imdyb3VwaW5nU3VwcG9ydCIKICBuZ0RlZmF1bHRDb250cm9sCiAgW29wdGlvbnNdPSJncm91cGluZ09wdGlvbnMiCiAgW2dyb3VwZWRQcm9wZXJ0eV09IidjYXRlZ29yeSciCiAgW211bHRpcGxlXT0idHJ1ZSIKICAob25PcGVuKT0ib25PcGVuRmlyZWQoKSIKICAob25DbG9zZSk9Im9uQ2xvc2VGaXJlZCgpIgogIChvbkl0ZW1DbGljayk9Im9uSXRlbUNsaWNrRmlyZWQoJGV2ZW50KSIKICAob25Hcm91cEl0ZW1DbGljayk9Im9uR3JvdXBJdGVtQ2xpY2tGaXJlZCgkZXZlbnQpIgogIChvblNlbGVjdEFsbCk9Im9uU2VsZWN0QWxsRmlyZWQoKSIKICAob25TZWxlY3ROb25lKT0ib25TZWxlY3ROb25lRmlyZWQoKSIKICAob25SZXNldCk9Im9uUmVzZXRGaXJlZCgpIgogIChvbkNsZWFyKT0ib25DbGVhckZpcmVkKCRldmVudCkiCiAgKG9uU2VhcmNoQ2hhbmdlKT0ib25TZWFyY2hDaGFuZ2VGaXJlZCgkZXZlbnQpIj4KPC9uZ3gtbXVsdGlzZWxlY3Q+CjxiICpuZ0lmPSJtZXNzYWdlIj57e21lc3NhZ2V9fTwvYj4K",
+          "cssCode": ""
+        }
       }
     ]
   },

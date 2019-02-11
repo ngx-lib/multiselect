@@ -1,0 +1,17 @@
+<ngx-multiselect
+  [formControl]="groupingSupport"
+  ngDefaultControl
+  [options]="groupingOptions"
+  [groupedProperty]="'category'"
+  [multiple]="true"
+  (onOpen)="onOpenFired()"
+  (onClose)="onCloseFired()"
+  (onItemClick)="onItemClickFired($event)"
+  (onGroupItemClick)="onGroupItemClickFired($event)"
+  (onSelectAll)="onSelectAllFired()"
+  (onSelectNone)="onSelectNoneFired()"
+  (onReset)="onResetFired()"
+  (onClear)="onClearFired($event)"
+  (onSearchChange)="onSearchChangeFired($event)">
+</ngx-multiselect>
+<b *ngIf="message">{{message}}</b>
