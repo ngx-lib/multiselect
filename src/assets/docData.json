@@ -4,7 +4,7 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct" 
+        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
       },
       {
         "component": "content",
@@ -33,12 +33,94 @@
       }
     ]
   },
+  "events": {
+    "title": "Events Available",
+    "content": [
+      {
+        "component": "content",
+        "data": "<h2>Events Available</h2>"
+      },{
+        "component": "content",
+        "data": "<u>General Dropdown Events</u>"
+      },
+      {
+        "component": "content",
+        "data": "<h3>1. onOpen</h3>"
+      },
+      {
+        "component": "content",
+        "data": "Event fired on opening the dropdown"
+      },{
+        "component": "content",
+        "data": "<h3>2. onClose</h3>"
+      },
+      {
+        "component": "content",
+        "data": "Event fired when the dropdown is closed"
+      },{
+        "component": "content",
+        "data": "<h3>3. onItemClick</h3>"
+      },
+      {
+        "component": "content",
+        "data": "Event fired when one of the item from dropdown is clicked/selected"
+      },{
+        "component": "content",
+        "data": "<h3>4. onGroupItemClick</h3>"
+      },
+      {
+        "component": "content",
+        "data": "Event fired when the items group(i.e. the parent of all items in case of grouping) is selected/clicked"
+      },{
+        "component": "content",
+        "data": "<u>Helper Elements Events</u>"
+      },{
+        "component": "content",
+        "data": "<h3>1. onSelectAll</h3>"
+      },
+      {
+        "component": "content",
+        "data": "Event fired when the 'Select All' (to select all items clicked) helper element is clicked"
+      },{
+        "component": "content",
+        "data": "<h3>2. onSelectNone</h3>"
+      },
+      {
+        "component": "content",
+        "data": "Event fired when the 'Select None' (to deselect all selected items) helper element is clicked"
+      },{
+        "component": "content",
+        "data": "<h3>3. onReset</h3>"
+      },
+      {
+        "component": "content",
+        "data": "Event fired when the 'Reset' (to reset selection back to user provided default state) helper element is clicked"
+      },{
+        "component": "content",
+        "data": "<u>Filtering events</u>"
+      },{
+        "component": "content",
+        "data": "<h3>1. onClear</h3>"
+      },
+      {
+        "component": "content",
+        "data": "Event fired when the 'Clear' button is clicked"
+      },{
+        "component": "content",
+        "data": "<h3>2. onSearchChange</h3>"
+      },
+      {
+        "component": "content",
+        "data": "Event fired when the text is typed into a search box to filter the items"
+      }
+    ]
+  },
   "template-driven": {
     "title": "Template Driven",
     "content": [
       {
         "component": "content",
-        "data": "<h2>Template Driven</h2>Its very easy to get started with multiselct" 
+        "data": "<h2>Template Driven</h2>Its very easy to get started with multiselct"
       },
       {
         "component": "content",
@@ -72,7 +154,7 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct" 
+        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
       },
       {
         "component": "content",
@@ -106,7 +188,7 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct" 
+        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
       },
       {
         "component": "content",
@@ -140,7 +222,7 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct" 
+        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
       },
       {
         "component": "content",
@@ -174,7 +256,7 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct" 
+        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
       },
       {
         "component": "content",
@@ -208,7 +290,7 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct" 
+        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
       },
       {
         "component": "content",
@@ -242,7 +324,7 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct" 
+        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
       },
       {
         "component": "content",
@@ -276,7 +358,7 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct" 
+        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
       },
       {
         "component": "content",
@@ -310,7 +392,7 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct" 
+        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
       },
       {
         "component": "content",
@@ -344,7 +426,7 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct" 
+        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
       },
       {
         "component": "content",
@@ -378,7 +460,7 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct" 
+        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
       },
       {
         "component": "content",
@@ -412,7 +494,7 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct" 
+        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
       },
       {
         "component": "content",
