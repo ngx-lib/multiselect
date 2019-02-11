@@ -31,6 +31,7 @@ import { SingleSelectTemplateDrivenComponent } from './demos/single-select-templ
 import { OptionsLazyLoadingComponent } from './demos/options-lazy-loading/options-lazy-loading.component';
 import { LargeVolumeDataComponent } from './demos/large-volume-data/large-volume-data.component';
 import { SimpleDemoComponent } from './demos/simple-demo/simple-demo.component';
+import { EventsDemoComponent } from './demos/events-demo/events-demo.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { SimpleDemoComponent } from './demos/simple-demo/simple-demo.component';
     DemoComponent,
     CodeViewComponent,
     LayoutRendererComponent,
-    SimpleDemoComponent
+    SimpleDemoComponent,
+    EventsDemoComponent
   ],
   imports: [
     BrowserModule,
