@@ -36,7 +36,8 @@ export class DocComponent implements OnInit {
     {link: ['/docs', 'helper-elements'], text: 'Helper Elements'},
     {link: ['/docs', 'theming'], text: 'Theming'},
     {link: ['/docs', 'simple-select'], text: 'Simple Select'},
-    {link: ['/docs', 'virtula-list'], text: 'Virtual List'}
+    {link: ['/docs', 'virtual-list'], text: 'Virtual List'},
+    {link: ['/docs', 'bootstrap-theme'], text: 'Bootstrap Theme'},
   ]
 
   isActive(instruction: any[]): boolean {

@@ -32,6 +32,7 @@ import { OptionsLazyLoadingComponent } from './demos/options-lazy-loading/option
 import { LargeVolumeDataComponent } from './demos/large-volume-data/large-volume-data.component';
 import { SimpleDemoComponent } from './demos/simple-demo/simple-demo.component';
 import { EventsDemoComponent } from './demos/events-demo/events-demo.component';
+import { BootstrapThemeComponent } from './demos/bootstrap-theme/bootstrap-theme.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { EventsDemoComponent } from './demos/events-demo/events-demo.component';
     CodeViewComponent,
     LayoutRendererComponent,
     SimpleDemoComponent,
-    EventsDemoComponent
+    EventsDemoComponent,
+    BootstrapThemeComponent
   ],
   imports: [
     BrowserModule,

@@ -150,7 +150,7 @@
         "component": "content",
         "data": "<h2>Live Demo</h2>"
       },{
-        "component": "singleSelect",
+        "component": "demoContainer",
         "data": {
           "component": "simpleDemo",
           "tsCode": "ZXhwb3J0IGNsYXNzIFNpbXBsZURlbW9Db21wb25lbnR7CgogIHNlbGVjdGVkQ291bnRyeSA9IHsKICAgIGlkOiAxLAogICAgbmFtZTogJ0luZGlhJwogIH07CgogIGNvdW50cmllcyA9IFt7CiAgICBpZDogMSwKICAgIG5hbWU6ICdJbmRpYScKICB9LCB7CiAgICBpZDogMiwKICAgIG5hbWU6ICdVU0EnCiAgfSwgewogICAgaWQ6IDMsCiAgICBuYW1lOiAnSmFwYW4nCiAgfSwgewogICAgaWQ6IDQsCiAgICBuYW1lOiAnQ2hpbmEnCiAgfSwgewogICAgaWQ6IDUsCiAgICBuYW1lOiAnQnJhemlsJwogIH0sIHsKICAgIGlkOiA2LAogICAgbmFtZTogJ0F1c3RyYWxpYScKICB9XTsKCn0=",
@@ -527,6 +527,28 @@
         "component": "demoContainer",
         "data": {
           "component": "optionsLazyLoading",
+          "tsCode": "ZXhwb3J0IGNsYXNzIFNpbXBsZURlbW9Db21wb25lbnR7CgogIHNlbGVjdGVkQ291bnRyeSA9IHsKICAgIGlkOiAxLAogICAgbmFtZTogJ0luZGlhJwogIH07CgogIGNvdW50cmllcyA9IFt7CiAgICBpZDogMSwKICAgIG5hbWU6ICdJbmRpYScKICB9LCB7CiAgICBpZDogMiwKICAgIG5hbWU6ICdVU0EnCiAgfSwgewogICAgaWQ6IDMsCiAgICBuYW1lOiAnSmFwYW4nCiAgfSwgewogICAgaWQ6IDQsCiAgICBuYW1lOiAnQ2hpbmEnCiAgfSwgewogICAgaWQ6IDUsCiAgICBuYW1lOiAnQnJhemlsJwogIH0sIHsKICAgIGlkOiA2LAogICAgbmFtZTogJ0F1c3RyYWxpYScKICB9XTsKCn0=",
+          "htmlCode": "PG5neC1tdWx0aXNlbGVjdCAKICBbKG5nTW9kZWwpXT0ic2VsZWN0ZWRDb3VudHJ5IiAKICBbb3B0aW9uc109ImNvdW50cmllcyIgCiAgbmdEZWZhdWx0Q29udHJvbCA+Cjwvbmd4LW11bHRpc2VsZWN0Pgo=",
+          "cssCode": ""
+        }
+      }
+    ]
+  },
+  "bootstrap-theme": {
+    "title": "Bootstrap Theme",
+    "content": [
+      {
+        "component": "content",
+        "data": "<h2>Bootstrap Theme</h2>Its very easy to get started with multiselct"
+      },
+      {
+        "component": "content",
+        "data": "Only three steps invloved.."
+      },
+      {
+        "component": "demoContainer",
+        "data": {
+          "component": "bootstrapTheme",
           "tsCode": "ZXhwb3J0IGNsYXNzIFNpbXBsZURlbW9Db21wb25lbnR7CgogIHNlbGVjdGVkQ291bnRyeSA9IHsKICAgIGlkOiAxLAogICAgbmFtZTogJ0luZGlhJwogIH07CgogIGNvdW50cmllcyA9IFt7CiAgICBpZDogMSwKICAgIG5hbWU6ICdJbmRpYScKICB9LCB7CiAgICBpZDogMiwKICAgIG5hbWU6ICdVU0EnCiAgfSwgewogICAgaWQ6IDMsCiAgICBuYW1lOiAnSmFwYW4nCiAgfSwgewogICAgaWQ6IDQsCiAgICBuYW1lOiAnQ2hpbmEnCiAgfSwgewogICAgaWQ6IDUsCiAgICBuYW1lOiAnQnJhemlsJwogIH0sIHsKICAgIGlkOiA2LAogICAgbmFtZTogJ0F1c3RyYWxpYScKICB9XTsKCn0=",
           "htmlCode": "PG5neC1tdWx0aXNlbGVjdCAKICBbKG5nTW9kZWwpXT0ic2VsZWN0ZWRDb3VudHJ5IiAKICBbb3B0aW9uc109ImNvdW50cmllcyIgCiAgbmdEZWZhdWx0Q29udHJvbCA+Cjwvbmd4LW11bHRpc2VsZWN0Pgo=",
           "cssCode": ""

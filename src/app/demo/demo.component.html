@@ -1,7 +1,7 @@
 <div [ngSwitch]="component">
-    <ng-container *ngSwitchCase="'eventsDemo'">
-        <ms-events-demo></ms-events-demo>
-      </ng-container>
+  <ng-container *ngSwitchCase="'eventsDemo'">
+    <ms-events-demo></ms-events-demo>
+  </ng-container>
   <ng-container *ngSwitchCase="'lazyLoading'">
     <ms-options-lazy-loading></ms-options-lazy-loading>
   </ng-container>
@@ -34,5 +34,8 @@
   </ng-container>
   <ng-container *ngSwitchCase="'theming'">
     <ms-simple-demo></ms-simple-demo>
+  </ng-container>
+  <ng-container *ngSwitchCase="'bootstrapTheme'">
+    <ms-bootstrap-theme></ms-bootstrap-theme>
   </ng-container>
 </div>
