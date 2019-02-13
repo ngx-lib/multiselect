@@ -5,7 +5,7 @@
     display: block;
 }
 
-.input-search {
+.mat-multiselect .input-search {
     width: 100%;
     position: relative;
     max-height: 40px;
@@ -15,7 +15,7 @@
     display: inline-flex;
 }
   
-.input-filter {
+.mat-multiselect .input-filter {
     font: inherit;
     background: 0 0;
     color: currentColor;
@@ -30,7 +30,7 @@
     margin-top: -.0625em;
 }
 
-.field-infix {
+.mat-multiselect .field-infix {
     display: block;
     position: relative;
     padding: 10px;
@@ -40,14 +40,14 @@
     position: relative;
 }
 
-.field-suffix {
+.mat-multiselect .field-suffix {
     width: 25px;
     height: 25px;
     white-space: nowrap;
     flex: none;
     position: relative;
 }
-.field-suffix button {
+.mat-multiselect .field-suffix button {
     top: 5px;
     position: relative;
     border: none;
@@ -111,6 +111,30 @@
     line-height: 1.4;
     right: 2px;
     top: 4px;
+}
+
+.bs-multiselect .field-infix {
+    display: block;
+    position: relative;
+    padding: 5px;
+    flex: auto;
+    min-width: 0;
+    width: 90%;
+    position: relative;
+}
+
+.bs-multiselect .field-suffix {
+    width: 25px;
+    height: 25px;
+    white-space: nowrap;
+    flex: none;
+    position: relative;
+}
+.bs-multiselect .field-suffix button {
+    top: 5px;
+    position: relative;
+    border: none;
+    font-size: 20px;
 }
 
 /* Boostrap CSS end */
