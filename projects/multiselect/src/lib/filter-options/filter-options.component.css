@@ -5,7 +5,7 @@
     display: block;
 }
 
-.mat-multiselect .input-search {
+.mat-multiselect :host .input-search {
     width: 100%;
     position: relative;
     max-height: 40px;
@@ -15,7 +15,7 @@
     display: inline-flex;
 }
   
-.mat-multiselect .input-filter {
+.mat-multiselect :host ::ng-deep .input-filter {
     font: inherit;
     background: 0 0;
     color: currentColor;
@@ -30,7 +30,7 @@
     margin-top: -.0625em;
 }
 
-.mat-multiselect .field-infix {
+.mat-multiselect :host .field-infix {
     display: block;
     position: relative;
     padding: 10px;
@@ -40,14 +40,14 @@
     position: relative;
 }
 
-.mat-multiselect .field-suffix {
+.mat-multiselect :host .field-suffix {
     width: 25px;
     height: 25px;
     white-space: nowrap;
     flex: none;
     position: relative;
 }
-.mat-multiselect .field-suffix button {
+.mat-multiselect :host .field-suffix button {
     top: 5px;
     position: relative;
     border: none;
