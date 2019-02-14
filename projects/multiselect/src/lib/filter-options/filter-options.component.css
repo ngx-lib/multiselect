@@ -5,7 +5,7 @@
     display: block;
 }
 
-.mat-multiselect :host .input-search {
+.mat-multiselect :host ::ng-deep ::ng-deep .input-search {
     width: 100%;
     position: relative;
     max-height: 40px;
@@ -15,7 +15,7 @@
     display: inline-flex;
 }
   
-.mat-multiselect :host ::ng-deep .input-filter {
+.mat-multiselect :host ::ng-deep ::ng-deep .input-filter {
     font: inherit;
     background: 0 0;
     color: currentColor;
@@ -30,7 +30,7 @@
     margin-top: -.0625em;
 }
 
-.mat-multiselect :host .field-infix {
+.mat-multiselect :host ::ng-deep .field-infix {
     display: block;
     position: relative;
     padding: 10px;
@@ -40,14 +40,14 @@
     position: relative;
 }
 
-.mat-multiselect :host .field-suffix {
+.mat-multiselect :host ::ng-deep .field-suffix {
     width: 25px;
     height: 25px;
     white-space: nowrap;
     flex: none;
     position: relative;
 }
-.mat-multiselect :host .field-suffix button {
+.mat-multiselect :host ::ng-deep .field-suffix button {
     top: 5px;
     position: relative;
     border: none;
@@ -58,7 +58,7 @@
 
 /* Bootstrap CSS start */
 
-.bs-multiselect .clear-button {
+.bs-multiselect :host ::ng-deep .clear-button {
     padding: 0;
     width: 20px;
     height: 20px;
@@ -72,7 +72,7 @@
     position: relative;
 }
 
-.bs-multiselect .input-search {
+.bs-multiselect :host ::ng-deep .input-search {
     position: relative;
     padding: 2px 0px 4px 0px;
     max-height: 30px;
@@ -80,7 +80,7 @@
     box-sizing: content-box;
 }
 
-.bs-multiselect .input-filter {
+.bs-multiselect :host ::ng-deep .input-filter {
     border-radius: 2px;
     border: 1px solid #ccc;
     height: 26px;
@@ -96,7 +96,7 @@
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 }
 
-.bs-multiselect .clear-button {
+.bs-multiselect :host ::ng-deep .clear-button {
     position: absolute;
     display: inline;
     text-align: center;
@@ -113,7 +113,7 @@
     top: 4px;
 }
 
-.bs-multiselect .field-infix {
+.bs-multiselect :host ::ng-deep .field-infix {
     display: block;
     position: relative;
     padding: 5px;
@@ -123,14 +123,14 @@
     position: relative;
 }
 
-.bs-multiselect .field-suffix {
+.bs-multiselect :host ::ng-deep .field-suffix {
     width: 25px;
     height: 25px;
     white-space: nowrap;
     flex: none;
     position: relative;
 }
-.bs-multiselect .field-suffix button {
+.bs-multiselect :host ::ng-deep .field-suffix button {
     top: 5px;
     position: relative;
     border: none;
