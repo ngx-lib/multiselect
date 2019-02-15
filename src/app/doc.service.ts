@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DocService {
 
-  private API_URL="assets/docData.json";
+  private API_URL="assets/documentation-data.json";
   constructor(private _httpClient: HttpClient) { }
 
   getDocData(topic: string) {

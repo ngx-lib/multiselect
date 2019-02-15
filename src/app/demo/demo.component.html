@@ -1,24 +1,27 @@
 <div [ngSwitch]="component">
-    <ng-container *ngSwitchCase="'eventsDemo'">
-        <ms-events-demo></ms-events-demo>
-      </ng-container>
+  <ng-container *ngSwitchCase="'eventsDemo'">
+    <ms-events-demo></ms-events-demo>
+  </ng-container>
   <ng-container *ngSwitchCase="'lazyLoading'">
     <ms-options-lazy-loading></ms-options-lazy-loading>
   </ng-container>
   <ng-container *ngSwitchCase="'simpleDemo'">
     <ms-simple-demo></ms-simple-demo>
   </ng-container>
-  <ng-container *ngSwitchCase="'tempateDriven'">
+  <ng-container *ngSwitchCase="'templateDriven'">
     <ms-single-select></ms-single-select>
   </ng-container>
   <ng-container *ngSwitchCase="'modelDriven'">
     <ms-model-driven></ms-model-driven>
   </ng-container>
-  <ng-container *ngSwitchCase="'observable'">
+  <ng-container *ngSwitchCase="'withObservable'">
     <ms-multiple-select-with-observable></ms-multiple-select-with-observable>
   </ng-container>
   <ng-container *ngSwitchCase="'grouping'">
     <ms-multiple-select-grouping></ms-multiple-select-grouping>
+  </ng-container>
+  <ng-container *ngSwitchCase="'customTemplate'">
+    <ms-custom-template></ms-custom-template>
   </ng-container>
   <ng-container *ngSwitchCase="'disableOption'">
     <ms-simple-demo></ms-simple-demo>
@@ -34,5 +37,8 @@
   </ng-container>
   <ng-container *ngSwitchCase="'theming'">
     <ms-simple-demo></ms-simple-demo>
+  </ng-container>
+  <ng-container *ngSwitchCase="'bootstrapTheme'">
+    <ms-bootstrap-theme></ms-bootstrap-theme>
   </ng-container>
 </div>

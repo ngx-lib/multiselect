@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ms-simple-demo',
-  templateUrl: './simple-demo.component.html',
-  styleUrls: ['./simple-demo.component.css']
+  selector: 'ms-bootstrap-theme',
+  templateUrl: './bootstrap-theme.component.html',
+  styleUrls: ['./bootstrap-theme.component.css']
 })
-export class SimpleDemoComponent{
-
+export class BootstrapThemeComponent {
+  
   selectedCountry = {
     id: 1,
     name: 'India'
