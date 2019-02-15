@@ -5,7 +5,7 @@
     display: block;
 }
 
-.mat-multiselect :host ::ng-deep ::ng-deep .input-search {
+.mat-multiselect :host ::ng-deep .input-search {
     width: 100%;
     position: relative;
     max-height: 40px;
@@ -15,7 +15,7 @@
     display: inline-flex;
 }
   
-.mat-multiselect :host ::ng-deep ::ng-deep .input-filter {
+.mat-multiselect :host ::ng-deep .input-filter {
     font: inherit;
     background: 0 0;
     color: currentColor;
