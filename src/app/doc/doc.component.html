@@ -7,6 +7,7 @@
             {{link.text}}
           </a>
       </ng-container>
+      <mat-divider></mat-divider>
       <ng-container *ngFor="let link of navLinks">
           <a mat-list-item [routerLink]="link.link" [class.selected]="isActive(link.link)">
             {{link.text}}

@@ -1,8 +1,10 @@
 <h2>Multiple Select (Model Driven form)</h2>
-<ngx-multiselect 
-  [formControl]="mutlipleSelect"
-  ngDefaultControl
-  [options]="multipleSelectOptions"
-  [multiple]="true">
-</ngx-multiselect>
+<div>
+  <ngx-multiselect 
+    [formControl]="mutlipleSelect"
+    ngDefaultControl
+    [options]="multipleSelectOptions"
+    [multiple]="true">
+  </ngx-multiselect>
+</div>
 <b>Selected Values: </b> {{mutlipleSelect?.value | json}}

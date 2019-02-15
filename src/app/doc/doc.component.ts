@@ -24,18 +24,17 @@ export class DocComponent implements OnInit {
   ]
 
   navLinks = [
-    {link: ['/docs', 'simple-demo'], text: 'Simple Demo'},
+    {link: ['/docs', 'simple-select'], text: 'Simple Select'},
     {link: ['/docs', 'template-driven'], text: 'Template Driven'},
     {link: ['/docs', 'model-driven'], text: 'Model Driven'},
-    {link: ['/docs', 'Observable'], text: 'Observable'},
+    {link: ['/docs', 'observable-data'], text: 'Observable'},
     {link: ['/docs', 'custom-template'], text: 'Custom Template'},
-    {link: ['/docs', 'Grouping'], text: 'Grouping'},
+    {link: ['/docs', 'grouping'], text: 'Grouping'},
     {link: ['/docs', 'disable-option'], text: 'Enable / Disable'},
     {link: ['/docs', 'property-map'], text: 'Property Maping'},
     {link: ['/docs', 'callbacks'], text: 'Callbacks'},
     {link: ['/docs', 'helper-elements'], text: 'Helper Elements'},
     {link: ['/docs', 'theming'], text: 'Theming'},
-    {link: ['/docs', 'simple-select'], text: 'Simple Select'},
     {link: ['/docs', 'virtual-list'], text: 'Virtual List'},
     {link: ['/docs', 'bootstrap-theme'], text: 'Bootstrap Theme'},
   ]

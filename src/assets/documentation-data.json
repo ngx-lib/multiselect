@@ -13,16 +13,20 @@
       {
         "component": "content",
         "data": "1. npm install @ngx-lib/multiselect --save"
-      },{
+      },
+      {
         "component": "content",
         "data": "2. import &#123; NgxMultiselectModule &#125; from '@ngx-lib/multiselect';"
-      },{
+      },
+      {
         "component": "content",
         "data": "3. &lt;ngx-multiselect [(ngModel)]=\"selectedOption\" [options]=\"options\" ngDefaultControl&gt;&lt;/ngx-multiselect&gt;"
-      },{
+      },
+      {
         "component": "content",
         "data": "<h2>Live Demo</h2>"
-      },{
+      },
+      {
         "component": "demoContainer",
         "data": {
           "component": "simpleDemo",
@@ -39,7 +43,8 @@
       {
         "component": "content",
         "data": "<h2>Events Available</h2>"
-      },{
+      },
+      {
         "component": "content",
         "data": "<u>General Dropdown Events</u>"
       },
@@ -50,72 +55,84 @@
       {
         "component": "content",
         "data": "Event fired on opening the dropdown"
-      },{
+      },
+      {
         "component": "content",
         "data": "<h3>2. onClose</h3>"
       },
       {
         "component": "content",
         "data": "Event fired when the dropdown is closed"
-      },{
+      },
+      {
         "component": "content",
         "data": "<h3>3. onItemClick</h3>"
       },
       {
         "component": "content",
         "data": "Event fired when one of the item from dropdown is clicked/selected. The event will contain the clicked item data as shown in demo"
-      },{
+      },
+      {
         "component": "content",
         "data": "<h3>4. onGroupItemClick</h3>"
       },
       {
         "component": "content",
         "data": "Event fired when the items group(i.e. the parent of all items in case of grouping) is selected/clicked.The event will contain whole group data as shown in demo"
-      },{
+      },
+      {
         "component": "content",
         "data": "<u>Helper Elements Events</u>"
-      },{
+      },
+      {
         "component": "content",
         "data": "<h3>1. onSelectAll</h3>"
       },
       {
         "component": "content",
         "data": "Event fired when the 'Select All' (to select all items clicked) helper element is clicked"
-      },{
+      },
+      {
         "component": "content",
         "data": "<h3>2. onSelectNone</h3>"
       },
       {
         "component": "content",
         "data": "Event fired when the 'Select None' (to deselect all selected items) helper element is clicked"
-      },{
+      },
+      {
         "component": "content",
         "data": "<h3>3. onReset</h3>"
       },
       {
         "component": "content",
         "data": "Event fired when the 'Reset' (to reset selection back to user provided default state) helper element is clicked"
-      },{
+      },
+      {
         "component": "content",
         "data": "<u>Filtering events</u>"
-      },{
+      },
+      {
         "component": "content",
         "data": "<h3>1. onClear</h3>"
       },
       {
         "component": "content",
         "data": "Event fired when the 'Clear' button is clicked"
-      },{
+      },
+      {
         "component": "content",
         "data": "<h3>2. onSearchChange</h3>"
       },
       {
         "component": "content",
         "data": "Event fired when the text is typed into a search box to filter the items"
-      },{
+      },
+      {
         "component": "content",
         "data": "<h2>Demo</h2>"
-      },{
+      },
+      {
         "component": "demoContainer",
         "data": {
           "component": "eventsDemo",
@@ -131,30 +148,14 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Template Driven</h2>Its very easy to get started with multiselct"
+        "data": "Template driven example"
       },
       {
-        "component": "content",
-        "data": "Only three steps invloved.."
-      },
-      {
-        "component": "content",
-        "data": "1. npm install @ngx-lib/multiselect --save"
-      },{
-        "component": "content",
-        "data": "2. import &#123; NgxMultiselectModule &#125; from '@ngx-lib/multiselect';"
-      },{
-        "component": "content",
-        "data": "3. &lt;ngx-multiselect [(ngModel)]=\"selectedOption\" [options]=\"options\" ngDefaultControl&gt;&lt;/ngx-multiselect&gt;"
-      },{
-        "component": "content",
-        "data": "<h2>Live Demo</h2>"
-      },{
         "component": "demoContainer",
         "data": {
-          "component": "simpleDemo",
-          "tsCode": "ZXhwb3J0IGNsYXNzIFNpbXBsZURlbW9Db21wb25lbnR7CgogIHNlbGVjdGVkQ291bnRyeSA9IHsKICAgIGlkOiAxLAogICAgbmFtZTogJ0luZGlhJwogIH07CgogIGNvdW50cmllcyA9IFt7CiAgICBpZDogMSwKICAgIG5hbWU6ICdJbmRpYScKICB9LCB7CiAgICBpZDogMiwKICAgIG5hbWU6ICdVU0EnCiAgfSwgewogICAgaWQ6IDMsCiAgICBuYW1lOiAnSmFwYW4nCiAgfSwgewogICAgaWQ6IDQsCiAgICBuYW1lOiAnQ2hpbmEnCiAgfSwgewogICAgaWQ6IDUsCiAgICBuYW1lOiAnQnJhemlsJwogIH0sIHsKICAgIGlkOiA2LAogICAgbmFtZTogJ0F1c3RyYWxpYScKICB9XTsKCn0=",
-          "htmlCode": "PG5neC1tdWx0aXNlbGVjdCAKICBbKG5nTW9kZWwpXT0ic2VsZWN0ZWRDb3VudHJ5IiAKICBbb3B0aW9uc109ImNvdW50cmllcyIgCiAgbmdEZWZhdWx0Q29udHJvbCA+Cjwvbmd4LW11bHRpc2VsZWN0Pgo=",
+          "component": "templateDriven",
+          "tsCode": "ZXhwb3J0IGNsYXNzIEV2ZW50RGVtb0NvbXBvbmVudCBpbXBsZW1lbnRzIE9uSW5pdCB7CgogIGdyb3VwaW5nT3B0aW9uczsKICBtZXNzYWdlOiBzdHJpbmc7CgogIGNvbnN0cnVjdG9yIChwcml2YXRlIGFwcFNlcnZpY2U6IEFwcFNlcnZpY2UpIHt9CgogIGdyb3VwaW5nU3VwcG9ydCA9IG5ldyBGb3JtQ29udHJvbChbCiAgICB7aWQ6IDEsIG5hbWU6ICdUZXN0IDEnfSwKICBdKTsKCiAgbmdPbkluaXQoKTogdm9pZCB7CiAgICAvLyBSZXRyaWV2aW5nIGRhdGEgZm9yIGRyb3Bkb3duCiAgICB0aGlzLmFwcFNlcnZpY2UuZ2V0R3JvdXBpbmdPcHRpb25zKCkuc3Vic2NyaWJlKAogICAgICBkYXRhID0+IHRoaXMuZ3JvdXBpbmdPcHRpb25zID0gZGF0YQogICAgKTsKICB9CgogIG9uT3BlbkZpcmVkKCkgewogICAgdGhpcy5tZXNzYWdlID0gJ0kgYW0gb3BlbiBub3csIHlvdSBjYW4gbm93IGNsaWNrIG9uIGFueSBvZiBteSBpdGVtcyAnOwogIH0KCiAgb25DbG9zZUZpcmVkKCkgewogICAgdGhpcy5tZXNzYWdlID0gJ09vcHMsIEkgYW0gY2xvc2VkJzsKICB9CgogIG9uSXRlbUNsaWNrRmlyZWQoJGV2ZW50OiBhbnkpIHsKICAgIHRoaXMubWVzc2FnZSA9ICdZYWF5LCB1IHNlbGVjdGVkIGFuIGl0ZW0gJyArICRldmVudC5uYW1lOwogIH0KCiAgb25Hcm91cEl0ZW1DbGlja0ZpcmVkKCRldmVudDogYW55KSB7CiAgICB0aGlzLm1lc3NhZ2UgPSBgT2hoLCB5b3UgYXJlIGEgcHJvLiBVIHNlbGVjdGVkIGEgZ3JvdXAgJHskZXZlbnQubmFtZX0gY29udGFpbmluZyAkeyRldmVudC52YWx1ZXMubGVuZ3RofSBuYW1lc2A7CiAgfQoKICBvblNlbGVjdEFsbEZpcmVkKCkgewogICAgdGhpcy5tZXNzYWdlID0gJ1lvdSBoYXZlIHNlbGVjdGVkIGFsbCB0aGUgaXRlbXMgb2YgbGlzdCc7CiAgfQoKICBvblNlbGVjdE5vbmVGaXJlZCgpIHsKICAgIHRoaXMubWVzc2FnZSA9ICdIbW0sIFlvdSBkb250IHdhbnQgYW55IHNlbGVjdGlvbic7CiAgfQoKICBvblJlc2V0RmlyZWQoKSB7CiAgICB0aGlzLm1lc3NhZ2UgPSAnTG9vayBsaWtlIHlvdSB3YW50IHRvIHJlc2V0IHRoZSBjb21wb25lbnQgdG8gaW5pdGlhbCBzdGF0ZSc7CiAgfQoKICBvbkNsZWFyRmlyZWQoKSB7CiAgICB0aGlzLm1lc3NhZ2UgPSAnWW91IGhhdmUgY2xlYXJlZCB0aGUgdGV4dCBmcm9tIGlucHV0IGJveC4gTm93IGl0cyBlbXB0eSc7CiAgfQoKICBvblNlYXJjaENoYW5nZUZpcmVkKCRldmVudDogYW55KSB7CiAgICB0aGlzLm1lc3NhZ2UgPSAnWW91IGhhdmUgY2hhbmdlZCB0aGUgc2VhcmNoIGlucHV0IGZvciBmaWx0ZXJpbmcuIFRoZSBuZXcgaW5wdXQgaXMgJyArICRldmVudDsKICB9Cn0K",
+          "htmlCode": "PG5neC1tdWx0aXNlbGVjdAogIFtmb3JtQ29udHJvbF09Imdyb3VwaW5nU3VwcG9ydCIKICBuZ0RlZmF1bHRDb250cm9sCiAgW29wdGlvbnNdPSJncm91cGluZ09wdGlvbnMiCiAgW2dyb3VwZWRQcm9wZXJ0eV09IidjYXRlZ29yeSciCiAgW211bHRpcGxlXT0idHJ1ZSIKICAob25PcGVuKT0ib25PcGVuRmlyZWQoKSIKICAob25DbG9zZSk9Im9uQ2xvc2VGaXJlZCgpIgogIChvbkl0ZW1DbGljayk9Im9uSXRlbUNsaWNrRmlyZWQoJGV2ZW50KSIKICAob25Hcm91cEl0ZW1DbGljayk9Im9uR3JvdXBJdGVtQ2xpY2tGaXJlZCgkZXZlbnQpIgogIChvblNlbGVjdEFsbCk9Im9uU2VsZWN0QWxsRmlyZWQoKSIKICAob25TZWxlY3ROb25lKT0ib25TZWxlY3ROb25lRmlyZWQoKSIKICAob25SZXNldCk9Im9uUmVzZXRGaXJlZCgpIgogIChvbkNsZWFyKT0ib25DbGVhckZpcmVkKCRldmVudCkiCiAgKG9uU2VhcmNoQ2hhbmdlKT0ib25TZWFyY2hDaGFuZ2VGaXJlZCgkZXZlbnQpIj4KPC9uZ3gtbXVsdGlzZWxlY3Q+CjxiICpuZ0lmPSJtZXNzYWdlIj57e21lc3NhZ2V9fTwvYj4K",
           "cssCode": ""
         }
       }
@@ -165,25 +166,9 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
+        "data": "Model driven example"
       },
       {
-        "component": "content",
-        "data": "Only three steps invloved.."
-      },
-      {
-        "component": "content",
-        "data": "1. npm install @ngx-lib/multiselect --save"
-      },{
-        "component": "content",
-        "data": "2. import &#123; NgxMultiselectModule &#125; from '@ngx-lib/multiselect';"
-      },{
-        "component": "content",
-        "data": "3. &lt;ngx-multiselect [(ngModel)]=\"selectedOption\" [options]=\"options\" ngDefaultControl&gt;&lt;/ngx-multiselect&gt;"
-      },{
-        "component": "content",
-        "data": "<h2>Live Demo</h2>"
-      },{
         "component": "demoContainer",
         "data": {
           "component": "modelDriven",
@@ -199,25 +184,9 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
+        "data": "Example with Observable support"
       },
       {
-        "component": "content",
-        "data": "Only three steps invloved.."
-      },
-      {
-        "component": "content",
-        "data": "1. npm install @ngx-lib/multiselect --save"
-      },{
-        "component": "content",
-        "data": "2. import &#123; NgxMultiselectModule &#125; from '@ngx-lib/multiselect';"
-      },{
-        "component": "content",
-        "data": "3. &lt;ngx-multiselect [(ngModel)]=\"selectedOption\" [options]=\"options\" ngDefaultControl&gt;&lt;/ngx-multiselect&gt;"
-      },{
-        "component": "content",
-        "data": "<h2>Live Demo</h2>"
-      },{
         "component": "demoContainer",
         "data": {
           "component": "withObservable",
@@ -233,25 +202,9 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
+        "data": "Pass on custom template"
       },
       {
-        "component": "content",
-        "data": "Only three steps invloved.."
-      },
-      {
-        "component": "content",
-        "data": "1. npm install @ngx-lib/multiselect --save"
-      },{
-        "component": "content",
-        "data": "2. import &#123; NgxMultiselectModule &#125; from '@ngx-lib/multiselect';"
-      },{
-        "component": "content",
-        "data": "3. &lt;ngx-multiselect [(ngModel)]=\"selectedOption\" [options]=\"options\" ngDefaultControl&gt;&lt;/ngx-multiselect&gt;"
-      },{
-        "component": "content",
-        "data": "<h2>Live Demo</h2>"
-      },{
         "component": "demoContainer",
         "data": {
           "component": "customTemplate",
@@ -267,25 +220,9 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
+        "data": "Grouping support is already backed in"
       },
       {
-        "component": "content",
-        "data": "Only three steps invloved.."
-      },
-      {
-        "component": "content",
-        "data": "1. npm install @ngx-lib/multiselect --save"
-      },{
-        "component": "content",
-        "data": "2. import &#123; NgxMultiselectModule &#125; from '@ngx-lib/multiselect';"
-      },{
-        "component": "content",
-        "data": "3. &lt;ngx-multiselect [(ngModel)]=\"selectedOption\" [options]=\"options\" ngDefaultControl&gt;&lt;/ngx-multiselect&gt;"
-      },{
-        "component": "content",
-        "data": "<h2>Live Demo</h2>"
-      },{
         "component": "demoContainer",
         "data": {
           "component": "grouping",
@@ -296,33 +233,17 @@
       }
     ]
   },
-  "enable-disable": {
+  "disable-option": {
     "title": "Enable / Disabled",
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
+        "data": "Enable and disable multiselect form control, TBD"
       },
       {
-        "component": "content",
-        "data": "Only three steps invloved.."
-      },
-      {
-        "component": "content",
-        "data": "1. npm install @ngx-lib/multiselect --save"
-      },{
-        "component": "content",
-        "data": "2. import &#123; NgxMultiselectModule &#125; from '@ngx-lib/multiselect';"
-      },{
-        "component": "content",
-        "data": "3. &lt;ngx-multiselect [(ngModel)]=\"selectedOption\" [options]=\"options\" ngDefaultControl&gt;&lt;/ngx-multiselect&gt;"
-      },{
-        "component": "content",
-        "data": "<h2>Live Demo</h2>"
-      },{
         "component": "demoContainer",
         "data": {
-          "component": "enableDisable",
+          "component": "simpleDemo",
           "tsCode": "ZXhwb3J0IGNsYXNzIFNpbXBsZURlbW9Db21wb25lbnR7CgogIHNlbGVjdGVkQ291bnRyeSA9IHsKICAgIGlkOiAxLAogICAgbmFtZTogJ0luZGlhJwogIH07CgogIGNvdW50cmllcyA9IFt7CiAgICBpZDogMSwKICAgIG5hbWU6ICdJbmRpYScKICB9LCB7CiAgICBpZDogMiwKICAgIG5hbWU6ICdVU0EnCiAgfSwgewogICAgaWQ6IDMsCiAgICBuYW1lOiAnSmFwYW4nCiAgfSwgewogICAgaWQ6IDQsCiAgICBuYW1lOiAnQ2hpbmEnCiAgfSwgewogICAgaWQ6IDUsCiAgICBuYW1lOiAnQnJhemlsJwogIH0sIHsKICAgIGlkOiA2LAogICAgbmFtZTogJ0F1c3RyYWxpYScKICB9XTsKCn0=",
           "htmlCode": "PG5neC1tdWx0aXNlbGVjdCAKICBbKG5nTW9kZWwpXT0ic2VsZWN0ZWRDb3VudHJ5IiAKICBbb3B0aW9uc109ImNvdW50cmllcyIgCiAgbmdEZWZhdWx0Q29udHJvbCA+Cjwvbmd4LW11bHRpc2VsZWN0Pgo=",
           "cssCode": ""
@@ -335,25 +256,9 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
+        "data": "In case you've differet data properties, that needs to be map with multiselect properties, you can easily pass such map configuration in `propertyMap` binding option"
       },
       {
-        "component": "content",
-        "data": "Only three steps invloved.."
-      },
-      {
-        "component": "content",
-        "data": "1. npm install @ngx-lib/multiselect --save"
-      },{
-        "component": "content",
-        "data": "2. import &#123; NgxMultiselectModule &#125; from '@ngx-lib/multiselect';"
-      },{
-        "component": "content",
-        "data": "3. &lt;ngx-multiselect [(ngModel)]=\"selectedOption\" [options]=\"options\" ngDefaultControl&gt;&lt;/ngx-multiselect&gt;"
-      },{
-        "component": "content",
-        "data": "<h2>Live Demo</h2>"
-      },{
         "component": "demoContainer",
         "data": {
           "component": "propertyMap",
@@ -364,33 +269,17 @@
       }
     ]
   },
-  "call-backs": {
+  "callbacks": {
     "title": "Callbacks",
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
+        "data": "Callbacks are supported in multiselect, TBD."
       },
       {
-        "component": "content",
-        "data": "Only three steps invloved.."
-      },
-      {
-        "component": "content",
-        "data": "1. npm install @ngx-lib/multiselect --save"
-      },{
-        "component": "content",
-        "data": "2. import &#123; NgxMultiselectModule &#125; from '@ngx-lib/multiselect';"
-      },{
-        "component": "content",
-        "data": "3. &lt;ngx-multiselect [(ngModel)]=\"selectedOption\" [options]=\"options\" ngDefaultControl&gt;&lt;/ngx-multiselect&gt;"
-      },{
-        "component": "content",
-        "data": "<h2>Live Demo</h2>"
-      },{
         "component": "demoContainer",
         "data": {
-          "component": "callback",
+          "component": "simpleDemo",
           "tsCode": "ZXhwb3J0IGNsYXNzIFNpbXBsZURlbW9Db21wb25lbnR7CgogIHNlbGVjdGVkQ291bnRyeSA9IHsKICAgIGlkOiAxLAogICAgbmFtZTogJ0luZGlhJwogIH07CgogIGNvdW50cmllcyA9IFt7CiAgICBpZDogMSwKICAgIG5hbWU6ICdJbmRpYScKICB9LCB7CiAgICBpZDogMiwKICAgIG5hbWU6ICdVU0EnCiAgfSwgewogICAgaWQ6IDMsCiAgICBuYW1lOiAnSmFwYW4nCiAgfSwgewogICAgaWQ6IDQsCiAgICBuYW1lOiAnQ2hpbmEnCiAgfSwgewogICAgaWQ6IDUsCiAgICBuYW1lOiAnQnJhemlsJwogIH0sIHsKICAgIGlkOiA2LAogICAgbmFtZTogJ0F1c3RyYWxpYScKICB9XTsKCn0=",
           "htmlCode": "PG5neC1tdWx0aXNlbGVjdCAKICBbKG5nTW9kZWwpXT0ic2VsZWN0ZWRDb3VudHJ5IiAKICBbb3B0aW9uc109ImNvdW50cmllcyIgCiAgbmdEZWZhdWx0Q29udHJvbCA+Cjwvbmd4LW11bHRpc2VsZWN0Pgo=",
           "cssCode": ""
@@ -403,28 +292,12 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
+        "data": "Helper elements help in quick actions"
       },
       {
-        "component": "content",
-        "data": "Only three steps invloved.."
-      },
-      {
-        "component": "content",
-        "data": "1. npm install @ngx-lib/multiselect --save"
-      },{
-        "component": "content",
-        "data": "2. import &#123; NgxMultiselectModule &#125; from '@ngx-lib/multiselect';"
-      },{
-        "component": "content",
-        "data": "3. &lt;ngx-multiselect [(ngModel)]=\"selectedOption\" [options]=\"options\" ngDefaultControl&gt;&lt;/ngx-multiselect&gt;"
-      },{
-        "component": "content",
-        "data": "<h2>Live Demo</h2>"
-      },{
         "component": "demoContainer",
         "data": {
-          "component": "helperElements",
+          "component": "modelDriven",
           "tsCode": "ZXhwb3J0IGNsYXNzIFNpbXBsZURlbW9Db21wb25lbnR7CgogIHNlbGVjdGVkQ291bnRyeSA9IHsKICAgIGlkOiAxLAogICAgbmFtZTogJ0luZGlhJwogIH07CgogIGNvdW50cmllcyA9IFt7CiAgICBpZDogMSwKICAgIG5hbWU6ICdJbmRpYScKICB9LCB7CiAgICBpZDogMiwKICAgIG5hbWU6ICdVU0EnCiAgfSwgewogICAgaWQ6IDMsCiAgICBuYW1lOiAnSmFwYW4nCiAgfSwgewogICAgaWQ6IDQsCiAgICBuYW1lOiAnQ2hpbmEnCiAgfSwgewogICAgaWQ6IDUsCiAgICBuYW1lOiAnQnJhemlsJwogIH0sIHsKICAgIGlkOiA2LAogICAgbmFtZTogJ0F1c3RyYWxpYScKICB9XTsKCn0=",
           "htmlCode": "PG5neC1tdWx0aXNlbGVjdCAKICBbKG5nTW9kZWwpXT0ic2VsZWN0ZWRDb3VudHJ5IiAKICBbb3B0aW9uc109ImNvdW50cmllcyIgCiAgbmdEZWZhdWx0Q29udHJvbCA+Cjwvbmd4LW11bHRpc2VsZWN0Pgo=",
           "cssCode": ""
@@ -437,25 +310,9 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
+        "data": "It supports material and bootstrap theme out of the box"
       },
       {
-        "component": "content",
-        "data": "Only three steps invloved.."
-      },
-      {
-        "component": "content",
-        "data": "1. npm install @ngx-lib/multiselect --save"
-      },{
-        "component": "content",
-        "data": "2. import &#123; NgxMultiselectModule &#125; from '@ngx-lib/multiselect';"
-      },{
-        "component": "content",
-        "data": "3. &lt;ngx-multiselect [(ngModel)]=\"selectedOption\" [options]=\"options\" ngDefaultControl&gt;&lt;/ngx-multiselect&gt;"
-      },{
-        "component": "content",
-        "data": "<h2>Live Demo</h2>"
-      },{
         "component": "demoContainer",
         "data": {
           "component": "theming",
@@ -471,25 +328,9 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
+        "data": "This is simple select example"
       },
       {
-        "component": "content",
-        "data": "Only three steps invloved.."
-      },
-      {
-        "component": "content",
-        "data": "1. npm install @ngx-lib/multiselect --save"
-      },{
-        "component": "content",
-        "data": "2. import &#123; NgxMultiselectModule &#125; from '@ngx-lib/multiselect';"
-      },{
-        "component": "content",
-        "data": "3. &lt;ngx-multiselect [(ngModel)]=\"selectedOption\" [options]=\"options\" ngDefaultControl&gt;&lt;/ngx-multiselect&gt;"
-      },{
-        "component": "content",
-        "data": "<h2>Live Demo</h2>"
-      },{
         "component": "demoContainer",
         "data": {
           "component": "simpleDemo",
@@ -505,28 +346,12 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Getting Started</h2>Its very easy to get started with multiselct"
+        "data": "Lazy loading options support already backed in"
       },
       {
-        "component": "content",
-        "data": "Only three steps invloved.."
-      },
-      {
-        "component": "content",
-        "data": "1. npm install @ngx-lib/multiselect --save"
-      },{
-        "component": "content",
-        "data": "2. import &#123; NgxMultiselectModule &#125; from '@ngx-lib/multiselect';"
-      },{
-        "component": "content",
-        "data": "3. &lt;ngx-multiselect [(ngModel)]=\"selectedOption\" [options]=\"options\" ngDefaultControl&gt;&lt;/ngx-multiselect&gt;"
-      },{
-        "component": "content",
-        "data": "<h2>Live Demo</h2>"
-      },{
         "component": "demoContainer",
         "data": {
-          "component": "optionsLazyLoading",
+          "component": "lazyLoading",
           "tsCode": "ZXhwb3J0IGNsYXNzIFNpbXBsZURlbW9Db21wb25lbnR7CgogIHNlbGVjdGVkQ291bnRyeSA9IHsKICAgIGlkOiAxLAogICAgbmFtZTogJ0luZGlhJwogIH07CgogIGNvdW50cmllcyA9IFt7CiAgICBpZDogMSwKICAgIG5hbWU6ICdJbmRpYScKICB9LCB7CiAgICBpZDogMiwKICAgIG5hbWU6ICdVU0EnCiAgfSwgewogICAgaWQ6IDMsCiAgICBuYW1lOiAnSmFwYW4nCiAgfSwgewogICAgaWQ6IDQsCiAgICBuYW1lOiAnQ2hpbmEnCiAgfSwgewogICAgaWQ6IDUsCiAgICBuYW1lOiAnQnJhemlsJwogIH0sIHsKICAgIGlkOiA2LAogICAgbmFtZTogJ0F1c3RyYWxpYScKICB9XTsKCn0=",
           "htmlCode": "PG5neC1tdWx0aXNlbGVjdCAKICBbKG5nTW9kZWwpXT0ic2VsZWN0ZWRDb3VudHJ5IiAKICBbb3B0aW9uc109ImNvdW50cmllcyIgCiAgbmdEZWZhdWx0Q29udHJvbCA+Cjwvbmd4LW11bHRpc2VsZWN0Pgo=",
           "cssCode": ""
@@ -539,11 +364,7 @@
     "content": [
       {
         "component": "content",
-        "data": "<h2>Bootstrap Theme</h2>Its very easy to get started with multiselct"
-      },
-      {
-        "component": "content",
-        "data": "Only three steps invloved.."
+        "data": "You can use bootstrap theme as an when needed"
       },
       {
         "component": "demoContainer",

@@ -202,8 +202,9 @@
 :host.bs-multiselect ::ng-deep .option {
   display: block;
   width: 100%;
-  height: 13px;
-  padding: 6px 6px;
+  line-height: 3em;
+  height: 3em;
+  /* padding: 6px 6px; */
   font-size: 14px;
   line-height: 1.42857143;
   color: #555;
@@ -219,6 +220,7 @@
   transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  max-height: 40px;
 }
 
 :host.bs-multiselect ::ng-deep .option:hover {

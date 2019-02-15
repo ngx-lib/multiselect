@@ -1,5 +1,8 @@
-<ngx-multiselect 
-  [(ngModel)]="selectedCountry" 
-  [options]="countries" 
-  ngDefaultControl >
-</ngx-multiselect>
+<div>
+  <ngx-multiselect 
+    [(ngModel)]="selectedCountry" 
+    [options]="countries" 
+    ngDefaultControl >
+  </ngx-multiselect>
+</div>
+<b>Selected Values: </b> {{selectedCountry | json}}
