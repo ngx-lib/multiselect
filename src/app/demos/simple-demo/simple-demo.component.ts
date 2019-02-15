@@ -14,22 +14,21 @@ export class SimpleDemoComponent{
 
   countries = [{
     id: 1,
-    name: 'India'
+    name: 'Australia'
   }, {
     id: 2,
-    name: 'USA'
-  }, {
-    id: 3,
-    name: 'Japan'
-  }, {
-    id: 4,
-    name: 'China'
-  }, {
-    id: 5,
     name: 'Brazil'
   }, {
+    id: 3,
+    name: 'China'
+  }, {
+    id: 4,
+    name: 'India'
+  }, {
+    id: 5,
+    name: 'Japan'
+  }, {
     id: 6,
-    name: 'Australia'
+    name: 'USA'
   }];
-
 }
