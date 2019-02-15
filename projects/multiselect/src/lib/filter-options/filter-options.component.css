@@ -73,6 +73,7 @@
 }
 
 .bs-multiselect :host ::ng-deep .input-search {
+    display: flex;
     position: relative;
     padding: 2px 0px 4px 0px;
     max-height: 30px;
@@ -124,14 +125,12 @@
 }
 
 .bs-multiselect :host ::ng-deep .field-suffix {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     white-space: nowrap;
-    flex: none;
-    position: relative;
 }
 .bs-multiselect :host ::ng-deep .field-suffix button {
-    top: 5px;
+    top: 7px;
     position: relative;
     border: none;
     font-size: 20px;
