@@ -84,7 +84,7 @@
 .bs-multiselect :host ::ng-deep .input-filter {
     border-radius: 2px;
     border: 1px solid #ccc;
-    height: 26px;
+    height: 30px;
     font-size: 14px;
     width: 100%;
     padding-left: 7px;
@@ -103,8 +103,6 @@
     text-align: center;
     cursor: pointer;
     border: 1px solid #ccc;
-    height: 22px;
-    width: 22px;
     font-size: 13px;
     border-radius: 2px;
     color: #666;
@@ -117,7 +115,7 @@
 .bs-multiselect :host ::ng-deep .field-infix {
     display: block;
     position: relative;
-    padding: 5px;
+    padding: 2px;
     flex: auto;
     min-width: 0;
     width: 90%;

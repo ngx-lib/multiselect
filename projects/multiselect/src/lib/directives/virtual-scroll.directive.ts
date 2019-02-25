@@ -11,7 +11,7 @@ export class VirtualScrollDirective {
   @Input() itemHeight: number = 40
   @Input() set totalCount(count) { 
     this._totalCount = count 
-    if(count) this.initialSetup()
+    count ? this.initialSetup(): this.reset();
   }
   get() { return this._totalCount } 
   @Output() rangeChanged = new EventEmitter<any>()
@@ -19,8 +19,16 @@ export class VirtualScrollDirective {
   private lastScrollFireTime = 0
   constructor(private el: ElementRef) { }
 
+  reset () {
+    this.top = this.el.nativeElement.querySelector('.top')
+    this.bottom = this.el.nativeElement.querySelector('.bottom')
+    this.top.style.height = '0';
+    this.bottom.style.height = '0';
+    this.el.nativeElement.scrollTop = '0'
+  }
+
   throttleScroll(target) {
-    const { scrollTop, clientHeight, scrollHeight } = target;
+    const { scrollTop, clientHeight } = target;
     const totalHeight = this.itemHeight * this._totalCount + this.scrollOffset;
     
     // Step: 1 - Calculate the position
