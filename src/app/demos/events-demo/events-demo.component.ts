@@ -14,7 +14,7 @@ export class EventsDemoComponent implements OnInit {
 
   constructor (private appService: AppService) {}
 
-  groupingSupport = new FormControl([
+  grouping = new FormControl([
     {id: 1, name: 'Test 1'},
   ]);
 
