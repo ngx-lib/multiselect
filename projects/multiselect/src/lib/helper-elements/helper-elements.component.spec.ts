@@ -14,13 +14,14 @@ describe('HelperElementsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HelperElementsComponent ]
-    }).overrideComponent(HelperElementsComponent, {
-      set : {
-        changeDetection : ChangeDetectionStrategy.Default
-      }
+      declarations: [HelperElementsComponent]
     })
-    .compileComponents();
+      .overrideComponent(HelperElementsComponent, {
+        set: {
+          changeDetection: ChangeDetectionStrategy.Default
+        }
+      })
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -29,7 +30,7 @@ describe('HelperElementsComponent', () => {
     debugElement = fixture.debugElement;
     fixture.detectChanges();
   });
-  
+
   it('Component should gets added into the DOM', () => {
     // arrange
     // act
@@ -47,8 +48,9 @@ describe('HelperElementsComponent', () => {
         selectAllBtnClicked = true;
       });
       // act
-      const selectAllBtn = debugElement.queryAll(By.css('button.helper-button'))
-            .find(btn => checkElementForText(btn, SELECT_ALL));
+      const selectAllBtn = debugElement
+        .queryAll(By.css('button.helper-button'))
+        .find(btn => checkElementForText(btn, SELECT_ALL));
       selectAllBtn.triggerEventHandler('click', {});
       // assert
       expect(selectAllBtnClicked).toBe(true);
@@ -60,7 +62,7 @@ describe('HelperElementsComponent', () => {
       // assert
       expect(true).toBeTruthy();
     });
-  })
+  });
 
   describe('× Select None', () => {
     it('it should emit an event to parent component', () => {
@@ -72,8 +74,9 @@ describe('HelperElementsComponent', () => {
         selectNoneBtnClicked = true;
       });
       // act
-      const selectNoneBtn = debugElement.queryAll(By.css('button.helper-button'))
-            .find(btn => checkElementForText(btn, SELECT_NONE));
+      const selectNoneBtn = debugElement
+        .queryAll(By.css('button.helper-button'))
+        .find(btn => checkElementForText(btn, SELECT_NONE));
       selectNoneBtn.triggerEventHandler('click', {});
       // assert
       expect(selectNoneBtnClicked).toBe(true);
@@ -85,23 +88,24 @@ describe('HelperElementsComponent', () => {
       // assert
       expect(true).toBeTruthy();
     });
-  })
+  });
 
   describe('↶ Reset', () => {
     it('it should emit an event to parent component', () => {
-     // arrange
-     component.multiple = true;
-     fixture.detectChanges();
-     let resetBtnClicked = false;
-     component.resetClicked.subscribe(event => {
-       resetBtnClicked = true;
-     });
-     // act
-     const resetBtn = debugElement.queryAll(By.css('button.helper-button'))
-            .find(btn => checkElementForText(btn, RESET));
+      // arrange
+      component.multiple = true;
+      fixture.detectChanges();
+      let resetBtnClicked = false;
+      component.resetClicked.subscribe(event => {
+        resetBtnClicked = true;
+      });
+      // act
+      const resetBtn = debugElement
+        .queryAll(By.css('button.helper-button'))
+        .find(btn => checkElementForText(btn, RESET));
       resetBtn.triggerEventHandler('click', {});
-     // assert
-     expect(resetBtnClicked).toBe(true);
+      // assert
+      expect(resetBtnClicked).toBe(true);
     });
     // TODO: to be tesetd in parent component
     it('It should reset dropdown value to older state', () => {
@@ -110,10 +114,9 @@ describe('HelperElementsComponent', () => {
       // assert
       expect(true).toBeTruthy();
     });
-  })
+  });
 
   describe('Select all and select none button should be', () => {
-
     it('visible only in case of multiple select', () => {
       // arrange
       component.multiple = true;
@@ -125,7 +128,7 @@ describe('HelperElementsComponent', () => {
       // assert
       expect(selectAllBtn.length).toBe(1);
       expect(selectNoneBtn.length).toBe(1);
-    })
+    });
 
     it('invisible incase of single select', () => {
       // arrange
@@ -138,8 +141,8 @@ describe('HelperElementsComponent', () => {
       // assert
       expect(selectAllBtn.length).toBe(0);
       expect(selectNoneBtn.length).toBe(0);
-    })
-  })
+    });
+  });
 
   describe('Reset button should be', () => {
     it('visible in case of multiple select and single select', () => {
@@ -157,5 +160,4 @@ describe('HelperElementsComponent', () => {
       expect(resetBtn.length).toBe(1);
     });
   });
-
 });

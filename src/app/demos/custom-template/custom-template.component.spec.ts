@@ -8,9 +8,8 @@ describe('CustomTemplateComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CustomTemplateComponent ]
-    })
-    .compileComponents();
+      declarations: [CustomTemplateComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

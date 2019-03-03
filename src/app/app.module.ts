@@ -74,4 +74,4 @@ import { BootstrapThemeComponent } from './demos/bootstrap-theme/bootstrap-theme
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

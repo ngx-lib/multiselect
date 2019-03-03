@@ -8,9 +8,8 @@ describe('CodeViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CodeViewComponent ]
-    })
-    .compileComponents();
+      declarations: [CodeViewComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

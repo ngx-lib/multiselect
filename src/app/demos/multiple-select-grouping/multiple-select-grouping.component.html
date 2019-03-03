@@ -1,11 +1,12 @@
 <h2>Multiple Select Grouping Support</h2>
 <div>
-  <ngx-multiselect 
+  <ngx-multiselect
     [formControl]="groupingSupport"
     ngDefaultControl
     [options]="groupingOptions"
     [groupedProperty]="'category'"
-    [multiple]="true">
+    [multiple]="true"
+  >
   </ngx-multiselect>
 </div>
-<b>Selected Values: </b> {{groupingSupport?.value | json}}
+<b>Selected Values: </b> {{ groupingSupport?.value | json }}

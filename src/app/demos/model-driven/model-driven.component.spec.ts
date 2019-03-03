@@ -8,9 +8,8 @@ describe('ModelDrivenComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModelDrivenComponent ]
-    })
-    .compileComponents();
+      declarations: [ModelDrivenComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

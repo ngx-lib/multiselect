@@ -1,6 +1,15 @@
 import {
-  Component, OnInit, Input, ChangeDetectionStrategy, Output, SimpleChanges,
-  EventEmitter, TemplateRef, ViewEncapsulation, ViewChild, OnChanges
+  Component,
+  OnInit,
+  Input,
+  ChangeDetectionStrategy,
+  Output,
+  SimpleChanges,
+  EventEmitter,
+  TemplateRef,
+  ViewEncapsulation,
+  ViewChild,
+  OnChanges
 } from '@angular/core';
 import { NgxMultiselectService } from '../services/multiselect.service';
 
@@ -13,57 +22,55 @@ import { NgxMultiselectService } from '../services/multiselect.service';
   encapsulation: ViewEncapsulation.None
 })
 export class GroupedOptionsComponent implements OnInit {
-
-  _options = []
-  _selectedOptions = []
-  groupedOptions = []
-  start: number = 0
-  end: number = 5
-  filteredOptions
+  _options = [];
+  _selectedOptions = [];
+  groupedOptions = [];
+  start: number = 0;
+  end: number = 5;
+  filteredOptions;
 
   @Input() groupedProperty: string;
   @Input() disabled = false;
   @Input() multiple = false;
-  @Input() set selectedOptions (value) {
-    this._selectedOptions = value
-    this.formGroupOptions(this._options, this._selectedOptions)
+  @Input() set selectedOptions(value) {
+    this._selectedOptions = value;
+    this.formGroupOptions(this._options, this._selectedOptions);
   }
   @Input() optionsTemplate: TemplateRef<any>;
   @Input() set options(value) {
-    this._options = value
-    this.formGroupOptions(value, this._selectedOptions)
+    this._options = value;
+    this.formGroupOptions(value, this._selectedOptions);
   }
   get options() {
     return this.groupedOptions;
   }
 
-  @Output() selectGroup = new EventEmitter<any>()
-  @Output() selectOption = new EventEmitter<any>()
+  @Output() selectGroup = new EventEmitter<any>();
+  @Output() selectOption = new EventEmitter<any>();
 
   @ViewChild('defaultOptionsTemplate') defaultOptionsTemplate: TemplateRef<any>;
 
-  constructor(public multiselectService: NgxMultiselectService) { }
+  constructor(public multiselectService: NgxMultiselectService) {}
 
-  formGroupOptions (collection, selectedOptions) {
-    let selectedIds = this.multiple ? selectedOptions.map(s => s.id)
-      : selectedOptions ? [selectedOptions.id]: []
-    const values = collection.map(v => ({...v, ticked: !v.isGroup ? selectedIds.indexOf(v.id) !== -1: v.ticked }))
-    this.groupedOptions = this.multiselectService.virtualOptionsGroupingFlatten(values, this.groupedProperty)
-    this.updateRange({ start: this.start, end: this.end })
+  formGroupOptions(collection, selectedOptions) {
+    let selectedIds = this.multiple ? selectedOptions.map(s => s.id) : selectedOptions ? [selectedOptions.id] : [];
+    const values = collection.map(v => ({ ...v, ticked: !v.isGroup ? selectedIds.indexOf(v.id) !== -1 : v.ticked }));
+    this.groupedOptions = this.multiselectService.virtualOptionsGroupingFlatten(values, this.groupedProperty);
+    this.updateRange({ start: this.start, end: this.end });
   }
 
   getOptionStyle(option: any) {
-    return { 'group': option.isGroup, 'marked': option.ticked, disabled: (this.disabled || option.disabled) };
+    return { group: option.isGroup, marked: option.ticked, disabled: this.disabled || option.disabled };
   }
 
-  trackByFn (_, option) {
-    return option.id
+  trackByFn(_, option) {
+    return option.id;
   }
 
   updateRange({ start, end }) {
-    this.start = start
-    this.end = end
-    this.filteredOptions = [...this.options].slice(start, end)
+    this.start = start;
+    this.end = end;
+    this.filteredOptions = [...this.options].slice(start, end);
   }
 
   ngOnInit() {
@@ -72,14 +79,13 @@ export class GroupedOptionsComponent implements OnInit {
     }
   }
 
-  select (option) {
+  select(option) {
     if (!option.isGroup) {
       this.selectOption.emit(option);
-    } 
-    else {
-      option.ticked = !option.ticked
-      const values = this.multiselectService.collectAllDescendants(this.options, this.groupedProperty, option.name)
-      this.selectGroup.emit({ ...option, values: values })
+    } else {
+      option.ticked = !option.ticked;
+      const values = this.multiselectService.collectAllDescendants(this.options, this.groupedProperty, option.name);
+      this.selectGroup.emit({ ...option, values: values });
     }
   }
 }

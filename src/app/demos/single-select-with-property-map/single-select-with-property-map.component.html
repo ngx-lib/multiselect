@@ -1,22 +1,24 @@
 <h2>Single Select (with Property Map)</h2>
 <div>
-  <ngx-multiselect 
+  <ngx-multiselect
     [(ngModel)]="propertyMapValue"
-    [propertyMap]="propertyMap" 
+    [propertyMap]="propertyMap"
     [options]="propertyMapOptions"
-    ngDefaultControl>
+    ngDefaultControl
+  >
   </ngx-multiselect>
 </div>
-<b>Selected Values: </b> {{propertyMapValue | json}}
+<b>Selected Values: </b> {{ propertyMapValue | json }}
 <hr />
 <h2>Multiple Select (with Property Map)</h2>
 <div>
-  <ngx-multiselect 
+  <ngx-multiselect
     [(ngModel)]="propertyMapValueMultiselect"
     [propertyMap]="propertyMap"
     [multiple]="true"
     [options]="propertyMapOptionsMultiselect"
-    ngDefaultControl>
+    ngDefaultControl
+  >
   </ngx-multiselect>
 </div>
-<b>Selected Values: </b> {{propertyMapValueMultiselect | json}}
+<b>Selected Values: </b> {{ propertyMapValueMultiselect | json }}

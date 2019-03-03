@@ -7,7 +7,6 @@ import hljs from 'highlight.js/lib/highlight';
   styleUrls: ['./code-view.component.css']
 })
 export class CodeViewComponent implements OnInit {
-
   @Input()
   code: string;
   @Input()
@@ -15,11 +14,10 @@ export class CodeViewComponent implements OnInit {
   @ViewChild('code')
   codeElement: ElementRef;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.codeElement.nativeElement.textContent = window.atob(this.code);
     hljs.highlightBlock(this.codeElement.nativeElement);
   }
-
 }

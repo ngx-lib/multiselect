@@ -8,9 +8,8 @@ describe('MultipleSelectGroupingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MultipleSelectGroupingComponent ]
-    })
-    .compileComponents();
+      declarations: [MultipleSelectGroupingComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
