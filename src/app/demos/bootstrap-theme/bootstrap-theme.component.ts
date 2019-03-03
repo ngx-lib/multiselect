@@ -6,29 +6,35 @@ import { Component } from '@angular/core';
   styleUrls: ['./bootstrap-theme.component.css']
 })
 export class BootstrapThemeComponent {
-  
   selectedCountry = {
     id: 1,
     name: 'India'
   };
 
-  countries = [{
-    id: 1,
-    name: 'Australia'
-  }, {
-    id: 2,
-    name: 'Brazil'
-  }, {
-    id: 3,
-    name: 'China'
-  }, {
-    id: 4,
-    name: 'India'
-  }, {
-    id: 5,
-    name: 'Japan'
-  }, {
-    id: 6,
-    name: 'USA'
-  }];
+  countries = [
+    {
+      id: 1,
+      name: 'Australia'
+    },
+    {
+      id: 2,
+      name: 'Brazil'
+    },
+    {
+      id: 3,
+      name: 'China'
+    },
+    {
+      id: 4,
+      name: 'India'
+    },
+    {
+      id: 5,
+      name: 'Japan'
+    },
+    {
+      id: 6,
+      name: 'USA'
+    }
+  ];
 }
