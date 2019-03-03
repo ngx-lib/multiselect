@@ -5,13 +5,16 @@ import { DocComponent } from './doc/doc.component';
 
 @NgModule({
   imports: [
-    RouterModule.forRoot([
-      {path: 'home', component: HomeComponent },
-      {path: 'docs/:topic', component: DocComponent },
-      {path: 'docs', redirectTo: 'docs/getting-started' },
-      {path: '**', redirectTo: '/home'}
-    ], {useHash: true})
+    RouterModule.forRoot(
+      [
+        { path: 'home', component: HomeComponent },
+        { path: 'docs/:topic', component: DocComponent },
+        { path: 'docs', redirectTo: 'docs/getting-started' },
+        { path: '**', redirectTo: '/home' }
+      ],
+      { useHash: true }
+    )
   ],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

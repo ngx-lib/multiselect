@@ -1,6 +1,6 @@
 <h2>Single Select (Template Driven form with callback events check)</h2>
 <div>
-  <ngx-multiselect 
+  <ngx-multiselect
     [(ngModel)]="singleSelect"
     [options]="singleSelectOptions"
     (onOpen)="genericEvent($event, 'onOpen')"
@@ -14,4 +14,4 @@
     ngDefaultControl
   ></ngx-multiselect>
 </div>
-<b>Selected Value: </b> {{singleSelect | json}}
+<b>Selected Value: </b> {{ singleSelect | json }}

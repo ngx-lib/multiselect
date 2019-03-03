@@ -1,15 +1,16 @@
 <h2>Custom Template</h2>
 <ngx-multiselect
-  [formControl]="customTemplateSelect" 
-  ngDefaultControl 
+  [formControl]="customTemplateSelect"
+  ngDefaultControl
   [options]="customTemplateOptions"
-  [propertyMap]="{'img': 'img'}"
-  [multiple]="true">
+  [propertyMap]="{ img: 'img' }"
+  [multiple]="true"
+>
   <!-- TODO: Check on below let attributes are neccessary -->
   <ng-template let-option="option">
     <div class="img">
       <img [src]="option.img" width="40px" height="40px" [attr.alt]="option.name" />
-      {{option.name}}
+      {{ option.name }}
     </div>
   </ng-template>
-</ngx-multiselect> 
+</ngx-multiselect>

@@ -8,9 +8,8 @@ describe('SingleSelectComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LargeVolumeDataComponent ]
-    })
-    .compileComponents();
+      declarations: [LargeVolumeDataComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

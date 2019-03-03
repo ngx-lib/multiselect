@@ -8,9 +8,8 @@ describe('BootstrapThemeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BootstrapThemeComponent ]
-    })
-    .compileComponents();
+      declarations: [BootstrapThemeComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

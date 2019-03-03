@@ -21,8 +21,7 @@ describe('Options Component', () => {
     TestBed.configureTestingModule({
       declarations: [OptionsComponent, VirtualScrollDirective],
       imports: [CommonModule]
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -30,12 +29,12 @@ describe('Options Component', () => {
     component = fixture.componentInstance;
     debugElement = fixture.debugElement;
     options = [
-      { "id": 1, "name": "Test 1" },
-      { "id": 2, "name": "Test 2" },
-      { "id": 3, "name": "Test 3", disabled: true },
-      { "id": 4, "name": "Test 4" },
-      { "id": 5, "name": "Test 5" },
-      { "id": 6, "name": "Test 6" }
+      { id: 1, name: 'Test 1' },
+      { id: 2, name: 'Test 2' },
+      { id: 3, name: 'Test 3', disabled: true },
+      { id: 4, name: 'Test 4' },
+      { id: 5, name: 'Test 5' },
+      { id: 6, name: 'Test 6' }
     ];
     component.options = [...options];
     multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService());
@@ -51,7 +50,7 @@ describe('Options Component', () => {
     // TODO: Woraround for firing ngOnChanges manually.
     component.ngOnChanges({
       options: new SimpleChange(options, undefined, false)
-    })
+    });
     fixture.detectChanges();
   });
 
@@ -104,7 +103,7 @@ describe('Options Component', () => {
       expect(multiselectSelectSpy).toHaveBeenCalled();
       expect(multiselectSelectSpy).toHaveBeenCalledWith(clickedOption);
     });
-  })
+  });
 
   describe('Styling', () => {
     it('on select of option should apply correct CSS', () => {
@@ -115,7 +114,7 @@ describe('Options Component', () => {
       fixture.detectChanges();
       // assert
 
-      const markedOption = debugElement.query(By.css('.option.marked'))
+      const markedOption = debugElement.query(By.css('.option.marked'));
       expect(markedOption.classes.marked).toBe(true);
     });
     it('mark class should removed based on click on selected optioin', () => {
@@ -129,7 +128,7 @@ describe('Options Component', () => {
       // assert
       expect(optionsElements[1].classes.marked).toBe(false);
     });
-  })
+  });
 
   describe('Disabled option', () => {
     it('if some option is disabled, then it should have disable class', () => {
@@ -138,22 +137,22 @@ describe('Options Component', () => {
       // act
       // assert
       expect(disabledOption.classes.disabled).toBe(true);
-    })
+    });
     // TODO: find a way to test pointer-events
     it('on click of disabled option, it should not select / deselect selectedOptions value', () => {
       // arrange
       // act
       // assert
       expect(true).toBeTruthy();
-    })
-  })
+    });
+  });
 
   it('by default old default item template should be loaded', () => {
     // arrange
     // act
     // assert
     expect(component.optionsTemplate).toBe(component.defaultOptionsTemplate);
-  })
+  });
 
   // TODO: find a way to pass a template to component
   it('if new item template is passed then it should be rendered on screen', () => {
@@ -161,14 +160,14 @@ describe('Options Component', () => {
     // act
     // assert
     expect(true).toBeTruthy();
-  })
+  });
 
   describe('Single select', () => {
     beforeEach(() => {
       multiselect.multiple = false;
       multiselect.isOpen = true;
       fixture.detectChanges();
-    })
+    });
 
     it('list should close based on option selection', () => {
       // arrange
@@ -184,7 +183,7 @@ describe('Options Component', () => {
       expect(multiselectSelectSpy).toHaveBeenCalled();
       expect(multiselectSelectSpy).toHaveBeenCalledWith(clickedOption);
       expect(multiselect.isOpen).toBe(false);
-    })
+    });
 
     it('should select only single option', () => {
       // arrange
@@ -197,17 +196,16 @@ describe('Options Component', () => {
       fixture.detectChanges();
 
       // assert
-      const markedOptions = debugElement.queryAll(By.css('.option.marked'))
+      const markedOptions = debugElement.queryAll(By.css('.option.marked'));
       // TODO: check on below
       // expect(markedOptions.length).toBe(1);
       expect(multiselect._selectedOptions.id).toBe(options[1].id);
       expect(clickedOption.ticked).toBe(true);
       expect(multiselectSelectSpy).toHaveBeenCalledTimes(2);
       expect(multiselect.isOpen).toBe(false);
-
-    })
-  })
+    });
+  });
   afterEach(() => {
-    fixture.destroy()
-  })
+    fixture.destroy();
+  });
 });

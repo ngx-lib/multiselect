@@ -9,29 +9,25 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./model-driven.component.css']
 })
 export class ModelDrivenComponent implements OnInit {
-
   multipleSelectOptions;
   multipleSelectOptionsSubscription: Subscription;
 
-  constructor (private appService: AppService) {}
+  constructor(private appService: AppService) {}
 
-  mutlipleSelect = new FormControl([
-    {id: 1, name: 'Test 1'},
-    {id: 2, name: 'Test 2'}
-  ]);
-  
+  mutlipleSelect = new FormControl([{ id: 1, name: 'Test 1' }, { id: 2, name: 'Test 2' }]);
+
   ngOnInit(): void {
     // Retrieving data for dropdown
-    this.multipleSelectOptionsSubscription = this.appService.getMultipleSelectOptions().subscribe(
-      data => this.multipleSelectOptions = data
-    )
+    this.multipleSelectOptionsSubscription = this.appService
+      .getMultipleSelectOptions()
+      .subscribe(data => (this.multipleSelectOptions = data));
   }
 
   genericEvent($event, eventName) {
-    console.log('Event fired '+ eventName, $event)
+    console.log('Event fired ' + eventName, $event);
   }
 
-  ngOnDestroy () {
+  ngOnDestroy() {
     this.multipleSelectOptionsSubscription.unsubscribe();
   }
 }
