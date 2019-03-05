@@ -7,14 +7,13 @@ import { Component, EventEmitter, Output, Input, ChangeDetectionStrategy } from 
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HelperElementsComponent {
-
   @Input() multiple = false;
 
   @Output() selectAllClicked = new EventEmitter();
   @Output() selectNoneClicked = new EventEmitter();
   @Output() resetClicked = new EventEmitter();
 
-  constructor() { }
+  constructor() {}
 
   selectAll() {
     this.selectAllClicked.emit();
@@ -27,5 +26,4 @@ export class HelperElementsComponent {
   reset() {
     this.resetClicked.emit();
   }
-
 }

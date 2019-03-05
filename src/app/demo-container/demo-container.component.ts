@@ -13,14 +13,12 @@ hljs.registerLanguage('typescript', typescript);
   styleUrls: ['./demo-container.component.css']
 })
 export class DemoContainerComponent implements OnInit {
-
   @Input()
   data;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     console.log('Route resolved document data ', this.data);
   }
-
 }

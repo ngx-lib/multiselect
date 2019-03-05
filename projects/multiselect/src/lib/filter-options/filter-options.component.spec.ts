@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule, By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
@@ -13,17 +13,16 @@ describe('FilterOptionsComponent', () => {
   let filterText: string;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FilterOptionsComponent ],
+      declarations: [FilterOptionsComponent],
       imports: [FormsModule, ReactiveFormsModule, BrowserModule]
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FilterOptionsComponent);
     component = fixture.componentInstance;
-    component.onSearchChange.subscribe(text => filterText = text)
-    debugElement = fixture.debugElement
+    component.onSearchChange.subscribe(text => (filterText = text));
+    debugElement = fixture.debugElement;
     fixture.detectChanges();
     component.filterName.patchValue('some text');
     fixture.detectChanges();
@@ -40,7 +39,7 @@ describe('FilterOptionsComponent', () => {
   it('By default input elemenet is focused', () => {
     // arrangment
     const input = debugElement.query(By.css('input'));
-    const service = new NgxMultiselectService()
+    const service = new NgxMultiselectService();
     // act
     // assert
     console.dir(service.pseudoClassExist(input.nativeElement, ':focus'));
@@ -59,18 +58,18 @@ describe('FilterOptionsComponent', () => {
     it('Removing text into input box, should filter the result', () => {
       // arrangement
       // act
-      let changedValue = 'some'
+      let changedValue = 'some';
       component.filterName.patchValue(changedValue);
       // assert
       expect(filterText).toBe(changedValue);
     });
-  })
+  });
 
   describe('Clear button', () => {
     it('it should emit an event to parent component with blank value', () => {
       // arrangement
       // act
-      component.clearText()
+      component.clearText();
       // assert
       expect(filterText).toBe('');
     });
@@ -83,5 +82,4 @@ describe('FilterOptionsComponent', () => {
       expect(filterText).toBe('');
     });
   });
-  
 });

@@ -8,24 +8,20 @@ import { AppService } from '../../app.service';
   styleUrls: ['./options-lazy-loading.component.css']
 })
 export class OptionsLazyLoadingComponent implements OnInit {
-  
   persons;
   personsSubscription: Subscription;
 
-  constructor (private appService: AppService) {}
+  constructor(private appService: AppService) {}
 
-  person: any = {id: 2, name: 'Person 1'}
-  
+  person: any = { id: 2, name: 'Person 1' };
+
   ngOnInit(): void {
-    this.personsSubscription = this.appService.getPersons().subscribe(
-      data => {
-        this.persons = [...data]
-      }
-    )
+    this.personsSubscription = this.appService.getPersons().subscribe(data => {
+      this.persons = [...data];
+    });
   }
 
-  ngOnDestroy () {
+  ngOnDestroy() {
     this.personsSubscription.unsubscribe();
   }
-
 }

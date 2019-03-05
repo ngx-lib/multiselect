@@ -9,18 +9,17 @@ import { Subscription } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FilterOptionsComponent implements OnInit, OnDestroy {
-
   filterName: FormControl;
   filterNameSubscription: Subscription;
-  
+
   @Output() onClear = new EventEmitter<string>();
   @Output() onSearchChange = new EventEmitter<string>();
 
-  constructor() { }
-  
-  clearText () {
+  constructor() {}
+
+  clearText() {
     this.clearInputFilter();
-    this.onClear.emit()
+    this.onClear.emit();
   }
 
   clearInputFilter() {
@@ -30,13 +29,11 @@ export class FilterOptionsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.filterName = new FormControl('')
-    this.filterNameSubscription = this.filterName.valueChanges.subscribe(
-      val => this.onSearchChange.emit(val)
-    );
+    this.filterName = new FormControl('');
+    this.filterNameSubscription = this.filterName.valueChanges.subscribe(val => this.onSearchChange.emit(val));
   }
 
-  ngOnDestroy () {
+  ngOnDestroy() {
     this.clearInputFilter();
     this.filterNameSubscription.unsubscribe();
   }

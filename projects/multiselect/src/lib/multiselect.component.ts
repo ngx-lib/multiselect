@@ -1,6 +1,14 @@
 import {
-  Component, Input, ChangeDetectionStrategy, ElementRef,
-  ContentChild, TemplateRef, Output, EventEmitter, ViewChild, HostBinding
+  Component,
+  Input,
+  ChangeDetectionStrategy,
+  ElementRef,
+  ContentChild,
+  TemplateRef,
+  Output,
+  EventEmitter,
+  ViewChild,
+  HostBinding
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -13,7 +21,7 @@ export const DEFAULT_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => NgxMultiselectComponent),
   multi: true
-}
+};
 
 @Component({
   selector: 'ngx-multiselect',
@@ -23,25 +31,22 @@ export const DEFAULT_VALUE_ACCESSOR: any = {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
-
-  constructor(
-    protected elementRef: ElementRef,
-    protected multiselectService: NgxMultiselectService) {
+  constructor(protected elementRef: ElementRef, protected multiselectService: NgxMultiselectService) {
     super(elementRef, multiselectService);
   }
 
   // private variables
-  private _multiple = false
-  private _theme: string = 'material'
-  private _optionsCopy //TODO: in future this will be master list
-  private _isOpen: boolean = false
+  private _multiple = false;
+  private _theme: string = 'material';
+  private _optionsCopy; //TODO: in future this will be master list
+  private _isOpen: boolean = false;
 
   // public variables
   _selectedOptions: any | any[] = null;
   _options; //TODO: this will be local list
 
-  @HostBinding('class.mat-multiselect') matMultiselect: boolean = true
-  @HostBinding('class.bs-multiselect') bsMultiselect: boolean = false
+  @HostBinding('class.mat-multiselect') matMultiselect: boolean = true;
+  @HostBinding('class.bs-multiselect') bsMultiselect: boolean = false;
 
   // Input bindings
   @Input() disabled: boolean = false;
@@ -49,15 +54,16 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   @Input() groupedProperty: string;
   @Input() showMaxLabels: number = 3;
   @ContentChild(TemplateRef)
-  @Input() optionsTemplate: TemplateRef<any>;
   @Input()
-  public get theme (): string {
-    return this._theme
+  optionsTemplate: TemplateRef<any>;
+  @Input()
+  public get theme(): string {
+    return this._theme;
   }
-  public set theme (val: string) {
-    this._theme = val
-    this.matMultiselect = val === 'material'
-    this.bsMultiselect = val === 'bootstrap'
+  public set theme(val: string) {
+    this._theme = val;
+    this.matMultiselect = val === 'material';
+    this.bsMultiselect = val === 'bootstrap';
   }
 
   // Input binding with getter / setter
@@ -66,28 +72,36 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     if (value) {
       this.onTouched();
       this.onOpen.emit();
-    }else{
+    } else {
       this.onClose.emit();
     }
   }
-  get isOpen() { return this._isOpen; }
+  get isOpen() {
+    return this._isOpen;
+  }
   @Input() set propertyMap(val) {
     this._defaultPropertyMap = { ...this._defaultPropertyMap, ...val };
   }
   @Input()
-  get multiple() { return this._multiple; }
+  get multiple() {
+    return this._multiple;
+  }
   set multiple(value: boolean) {
-    if(value) this.viewToModel([]);
+    if (value) this.viewToModel([]);
     this._multiple = value;
   }
 
   @Input()
   set options(collection) {
-    if(!collection) return;
-    this._optionsCopy = this.multiselectService.mapDatasourceToFields(collection, this._defaultPropertyMap, this.groupedProperty);
+    if (!collection) return;
+    this._optionsCopy = this.multiselectService.mapDatasourceToFields(
+      collection,
+      this._defaultPropertyMap,
+      this.groupedProperty
+    );
     const options = this.getOptionsCopy();
     this.setOptions(options);
-    if(this.isOperationPending()) this.finishPendingOperations();
+    if (this.isOperationPending()) this.finishPendingOperations();
   }
 
   // Output bindings
@@ -101,7 +115,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   @Output() onClear: EventEmitter<any> = new EventEmitter<void>();
   @Output() onSearchChange: EventEmitter<any> = new EventEmitter<string>();
 
-  @ViewChild('filterOptions', {read: FilterOptionsComponent}) filterOptions
+  @ViewChild('filterOptions', { read: FilterOptionsComponent }) filterOptions;
 
   // All update to options should happen from below method.
   setOptions(options) {
@@ -109,32 +123,32 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   }
 
   getOptions() {
-    return this._options ? [...this._options]: []
+    return this._options ? [...this._options] : [];
   }
 
   getOptionsCopy() {
-    return this._optionsCopy ? [...this._optionsCopy]: []
+    return this._optionsCopy ? [...this._optionsCopy] : [];
   }
   filterOptionsList = (val: string) => {
     const optionsCopy = this.getOptionsCopy();
-    let result = optionsCopy
+    let result = optionsCopy;
     if (val) {
       result = optionsCopy.filter(i => i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1);
     }
     this.setOptions(result);
     this.prepopulateOptions(this._selectedOptions);
-  }
+  };
 
   isValueSelected() {
     return this._multiple ? this._selectedOptions.length : this._selectedOptions;
   }
 
-  searchChange (val: string) {
+  searchChange(val: string) {
     this.filterOptionsList(val);
     this.onSearchChange.emit(val);
   }
 
-  filterClear () {
+  filterClear() {
     this.filterOptionsList('');
     this.onClear.emit();
   }
@@ -157,9 +171,8 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
 
   prepopulateOptions(selected: any) {
     let selectedIds = [];
-    selectedIds = this._multiple ? (selected || []).map(i => i.id)
-      : selected ? [selected.id]: [];
-    this.setOptions(this.getOptions().map(o => ({...o, ticked: selectedIds.indexOf(o.id) !== -1})));
+    selectedIds = this._multiple ? (selected || []).map(i => i.id) : selected ? [selected.id] : [];
+    this.setOptions(this.getOptions().map(o => ({ ...o, ticked: selectedIds.indexOf(o.id) !== -1 })));
     // TODO: do we really need this reassignment?
     this.viewToModel(selected);
   }
@@ -169,8 +182,8 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     option.ticked = !option.ticked;
     // TODO: Refactor below logic
     if (this._multiple) {
-      selectedOptions = [...this._selectedOptions]
-      let selectedIds = selectedOptions.map(i => i.id)
+      selectedOptions = [...this._selectedOptions];
+      let selectedIds = selectedOptions.map(i => i.id);
       if (selectedIds.indexOf(option.id) === -1) {
         // if selected item not exist in collection, push it
         selectedOptions.push(option);
@@ -178,11 +191,11 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
         // if selected item exist in collection, post it
         this.removeItem(selectedOptions, option);
       }
-      selectedIds = selectedOptions.map(i => i.id)
+      selectedIds = selectedOptions.map(i => i.id);
     } else {
       // TODO: find optimized way to do below
       let val = option && option.id;
-      let changedOptions = this.getOptions().map(o => ({...o, ticked: o.id == val}));
+      let changedOptions = this.getOptions().map(o => ({ ...o, ticked: o.id == val }));
       selectedOptions = changedOptions.find(i => i.ticked);
       this.setOptions(changedOptions);
       this.close();
@@ -192,36 +205,38 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   }
 
   selectAll() {
-    let allSelectedOptions = this.getOptions().map(o => ({ ...o, ticked: true}))
+    let allSelectedOptions = this.getOptions().map(o => ({ ...o, ticked: true }));
     this.setOptions(allSelectedOptions);
     this.viewToModel(allSelectedOptions);
     this.onSelectAll.emit();
   }
 
-  selectNone () {
-    this.setOptions(this.getOptions().map(o => ({ ...o, ticked: false})))
+  selectNone() {
+    this.setOptions(this.getOptions().map(o => ({ ...o, ticked: false })));
     this.viewToModel([]);
     this.onSelectNone.emit();
   }
 
-  borderBottom () {
-    return this._isOpen ? { borderBottom: `1px solid ${this.matMultiselect ? this.color: 'transperant'}` }: {}
+  borderBottom() {
+    return this._isOpen ? { borderBottom: `1px solid ${this.matMultiselect ? this.color : 'transperant'}` } : {};
   }
 
   //TODO: Optimized below logic, it can be done in lesser steps
-  selectGroup (group: any) {
-    const { ticked, values } = group
-    const options = this.getOptions()
+  selectGroup(group: any) {
+    const { ticked, values } = group;
+    const options = this.getOptions();
     let selectedValues = [...this._selectedOptions];
-    let selectedIds = selectedValues.map(s=>s.id);
-    const allGroupOptionIds = values.map(v=> v.id);
+    let selectedIds = selectedValues.map(s => s.id);
+    const allGroupOptionIds = values.map(v => v.id);
     // Get all ticked options
     // concat with selected options
-    selectedValues = ticked ? selectedValues.concat(values): selectedValues.filter(o => allGroupOptionIds.indexOf(o.id) === -1);
+    selectedValues = ticked
+      ? selectedValues.concat(values)
+      : selectedValues.filter(o => allGroupOptionIds.indexOf(o.id) === -1);
     // Find unique out of them
-    selectedIds = this.multiselectService.findUnique(selectedValues.map(item => item.id))
+    selectedIds = this.multiselectService.findUnique(selectedValues.map(item => item.id));
     // build selectedOptions array again
-    selectedValues = options.filter(o=> selectedIds.indexOf(o.id) !== -1);
+    selectedValues = options.filter(o => selectedIds.indexOf(o.id) !== -1);
     this.viewToModel(selectedValues);
     this.onGroupItemClick.emit(group);
   }

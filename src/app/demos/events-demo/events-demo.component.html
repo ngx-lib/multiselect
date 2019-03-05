@@ -1,6 +1,6 @@
 <div>
   <ngx-multiselect
-    [formControl]="groupingSupport"
+    [formControl]="grouping"
     ngDefaultControl
     [options]="groupingOptions"
     [groupedProperty]="'category'"
@@ -13,7 +13,8 @@
     (onSelectNone)="onSelectNoneFired()"
     (onReset)="onResetFired()"
     (onClear)="onClearFired()"
-    (onSearchChange)="onSearchChangeFired($event)">
+    (onSearchChange)="onSearchChangeFired($event)"
+  >
   </ngx-multiselect>
 </div>
-<b *ngIf="message">{{message}}</b>
+<b *ngIf="message">{{ message }}</b>

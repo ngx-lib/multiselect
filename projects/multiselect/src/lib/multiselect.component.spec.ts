@@ -11,7 +11,6 @@ import { OptionsComponent } from './options/options.component';
 import { DebugElement, Component, ChangeDetectionStrategy } from '@angular/core';
 import { VirtualScrollDirective } from './directives/virtual-scroll.directive';
 
-
 describe('MultiselectComponent', () => {
   let component: NgxMultiselectComponent;
   let fixture: ComponentFixture<NgxMultiselectComponent>;
@@ -19,7 +18,7 @@ describe('MultiselectComponent', () => {
   let options;
   let groupOptions;
 
-  function beforeEachSetup () {
+  function beforeEachSetup() {
     beforeEach(async(() => {
       TestBed.overrideComponent(NgxMultiselectComponent, {
         set: new Component({
@@ -30,12 +29,16 @@ describe('MultiselectComponent', () => {
       });
       TestBed.configureTestingModule({
         declarations: [
-          NgxMultiselectComponent, FilterOptionsComponent, GroupedOptionsComponent,
-          DisplaySelectedValuePipe, HelperElementsComponent, OptionsComponent, VirtualScrollDirective
+          NgxMultiselectComponent,
+          FilterOptionsComponent,
+          GroupedOptionsComponent,
+          DisplaySelectedValuePipe,
+          HelperElementsComponent,
+          OptionsComponent,
+          VirtualScrollDirective
         ],
         imports: [FormsModule, ReactiveFormsModule, BrowserModule]
-      })
-        .compileComponents();
+      }).compileComponents();
     }));
 
     beforeEach(() => {
@@ -43,30 +46,29 @@ describe('MultiselectComponent', () => {
       component = fixture.componentInstance;
       debugElement = fixture.debugElement;
       options = [
-        { "id": 1, "name": "Test 1"},
-        { "id": 2, "name": "Test 2"},
-        { "id": 3, "name": "Test 3"},
-        { "id": 4, "name": "Test 4"},
-        { "id": 5, "name": "Test 5"},
-        { "id": 6, "name": "Test 6", disabled: true }
+        { id: 1, name: 'Test 1' },
+        { id: 2, name: 'Test 2' },
+        { id: 3, name: 'Test 3' },
+        { id: 4, name: 'Test 4' },
+        { id: 5, name: 'Test 5' },
+        { id: 6, name: 'Test 6', disabled: true }
       ];
       groupOptions = [
-        { "id": 1, "name": "Test 1", "category": "Cat 1" },
-        { "id": 2, "name": "Test 2", "category": "Cat 1" },
-        { "id": 3, "name": "Test 3", "category": "Cat 2" },
-        { "id": 4, "name": "Test 4", "category": "Cat 2" },
-        { "id": 5, "name": "Test 5", "category": "Cat 3" },
-        { "id": 6, "name": "Test 6", "category": "Cat 3", disabled: true }
+        { id: 1, name: 'Test 1', category: 'Cat 1' },
+        { id: 2, name: 'Test 2', category: 'Cat 1' },
+        { id: 3, name: 'Test 3', category: 'Cat 2' },
+        { id: 4, name: 'Test 4', category: 'Cat 2' },
+        { id: 5, name: 'Test 5', category: 'Cat 3' },
+        { id: 6, name: 'Test 6', category: 'Cat 3', disabled: true }
       ];
       component.options = [...options];
       fixture.detectChanges();
     });
   }
 
-   function executeTests() {
+  function executeTests() {
     // isOpen flag
     describe('IsOpen flag', () => {
-
       it('By default the dropdown should be in closed state', () => {
         // assert
         expect(component.isOpen).toBe(false);
@@ -89,7 +91,7 @@ describe('MultiselectComponent', () => {
         expect(component.isOpen).toBe(false);
       });
 
-      it('when isOpen is toggled, helper element, filter options and options should also be removed or added', () => { 
+      it('when isOpen is toggled, helper element, filter options and options should also be removed or added', () => {
         // component.isOpen = false;
         // component.isOpen will always be false by default checked in first test
         let helperEleComponent = debugElement.query(By.css('ms-helper-elements'));
@@ -114,7 +116,6 @@ describe('MultiselectComponent', () => {
         // act
         // assert
       });
-
     });
 
     // Template
@@ -258,7 +259,6 @@ describe('MultiselectComponent', () => {
         // act
         // assert
         expect(true).toBeTruthy();
-
       });
       it('should show "name" property of an selected value', () => {
         // arrange
@@ -347,14 +347,14 @@ describe('MultiselectComponent', () => {
       expect(true).toBeTruthy();
     });
   }
-   // without observable
-   beforeEachSetup();
-   executeTests();
+  // without observable
+  beforeEachSetup();
+  executeTests();
 
   // TODO: with observable
   // beforeEachSetup();
   // executeTests();
   afterEach(() => {
-    fixture.destroy()
-  })
+    fixture.destroy();
+  });
 });

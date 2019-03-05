@@ -6,12 +6,10 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DocService {
-
-  private API_URL="assets/documentation-data.json";
-  constructor(private _httpClient: HttpClient) { }
+  private API_URL = 'assets/documentation-data.json';
+  constructor(private _httpClient: HttpClient) {}
 
   getDocData(topic: string) {
-    return this._httpClient.get(this.API_URL)
-      .pipe(map(d => d[topic]));
+    return this._httpClient.get(this.API_URL).pipe(map(d => d[topic]));
   }
 }

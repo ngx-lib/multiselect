@@ -1,15 +1,15 @@
-.bullet{
-    list-style-type: bullet;
+.bullet {
+  list-style-type: bullet;
 }
 
 .banner-container {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    background: #3f51b5;
-    color: white
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background: #3f51b5;
+  color: white;
 }
 
 .center {
-    text-align: center
+  text-align: center;
 }

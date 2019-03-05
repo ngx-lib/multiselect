@@ -4,54 +4,56 @@ import { Directive, HostListener, Input, ElementRef, Output, EventEmitter } from
   selector: '[msVirtualScroll]'
 })
 export class VirtualScrollDirective {
-  private _totalCount: number
-  top: HTMLElement
-  bottom: HTMLElement
-  scrollOffset = 0
-  @Input() itemHeight: number = 40
-  @Input() set totalCount(count) { 
-    this._totalCount = count 
-    count ? this.initialSetup(): this.reset();
+  private _totalCount: number;
+  top: HTMLElement;
+  bottom: HTMLElement;
+  scrollOffset = 0;
+  @Input() itemHeight: number = 40;
+  @Input() set totalCount(count) {
+    this._totalCount = count;
+    count ? this.initialSetup() : this.reset();
   }
-  get() { return this._totalCount } 
-  @Output() rangeChanged = new EventEmitter<any>()
-  private scrollTimer
-  private lastScrollFireTime = 0
-  constructor(private el: ElementRef) { }
+  get() {
+    return this._totalCount;
+  }
+  @Output() rangeChanged = new EventEmitter<any>();
+  private scrollTimer;
+  private lastScrollFireTime = 0;
+  constructor(private el: ElementRef) {}
 
-  reset () {
-    this.top = this.el.nativeElement.querySelector('.top')
-    this.bottom = this.el.nativeElement.querySelector('.bottom')
+  reset() {
+    this.top = this.el.nativeElement.querySelector('.top');
+    this.bottom = this.el.nativeElement.querySelector('.bottom');
     this.top.style.height = '0';
     this.bottom.style.height = '0';
-    this.el.nativeElement.scrollTop = '0'
+    this.el.nativeElement.scrollTop = '0';
   }
 
   throttleScroll(target) {
     const { scrollTop, clientHeight } = target;
     const totalHeight = this.itemHeight * this._totalCount + this.scrollOffset;
-    
+
     // Step: 1 - Calculate the position
     const topSpacing = scrollTop;
-    const maxItemsRange = (clientHeight - this.scrollOffset) / this.itemHeight
+    const maxItemsRange = (clientHeight - this.scrollOffset) / this.itemHeight;
 
     // Step: 2 - What are the possible collection that can be rendered
-    const rangeOffset = topSpacing % this.itemHeight
-    const rangeStart = topSpacing - rangeOffset
-    const topNonVisible = topSpacing / this.itemHeight
-    const itemStartRange = Math.floor(topNonVisible)
-    const rangeToBeIncreamented = rangeOffset ? maxItemsRange + 1: maxItemsRange
-    const calculatedEndRange = itemStartRange + rangeToBeIncreamented
-    const itemEndRange = calculatedEndRange >= this._totalCount ? this._totalCount : calculatedEndRange
-    const bottomSpacing = totalHeight - (rangeStart + rangeToBeIncreamented * this.itemHeight)
+    const rangeOffset = topSpacing % this.itemHeight;
+    const rangeStart = topSpacing - rangeOffset;
+    const topNonVisible = topSpacing / this.itemHeight;
+    const itemStartRange = Math.floor(topNonVisible);
+    const rangeToBeIncreamented = rangeOffset ? maxItemsRange + 1 : maxItemsRange;
+    const calculatedEndRange = itemStartRange + rangeToBeIncreamented;
+    const itemEndRange = calculatedEndRange >= this._totalCount ? this._totalCount : calculatedEndRange;
+    const bottomSpacing = totalHeight - (rangeStart + rangeToBeIncreamented * this.itemHeight);
 
     // Step: 3 - Pass the range to the child directive
     this.top.style.height = rangeStart + 'px';
     this.bottom.style.height = bottomSpacing + 'px';
-    this.rangeChanged.emit({ start: itemStartRange, end: itemEndRange })
+    this.rangeChanged.emit({ start: itemStartRange, end: itemEndRange });
   }
 
-  @HostListener('scroll', ['$event']) 
+  @HostListener('scroll', ['$event'])
   onscroll({ target }) {
     const minScrollTime = 50;
     const now = new Date().getTime();
@@ -62,19 +64,18 @@ export class VirtualScrollDirective {
       this.scrollTimer = setTimeout(() => {
         this.scrollTimer = null;
         this.lastScrollFireTime = new Date().getTime();
-        this.throttleScroll(target)
+        this.throttleScroll(target);
       }, minScrollTime);
     }
   }
 
-  initialSetup () {
+  initialSetup() {
     // TODO: later think of usng ViewChild, instead of direct DOM manipulation.
-    const {scrollTop, clientHeight} = this.el.nativeElement
-    this.top = this.el.nativeElement.querySelector('.top')
-    this.bottom = this.el.nativeElement.querySelector('.bottom')
+    const { scrollTop, clientHeight } = this.el.nativeElement;
+    this.top = this.el.nativeElement.querySelector('.top');
+    this.bottom = this.el.nativeElement.querySelector('.bottom');
     this.top.style.height = scrollTop + 'px';
     this.bottom.style.height = this.itemHeight * this._totalCount + this.scrollOffset - clientHeight + 'px';
-    this.el.nativeElement.scrollTop = 0
+    this.el.nativeElement.scrollTop = 0;
   }
-
 }

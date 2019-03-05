@@ -6,13 +6,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./layout-renderer.component.css']
 })
 export class LayoutRendererComponent implements OnInit {
-
   @Input()
   data: [any];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

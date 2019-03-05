@@ -6,13 +6,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./demo.component.css']
 })
 export class DemoComponent implements OnInit {
-
   @Input()
   component: string;
-  
-  constructor() { }
 
-  ngOnInit() {
-  }
+  constructor() {}
 
+  ngOnInit() {}
 }

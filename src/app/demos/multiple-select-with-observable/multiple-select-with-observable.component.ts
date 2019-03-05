@@ -8,29 +8,25 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./multiple-select-with-observable.component.css']
 })
 export class MultipleSelectWithObservableComponent implements OnInit {
-
   observableOptions;
 
-  constructor (private appService: AppService) {}
+  constructor(private appService: AppService) {}
 
-  withObservable = new FormControl([
-    {id: 1, name: 'Test 1'},
-  ]);
+  withObservable = new FormControl([{ id: 1, name: 'Test 1' }]);
 
   propertyMap = {
-    'EmpId': 'id',
-    'EmpName': 'name'
+    EmpId: 'id',
+    EmpName: 'name'
   };
-  
+
   ngOnInit(): void {
     // Retrieving data for dropdown
     this.observableOptions = this.appService.getObservableOptions();
   }
 
   genericEvent($event, eventName) {
-    console.log('Event fired '+ eventName, $event)
+    console.log('Event fired ' + eventName, $event);
   }
 
-  ngOnDestroy () {
-  }
+  ngOnDestroy() {}
 }

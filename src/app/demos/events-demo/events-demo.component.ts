@@ -8,21 +8,16 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./events-demo.component.css']
 })
 export class EventsDemoComponent implements OnInit {
-
   groupingOptions;
   message: string;
 
-  constructor (private appService: AppService) {}
+  constructor(private appService: AppService) {}
 
-  groupingSupport = new FormControl([
-    {id: 1, name: 'Test 1'},
-  ]);
+  grouping = new FormControl([{ id: 1, name: 'Test 1' }]);
 
   ngOnInit(): void {
     // Retrieving data for dropdown
-    this.appService.getGroupingOptions().subscribe(
-      data => this.groupingOptions = data
-    );
+    this.appService.getGroupingOptions().subscribe(data => (this.groupingOptions = data));
   }
 
   onOpenFired() {

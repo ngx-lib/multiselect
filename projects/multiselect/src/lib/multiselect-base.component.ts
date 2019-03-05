@@ -3,32 +3,28 @@ import { HostListener, ElementRef } from '@angular/core';
 import { NgxMultiselectService } from './services/multiselect.service';
 
 export abstract class NgxMultiselectBaseComponent implements ControlValueAccessor {
-  
   private operationPendingQueue: any[] = [];
   protected _defaultPropertyMap = {
-    'id': 'id',
-    'name': 'name',
-    'disabled': 'disabled'
+    id: 'id',
+    name: 'name',
+    disabled: 'disabled'
   };
-  protected _defaultPropertyMapLength = Object.keys(this._defaultPropertyMap).length
+  protected _defaultPropertyMapLength = Object.keys(this._defaultPropertyMap).length;
   abstract _options: any[];
   abstract isOpen: boolean;
   abstract multiple: boolean;
   abstract close(): void;
 
-  constructor(
-    protected elementRef: ElementRef,
-    protected multiselectService: NgxMultiselectService) {
-  }
+  constructor(protected elementRef: ElementRef, protected multiselectService: NgxMultiselectService) {}
 
   // Adding pending operation in queue
   addOperation(item) {
-    this.operationPendingQueue.push(item)
+    this.operationPendingQueue.push(item);
   }
 
   // Poping pending operation from queue sequentially
   popOperation() {
-    return this.operationPendingQueue.pop()
+    return this.operationPendingQueue.pop();
   }
 
   /* 
@@ -44,7 +40,7 @@ export abstract class NgxMultiselectBaseComponent implements ControlValueAccesso
 
   // Check pending operation queue status
   isOperationPending() {
-    return this.operationPendingQueue.length
+    return this.operationPendingQueue.length;
   }
 
   private _initialValue: any;
@@ -62,9 +58,9 @@ export abstract class NgxMultiselectBaseComponent implements ControlValueAccesso
   writeValue(value) {
     // Set selected value for initial load of value
     if (value) {
-      this.initialValue = value
-      this._options ? this.prepopulateOptions(value): this.addOperation(value)
-      this.formatPrepopulatedValues(value)
+      this.initialValue = value;
+      this._options ? this.prepopulateOptions(value) : this.addOperation(value);
+      this.formatPrepopulatedValues(value);
     }
   }
   private formatPrepopulatedValues(value): any {
@@ -72,23 +68,23 @@ export abstract class NgxMultiselectBaseComponent implements ControlValueAccesso
     // TODO: can we improve below logic?
     if (Object.keys(this._defaultPropertyMap).length == this._defaultPropertyMapLength) return;
     const swappedPropertyMap: any = this.multiselectService.swap(this._defaultPropertyMap);
-    if(this.multiple) {
+    if (this.multiple) {
       options.forEach(o => {
-        o.id = o[swappedPropertyMap.id]
-        o.name = o[swappedPropertyMap.name]
-      })
+        o.id = o[swappedPropertyMap.id];
+        o.name = o[swappedPropertyMap.name];
+      });
     } else {
-      value.id = value[swappedPropertyMap.id]
-      value.name = value[swappedPropertyMap.name]
-      options = value
+      value.id = value[swappedPropertyMap.id];
+      value.name = value[swappedPropertyMap.name];
+      options = value;
     }
   }
 
-  registerOnChange(fn: (value: any) => any): void { 
-    this.onChange = fn; 
+  registerOnChange(fn: (value: any) => any): void {
+    this.onChange = fn;
   }
 
-  registerOnTouched(fn: () => any): void { 
+  registerOnTouched(fn: () => any): void {
     this.onTouched = fn;
   }
 
@@ -96,7 +92,11 @@ export abstract class NgxMultiselectBaseComponent implements ControlValueAccesso
   // TODO: Also convert below to be work for element specific
   @HostListener('document:click', ['$event.target'])
   clickOutSide(event) {
-    if (this.isOpen && this.elementRef.nativeElement !== event && !this.multiselectService.closest(event, 'ngx-multiselect')) {
+    if (
+      this.isOpen &&
+      this.elementRef.nativeElement !== event &&
+      !this.multiselectService.closest(event, 'ngx-multiselect')
+    ) {
       this.close();
     }
   }

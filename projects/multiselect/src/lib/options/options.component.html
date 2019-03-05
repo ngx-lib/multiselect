@@ -1,16 +1,26 @@
 <div class="options-container" msVirtualScroll [totalCount]="_options?.length" (rangeChanged)="updateRange($event)">
   <div #top class="top"></div>
-  <ng-container *ngIf="filteredOptions.length else noOptions">
-    <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of filteredOptions" (click)="select(option)">
-      <ng-container *ngTemplateOutlet="optionsTemplate;context: {
-        option: this.option
-      }"></ng-container>
+  <ng-container *ngIf="filteredOptions.length; else noOptions">
+    <div
+      class="option"
+      [ngClass]="getOptionStyle(option)"
+      *ngFor="let option of filteredOptions"
+      (click)="select(option)"
+    >
+      <ng-container
+        *ngTemplateOutlet="
+          optionsTemplate;
+          context: {
+            option: this.option
+          }
+        "
+      ></ng-container>
     </div>
   </ng-container>
   <div #bottom class="bottom"></div>
 </div>
 <ng-template #defaultOptionsTemplate let-option="option">
-  {{option.name}}
+  {{ option.name }}
 </ng-template>
 <ng-template #noOptions let-option="option">
   <div class="option message">

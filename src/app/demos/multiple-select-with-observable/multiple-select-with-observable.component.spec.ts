@@ -8,9 +8,8 @@ describe('MultipleSelectWithObservableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MultipleSelectWithObservableComponent ]
-    })
-    .compileComponents();
+      declarations: [MultipleSelectWithObservableComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
