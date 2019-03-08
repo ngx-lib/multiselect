@@ -33,6 +33,7 @@ import { LargeVolumeDataComponent } from './demos/large-volume-data/large-volume
 import { SimpleDemoComponent } from './demos/simple-demo/simple-demo.component';
 import { EventsDemoComponent } from './demos/events-demo/events-demo.component';
 import { BootstrapThemeComponent } from './demos/bootstrap-theme/bootstrap-theme.component';
+import { GettingStartedComponent } from './demos/getting-started/getting-started.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { BootstrapThemeComponent } from './demos/bootstrap-theme/bootstrap-theme
     LayoutRendererComponent,
     SimpleDemoComponent,
     EventsDemoComponent,
-    BootstrapThemeComponent
+    BootstrapThemeComponent,
+    GettingStartedComponent
   ],
   imports: [
     BrowserModule,
