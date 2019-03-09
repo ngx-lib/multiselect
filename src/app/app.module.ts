@@ -24,7 +24,6 @@ import { LayoutRendererComponent } from './layout-renderer/layout-renderer.compo
 
 import { MultipleSelectGroupingComponent } from './demos/multiple-select-grouping/multiple-select-grouping.component';
 import { MultipleSelectWithObservableComponent } from './demos/multiple-select-with-observable/multiple-select-with-observable.component';
-import { CustomTemplateComponent } from './demos/custom-template/custom-template.component';
 import { SingleSelectWithPropertyMapComponent } from './demos/single-select-with-property-map/single-select-with-property-map.component';
 import { SingleSelectTemplateDrivenComponent } from './demos/single-select-template-driven/single-select-template-driven.component';
 import { OptionsLazyLoadingComponent } from './demos/options-lazy-loading/options-lazy-loading.component';
@@ -40,6 +39,9 @@ import { ObservableAsyncComponent } from './demos/doc-demos/observable-async/obs
 import { ObservableAsyncServiceComponent } from './demos/doc-demos/observable-async-service/observable-async-service.component';
 import { ObservableSubscribeComponent } from './demos/doc-demos/observable-subscribe/observable-subscribe.component';
 import { ObservableDynamicUpdateComponent } from './demos/doc-demos/observable-dynamic-update/observable-dynamic-update.component';
+import { CustomTemplateComponent } from './demos/doc-demos/custom-template/custom-template.component';
+import { GroupingComponent } from './demos/doc-demos/grouping/grouping.component';
+import { GroupingCustomKeyComponent } from './demos/doc-demos/grouping-custom-key/grouping-custom-key.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,6 @@ import { ObservableDynamicUpdateComponent } from './demos/doc-demos/observable-d
     SingleSelectTemplateDrivenComponent,
     MultipleSelectGroupingComponent,
     MultipleSelectWithObservableComponent,
-    CustomTemplateComponent,
     SingleSelectWithPropertyMapComponent,
     OptionsLazyLoadingComponent,
     LargeVolumeDataComponent,
@@ -73,7 +74,10 @@ import { ObservableDynamicUpdateComponent } from './demos/doc-demos/observable-d
     ObservableAsyncComponent,
     ObservableAsyncServiceComponent,
     ObservableSubscribeComponent,
-    ObservableDynamicUpdateComponent
+    ObservableDynamicUpdateComponent,
+    CustomTemplateComponent,
+    GroupingComponent,
+    GroupingCustomKeyComponent
   ],
   imports: [
     BrowserModule,

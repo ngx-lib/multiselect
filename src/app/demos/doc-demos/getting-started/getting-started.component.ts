@@ -31,7 +31,7 @@ export class GettingStartedComponent implements OnInit {
       },
       {
         "id": 5,
-        "name": "Paris"
+        "name": "France"
       }
     ];
     this.selectedOptions = [{

@@ -4,7 +4,7 @@ import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'ms-custom-template',
+  selector: 'ms-custom-template-demo',
   templateUrl: './custom-template.component.html',
   styleUrls: ['./custom-template.component.css']
 })
