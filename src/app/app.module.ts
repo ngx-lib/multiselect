@@ -34,6 +34,7 @@ import { SimpleDemoComponent } from './demos/simple-demo/simple-demo.component';
 import { EventsDemoComponent } from './demos/events-demo/events-demo.component';
 import { BootstrapThemeComponent } from './demos/bootstrap-theme/bootstrap-theme.component';
 import { GettingStartedComponent } from './demos/getting-started/getting-started.component';
+import { SingleSelectComponent } from './demos/single-select/single-select.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { GettingStartedComponent } from './demos/getting-started/getting-started
     SimpleDemoComponent,
     EventsDemoComponent,
     BootstrapThemeComponent,
-    GettingStartedComponent
+    GettingStartedComponent,
+    SingleSelectComponent
   ],
   imports: [
     BrowserModule,
