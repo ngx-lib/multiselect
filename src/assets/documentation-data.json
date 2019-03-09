@@ -5,7 +5,7 @@
       {
         "component": "demoContainer",
         "data": {
-          "component": "simpleDemo",
+          "component": "demoShowcase",
           "tsCode": "",
           "htmlCode": "",
           "cssCode": ""

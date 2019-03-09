@@ -23,11 +23,7 @@ import { CodeViewComponent } from './code-view/code-view.component';
 import { LayoutRendererComponent } from './layout-renderer/layout-renderer.component';
 
 import { PropertyMapComponent } from './demos/doc-demos/propertymap/propertymap.component';
-import { MultipleSelectWithObservableComponent } from './demos/multiple-select-with-observable/multiple-select-with-observable.component';
-import { SingleSelectTemplateDrivenComponent } from './demos/single-select-template-driven/single-select-template-driven.component';
-import { OptionsLazyLoadingComponent } from './demos/options-lazy-loading/options-lazy-loading.component';
-import { LargeVolumeDataComponent } from './demos/large-volume-data/large-volume-data.component';
-import { SimpleDemoComponent } from './demos/simple-demo/simple-demo.component';
+import { LargeVolumeDataComponent } from './demos/testing-demos/large-volume-data/large-volume-data.component';
 import { EventsDemoComponent } from './demos/doc-demos/events/events.component';
 import { ThemeComponent } from './demos/doc-demos/theme/theme.component';
 import { GettingStartedComponent } from './demos/doc-demos/getting-started/getting-started.component';
@@ -41,14 +37,12 @@ import { ObservableDynamicUpdateComponent } from './demos/doc-demos/observable-d
 import { CustomTemplateComponent } from './demos/doc-demos/custom-template/custom-template.component';
 import { GroupingComponent } from './demos/doc-demos/grouping/grouping.component';
 import { EnableDisableComponent } from './demos/doc-demos/enable-disable/enable-disable.component';
+import { DemoShowcaseComponent } from './demos/testing-demos/demo-showcase/demo-showcase.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SingleSelectTemplateDrivenComponent,
     PropertyMapComponent,
-    MultipleSelectWithObservableComponent,
-    OptionsLazyLoadingComponent,
     LargeVolumeDataComponent,
     NavbarComponent,
     BannerComponent,
@@ -62,7 +56,6 @@ import { EnableDisableComponent } from './demos/doc-demos/enable-disable/enable-
     DemoComponent,
     CodeViewComponent,
     LayoutRendererComponent,
-    SimpleDemoComponent,
     EventsDemoComponent,
     ThemeComponent,
     GettingStartedComponent,
@@ -75,7 +68,8 @@ import { EnableDisableComponent } from './demos/doc-demos/enable-disable/enable-
     ObservableDynamicUpdateComponent,
     CustomTemplateComponent,
     GroupingComponent,
-    EnableDisableComponent
+    EnableDisableComponent,
+    DemoShowcaseComponent
   ],
   imports: [
     BrowserModule,
