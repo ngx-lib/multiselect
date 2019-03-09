@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { AppService } from '../../app.service';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -8,6 +6,7 @@ import { FormControl } from '@angular/forms';
   templateUrl: './model-driven.component.html'
 })
 export class ModelDrivenComponent implements OnInit {
+
   options;
   selectedOption;
 
@@ -43,4 +42,5 @@ export class ModelDrivenComponent implements OnInit {
       "name": "Chelsea F.C."
     },]);
   }
+
 }

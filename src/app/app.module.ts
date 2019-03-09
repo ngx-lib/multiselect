@@ -22,7 +22,6 @@ import { DemoComponent } from './demo/demo.component';
 import { CodeViewComponent } from './code-view/code-view.component';
 import { LayoutRendererComponent } from './layout-renderer/layout-renderer.component';
 
-import { ModelDrivenComponent } from './demos/model-driven/model-driven.component';
 import { MultipleSelectGroupingComponent } from './demos/multiple-select-grouping/multiple-select-grouping.component';
 import { MultipleSelectWithObservableComponent } from './demos/multiple-select-with-observable/multiple-select-with-observable.component';
 import { CustomTemplateComponent } from './demos/custom-template/custom-template.component';
@@ -36,12 +35,12 @@ import { BootstrapThemeComponent } from './demos/bootstrap-theme/bootstrap-theme
 import { GettingStartedComponent } from './demos/doc-demos/getting-started/getting-started.component';
 import { SingleSelectComponent } from './demos/doc-demos/single-select/single-select.component';
 import { TemplateDrivenComponent } from './demos/doc-demos/template-driven/template-driven.component';
+import { ModelDrivenComponent } from './demos/doc-demos/model-driven/model-driven.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SingleSelectTemplateDrivenComponent,
-    ModelDrivenComponent,
     MultipleSelectGroupingComponent,
     MultipleSelectWithObservableComponent,
     CustomTemplateComponent,
@@ -65,7 +64,8 @@ import { TemplateDrivenComponent } from './demos/doc-demos/template-driven/templ
     BootstrapThemeComponent,
     GettingStartedComponent,
     SingleSelectComponent,
-    TemplateDrivenComponent
+    TemplateDrivenComponent,
+    ModelDrivenComponent
   ],
   imports: [
     BrowserModule,
