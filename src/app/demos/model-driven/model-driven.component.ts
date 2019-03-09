@@ -5,29 +5,42 @@ import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'ms-model-driven',
-  templateUrl: './model-driven.component.html',
-  styleUrls: ['./model-driven.component.css']
+  templateUrl: './model-driven.component.html'
 })
 export class ModelDrivenComponent implements OnInit {
-  multipleSelectOptions;
-  multipleSelectOptionsSubscription: Subscription;
+  options;
+  selectedOption;
 
-  constructor(private appService: AppService) {}
-
-  mutlipleSelect = new FormControl([{ id: 1, name: 'Test 1' }, { id: 2, name: 'Test 2' }]);
+  constructor() {}
 
   ngOnInit(): void {
-    // Retrieving data for dropdown
-    this.multipleSelectOptionsSubscription = this.appService
-      .getMultipleSelectOptions()
-      .subscribe(data => (this.multipleSelectOptions = data));
-  }
-
-  genericEvent($event, eventName) {
-    console.log('Event fired ' + eventName, $event);
-  }
-
-  ngOnDestroy() {
-    this.multipleSelectOptionsSubscription.unsubscribe();
+    this.options = [{
+      "id": 1,
+      "name": "Manchester United"
+    },
+    {
+      "id": 2,
+      "name": "Liverpool F.C."
+    },
+    {
+      "id": 3,
+      "name": "Chelsea F.C."
+    },
+    {
+      "id": 4,
+      "name": "Arsenal F.C."
+    },
+    {
+      "id": 5,
+      "name": "FC Barcelona"
+    }];
+    this.selectedOption = new FormControl([{
+      "id": 2,
+      "name": "Liverpool F.C."
+    },
+    {
+      "id": 3,
+      "name": "Chelsea F.C."
+    },]);
   }
 }
