@@ -1,63 +1,33 @@
 # Multiselect
 
-This project basically gonna help using dropdown / select in efficient manner. This idea has been inspired by AngularJS [isteven-multiselect](http://isteven.github.io/angular-multi-select). In terms of UI it will look somewhat similar to isteven multiselect, but interms of code it may not exactly architectured in the same way.
-Currently I'm planning to support the feature provided by isteven-multiselect, plus other features. Still this library is under beta version.
+This project basically focused on serving a alternative and intutive select. This idea this UI component has been inspired by AngularJS [isteven-multiselect](http://isteven.github.io/angular-multi-select) directives. In terms of UI it might look somewhat similar to isteven multiselect, but interms of code it may not exactly architectured in the same way.
+Currently I'm planning to support the feature provided by isteven-multiselect, plus there are some other important features.
 
-Using Angular 7 version right now.
+# Roadmap
 
-## Plans
+check [Roadmap.md](https://github.com/ngx-lib/multiselect/blob/master/ROADMAP.md)
 
-This plans are based on current idea, it could change in future. First thing I'd like to cover all the features that have been used in the branch. Each feature will make sure that it should done in optimistic way of 
+**Note:** If you're willing to contribute please ping me on pankajparkar@outlook.com. 
 
- 1. ~~Single Select~~
- 2. ~~Multiple Select~~
- 3. Callbacks
- 4. ~~Enable / Disable~~
- 5. Form Support with ControlValueAccessor
-    a) Template Driven form
-    b) Model Driven form
- 6. Output Events 
- 7. ~~Helper Elements~~ (TODO: Reset)
- 8. Grouping
- 9. Dynamic Update datasource
-10. Observable Friendly
-11. Lazy loading smooth support.
-12. Small component for each small component
-    a) Input filter template
-    b) Helper buttons
-    c) List options
-13. Configuration Super Easy
-14. NgIvy friendly
-15. Angular Elements friendly
-16. i18 support.
-17. Server side rendering support
-18. Optimal / Super fast rendering.
-19. Theming Support
-20. Angular 2+ Support (make it backword compatible).
+# Development server
 
-Estimates of each fetures will be added soon. Stay toon. 
-I've not started the work 
-
-**Note:** This repository is into early architecting phase (alpha state), interested can ping me on pankajparkar@outlook.com for contribution purpose.
-
-## Development server
-
-This project is highly under construction. To run this project you have to run below commands
-1. `ng build multiselect`
-2. `ng serve`
-
+Before start everything make sure you've latest version of angular-cli, if not then run below command
+```
+npm i -g @angular/cli@latest
+```
 To play around with this repository you have to run below two commands
 1. `npm run multiselect-watch` - This command will help to build multiselect library everytime when you change any file from it.  
-2. `ng serve` - To run application, it will consume live multiselect library
+2. `npm start` - To run application, it will consume live multiselect library
 
-## Track Realtime Status of Feature
+# Running unit tests
 
-[Trello Board here](https://trello.com/b/fsr5Xewa/ngx-isteven-mutiselect)
+## Run test cases
 
-## Running unit tests
+`ng test --project='multiselect'`
 
-TODO
+## Check code coverage
 
-## Further help
+1. `ng test --project='multiselect' --code-coverage`
+2. `npx http-server -c-1 -o -p 9875 ./coverage`
 
-Feel free to contribute to repository
+![alt text](https://raw.githubusercontent.com/ngx-lib/multiselect/master/code-coverage.png)

@@ -1,0 +1,11 @@
+<h2>Multiple Select (With Observable)</h2>
+<div>
+  <ngx-multiselect
+    [formControl]="withObservable"
+    ngDefaultControl
+    [options]="observableOptions | async"
+    [multiple]="true"
+  >
+  </ngx-multiselect>
+</div>
+<b>Selected Values: </b> {{ withObservable?.value | json }}

@@ -1,0 +1,11 @@
+<ng-container *ngFor="let compData of data">
+  <ng-container *ngIf="compData.component === 'content'">
+    <ms-content [content]="compData.data"></ms-content>
+  </ng-container>
+  <ng-container *ngIf="compData.component === 'note'">
+    <ms-note [note]="compData.data"></ms-note>
+  </ng-container>
+  <ng-container *ngIf="compData.component === 'demoContainer'">
+    <ms-demo-container [data]="compData.data"></ms-demo-container>
+  </ng-container>
+</ng-container>

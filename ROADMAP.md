@@ -26,7 +26,7 @@ This plans are based on current idea, it could change in future. First thing I'd
 15. Angular Elements friendly
 16. i18 support.
 17. Server side rendering support
-18. Optimal / Super fast rendering.
+18. ~~Optimal / Super fast rendering.~~
 19. Theming Support
 20. Angular 2+ Support (make it backword compatible).
 
