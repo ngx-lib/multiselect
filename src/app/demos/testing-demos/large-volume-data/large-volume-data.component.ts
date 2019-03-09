@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { AppService } from '../../app.service';
+import { AppService } from '../../../app.service';
 
 @Component({
   selector: 'ms-large-volume-data',
-  templateUrl: './large-volume-data.component.html',
-  styleUrls: ['./large-volume-data.component.css']
+  templateUrl: './large-volume-data.component.html']
 })
 export class LargeVolumeDataComponent implements OnInit {
   largeDatasetOptions;
