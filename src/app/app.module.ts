@@ -33,8 +33,8 @@ import { LargeVolumeDataComponent } from './demos/large-volume-data/large-volume
 import { SimpleDemoComponent } from './demos/simple-demo/simple-demo.component';
 import { EventsDemoComponent } from './demos/events-demo/events-demo.component';
 import { BootstrapThemeComponent } from './demos/bootstrap-theme/bootstrap-theme.component';
-import { GettingStartedComponent } from './demos/getting-started/getting-started.component';
-import { SingleSelectComponent } from './demos/single-select/single-select.component';
+import { GettingStartedComponent } from './demos/doc-demos/getting-started/getting-started.component';
+import { SingleSelectComponent } from './demos/doc-demos/single-select/single-select.component';
 
 @NgModule({
   declarations: [
