@@ -100,3 +100,13 @@
   pointer-events:none;
   cursor: not-allowed !important;
 }
+.close{
+  float: right;
+  margin-right: 15px;
+}
+.close:hover{
+  color:black;
+}
+.caret:hover {
+  color:grey;
+}
