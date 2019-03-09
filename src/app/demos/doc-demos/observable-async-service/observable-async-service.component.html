@@ -1,7 +1,7 @@
 <p>Select your favourite teams from the following</p>
 <ngx-multiselect
-  [formControl]="selectedOptions"
   ngDefaultControl
-  [options]="options"
+  [(ngModel)]="selectedOptions"
+  [options]="options | async"
   [multiple]="true">
 </ngx-multiselect>

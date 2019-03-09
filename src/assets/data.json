@@ -99,23 +99,23 @@
   "observableOptions": [
     {
       "id": 1,
-      "name": "Test 1"
+      "name": "Manchester United"
     },
     {
       "id": 2,
-      "name": "Test 2"
+      "name": "Liverpool F.C."
     },
     {
       "id": 3,
-      "name": "Test 3"
+      "name": "Chelsea F.C."
     },
     {
       "id": 4,
-      "name": "Test 4"
+      "name": "Arsenal F.C."
     },
     {
       "id": 5,
-      "name": "Test 5"
+      "name": "FC Barcelona"
     }
   ],
   "persons": [

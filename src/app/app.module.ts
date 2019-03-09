@@ -36,6 +36,8 @@ import { GettingStartedComponent } from './demos/doc-demos/getting-started/getti
 import { SingleSelectComponent } from './demos/doc-demos/single-select/single-select.component';
 import { TemplateDrivenComponent } from './demos/doc-demos/template-driven/template-driven.component';
 import { ModelDrivenComponent } from './demos/doc-demos/model-driven/model-driven.component';
+import { ObservableAsyncComponent } from './demos/doc-demos/observable-async/observable-async.component';
+import { ObservableAsyncServiceComponent } from './demos/doc-demos/observable-async-service/observable-async-service.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import { ModelDrivenComponent } from './demos/doc-demos/model-driven/model-drive
     GettingStartedComponent,
     SingleSelectComponent,
     TemplateDrivenComponent,
-    ModelDrivenComponent
+    ModelDrivenComponent,
+    ObservableAsyncComponent,
+    ObservableAsyncServiceComponent
   ],
   imports: [
     BrowserModule,

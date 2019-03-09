@@ -1,7 +1,7 @@
-<p>Select your favourite teams from the following</p>
+<p>Observable Async Demo</p>
 <ngx-multiselect
   [formControl]="selectedOptions"
   ngDefaultControl
-  [options]="options"
+  [options]="observableOptions | async"
   [multiple]="true">
 </ngx-multiselect>

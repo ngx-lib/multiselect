@@ -6,8 +6,8 @@
         "component": "demoContainer",
         "data": {
           "component": "simpleDemo",
-          "tsCode": "ZXhwb3J0IGNsYXNzIFNpbXBsZURlbW9Db21wb25lbnR7CgogIHNlbGVjdGVkQ291bnRyeSA9IHsKICAgIGlkOiAxLAogICAgbmFtZTogJ0luZGlhJwogIH07CgogIGNvdW50cmllcyA9IFt7CiAgICBpZDogMSwKICAgIG5hbWU6ICdJbmRpYScKICB9LCB7CiAgICBpZDogMiwKICAgIG5hbWU6ICdVU0EnCiAgfSwgewogICAgaWQ6IDMsCiAgICBuYW1lOiAnSmFwYW4nCiAgfSwgewogICAgaWQ6IDQsCiAgICBuYW1lOiAnQ2hpbmEnCiAgfSwgewogICAgaWQ6IDUsCiAgICBuYW1lOiAnQnJhemlsJwogIH0sIHsKICAgIGlkOiA2LAogICAgbmFtZTogJ0F1c3RyYWxpYScKICB9XTsKCn0=",
-          "htmlCode": "PG5neC1tdWx0aXNlbGVjdCAKICBbKG5nTW9kZWwpXT0ic2VsZWN0ZWRDb3VudHJ5IiAKICBbb3B0aW9uc109ImNvdW50cmllcyIgCiAgbmdEZWZhdWx0Q29udHJvbCA+Cjwvbmd4LW11bHRpc2VsZWN0Pgo=",
+          "tsCode": "",
+          "htmlCode": "",
           "cssCode": ""
         }
       }

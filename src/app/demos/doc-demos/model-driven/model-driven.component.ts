@@ -8,7 +8,7 @@ import { FormControl } from '@angular/forms';
 export class ModelDrivenComponent implements OnInit {
 
   options;
-  selectedOption;
+  selectedOptions;
 
   constructor() {}
 
@@ -33,7 +33,7 @@ export class ModelDrivenComponent implements OnInit {
       "id": 5,
       "name": "FC Barcelona"
     }];
-    this.selectedOption = new FormControl([{
+    this.selectedOptions = new FormControl([{
       "id": 2,
       "name": "Liverpool F.C."
     },
