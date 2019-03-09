@@ -1,0 +1,9 @@
+<p>Observable Dynamic Update Demo</p>
+<ngx-multiselect
+  ngDefaultControl
+  [options]="observableOptions | async"
+  [multiple]="true">
+</ngx-multiselect>
+
+<button (click)="populateDropdown()">Click Here to populate dropdown</button>
+
