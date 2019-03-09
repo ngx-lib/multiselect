@@ -29,7 +29,7 @@ import { SingleSelectTemplateDrivenComponent } from './demos/single-select-templ
 import { OptionsLazyLoadingComponent } from './demos/options-lazy-loading/options-lazy-loading.component';
 import { LargeVolumeDataComponent } from './demos/large-volume-data/large-volume-data.component';
 import { SimpleDemoComponent } from './demos/simple-demo/simple-demo.component';
-import { EventsDemoComponent } from './demos/events-demo/events-demo.component';
+import { EventsDemoComponent } from './demos/doc-demos/events/events.component';
 import { BootstrapThemeComponent } from './demos/bootstrap-theme/bootstrap-theme.component';
 import { GettingStartedComponent } from './demos/doc-demos/getting-started/getting-started.component';
 import { SingleSelectComponent } from './demos/doc-demos/single-select/single-select.component';

@@ -3,21 +3,37 @@ import { AppService } from 'src/app/app.service';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'ms-events-demo',
-  templateUrl: './events-demo.component.html',
-  styleUrls: ['./events-demo.component.css']
+  selector: 'ms-events',
+  templateUrl: './events.component.html'
 })
 export class EventsDemoComponent implements OnInit {
-  groupingOptions;
+  options;
   message: string;
 
-  constructor(private appService: AppService) {}
-
-  grouping = new FormControl([{ id: 1, name: 'Test 1' }]);
+  constructor() {}
 
   ngOnInit(): void {
     // Retrieving data for dropdown
-    this.appService.getGroupingOptions().subscribe(data => (this.groupingOptions = data));
+    this.options = [{
+      "id": 1,
+      "name": "Manchester United"
+    },
+    {
+      "id": 2,
+      "name": "Liverpool F.C."
+    },
+    {
+      "id": 3,
+      "name": "Chelsea F.C."
+    },
+    {
+      "id": 4,
+      "name": "Arsenal F.C."
+    },
+    {
+      "id": 5,
+      "name": "FC Barcelona"
+    }];
   }
 
   onOpenFired() {
