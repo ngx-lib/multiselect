@@ -22,9 +22,8 @@ import { DemoComponent } from './demo/demo.component';
 import { CodeViewComponent } from './code-view/code-view.component';
 import { LayoutRendererComponent } from './layout-renderer/layout-renderer.component';
 
-import { MultipleSelectGroupingComponent } from './demos/multiple-select-grouping/multiple-select-grouping.component';
+import { PropertyMapComponent } from './demos/doc-demos/propertymap/propertymap.component';
 import { MultipleSelectWithObservableComponent } from './demos/multiple-select-with-observable/multiple-select-with-observable.component';
-import { SingleSelectWithPropertyMapComponent } from './demos/single-select-with-property-map/single-select-with-property-map.component';
 import { SingleSelectTemplateDrivenComponent } from './demos/single-select-template-driven/single-select-template-driven.component';
 import { OptionsLazyLoadingComponent } from './demos/options-lazy-loading/options-lazy-loading.component';
 import { LargeVolumeDataComponent } from './demos/large-volume-data/large-volume-data.component';
@@ -47,9 +46,8 @@ import { EnableDisableComponent } from './demos/doc-demos/enable-disable/enable-
   declarations: [
     AppComponent,
     SingleSelectTemplateDrivenComponent,
-    MultipleSelectGroupingComponent,
+    PropertyMapComponent,
     MultipleSelectWithObservableComponent,
-    SingleSelectWithPropertyMapComponent,
     OptionsLazyLoadingComponent,
     LargeVolumeDataComponent,
     NavbarComponent,
