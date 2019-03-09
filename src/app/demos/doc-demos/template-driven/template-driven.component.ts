@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ms-getting-started',
-  templateUrl: './getting-started.component.html'
+  selector: 'ms-template-driven',
+  templateUrl: './template-driven.component.html'
 })
-export class GettingStartedComponent implements OnInit {
+export class TemplateDrivenComponent implements OnInit {
 
   options;
   selectedOptions;
@@ -39,5 +39,4 @@ export class GettingStartedComponent implements OnInit {
       "name": "India"
     }];
   }
-
 }

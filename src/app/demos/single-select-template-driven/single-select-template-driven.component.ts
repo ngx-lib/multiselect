@@ -3,9 +3,8 @@ import { Subscription } from 'rxjs';
 import { AppService } from '../../app.service';
 
 @Component({
-  selector: 'ms-single-select',
-  templateUrl: './single-select-template-driven.component.html',
-  styleUrls: ['./single-select-template-driven.component.css']
+  selector: 'ms-single-select-demo',
+  templateUrl: './single-select-template-driven.component.html'
 })
 export class SingleSelectTemplateDrivenComponent implements OnInit {
   singleSelectOptions;
