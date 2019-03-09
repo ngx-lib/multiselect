@@ -41,7 +41,7 @@ import { ObservableSubscribeComponent } from './demos/doc-demos/observable-subsc
 import { ObservableDynamicUpdateComponent } from './demos/doc-demos/observable-dynamic-update/observable-dynamic-update.component';
 import { CustomTemplateComponent } from './demos/doc-demos/custom-template/custom-template.component';
 import { GroupingComponent } from './demos/doc-demos/grouping/grouping.component';
-import { GroupingCustomKeyComponent } from './demos/doc-demos/grouping-custom-key/grouping-custom-key.component';
+import { EnableDisableComponent } from './demos/doc-demos/enable-disable/enable-disable.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +77,7 @@ import { GroupingCustomKeyComponent } from './demos/doc-demos/grouping-custom-ke
     ObservableDynamicUpdateComponent,
     CustomTemplateComponent,
     GroupingComponent,
-    GroupingCustomKeyComponent
+    EnableDisableComponent
   ],
   imports: [
     BrowserModule,
