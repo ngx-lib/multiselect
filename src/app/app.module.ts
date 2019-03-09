@@ -38,6 +38,7 @@ import { TemplateDrivenComponent } from './demos/doc-demos/template-driven/templ
 import { ModelDrivenComponent } from './demos/doc-demos/model-driven/model-driven.component';
 import { ObservableAsyncComponent } from './demos/doc-demos/observable-async/observable-async.component';
 import { ObservableAsyncServiceComponent } from './demos/doc-demos/observable-async-service/observable-async-service.component';
+import { ObservableSubscribeComponent } from './demos/doc-demos/observable-subscribe/observable-subscribe.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { ObservableAsyncServiceComponent } from './demos/doc-demos/observable-as
     TemplateDrivenComponent,
     ModelDrivenComponent,
     ObservableAsyncComponent,
-    ObservableAsyncServiceComponent
+    ObservableAsyncServiceComponent,
+    ObservableSubscribeComponent
   ],
   imports: [
     BrowserModule,
