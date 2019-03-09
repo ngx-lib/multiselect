@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ms-bootstrap-theme',
-  templateUrl: './bootstrap-theme.component.html',
-  styleUrls: ['./bootstrap-theme.component.css']
+  selector: 'ms-theme',
+  templateUrl: './theme.component.html'
 })
-export class BootstrapThemeComponent {
+export class ThemeComponent {
   selectedCountry = {
     id: 1,
     name: 'India'

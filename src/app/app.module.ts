@@ -30,7 +30,7 @@ import { OptionsLazyLoadingComponent } from './demos/options-lazy-loading/option
 import { LargeVolumeDataComponent } from './demos/large-volume-data/large-volume-data.component';
 import { SimpleDemoComponent } from './demos/simple-demo/simple-demo.component';
 import { EventsDemoComponent } from './demos/doc-demos/events/events.component';
-import { BootstrapThemeComponent } from './demos/bootstrap-theme/bootstrap-theme.component';
+import { ThemeComponent } from './demos/doc-demos/theme/theme.component';
 import { GettingStartedComponent } from './demos/doc-demos/getting-started/getting-started.component';
 import { SingleSelectComponent } from './demos/doc-demos/single-select/single-select.component';
 import { TemplateDrivenComponent } from './demos/doc-demos/template-driven/template-driven.component';
@@ -66,7 +66,7 @@ import { EnableDisableComponent } from './demos/doc-demos/enable-disable/enable-
     LayoutRendererComponent,
     SimpleDemoComponent,
     EventsDemoComponent,
-    BootstrapThemeComponent,
+    ThemeComponent,
     GettingStartedComponent,
     SingleSelectComponent,
     TemplateDrivenComponent,
