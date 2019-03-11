@@ -1,0 +1,33 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": false,
+    "strictPropertyInitialization": false,
+    "skipLibCheck": true,
+    "outDir": "./dist/out-tsc",
+    "baseUrl": "src",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noUnusedLocals": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2016",
+      "dom"
+    ],
+    "module": "es2015"
+  },
+  "exclude": [
+    "content",
+    "tools",
+    "aio-builds-setup",
+    "node_modules",
+    "scripts"
+  ]
+}
