@@ -1,0 +1,16 @@
+<p>Select your favourite teams from the following</p>
+<ngx-multiselect
+  [formControl]="selectedOptions"
+  ngDefaultControl
+  [options]="options"
+  [multiple]="true"
+  [disabled]="isDisabled"
+  [groupedProperty]="'team'"
+  #multiSelect>
+</ngx-multiselect>
+
+<button (click)="disableWholeDropdown()">Disable Whole Dropdown</button>
+<button (click)="disableWholeDropdownTempRefVariable()">Disable Whole Dropdown Using Template Ref variable</button>
+<button (click)="disableFirstOption()">Disable First Option</button>
+<button (click)="disableWholeGroup()">Disable Group</button>
+
