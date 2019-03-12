@@ -250,5 +250,14 @@
   pointer-events: none;
   cursor: not-allowed !important;
 }
-
 /* Bootstrap multiselect theme end */
+.close{
+  float: right;
+  margin-right: 15px;
+}
+.close:hover{
+  color:black;
+}
+.caret:hover {
+  color:grey;
+}
