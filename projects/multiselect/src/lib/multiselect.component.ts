@@ -255,8 +255,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
 
   clear(event){
     this._selectedOptions.ticked = !this._selectedOptions.ticked;
-    let val = this._selectedOptions && this._selectedOptions.id;
-    let changedOptions = this.getOptions().map(o => ({...o, ticked: o.id == val && this._selectedOptions.ticked}));
+    let changedOptions = this.getOptions().map(o => ({...o, ticked: false}));
     this.setOptions(changedOptions);
     // no value is selected so passing null
     this.viewToModel(null);
