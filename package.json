@@ -48,6 +48,10 @@
     "rxjs": "^6.2.2",
     "zone.js": "^0.8.26"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ngx-lib/multiselect.git"
+  },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.7.5",
     "@angular-devkit/build-ng-packagr": "^0.7.5",
