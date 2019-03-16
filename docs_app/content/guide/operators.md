@@ -14,6 +14,11 @@ An Pipeable Operator is essentially a pure function which takes one Observable a
 
 For example, the operator called [`map`](/api/operators/map) is analogous to the Array method of the same name. Just as `[1, 2, 3].map(x => x * x)` will yield `[1, 4, 9]`, the Observable created like this:
 
+<code-tabs>
+  <code-pane title="app/app.component.ts" path="attribute-directives/src/app/app.component.ts"></code-pane>
+  <code-pane title="app/app.component.html" path="attribute-directives/src/app/app.component.html"></code-pane>
+</code-tabs>
+
 ```ts
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators';

@@ -17,6 +17,7 @@
     "test": "ng test",
     "pree2e": "npm run update-webdriver",
     "e2e": "ng e2e --no-webdriver-update",
+    "predocs": "npm run generate-zips",
     "e2e-prod": "npm run e2e --environment=dev --target=production",
     "http-server": "http-server",
     "test-pwa-score-localhost": "concurrently --kill-others --success first \"http-server dist -p 4200 --silent\" \"npm run test-pwa-score http://localhost:4200 90\"",
@@ -35,6 +36,8 @@
     "serve-and-sync": "concurrently --kill-others \"npm run docs-watch --watch-only\" \"npm run start\"",
     "build-ie-polyfills": "webpack-cli src/ie-polyfills.js -o src/generated/ie-polyfills.min.js --mode production",
     "update-webdriver": "webdriver-manager update --standalone false --gecko false $CHROMEDRIVER_VERSION_ARG",
+    "generate-stackblitz": "node ./tools/stackblitz-builder/generateStackblitz",
+    "generate-zips": "node ./tools/example-zipper/generateZips",
     "~~build": "ng build --configuration=stable --prod --source-map",
     "~~clean-generated": "node --eval \"require('shelljs').rm('-rf', 'src/generated')\""
   },
