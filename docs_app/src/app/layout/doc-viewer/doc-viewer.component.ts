@@ -123,7 +123,7 @@ export class DocViewerComponent implements OnDestroy {
       if (descriptionEl) {
         description = descriptionEl.innerHTML;
       }
-      const formattedTitle = title ? `RxJS - ${title}` : 'RxJS';
+      const formattedTitle = title ? `Ngx-lib Multiselect - ${title}` : 'Ngx-lib Multiselect';
       this.addDocumentMetaTags(formattedTitle, description);
       this.titleService.setTitle(formattedTitle);
     };
