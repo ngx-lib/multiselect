@@ -1,0 +1,94 @@
+{
+  "TopBar": [
+    {
+      "url": "guide/overview",
+      "title": "Getting Started"
+    },
+    {
+      "url": "api",
+      "title": "Reference"
+    },
+    {
+      "url": "guide/v6/migration",
+      "title": "Migration"
+    },
+    {
+      "url": "team",
+      "title": "Team"
+    }
+  ],
+  "TopBarNarrow": [],
+	"SideNav": [
+		{
+			"url": "guide/observable",
+      "title": "Getting Started"
+		},
+		{
+			"url": "guide/operators",
+			"title": "Property Configuration"
+		},
+		{
+			"url": "guide/subscription",
+			"title": "Events"
+		},
+		{
+			"url": "guide/subject",
+			"title": "Simple Select"
+		},
+		{
+			"url": "guide/operators",
+			"title": "Template Driven"
+		},
+		{
+			"url": "guide/scheduler",
+			"title": "Model Driven"
+		},
+		{
+			"url": "guide/testing/marble-testing",
+			"title": "Observable"
+		},
+		{
+			"url": "guide/testing/internal-marble-tests",
+			"title": "Custom Template"
+		},
+		{
+			"url": "guide/installation",
+			"title": "Grouping",
+			"tooltip": "Grouping"
+		},
+    {
+      "url": "api",
+      "title": "Enable / Disable",
+      "tooltip": "Enable / Disable"
+    },
+    {
+      "tooltip": "Property Maping",
+      "url": "operator-decision-tree",
+      "title": "Operator Decision Tree"
+    },
+		{
+			"url": "guide/v6/migration",
+			"title": "Callbacks"
+		},
+		{
+			"url": "guide/v6/pipeable-operators",
+			"title": "Helper Elements"
+		},
+		{
+			"url": "api/deprecations",
+			"title": "Theming",
+			"tooltip": "Theming"
+		},
+		{
+      "url": "resources",
+      "title": "Virtual List",
+      "tooltip": "Virtual List"
+		},
+		{
+			"url": "code-of-conduct",
+			"title": "Bootstrap Theme",
+			"tooltip": "Bootstrap Theme"
+		}
+	],
+	"docVersions": []
+}
