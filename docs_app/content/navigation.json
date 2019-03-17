@@ -2,7 +2,7 @@
   "TopBar": [
     {
       "url": "guide/overview",
-      "title": "Overview"
+      "title": "Getting Started"
     },
     {
       "url": "api",
@@ -17,95 +17,77 @@
       "title": "Team"
     }
   ],
-
   "TopBarNarrow": [],
 	"SideNav": [
 		{
-			"url": "guide/overview",
-			"title": "Overview",
-			"tooltip": "RxJS Overview",
-			"children": [
-				{
-					"url": "guide/observable",
-					"title": "Observables"
-				},
-				{
-					"url": "guide/operators",
-					"title": "Operators"
-				},
-				{
-					"url": "guide/subscription",
-					"title": "Subscription"
-				},
-        {
-					"url": "guide/subject",
-					"title": "Subjects"
-				},
-        {
-					"url": "guide/operators",
-					"title": "Operators"
-				},
-        {
-					"url": "guide/scheduler",
-					"title": "Scheduler"
-        },
-				{
-					"title": "Testing",
-					"children": [
-						{
-							"url": "guide/testing/marble-testing",
-							"title": "Marble Testing"
-						},
-						{
-							"url": "guide/testing/internal-marble-tests",
-							"title": "Contribute tests to RxJS"
-						}
-					]
-				}
-			]
+			"url": "guide/observable",
+      "title": "Getting Started"
+		},
+		{
+			"url": "guide/operators",
+			"title": "Property Configuration"
+		},
+		{
+			"url": "guide/subscription",
+			"title": "Events"
+		},
+		{
+			"url": "guide/subject",
+			"title": "Simple Select"
+		},
+		{
+			"url": "guide/operators",
+			"title": "Template Driven"
+		},
+		{
+			"url": "guide/scheduler",
+			"title": "Model Driven"
+		},
+		{
+			"url": "guide/testing/marble-testing",
+			"title": "Observable"
+		},
+		{
+			"url": "guide/testing/internal-marble-tests",
+			"title": "Custom Template"
 		},
 		{
 			"url": "guide/installation",
-			"title": "Installation",
-			"tooltip": "Installation"
+			"title": "Grouping",
+			"tooltip": "Grouping"
 		},
     {
       "url": "api",
-      "title": "Reference",
-      "tooltip": "RxJS Reference"
+      "title": "Enable / Disable",
+      "tooltip": "Enable / Disable"
     },
     {
-      "tooltip": "Operator Decision Tree",
+      "tooltip": "Property Maping",
       "url": "operator-decision-tree",
       "title": "Operator Decision Tree"
     },
 		{
-			"title": "About Version 6",
-			"children": [
-				{
-					"url": "guide/v6/migration",
-					"title": "Migration"
-				},
-				{
-					"url": "guide/v6/pipeable-operators",
-					"title": "Pipeable Operators"
-				},
-				{
-					"url": "api/deprecations",
-					"title": "Deprecations",
-					"tooltip": "List of Deprecations"
-				}
-			]
+			"url": "guide/v6/migration",
+			"title": "Callbacks"
+		},
+		{
+			"url": "guide/v6/pipeable-operators",
+			"title": "Helper Elements"
+		},
+		{
+			"url": "api/deprecations",
+			"title": "Theming",
+			"tooltip": "Theming"
 		},
 		{
       "url": "resources",
-      "title": "External Resources",
-      "tooltip": "External Resources"
+      "title": "Virtual List",
+      "tooltip": "Virtual List"
 		},
 		{
 			"url": "code-of-conduct",
-			"title": "Code of Conduct",
-			"tooltip": "Code of Conduct"
+			"title": "Bootstrap Theme",
+			"tooltip": "Bootstrap Theme"
 		}
 	],
 	"docVersions": []
