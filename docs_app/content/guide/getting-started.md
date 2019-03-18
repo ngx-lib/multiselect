@@ -6,7 +6,7 @@ Its very easy to get started with multiselct
 
 2.  `import { NgxMultiselectModule } from '@ngx-lib/multiselect';`
 
-3.  ```
+3.  ```html
     <ngx-multiselect 
         [(ngModel)]="selectedOption" 
         [options]="options" 
