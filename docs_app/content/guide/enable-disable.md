@@ -1,74 +1,18 @@
-# Installation Instructions
+## Enable/Disable
 
-Here are different ways you can install RxJs:
+In multiselect you can either enable/disable a single option or disable whole dropdown.
+In order to disable whole dropdown just pass the disabled property to be true and the whole dropdown is disabled with the selected option shown as it is but not clickable.
 
-## ES6 via npm
+Demo showing disabling dropdown on the fly with one button click.
 
-```js
-npm install rxjs
-```
+We can do the same thing using template reference variable also. 
 
-To import the entire core set of functionality:
+Demo showing disabling dropdown using template ref variable
 
-```js
-import * as rxjs from 'rxjs';
+What, if we want to disable only one item, just clone the array passed to function and set the disabled property to be true for a particular option
 
-rxjs.of(1, 2, 3);
-```
+Demo showing disabling first option on the fly
 
-To import only what you need using pipeable operators:
+In case of disabling the whole group on the fly, just iterate through the collection and filter it on the basis of category you want to disable and set the disabled property of all items in that group to be true.Voila, the group is disabled.
 
-```js
-import { of } from 'rxjs';
-import { map } from 'rxjs/operators';
-
-of(1,2,3).pipe(map(x => x + '!!!')); // etc
-```
-* See [Pipeable Operator Documentation](https://github.com/ReactiveX/rxjs/blob/91088dae1df097be2370c73300ffa11b27fd0100/doc/pipeable-operators.md) for more information about pipeable operator.
-
-To use with globally imported bundle:
-
-```js
-const { of } = rxjs;
-const { map } = rxjs.operators;
-
-of(1,2,3).pipe(map(x => x + '!!!')); // etc
-```
-
-## CommonJS via npm
-
-If you receive an error like error TS2304: Cannot find name 'Promise' or error TS2304: Cannot find name 'Iterable' when using RxJS you may need to install a supplemental set of typings.
-
-1.  For typings users:
-
-```js
-typings install es6-shim --ambient
-```
-
-2.  If you're not using typings the interfaces can be copied from /es6-shim/es6-shim.d.ts.
-
-3.  Add type definition file included in tsconfig.json or CLI argument.
-
-## All Module Types (CJS/ES6/AMD/TypeScript) via npm
-
-To install this library via npm version 3, use the following command:
-
-```js
-npm install @reactivex/rxjs
-```
-
-If you are using npm version 2 before this library has achieved a stable version, you need to specify the library version explicitly:
-
-```js
-npm install @reactivex/rxjs@5.0.0-beta.1
-```
-
-## CDN
-
-For CDN, you can use [unpkg](https://unpkg.com/). Just replace version with the current version on the link below:
-
-For RxJS 5.0.0-beta.1 through beta.11: [https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.umd.js](https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.umd.js)
-
-For RxJS 5.0.0-beta.12 and higher: [https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.js](https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.js)
-
-For RxJS 6.0.0 and higher: [https://unpkg.com/@reactivex/rxjs@version/dist/global/rxjs.umd.js](https://unpkg.com/@reactivex/rxjs@version/dist/global/rxjs.umd.js)
+Demo showing disabling group on the fly

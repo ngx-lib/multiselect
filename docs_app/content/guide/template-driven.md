@@ -1,74 +1,33 @@
-# Installation Instructions
+## Template Driven:
+Angular forms can be built in two ways either Template Driven or Model Driven(--link to model driven-- ).Multiselect supports both of these ways out of the box.
 
-Here are different ways you can install RxJs:
+To use template driven approach for multiselect, just provide multiselect with options and selected option using ngModel. You are done.
 
-## ES6 via npm
-
-```js
-npm install rxjs
+```html
+<ngx-multiselect 
+  ngDefaultCOntrol 
+  [(ngModel)]="selectedOption" 
+  [options]="options" 
+  [multiple]=true>
+</ngx-multiselect>
 ```
 
-To import the entire core set of functionality:
+Demo of template driven multiselect:-
 
-```js
-import * as rxjs from 'rxjs';
+/////////////////////////////////////////////////////////////////
+  is the following  right ? need to check
+Multiselect can have all functionalities like a normal standard html5 template input has like performing a validation, submitting a value of multiselect on (ngSubmit) etc.
 
-rxjs.of(1, 2, 3);
+```html
+<ngx-multiselect required #name=”ngModel” ngDefaultCOntrol [(ngModel)]="selectedOption" [options]="options" [multiple]=true></ngx-multiselect>`
+<div *ngIf=”name.pristine”>Pristine</div>
+<div *ngIf=”name.touched”>Touched</div>
+<div *ngIf=”name.untouched”>Untouched</div>
+<div *ngIf=”name.dirty”>Dirty</div>
+<div *ngIf=”name.valid”>Valid</div>
+<div *ngIf=”name.invalid”>Invalid</div>
 ```
 
-To import only what you need using pipeable operators:
+Demo of template driven form using form element and inside will be multiselect element and validation will be shown for multiselect , and form wiil be submiited on submit and its value will be shown below.
 
-```js
-import { of } from 'rxjs';
-import { map } from 'rxjs/operators';
-
-of(1,2,3).pipe(map(x => x + '!!!')); // etc
-```
-* See [Pipeable Operator Documentation](https://github.com/ReactiveX/rxjs/blob/91088dae1df097be2370c73300ffa11b27fd0100/doc/pipeable-operators.md) for more information about pipeable operator.
-
-To use with globally imported bundle:
-
-```js
-const { of } = rxjs;
-const { map } = rxjs.operators;
-
-of(1,2,3).pipe(map(x => x + '!!!')); // etc
-```
-
-## CommonJS via npm
-
-If you receive an error like error TS2304: Cannot find name 'Promise' or error TS2304: Cannot find name 'Iterable' when using RxJS you may need to install a supplemental set of typings.
-
-1.  For typings users:
-
-```js
-typings install es6-shim --ambient
-```
-
-2.  If you're not using typings the interfaces can be copied from /es6-shim/es6-shim.d.ts.
-
-3.  Add type definition file included in tsconfig.json or CLI argument.
-
-## All Module Types (CJS/ES6/AMD/TypeScript) via npm
-
-To install this library via npm version 3, use the following command:
-
-```js
-npm install @reactivex/rxjs
-```
-
-If you are using npm version 2 before this library has achieved a stable version, you need to specify the library version explicitly:
-
-```js
-npm install @reactivex/rxjs@5.0.0-beta.1
-```
-
-## CDN
-
-For CDN, you can use [unpkg](https://unpkg.com/). Just replace version with the current version on the link below:
-
-For RxJS 5.0.0-beta.1 through beta.11: [https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.umd.js](https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.umd.js)
-
-For RxJS 5.0.0-beta.12 and higher: [https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.js](https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.js)
-
-For RxJS 6.0.0 and higher: [https://unpkg.com/@reactivex/rxjs@version/dist/global/rxjs.umd.js](https://unpkg.com/@reactivex/rxjs@version/dist/global/rxjs.umd.js)
+///////////////////////////////////////////////////////////////////

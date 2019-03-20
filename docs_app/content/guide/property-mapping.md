@@ -1,74 +1,43 @@
-# Installation Instructions
-
-Here are different ways you can install RxJs:
-
-## ES6 via npm
-
-```js
-npm install rxjs
+## Property Mapping:
+Multiselect options needs data in predefined format as below which should have keys like id, name, category, disabled etc as below.
+```js	
+{
+    "id": 3,
+    "name": "Test 3",
+    "category": "Cat 2",
+    "disabled": true
+}
 ```
-
-To import the entire core set of functionality:
-
-```js
-import * as rxjs from 'rxjs';
-
-rxjs.of(1, 2, 3);
+If  the data is not present in the exact format,we can pass  propertyMap which will be used to map the key of custom json object to the key of json format used by multiselect. For example, the data is
+```js  	
+{
+    "empId": 3,
+    "empName": "Test 3",
+    "empCategory": "Cat 2",
+    "empActive": true
+}
 ```
-
-To import only what you need using pipeable operators:
-
+The propertyMap should be
 ```js
-import { of } from 'rxjs';
-import { map } from 'rxjs/operators';
-
-of(1,2,3).pipe(map(x => x + '!!!')); // etc
+propertyMap = {
+    "empId" : "id",
+    "empName" : "name",
+    "empCategory" : "category",
+    "empActive" : "disabled"
+}
 ```
-* See [Pipeable Operator Documentation](https://github.com/ReactiveX/rxjs/blob/91088dae1df097be2370c73300ffa11b27fd0100/doc/pipeable-operators.md) for more information about pipeable operator.
-
-To use with globally imported bundle:
-
+So, the multiselect converts the propertyMap to its own format as 
 ```js
-const { of } = rxjs;
-const { map } = rxjs.operators;
-
-of(1,2,3).pipe(map(x => x + '!!!')); // etc
+{
+    "id": 3,
+    "name": "Test 3",
+    "category": "Cat 2",
+    "disabled": true
+}
 ```
+            
+Demo showing multiselect using property map.
 
-## CommonJS via npm
+But sometimes it may happen you have data in exact format as shown below but only the key to access category is different, in that case passing the key string to groupedProperty input will also work fine.
 
-If you receive an error like error TS2304: Cannot find name 'Promise' or error TS2304: Cannot find name 'Iterable' when using RxJS you may need to install a supplemental set of typings.
-
-1.  For typings users:
-
-```js
-typings install es6-shim --ambient
-```
-
-2.  If you're not using typings the interfaces can be copied from /es6-shim/es6-shim.d.ts.
-
-3.  Add type definition file included in tsconfig.json or CLI argument.
-
-## All Module Types (CJS/ES6/AMD/TypeScript) via npm
-
-To install this library via npm version 3, use the following command:
-
-```js
-npm install @reactivex/rxjs
-```
-
-If you are using npm version 2 before this library has achieved a stable version, you need to specify the library version explicitly:
-
-```js
-npm install @reactivex/rxjs@5.0.0-beta.1
-```
-
-## CDN
-
-For CDN, you can use [unpkg](https://unpkg.com/). Just replace version with the current version on the link below:
-
-For RxJS 5.0.0-beta.1 through beta.11: [https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.umd.js](https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.umd.js)
-
-For RxJS 5.0.0-beta.12 and higher: [https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.js](https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.js)
-
-For RxJS 6.0.0 and higher: [https://unpkg.com/@reactivex/rxjs@version/dist/global/rxjs.umd.js](https://unpkg.com/@reactivex/rxjs@version/dist/global/rxjs.umd.js)
+Demo showing passing only grouped property to array of json of teams bcoz teams will have `team` key which will act as category for the particular team.

@@ -1,74 +1,26 @@
-# Installation Instructions
+## Model Driven (Reactive Forms):
 
-Here are different ways you can install RxJs:
+Multiselect can be rendered using reactive forms also.Just create a simple formControl same as we do for other input types like checkbox, text input, radio etc and attach that formControl with multiselect as follows.
 
-## ES6 via npm
-
-```js
-npm install rxjs
+```html
+<ngx-multiselect 
+  	ngDefaultCOntrol 
+	[formControl]="selectedOption" 
+	[options]="options">
+</ngx-multiselect>
 ```
 
-To import the entire core set of functionality:
+Demo of multiseselct using model driven approach.
+	Form control will contain two values which are to be selected by default on rendering.
 
-```js
-import * as rxjs from 'rxjs';
+We can also use multiselect formControl inside formGroup with any of standard html5 inputs.
+Demo of formGroup froming a group of text input type and multislect in which submit button will be disbaled by default and enabled only on required validation satisfacation.
 
-rxjs.of(1, 2, 3);
-```
+Just by specifying formControl to the multiselect, it allows us all features to be used out of the box same as any other input types because it implements .
+// Show the gif showing console.log(this.selectedOption) which will show properties for that variable.
+For example (Demo Shown below):- 
+We can get its value using value variable
+We can set the value dynamically using setValue or patchValue
+We can also subscribe to formControl using valueChanges
 
-To import only what you need using pipeable operators:
-
-```js
-import { of } from 'rxjs';
-import { map } from 'rxjs/operators';
-
-of(1,2,3).pipe(map(x => x + '!!!')); // etc
-```
-* See [Pipeable Operator Documentation](https://github.com/ReactiveX/rxjs/blob/91088dae1df097be2370c73300ffa11b27fd0100/doc/pipeable-operators.md) for more information about pipeable operator.
-
-To use with globally imported bundle:
-
-```js
-const { of } = rxjs;
-const { map } = rxjs.operators;
-
-of(1,2,3).pipe(map(x => x + '!!!')); // etc
-```
-
-## CommonJS via npm
-
-If you receive an error like error TS2304: Cannot find name 'Promise' or error TS2304: Cannot find name 'Iterable' when using RxJS you may need to install a supplemental set of typings.
-
-1.  For typings users:
-
-```js
-typings install es6-shim --ambient
-```
-
-2.  If you're not using typings the interfaces can be copied from /es6-shim/es6-shim.d.ts.
-
-3.  Add type definition file included in tsconfig.json or CLI argument.
-
-## All Module Types (CJS/ES6/AMD/TypeScript) via npm
-
-To install this library via npm version 3, use the following command:
-
-```js
-npm install @reactivex/rxjs
-```
-
-If you are using npm version 2 before this library has achieved a stable version, you need to specify the library version explicitly:
-
-```js
-npm install @reactivex/rxjs@5.0.0-beta.1
-```
-
-## CDN
-
-For CDN, you can use [unpkg](https://unpkg.com/). Just replace version with the current version on the link below:
-
-For RxJS 5.0.0-beta.1 through beta.11: [https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.umd.js](https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.umd.js)
-
-For RxJS 5.0.0-beta.12 and higher: [https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.js](https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.js)
-
-For RxJS 6.0.0 and higher: [https://unpkg.com/@reactivex/rxjs@version/dist/global/rxjs.umd.js](https://unpkg.com/@reactivex/rxjs@version/dist/global/rxjs.umd.js)
+A demo showing all three examples which are written above..

@@ -1,10 +1,16 @@
-# Getting Started
+## Getting Started
 
 Its very easy to get started with multiselct
 
-1.  `npm install @ngx-lib/multiselect --save`
+Only three steps invloved..
 
-2.  `import { NgxMultiselectModule } from '@ngx-lib/multiselect';`
+1.  ```js
+    npm install @ngx-lib/multiselect --save
+    ```
+
+2.  ```js
+    import { NgxMultiselectModule } from '@ngx-lib/multiselect';
+    ```
 
 3.  ```html
     <ngx-multiselect 

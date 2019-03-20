@@ -1,74 +1,24 @@
-# Installation Instructions
+## Custom Template :
 
-Here are different ways you can install RxJs:
+By default, multiselect is rendered using a simple div which displays the name of option using interpolation(--link to github source code line from our lib--).If we want to display the options in some other fashion, we need to pass our own custom template which multiselect will use to render the options one by one
 
-## ES6 via npm
-
-```js
-npm install rxjs
+```html
+<ngx-multiselect ngDefaultCOntrol 
+   [formControl]="selectedOption" 
+   [options]="options"
+   [propertyMap]="{ ‘img’: 'imgPropKey' }">
+    	<ng-template let-option="option">
+         <span>
+            <img  src=“../path/to/img" />
+            {{option.name}}
+         </span>	
+      </ng-template>
+</ngx-multiselect>
 ```
 
-To import the entire core set of functionality:
+In above example, we pass a template which contains span element which shows one fixed image and the name of option to be shown for each option.The use of let in this template is to pass a variable to be used inside a template.Notice the use of propertyMap here, it is used to specify which property from json should be used for image.When mapped correctly, we will have imag property ready to use in template as shown in following example
 
-```js
-import * as rxjs from 'rxjs';
+The best example suited for this will be the list of countries with its flag at right hand corner.Lets see how we can achieve this.
 
-rxjs.of(1, 2, 3);
-```
 
-To import only what you need using pipeable operators:
-
-```js
-import { of } from 'rxjs';
-import { map } from 'rxjs/operators';
-
-of(1,2,3).pipe(map(x => x + '!!!')); // etc
-```
-* See [Pipeable Operator Documentation](https://github.com/ReactiveX/rxjs/blob/91088dae1df097be2370c73300ffa11b27fd0100/doc/pipeable-operators.md) for more information about pipeable operator.
-
-To use with globally imported bundle:
-
-```js
-const { of } = rxjs;
-const { map } = rxjs.operators;
-
-of(1,2,3).pipe(map(x => x + '!!!')); // etc
-```
-
-## CommonJS via npm
-
-If you receive an error like error TS2304: Cannot find name 'Promise' or error TS2304: Cannot find name 'Iterable' when using RxJS you may need to install a supplemental set of typings.
-
-1.  For typings users:
-
-```js
-typings install es6-shim --ambient
-```
-
-2.  If you're not using typings the interfaces can be copied from /es6-shim/es6-shim.d.ts.
-
-3.  Add type definition file included in tsconfig.json or CLI argument.
-
-## All Module Types (CJS/ES6/AMD/TypeScript) via npm
-
-To install this library via npm version 3, use the following command:
-
-```js
-npm install @reactivex/rxjs
-```
-
-If you are using npm version 2 before this library has achieved a stable version, you need to specify the library version explicitly:
-
-```js
-npm install @reactivex/rxjs@5.0.0-beta.1
-```
-
-## CDN
-
-For CDN, you can use [unpkg](https://unpkg.com/). Just replace version with the current version on the link below:
-
-For RxJS 5.0.0-beta.1 through beta.11: [https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.umd.js](https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.umd.js)
-
-For RxJS 5.0.0-beta.12 and higher: [https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.js](https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.js)
-
-For RxJS 6.0.0 and higher: [https://unpkg.com/@reactivex/rxjs@version/dist/global/rxjs.umd.js](https://unpkg.com/@reactivex/rxjs@version/dist/global/rxjs.umd.js)
+Demo showing list of countries with its flag picture
