@@ -1,74 +1,21 @@
-# Installation Instructions
+## Callbacks: 
 
-Here are different ways you can install RxJs:
+Multiselect has various callbacks/events associated with it as described in events section(evnets section link).The following example shows how to use simple event of multiselect opening and closing.
 
-## ES6 via npm
 
-```js
-npm install rxjs
-```
+//demo showing how to use multiselect onOpen and onOnclose event 
 
-To import the entire core set of functionality:
+Ok, what if I want to change the content of another dropdown on click of previous dropdown.For example, I want to change the list of States on the basis of country selected. We can easily achieve this by listening to onItemClick event of multiselect.
 
-```js
-import * as rxjs from 'rxjs';
+Demo: Two dropdowns one showing list of countries and on selecting the option from first dropdown the states are getting chnaged from second dropdown.
 
-rxjs.of(1, 2, 3);
-```
+In case of events changing the state of multiselect such as search changed, itemclicked etc multiselect also provieds extra parameter as the target of event.
+For example, in case of itemSelect event, the selected item is provided by multiselect as its event target as shown below in example.
+Demo showing itemSelect event with $event
 
-To import only what you need using pipeable operators:
+Same is the case when rather than selecting item, if the whole group is selected by clicking on its category, multiselct gives us this event also with selected category as its category.
+Demo showing onGroupItemClick with $event.
 
-```js
-import { of } from 'rxjs';
-import { map } from 'rxjs/operators';
+Multiselct in total has 9 events availbale with. Play with the following example to get overview of it.
 
-of(1,2,3).pipe(map(x => x + '!!!')); // etc
-```
-* See [Pipeable Operator Documentation](https://github.com/ReactiveX/rxjs/blob/91088dae1df097be2370c73300ffa11b27fd0100/doc/pipeable-operators.md) for more information about pipeable operator.
-
-To use with globally imported bundle:
-
-```js
-const { of } = rxjs;
-const { map } = rxjs.operators;
-
-of(1,2,3).pipe(map(x => x + '!!!')); // etc
-```
-
-## CommonJS via npm
-
-If you receive an error like error TS2304: Cannot find name 'Promise' or error TS2304: Cannot find name 'Iterable' when using RxJS you may need to install a supplemental set of typings.
-
-1.  For typings users:
-
-```js
-typings install es6-shim --ambient
-```
-
-2.  If you're not using typings the interfaces can be copied from /es6-shim/es6-shim.d.ts.
-
-3.  Add type definition file included in tsconfig.json or CLI argument.
-
-## All Module Types (CJS/ES6/AMD/TypeScript) via npm
-
-To install this library via npm version 3, use the following command:
-
-```js
-npm install @reactivex/rxjs
-```
-
-If you are using npm version 2 before this library has achieved a stable version, you need to specify the library version explicitly:
-
-```js
-npm install @reactivex/rxjs@5.0.0-beta.1
-```
-
-## CDN
-
-For CDN, you can use [unpkg](https://unpkg.com/). Just replace version with the current version on the link below:
-
-For RxJS 5.0.0-beta.1 through beta.11: [https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.umd.js](https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.umd.js)
-
-For RxJS 5.0.0-beta.12 and higher: [https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.js](https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.js)
-
-For RxJS 6.0.0 and higher: [https://unpkg.com/@reactivex/rxjs@version/dist/global/rxjs.umd.js](https://unpkg.com/@reactivex/rxjs@version/dist/global/rxjs.umd.js)
+Demo: Example showing all events

@@ -1,0 +1,20 @@
+## Observable
+Multiselect works pretty well with observables as it does with general data.
+There are two ways to use observable data in angular.
+	1. Subscribing manually in ngOnInit and collecting all data into member variable and unsubcribe on ngOnDestroy.
+	2. Using async pipe and let the multiselect subscribe and unsubscribe.
+
+### 1)Manual subscription: 
+This is the easiest way to to use observable data in multiselect .Just subscribe to an observable, collect data from it and pass the collected data as input to multiselect. All other functionalities will work the same because we have used observable to subscribe to it and collect all the data required for multiselect.
+
+Demo showing multiselect data fetched from observable and rendered.
+
+### 2)Using async pipe
+Multiselect works perfectly with observable instance itself, just pass the observable data with async pipe. The task of subscribing and unsubscribing will be taken care by multiselect.
+
+Demo showing multiselect data fetched from service and directly passing observable instance as input.
+
+Changing the state in case of observable:
+If you want to dynamically update the multiselct, you can do it just by creating the whole new copy of json array and pass the whole array to observer next function as shown below.
+
+Demo showing dynamic update of multiselct and disable example side by side
