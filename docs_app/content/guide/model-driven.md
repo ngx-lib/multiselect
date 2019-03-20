@@ -24,6 +24,3 @@ We can set the value dynamically using setValue or patchValue
 We can also subscribe to formControl using valueChanges
 
 A demo showing all three examples which are written above..
-
-
-

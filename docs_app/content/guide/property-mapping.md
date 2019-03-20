@@ -41,5 +41,3 @@ Demo showing multiselect using property map.
 But sometimes it may happen you have data in exact format as shown below but only the key to access category is different, in that case passing the key string to groupedProperty input will also work fine.
 
 Demo showing passing only grouped property to array of json of teams bcoz teams will have `team` key which will act as category for the particular team.
-
-	

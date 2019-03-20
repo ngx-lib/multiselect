@@ -31,13 +31,3 @@ Multiselect can have all functionalities like a normal standard html5 template i
 Demo of template driven form using form element and inside will be multiselect element and validation will be shown for multiselect , and form wiil be submiited on submit and its value will be shown below.
 
 ///////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-

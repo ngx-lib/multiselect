@@ -10,9 +10,3 @@ If we want to use any of the theme while rendering, just pass the value of the t
 If you select material theme, you can also specify the color for mutiselect from the angular material theme or any valid  css color.
 
 --- Demo showing material theme and color used
-
-
-
-
-
-
