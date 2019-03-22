@@ -21,3 +21,5 @@ Only three steps invloved..
     ```
 
 # Demo
+
+<ms-single-select></ms-single-select>

@@ -51,6 +51,10 @@ export const ELEMENT_MODULE_PATHS_AS_ROUTES = [
   {
     selector: 'aio-operator-decision-tree',
     loadChildren: './operator-decision-tree/operator-decision-tree.module#OperatorDecisionTreeModule'
+  },
+  {
+    selector: 'ms-single-select',
+    loadChildren: './simple-demo/single-select.module#SingleSelectModule'
   }
 ];
 

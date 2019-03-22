@@ -42,9 +42,7 @@ import { SharedModule } from 'app/shared/shared.module';
 import { SwUpdatesModule } from 'app/sw-updates/sw-updates.module';
 
 import {environment} from '../environments/environment';
-import { SingleSelectComponent } from './demos/single-select/single-select.component';
 import { AppService } from './app.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // These are the hardcoded inline svg sources to be used by the `<mat-icon>` component.
 // tslint:disable: max-line-length
@@ -123,9 +121,7 @@ export const svgIconProviders = [
     MatToolbarModule,
     SwUpdatesModule,
     SharedModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
-    FormsModule,
-    ReactiveFormsModule
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
   ],
   declarations: [
     AppComponent,
@@ -137,8 +133,7 @@ export const svgIconProviders = [
     NavItemComponent,
     SearchBoxComponent,
     NotificationComponent,
-    TopMenuComponent,
-    SingleSelectComponent
+    TopMenuComponent
   ],
   providers: [
     Deployment,
