@@ -4,12 +4,9 @@ import {
   Input,
   ChangeDetectionStrategy,
   Output,
-  SimpleChanges,
   EventEmitter,
   TemplateRef,
-  ViewEncapsulation,
-  ViewChild,
-  OnChanges
+  ViewChild
 } from '@angular/core';
 import { NgxMultiselectService } from '../services/multiselect.service';
 
@@ -18,8 +15,6 @@ import { NgxMultiselectService } from '../services/multiselect.service';
   templateUrl: './grouped-options.component.html',
   styleUrls: ['./grouped-options.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO: find better way, without encapsulation none thing
-  encapsulation: ViewEncapsulation.None
 })
 export class GroupedOptionsComponent implements OnInit {
   _options = [];

@@ -6,7 +6,6 @@ import {
   Output,
   ChangeDetectionStrategy,
   TemplateRef,
-  ViewEncapsulation,
   ViewChild,
   SimpleChanges,
   OnChanges
@@ -17,8 +16,6 @@ import {
   templateUrl: './options.component.html',
   styleUrls: ['./options.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO: find better way, without encapsulation none thing
-  encapsulation: ViewEncapsulation.None
 })
 export class OptionsComponent implements OnInit, OnChanges {
   _options: any[] = [];

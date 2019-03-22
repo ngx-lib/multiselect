@@ -7,7 +7,7 @@
         <span class="text">{{_selectedOptions | displaySelectedValue: showMaxLabels}}</span>
       </span>     
       <span class="close" (click)="clear($event)" *ngIf="isValueSelected() && !multiple">×</span>
-      <span class="caret">▼</span>
+      <span class="caret"></span>
     </div>
   </button>
   <div class="listing-wrapper" *ngIf="isOpen">
