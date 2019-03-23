@@ -54,7 +54,55 @@ export const ELEMENT_MODULE_PATHS_AS_ROUTES = [
   },
   {
     selector: 'ms-single-select',
-    loadChildren: './simple-demo/single-select.module#SingleSelectModule'
+    loadChildren: './simple-select/single-select.module#SingleSelectModule'
+  },
+  {
+    selector: 'ms-custom-template',
+    loadChildren: './custom-template/custom-template.module#CustomTemplateModule'
+  },
+  {
+    selector: 'ms-enable-disable',
+    loadChildren: './enable-disable/enable-disable.module#EnableDisableModule'
+  },
+  {
+    selector: 'ms-events',
+    loadChildren: './events/events.module#EventsModule'
+  },
+  {
+    selector: 'ms-getting-started',
+    loadChildren: './getting-started/getting-started.module#GettingStartedModule'
+  },
+  {
+    selector: 'ms-grouping',
+    loadChildren: './grouping/grouping.module#GroupingModule'
+  },
+  {
+    selector: 'ms-model-driven',
+    loadChildren: './model-driven/model-driven.module#ModelDrivenModule'
+  },
+  {
+    selector: 'ms-observable-async',
+    loadChildren: './observable-async/observable-async.module#ObservableAsyncModule'
+  },
+  {
+    selector: 'ms-observable-dynamic-update',
+    loadChildren: './observable-dynamic-update/observable-dynamic-update.module#ObservableDynamicUpdateModule'
+  },
+  {
+    selector: 'ms-observable-subscribe',
+    loadChildren: './observable-subscribe/observable-subscribe.module#ObservableSubscribe'
+  },
+  {
+    selector: 'ms-property-map',
+    loadChildren: './property-map/property-map.module#PropertyMapModule'
+  },
+  {
+    selector: 'ms-template-driven',
+    loadChildren: './template-driven/template-driven.module#TemplateDrivenModule'
+  },
+  {
+    selector: 'ms-theme',
+    loadChildren: './theme/theme.module#ThemeModule'
   }
 ];
 
