@@ -105,6 +105,10 @@ export const ELEMENT_MODULE_PATHS_AS_ROUTES = [
     loadChildren: './demo/template-driven/template-driven.module#TemplateDrivenModule'
   },
   {
+    selector: 'ms-large-volume-data',
+    loadChildren: './demo/large-volume-data/large-volume-data.module#TemplateDrivenModule'
+  },
+  {
     selector: 'ms-theme',
     loadChildren: './demo/theme/theme.module#ThemeModule'
   }
