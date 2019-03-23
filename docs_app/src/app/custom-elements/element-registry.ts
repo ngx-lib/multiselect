@@ -90,7 +90,11 @@ export const ELEMENT_MODULE_PATHS_AS_ROUTES = [
   },
   {
     selector: 'ms-observable-subscribe',
-    loadChildren: './demo/observable-subscribe/observable-subscribe.module#ObservableSubscribe'
+    loadChildren: './demo/observable-subscribe/observable-subscribe.module#ObservableSubscribeModule'
+  },
+  {
+    selector: 'ms-observable-async-service',
+    loadChildren: './demo/observable-async-service/observable-async-service.module#ObservableAsyncServiceModule'
   },
   {
     selector: 'ms-property-map',

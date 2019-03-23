@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ms-property-map',
-  templateUrl: './propertymap.component.html'
+  templateUrl: './property-map.component.html'
 })
 export class PropertyMapComponent implements OnInit {
   options;
