@@ -1,8 +1,8 @@
 import { NgModule, Type } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WithCustomElementComponent } from '../element-registry';
+import { ModelDrivenComponent } from './model-driven.component';
 import { NgxMultiselectModule } from '@ngx-lib/multiselect';
-import { SingleSelectComponent } from './single-select.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -12,9 +12,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule 
   ],
-  declarations: [ SingleSelectComponent ],
-  entryComponents: [ SingleSelectComponent ]
+  declarations: [ ModelDrivenComponent ],
+  entryComponents: [ ModelDrivenComponent ]
 })
-export class SingleSelectModule implements WithCustomElementComponent {
-  customElementComponent: Type<any> = SingleSelectComponent;
+export class ModelDrivenModule implements WithCustomElementComponent {
+  customElementComponent: Type<any> = ModelDrivenComponent;
 }

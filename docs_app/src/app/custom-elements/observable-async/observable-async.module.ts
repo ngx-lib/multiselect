@@ -1,8 +1,8 @@
 import { NgModule, Type } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WithCustomElementComponent } from '../element-registry';
+import { ObservableAsyncComponent } from './observable-async.component';
 import { NgxMultiselectModule } from '@ngx-lib/multiselect';
-import { SingleSelectComponent } from './single-select.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -12,9 +12,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule 
   ],
-  declarations: [ SingleSelectComponent ],
-  entryComponents: [ SingleSelectComponent ]
+  declarations: [ ObservableAsyncComponent ],
+  entryComponents: [ ObservableAsyncComponent ]
 })
-export class SingleSelectModule implements WithCustomElementComponent {
-  customElementComponent: Type<any> = SingleSelectComponent;
+export class ObservableAsyncModule implements WithCustomElementComponent {
+  customElementComponent: Type<any> = ObservableAsyncComponent;
 }
