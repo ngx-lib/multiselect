@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from 'src/app/app.service';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'ms-events',

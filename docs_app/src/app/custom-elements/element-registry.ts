@@ -54,7 +54,7 @@ export const ELEMENT_MODULE_PATHS_AS_ROUTES = [
   },
   {
     selector: 'ms-single-select',
-    loadChildren: './demo/simple-select/single-select.module#SingleSelectModule'
+    loadChildren: './demo/single-select/single-select.module#SingleSelectModule'
   },
   {
     selector: 'ms-custom-template',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from 'src/app/app.service';
+//import { AppService } from 'src/app/app.service';
 
 @Component({
   selector: 'ms-observable-async-service',
@@ -10,7 +10,7 @@ export class ObservableAsyncServiceComponent implements OnInit {
   selectedOptions;
   options;
 
-  constructor(private _appService: AppService) { }
+  //constructor(private _appService: AppService) { }
 
   ngOnInit() {
     this.selectedOptions = [{
@@ -21,7 +21,7 @@ export class ObservableAsyncServiceComponent implements OnInit {
       "id": 3,
       "name": "Chelsea F.C."
     }];
-    this.options = this._appService.getObservableOptions();
+    //this.options = this._appService.getObservableOptions();
   }
 
 }

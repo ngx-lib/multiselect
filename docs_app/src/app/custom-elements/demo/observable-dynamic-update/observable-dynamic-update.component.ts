@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'ms-observable-dynamic-update',
