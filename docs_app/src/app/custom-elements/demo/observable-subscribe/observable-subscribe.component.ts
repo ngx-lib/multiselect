@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from 'src/app/app.service';
+import { AppService } from '../../../app.service';
 
 @Component({
   selector: 'ms-observable-subscribe',
@@ -18,5 +18,4 @@ export class ObservableSubscribeComponent implements OnInit {
       this.selectedOptions = [this.options[0], this.options[1]];
     });
   }
-
 }
