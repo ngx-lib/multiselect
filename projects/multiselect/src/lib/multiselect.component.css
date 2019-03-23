@@ -5,7 +5,7 @@
 /* Material multiselect theme start*/
 
 :host.mat-multiselect ::ng-deep .caret {
-  right: 0;
+  right: 5px;
   position: absolute;
   margin-top: 5px;
   width: 0;
@@ -251,13 +251,7 @@
   cursor: not-allowed !important;
 }
 /* Bootstrap multiselect theme end */
-.close{
+/* .close{
   float: right;
   margin-right: 15px;
-}
-.close:hover{
-  color:black;
-}
-.caret:hover {
-  color:grey;
-}
+} */
