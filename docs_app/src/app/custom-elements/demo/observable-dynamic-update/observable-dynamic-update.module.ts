@@ -15,6 +15,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [ ObservableDynamicUpdateComponent ],
   entryComponents: [ ObservableDynamicUpdateComponent ]
 })
-export class CurrentLocationModule implements WithCustomElementComponent {
+export class ObservableDynamicUpdateModule implements WithCustomElementComponent {
   customElementComponent: Type<any> = ObservableDynamicUpdateComponent;
 }

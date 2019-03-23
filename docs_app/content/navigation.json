@@ -5,16 +5,8 @@
       "title": "Getting Started"
     },
     {
-      "url": "api",
-      "title": "Reference"
-    },
-    {
-      "url": "guide/v6/migration",
-      "title": "Migration"
-    },
-    {
       "url": "team",
-      "title": "Team"
+      "title": "Contributors"
     }
   ],
   "TopBarNarrow": [],
