@@ -16,15 +16,15 @@
       "title": "Getting Started"
 		},
 		{
-			"url": "guide/operators",
+			"url": "guide/property-configuration",
 			"title": "Property Configuration"
 		},
 		{
-			"url": "guide/subscription",
+			"url": "guide/events",
 			"title": "Events"
 		},
 		{
-			"url": "guide/subject",
+			"url": "guide/simple-select",
 			"title": "Simple Select"
 		},
 		{
