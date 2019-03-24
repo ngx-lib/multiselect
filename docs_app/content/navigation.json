@@ -28,42 +28,42 @@
 			"title": "Simple Select"
 		},
 		{
-			"url": "guide/operators",
+			"url": "guide/template-driven",
 			"title": "Template Driven"
 		},
 		{
-			"url": "guide/scheduler",
+			"url": "guide/model-driven",
 			"title": "Model Driven"
 		},
 		{
-			"url": "guide/testing/marble-testing",
+			"url": "guide/observable",
 			"title": "Observable"
 		},
 		{
-			"url": "guide/testing/internal-marble-tests",
+			"url": "guide/custom-template",
 			"title": "Custom Template"
 		},
 		{
-			"url": "guide/installation",
+			"url": "guide/grouping",
 			"title": "Grouping",
 			"tooltip": "Grouping"
 		},
     {
-      "url": "api",
+      "url": "guide/enable-disable",
       "title": "Enable / Disable",
       "tooltip": "Enable / Disable"
     },
     {
       "tooltip": "Property Maping",
-      "url": "property-map",
+      "url": "property-mapping",
       "title": "Property Mapping"
     },
 		{
-			"url": "guide/events",
+			"url": "guide/callbacks",
 			"title": "Callbacks"
 		},
 		{
-			"url": "guide/v6/pipeable-operators",
+			"url": "guide/v6/helper-elements",
 			"title": "Helper Elements"
 		},
 		{
