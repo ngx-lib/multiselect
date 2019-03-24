@@ -1,6 +1,6 @@
-## Property Configuration:
+#Property Configuration:
 
-### General  Propertiy Configuration :
+## General  Propertiy Configuration :
 
 - `isOpen`: **Boolean?** -
 Use this property if you want multiselect dropdown to be open by default.  
@@ -61,7 +61,7 @@ Use this property to configure how much selected values to be shown on dropdown.
     [(ngModel)]="selectedOption"
     [options]="options"
     showMaxLables = 3>
-  </ngx-multiselect>	
+  </ngx-multiselect>
   ```
 
 - `theme`: **String?** -
@@ -83,14 +83,14 @@ Use this property to specify the color for multiselect if you selected material 
   Available Values: material theme color | valid css color  
 
 
-```html 
-<ngx-multiselect 
-  [(ngModel)]="selectedOption"
-  [options]="options"
-  [theme]=” ‘material’ ”
-  [color]=” ‘primary’ ”>
-</ngx-multiselect>
-```
+  ```html 
+  <ngx-multiselect 
+    [(ngModel)]="selectedOption"
+    [options]="options"
+    [theme]=” ‘material’ ”
+    [color]=” ‘primary’ ”>
+  </ngx-multiselect>
+  ```
 	
  
 ## Grouping Property Configuration :
@@ -108,21 +108,21 @@ Use this property to specify which key to use from option json which when access
 
   ```js 
   options = [{
-        "id": 1,
-        "name": "Test 1",
-        "category": "Cat 1"
-      },
-      {
-        "id": 2,
-        "name": "Test 2",
-      - "category": "Cat 1"
-      },
-      {
-        "id": 3,
-        "name": "Test 3",
-        "category": "Cat 2",
-        "disabled": true
-      }
+      "id": 1,
+      "name": "Test 1",
+      "category": "Cat 1"
+    },
+    {
+      "id": 2,
+      "name": "Test 2",
+    - "category": "Cat 1"
+    },
+    {
+      "id": 3,
+      "name": "Test 3",
+      "category": "Cat 2",
+      "disabled": true
+    }
   ];
   ```
 
@@ -130,38 +130,38 @@ Use this property to specify which key to use from option json which when access
 Multiselect options needs data in predefined format as below which should have keys like id, name, category, disabled etc as below.  
 
   ```js
-      {
-        "id": 3,
-        "name": "Test 3",
-        "category": "Cat 2",
-        "disabled": true
-      }
+  {
+    "id": 3,
+    "name": "Test 3",
+    "category": "Cat 2",
+    "disabled": true
+  }
   ```
   If  the data is not present in the exact format, use this property to provide propertyMap which will be used to map the key of your json to the key of json format used by multiselect. For example, the data is
   ```js
-      {
-        "empId": 3,
-        "empName": "Test 3",
-        "empCategory": "Cat 2",
-        "empActive": true
-      }
+  {
+    "empId": 3,
+    "empName": "Test 3",
+    "empCategory": "Cat 2",
+    "empActive": true
+  }
   ```
   The propertyMap should be
   ```js
   propertyMap = {
-      "empId” : "id”,
-      "empName” : "name”,
-      "empCategory” : "category”,
-      "empActive” : "disabled”,
+    "empId” : "id”,
+    "empName” : "name”,
+    "empCategory” : "category”,
+    "empActive” : "disabled”,
   }
   ```
   So, the multiselect converts the propertyMap to its own format as 
   ```js
-      {
-        "id": 3,
-        "name": "Test 3",
-        "category": "Cat 2",
-        "disabled": true
+  {
+    "id": 3,
+    "name": "Test 3",
+    "category": "Cat 2",
+    "disabled": true
   }
   ```
     Type: any  

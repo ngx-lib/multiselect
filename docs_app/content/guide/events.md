@@ -1,7 +1,7 @@
 
-## Events:
+# Events:
 
-### General Dropdown Events:
+## General Dropdown Events:
 
 1. `onOpen` - Event fired on opening the dropdown
     ```html
@@ -57,7 +57,7 @@
     ```
 
 2. `onSelectNone` - Event fired when the 'Select None' (to deselect all selected items) helper element is clicked
-```html
+    ```html
     <ngx-multiselect
         [multiple] = true
         [formControl]="selectedOption”
@@ -79,14 +79,14 @@
 ## Filtering events
 
 1. `onClear` - Event fired when the 'Clear' button is clicked
-```html
-<ngx-multiselect
-    [multiple] = true
-    [formControl]="selectedOption”
-    [options]="options"
-    (onClear)="onClearFired()">
-  </ngx-multiselect>
-```
+    ```html
+    <ngx-multiselect
+        [multiple] = true
+        [formControl]="selectedOption”
+        [options]="options"
+        (onClear)="onClearFired()">
+    </ngx-multiselect>
+    ```
 
 2. `onSearchChange` - Event fired when the text is typed into a search box to filter the items
     ```html
