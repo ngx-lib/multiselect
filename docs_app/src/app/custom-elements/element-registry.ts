@@ -54,7 +54,63 @@ export const ELEMENT_MODULE_PATHS_AS_ROUTES = [
   },
   {
     selector: 'ms-single-select',
-    loadChildren: './simple-demo/single-select.module#SingleSelectModule'
+    loadChildren: './demo/single-select/single-select.module#SingleSelectModule'
+  },
+  {
+    selector: 'ms-custom-template',
+    loadChildren: './demo/custom-template/custom-template.module#CustomTemplateModule'
+  },
+  {
+    selector: 'ms-enable-disable',
+    loadChildren: './demo/enable-disable/enable-disable.module#EnableDisableModule'
+  },
+  {
+    selector: 'ms-events',
+    loadChildren: './demo/events/events.module#EventsModule'
+  },
+  {
+    selector: 'ms-getting-started',
+    loadChildren: './demo/getting-started/getting-started.module#GettingStartedModule'
+  },
+  {
+    selector: 'ms-grouping',
+    loadChildren: './demo/grouping/grouping.module#GroupingModule'
+  },
+  {
+    selector: 'ms-model-driven',
+    loadChildren: './demo/model-driven/model-driven.module#ModelDrivenModule'
+  },
+  {
+    selector: 'ms-observable-async',
+    loadChildren: './demo/observable-async/observable-async.module#ObservableAsyncModule'
+  },
+  {
+    selector: 'ms-observable-dynamic-update',
+    loadChildren: './demo/observable-dynamic-update/observable-dynamic-update.module#ObservableDynamicUpdateModule'
+  },
+  {
+    selector: 'ms-observable-subscribe',
+    loadChildren: './demo/observable-subscribe/observable-subscribe.module#ObservableSubscribeModule'
+  },
+  {
+    selector: 'ms-observable-async-service',
+    loadChildren: './demo/observable-async-service/observable-async-service.module#ObservableAsyncServiceModule'
+  },
+  {
+    selector: 'ms-property-map',
+    loadChildren: './demo/property-map/property-map.module#PropertyMapModule'
+  },
+  {
+    selector: 'ms-template-driven',
+    loadChildren: './demo/template-driven/template-driven.module#TemplateDrivenModule'
+  },
+  {
+    selector: 'ms-large-volume-data',
+    loadChildren: './demo/large-volume-data/large-volume-data.module#TemplateDrivenModule'
+  },
+  {
+    selector: 'ms-theme',
+    loadChildren: './demo/theme/theme.module#ThemeModule'
   }
 ];
 

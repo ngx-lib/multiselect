@@ -18,5 +18,4 @@ export class ObservableSubscribeComponent implements OnInit {
       this.selectedOptions = [this.options[0], this.options[1]];
     });
   }
-
 }

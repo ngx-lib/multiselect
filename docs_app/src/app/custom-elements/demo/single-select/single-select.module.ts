@@ -1,16 +1,17 @@
 import { NgModule, Type } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { WithCustomElementComponent } from '../element-registry';
-import { NgxMultiselectModule } from '@ngx-lib/multiselect';
+import { WithCustomElementComponent } from '../../element-registry';
 import { SingleSelectComponent } from './single-select.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgxMultiselectModule } from '@ngx-lib/multiselect';
 
 @NgModule({
   imports: [ 
     CommonModule,
     NgxMultiselectModule,
     FormsModule,
-    ReactiveFormsModule ],
+    ReactiveFormsModule
+  ],
   declarations: [ SingleSelectComponent ],
   entryComponents: [ SingleSelectComponent ]
 })

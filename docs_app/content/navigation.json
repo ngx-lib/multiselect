@@ -5,16 +5,8 @@
       "title": "Getting Started"
     },
     {
-      "url": "api",
-      "title": "Reference"
-    },
-    {
-      "url": "guide/v6/migration",
-      "title": "Migration"
-    },
-    {
       "url": "team",
-      "title": "Team"
+      "title": "Contributors"
     }
   ],
   "TopBarNarrow": [],
@@ -63,11 +55,11 @@
     },
     {
       "tooltip": "Property Maping",
-      "url": "operator-decision-tree",
-      "title": "Operator Decision Tree"
+      "url": "property-map",
+      "title": "Property Mapping"
     },
 		{
-			"url": "guide/v6/migration",
+			"url": "guide/events",
 			"title": "Callbacks"
 		},
 		{
@@ -75,17 +67,17 @@
 			"title": "Helper Elements"
 		},
 		{
-			"url": "api/deprecations",
+			"url": "guide/theme",
 			"title": "Theming",
 			"tooltip": "Theming"
 		},
 		{
-      "url": "resources",
+      "url": "guide/virtual-list",
       "title": "Virtual List",
       "tooltip": "Virtual List"
 		},
 		{
-			"url": "code-of-conduct",
+			"url": "guide/theme",
 			"title": "Bootstrap Theme",
 			"tooltip": "Bootstrap Theme"
 		}
