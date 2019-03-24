@@ -1,7 +1,7 @@
 {
   "TopBar": [
     {
-      "url": "guide/overview",
+      "url": "guide/getting-started",
       "title": "Getting Started"
     },
     {
@@ -67,7 +67,7 @@
 			"title": "Helper Elements"
 		},
 		{
-			"url": "guide/theme",
+			"url": "guide/theming",
 			"title": "Theming",
 			"tooltip": "Theming"
 		},
@@ -77,7 +77,7 @@
       "tooltip": "Virtual List"
 		},
 		{
-			"url": "guide/theme",
+			"url": "guide/bootstrap-theme",
 			"title": "Bootstrap Theme",
 			"tooltip": "Bootstrap Theme"
 		}
