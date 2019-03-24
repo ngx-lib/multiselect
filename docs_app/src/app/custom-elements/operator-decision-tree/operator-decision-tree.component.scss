@@ -18,7 +18,7 @@ button.option {
   &:active, &:hover, &:focus {
     @include mat-elevation(8);
     mat-card {
-      background-color: $pink;
+      background-color: $blue;
       color: $white;
     }
   }

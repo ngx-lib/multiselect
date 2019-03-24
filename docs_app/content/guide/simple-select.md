@@ -10,3 +10,8 @@ Example :
 	Gender Example will be best suited here .
 
 <ms-single-select></ms-single-select>
+
+<code-tabs>
+  <code-pane title="app/app.component.ts" path="attribute-directives/src/app/app.component.ts"></code-pane>
+  <code-pane title="app/app.component.html" path="attribute-directives/src/app/app.component.html"></code-pane>
+</code-tabs>

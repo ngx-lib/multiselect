@@ -81,7 +81,7 @@ section#intro {
     font-size: 40px;
     line-height: 64px;
     font-weight: 500;
-    color: $pink;
+    color: $blue;
 
     &:after {
       display: none;
@@ -164,7 +164,7 @@ section#intro {
     min-width: 160px;
     font-size: 16px;
     color: $white;
-    background-color: $pink;
+    background-color: $blue;
     border-radius: 48px;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
     box-sizing: border-box;
@@ -192,8 +192,8 @@ section#intro {
 
 // ANGULAR LINE
 .background-sky {
-  background-color: $pink;
-  background: $pink;
+  background-color: $blue;
+  background: $blue;
   color: $white;
 }
 
@@ -249,7 +249,7 @@ section#intro {
 
   &:hover {
     h2 {
-      color: $pink;
+      color: $blue;
     }
   }
 }
@@ -319,7 +319,7 @@ aio-shell {
   }
 
   .cta-bar .hero-cta {
-    color: $pink;
+    color: $blue;
   }
 }
 
@@ -331,7 +331,7 @@ aio-shell {
 .text-headline {
   font-size: 20px;
   font-weight: 500;
-  color: $pink;
+  color: $blue;
   margin-top: 10px;
   text-transform: uppercase;
 }
@@ -417,7 +417,7 @@ div[layout=row]{
 }
 
 .marketing-banner {
-  background-color: lighten($pink, 10);
+  background-color: lighten($blue, 10);
   margin-top: 64px;
   padding: 32px;
 
