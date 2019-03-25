@@ -1,7 +1,7 @@
 {
   "TopBar": [
     {
-      "url": "guide/overview",
+      "url": "guide/getting-started",
       "title": "Getting Started"
     },
     {
@@ -16,58 +16,58 @@
       "title": "Getting Started"
 		},
 		{
-			"url": "guide/operators",
+			"url": "guide/property-configuration",
 			"title": "Property Configuration"
 		},
 		{
-			"url": "guide/subscription",
+			"url": "guide/events",
 			"title": "Events"
 		},
 		{
-			"url": "guide/subject",
+			"url": "guide/simple-select",
 			"title": "Simple Select"
 		},
 		{
-			"url": "guide/operators",
+			"url": "guide/template-driven",
 			"title": "Template Driven"
 		},
 		{
-			"url": "guide/scheduler",
+			"url": "guide/model-driven",
 			"title": "Model Driven"
 		},
 		{
-			"url": "guide/testing/marble-testing",
+			"url": "guide/observable",
 			"title": "Observable"
 		},
 		{
-			"url": "guide/testing/internal-marble-tests",
+			"url": "guide/custom-template",
 			"title": "Custom Template"
 		},
 		{
-			"url": "guide/installation",
+			"url": "guide/grouping",
 			"title": "Grouping",
 			"tooltip": "Grouping"
 		},
     {
-      "url": "api",
+      "url": "guide/enable-disable",
       "title": "Enable / Disable",
       "tooltip": "Enable / Disable"
     },
     {
       "tooltip": "Property Maping",
-      "url": "property-map",
+      "url": "property-mapping",
       "title": "Property Mapping"
     },
 		{
-			"url": "guide/events",
+			"url": "guide/callbacks",
 			"title": "Callbacks"
 		},
 		{
-			"url": "guide/v6/pipeable-operators",
+			"url": "guide/v6/helper-elements",
 			"title": "Helper Elements"
 		},
 		{
-			"url": "guide/theme",
+			"url": "guide/theming",
 			"title": "Theming",
 			"tooltip": "Theming"
 		},
@@ -77,7 +77,7 @@
       "tooltip": "Virtual List"
 		},
 		{
-			"url": "guide/theme",
+			"url": "guide/bootstrap-theme",
 			"title": "Bootstrap Theme",
 			"tooltip": "Bootstrap Theme"
 		}

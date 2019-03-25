@@ -1,74 +1,175 @@
-# Installation Instructions
+#Property Configuration:
 
-Here are different ways you can install RxJs:
+## General  Propertiy Configuration :
 
-## ES6 via npm
+- `isOpen`: **Boolean?** -
+Use this property if you want multiselect dropdown to be open by default.  
 
-```js
-npm install rxjs
+  ```html
+  <ngx-multiselect 
+    [(ngModel)]="selectedOption"
+    [options]="options"
+    [isOpen]=”true”>
+  </ngx-multiselect>
+  ```
+
+- `disabled`: **Boolean?** -
+  There are two ways to disable multiselect. You can disable options from array of options to be disabled or you can set disabled property to be true for multiselect which makes it disabled so it cannot be clicked and cannot be opened.
+  	Set disabled property to true if you want to disable whole dropdown.  
+
+  ```html
+  <ngx-multiselect 
+    [(ngModel)]="selectedOption"
+    [options]="options"
+    [disabled]="true”>
+  </ngx-multiselect>
+  ```
+
+- `options`: **any[]** –
+This property serves as input to muliselect which specifies options to be rendered by mulitiselect.There is a predefined format for data to be given as input to mutiselect which is expained in simple multiselect guide, grouping options guide for grouping and if the data is not in specified in format you can also pass propertyMap which links the input data to muliselect format data which is explained here:                     
+  
+  ```html
+  <ngx-multiselect 
+    [(ngModel)]="selectedOption"
+    [options]="options">
+  </ngx-multiselect>
+  ```
+
+- `optionsTemplate`: **TemplateRef<any>?** –
+Use this property to pass the custom template to displayed by multiselect while rendering options.For example, while showing the list of countries, you can pass the template which should display the name of country with its flag on right side as shown here. The example below displayes a fixed image before the actual name of option.  
+ 
+  ```html
+  <ngx-multiselect 
+    [(ngModel)]="selectedOption"
+    [options]="options">
+      <ng-template let-option="option">
+        <span>
+          <img  src="../path/to/img" />
+          {{option.name}}
+        </span>	
+      </ng-template>
+  </ngx-multiselect>
+  ```
+ 
+## Styling Property Configuration :
+
+- `showMaxLabels`: **number?** -
+Use this property to configure how much selected values to be shown on dropdown.If the value line becomes long it will be cut to match the width of dropdown and ellipses are shown to indicate cut values.
+
+  ```html 
+  <ngx-multiselect
+    [(ngModel)]="selectedOption"
+    [options]="options"
+    showMaxLables = 3>
+  </ngx-multiselect>
+  ```
+
+- `theme`: **String?** -
+Use this property to specify the theme for multiselect. There are two themes currently supported ‘material’ and ‘bootstrap’.If u select material you can also specify the color for mutiselect from the angular material theme or any valid  css color.
+
+  Available Values: ‘material’ | ‘bootstrap’  
+
+```html 
+<ngx-multiselect 
+  [(ngModel)]="selectedOption"
+  [options]="options"
+  [theme]=” ‘material’ ”>
+</ngx-multiselect>
 ```
 
-To import the entire core set of functionality:
+- `color`: **String?** -
+Use this property to specify the color for multiselect if you selected material theme. You can specify the color from angular material theme or any valid  css color.  
 
-```js
-import * as rxjs from 'rxjs';
+  Available Values: material theme color | valid css color  
 
-rxjs.of(1, 2, 3);
-```
 
-To import only what you need using pipeable operators:
+  ```html 
+  <ngx-multiselect 
+    [(ngModel)]="selectedOption"
+    [options]="options"
+    [theme]=” ‘material’ ”
+    [color]=” ‘primary’ ”>
+  </ngx-multiselect>
+  ```
+	
+ 
+## Grouping Property Configuration :
+	
+- `groupedProperty`: **String** -
+Use this property to specify which key to use from option json which when accessed gives the group to which that option belongs.  
 
-```js
-import { of } from 'rxjs';
-import { map } from 'rxjs/operators';
+  ``` html  
+  <ngx-multiselect 
+    [(ngModel)]="selectedOption"
+    [options]="options"
+    [groupedProperty]=” ’category’ ”>
+  </ngx-multiselect>
+  ```
 
-of(1,2,3).pipe(map(x => x + '!!!')); // etc
-```
-* See [Pipeable Operator Documentation](https://github.com/ReactiveX/rxjs/blob/91088dae1df097be2370c73300ffa11b27fd0100/doc/pipeable-operators.md) for more information about pipeable operator.
+  ```js 
+  options = [{
+      "id": 1,
+      "name": "Test 1",
+      "category": "Cat 1"
+    },
+    {
+      "id": 2,
+      "name": "Test 2",
+    - "category": "Cat 1"
+    },
+    {
+      "id": 3,
+      "name": "Test 3",
+      "category": "Cat 2",
+      "disabled": true
+    }
+  ];
+  ```
 
-To use with globally imported bundle:
+- `propertyMap`: **any** -
+Multiselect options needs data in predefined format as below which should have keys like id, name, category, disabled etc as below.  
 
-```js
-const { of } = rxjs;
-const { map } = rxjs.operators;
-
-of(1,2,3).pipe(map(x => x + '!!!')); // etc
-```
-
-## CommonJS via npm
-
-If you receive an error like error TS2304: Cannot find name 'Promise' or error TS2304: Cannot find name 'Iterable' when using RxJS you may need to install a supplemental set of typings.
-
-1.  For typings users:
-
-```js
-typings install es6-shim --ambient
-```
-
-2.  If you're not using typings the interfaces can be copied from /es6-shim/es6-shim.d.ts.
-
-3.  Add type definition file included in tsconfig.json or CLI argument.
-
-## All Module Types (CJS/ES6/AMD/TypeScript) via npm
-
-To install this library via npm version 3, use the following command:
-
-```js
-npm install @reactivex/rxjs
-```
-
-If you are using npm version 2 before this library has achieved a stable version, you need to specify the library version explicitly:
-
-```js
-npm install @reactivex/rxjs@5.0.0-beta.1
-```
-
-## CDN
-
-For CDN, you can use [unpkg](https://unpkg.com/). Just replace version with the current version on the link below:
-
-For RxJS 5.0.0-beta.1 through beta.11: [https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.umd.js](https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.umd.js)
-
-For RxJS 5.0.0-beta.12 and higher: [https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.js](https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.js)
-
-For RxJS 6.0.0 and higher: [https://unpkg.com/@reactivex/rxjs@version/dist/global/rxjs.umd.js](https://unpkg.com/@reactivex/rxjs@version/dist/global/rxjs.umd.js)
+  ```js
+  {
+    "id": 3,
+    "name": "Test 3",
+    "category": "Cat 2",
+    "disabled": true
+  }
+  ```
+  If  the data is not present in the exact format, use this property to provide propertyMap which will be used to map the key of your json to the key of json format used by multiselect. For example, the data is
+  ```js
+  {
+    "empId": 3,
+    "empName": "Test 3",
+    "empCategory": "Cat 2",
+    "empActive": true
+  }
+  ```
+  The propertyMap should be
+  ```js
+  propertyMap = {
+    "empId” : "id”,
+    "empName” : "name”,
+    "empCategory” : "category”,
+    "empActive” : "disabled”,
+  }
+  ```
+  So, the multiselect converts the propertyMap to its own format as 
+  ```js
+  {
+    "id": 3,
+    "name": "Test 3",
+    "category": "Cat 2",
+    "disabled": true
+  }
+  ```
+    Type: any  
+    Example:  
+  ```html 
+  <ngx-multiselect 
+    [(ngModel)]="selectedOption"
+    [options]="options"
+    [propertyMap]=”propertyMap”>
+  </ngx-multiselect>
+  ```

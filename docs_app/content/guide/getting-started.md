@@ -2,7 +2,7 @@
 
 Its very easy to get started with multiselct
 
-Only three steps invloved..
+Only three steps invloved.
 
 1.  ```js
     npm install @ngx-lib/multiselect --save

@@ -106,7 +106,7 @@ export const ELEMENT_MODULE_PATHS_AS_ROUTES = [
   },
   {
     selector: 'ms-large-volume-data',
-    loadChildren: './demo/large-volume-data/large-volume-data.module#TemplateDrivenModule'
+    loadChildren: './demo/large-volume-data/large-volume-data.module#LargeVolumeDataModule'
   },
   {
     selector: 'ms-theme',
