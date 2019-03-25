@@ -1,4 +1,4 @@
-## Template Driven:
+# Template Driven:
 Angular forms can be built in two ways either Template Driven or Model Driven(--link to model driven-- ).Multiselect supports both of these ways out of the box.
 
 To use template driven approach for multiselect, just provide multiselect with options and selected option using ngModel. You are done.
@@ -12,7 +12,14 @@ To use template driven approach for multiselect, just provide multiselect with o
 </ngx-multiselect>
 ```
 
-Demo of template driven multiselect:-
+## Demo
+
+<ms-template-driven></ms-template-driven>
+
+<code-tabs>
+  <code-pane title="app/app.component.ts" path="attribute-directives/src/app/app.component.ts"></code-pane>
+  <code-pane title="app/app.component.html" path="attribute-directives/src/app/app.component.html"></code-pane>
+</code-tabs>
 
 /////////////////////////////////////////////////////////////////
   is the following  right ? need to check
