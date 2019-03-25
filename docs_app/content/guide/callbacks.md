@@ -1,4 +1,4 @@
-## Callbacks: 
+# Callbacks: 
 
 Multiselect has various callbacks/events associated with it as described in events section(evnets section link).The following example shows how to use simple event of multiselect opening and closing.
 
@@ -19,3 +19,12 @@ Demo showing onGroupItemClick with $event.
 Multiselct in total has 9 events availbale with. Play with the following example to get overview of it.
 
 Demo: Example showing all events
+
+## Demo
+
+<ms-events></ms-events>
+
+<code-tabs>
+  <code-pane title="app/app.component.ts" path="attribute-directives/src/app/app.component.ts"></code-pane>
+  <code-pane title="app/app.component.html" path="attribute-directives/src/app/app.component.html"></code-pane>
+</code-tabs>

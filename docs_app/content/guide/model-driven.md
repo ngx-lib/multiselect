@@ -1,4 +1,4 @@
-## Model Driven (Reactive Forms):
+# Model Driven (Reactive Forms):
 
 Multiselect can be rendered using reactive forms also.Just create a simple formControl same as we do for other input types like checkbox, text input, radio etc and attach that formControl with multiselect as follows.
 
@@ -12,6 +12,15 @@ Multiselect can be rendered using reactive forms also.Just create a simple formC
 
 Demo of multiseselct using model driven approach.
 	Form control will contain two values which are to be selected by default on rendering.
+
+## Demo
+
+<ms-model-driven></ms-model-driven>
+
+<code-tabs>
+  <code-pane title="app/app.component.ts" path="attribute-directives/src/app/app.component.ts"></code-pane>
+  <code-pane title="app/app.component.html" path="attribute-directives/src/app/app.component.html"></code-pane>
+</code-tabs>
 
 We can also use multiselect formControl inside formGroup with any of standard html5 inputs.
 Demo of formGroup froming a group of text input type and multislect in which submit button will be disbaled by default and enabled only on required validation satisfacation.

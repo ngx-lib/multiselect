@@ -22,3 +22,10 @@ The best example suited for this will be the list of countries with its flag at 
 
 
 Demo showing list of countries with its flag picture
+
+<ms-custom-template></ms-custom-template>
+
+<code-tabs>
+  <code-pane title="app/app.component.ts" path="attribute-directives/src/app/app.component.ts"></code-pane>
+  <code-pane title="app/app.component.html" path="attribute-directives/src/app/app.component.html"></code-pane>
+</code-tabs>

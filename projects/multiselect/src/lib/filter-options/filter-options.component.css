@@ -133,6 +133,7 @@
   position: relative;
   border: none;
   font-size: 20px;
+  min-width: 25px;
 }
 
 /* Boostrap CSS end */
