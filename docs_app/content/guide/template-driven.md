@@ -17,8 +17,8 @@ To use template driven approach for multiselect, just provide multiselect with o
 <ms-template-driven></ms-template-driven>
 
 <code-tabs>
-  <code-pane title="app/app.component.ts" path="attribute-directives/src/app/app.component.ts"></code-pane>
-  <code-pane title="app/app.component.html" path="attribute-directives/src/app/app.component.html"></code-pane>
+  <code-pane title="app/template-driven.component.ts" path="template-driven/src/app/template-driven.component.ts"></code-pane>
+  <code-pane title="app/template-driven.component.html" path="template-driven/src/app/template-driven.component.html"></code-pane>
 </code-tabs>
 
 /////////////////////////////////////////////////////////////////
