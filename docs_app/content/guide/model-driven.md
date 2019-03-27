@@ -18,8 +18,8 @@ Demo of multiseselct using model driven approach.
 <ms-model-driven></ms-model-driven>
 
 <code-tabs>
-  <code-pane title="app/app.component.ts" path="attribute-directives/src/app/app.component.ts"></code-pane>
-  <code-pane title="app/app.component.html" path="attribute-directives/src/app/app.component.html"></code-pane>
+  <code-pane title="app/model-driven.component.ts" path="attribute-directives/src/app/model-driven.component.ts"></code-pane>
+  <code-pane title="app/model-driven.component.html" path="attribute-directives/src/app/model-driven.component.html"></code-pane>
 </code-tabs>
 
 We can also use multiselect formControl inside formGroup with any of standard html5 inputs.
