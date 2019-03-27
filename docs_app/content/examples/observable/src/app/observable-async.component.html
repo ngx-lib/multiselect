@@ -1,0 +1,7 @@
+<p>Observable Async Demo</p>
+<ngx-multiselect
+  [formControl]="selectedOptions"
+  ngDefaultControl
+  [options]="observableOptions | async"
+  [multiple]="true">
+</ngx-multiselect>
