@@ -7,8 +7,8 @@ There are two ways to use observable data in angular.
 <ms-observable-async></ms-observable-async>
 
 <code-tabs>
-  <code-pane title="app/observable-async.component.ts" path="observable-async/src/app/app.component.ts"></code-pane>
-  <code-pane title="app/observable-async.component.html" path="observable-asyn/src/app/app.component.html"></code-pane>
+  <code-pane title="app/observable-async.component.ts" path="observable/src/app/observable-async.component.ts"></code-pane>
+  <code-pane title="app/observable-async.component.html" path="observable/src/app/observable-async.component.html"></code-pane>
 </code-tabs>
 
 ## 1. Manual subscription: 
@@ -19,8 +19,8 @@ Demo showing multiselect data fetched from observable and rendered.
 <ms-observable-async-update></ms-observable-async-update>
 
 <code-tabs>
-  <code-pane title="app/observable-async-update.component.ts" path="observable-async-update/src/app/app.component.ts"></code-pane>
-  <code-pane title="app/observable-async-update.component.html" path="observable-async-update/src/app/app.component.html"></code-pane>
+  <code-pane title="app/observable-dynamic-update.component.ts" path="observable/src/app/observable-dynamic-update.component.ts"></code-pane>
+  <code-pane title="app/observable-dynamic-update.component.html" path="observable/src/app/observable-dynamic-update.component.html"></code-pane>
 </code-tabs>
 
 ## 2. Using async pipe
@@ -31,8 +31,8 @@ Demo showing multiselect data fetched from service and directly passing observab
 <ms-observable-async-service></ms-observable-async-service>
 
 <code-tabs>
-  <code-pane title="app/observable-async-service.component.ts" path="observable-async-service/src/app/app.component.ts"></code-pane>
-  <code-pane title="app/observable-async-service.component.html" path="observable-async-service/src/app/app.component.html"></code-pane>
+  <code-pane title="app/observable-async-service.component.ts" path="observable/src/app/observable-async-service.component.ts"></code-pane>
+  <code-pane title="app/observable-async-service.component.html" path="observable/src/app/observable-async-service.component.html"></code-pane>
 </code-tabs>
 
 Changing the state in case of observable:
