@@ -2,7 +2,8 @@ import { NgModule, Type } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxMultiselectModule } from '@ngx-lib/multiselect';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ObservableAsyncComponent } from '../observable-async/observable-async.component';
+import { ObservableAsyncServiceComponent } from './observable-async-service.component';
+
 
 @NgModule({
   imports: [ 
@@ -11,8 +12,8 @@ import { ObservableAsyncComponent } from '../observable-async/observable-async.c
     FormsModule,
     ReactiveFormsModule 
   ],
-  declarations: [ ObservableAsyncComponent ],
-  entryComponents: [ ObservableAsyncComponent ]
+  declarations: [ ObservableAsyncServiceComponent ],
+  entryComponents: [ ObservableAsyncServiceComponent ]
 })
 export class ObservableAsyncServiceModule {
 }

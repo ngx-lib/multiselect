@@ -1,4 +1,5 @@
 # Observable
+
 Multiselect works pretty well with observables as it does with general data.
 There are two ways to use observable data in angular.
 1. Subscribing manually in ngOnInit and collecting all data into member variable and unsubcribe on ngOnDestroy.

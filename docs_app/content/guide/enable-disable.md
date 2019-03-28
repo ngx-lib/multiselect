@@ -17,7 +17,7 @@ In case of disabling the whole group on the fly, just iterate through the collec
 
 Demo showing disabling group on the fly
 
-#Demo
+# Demo
 
 <ms-enable-disable></ms-enable-disable>
 

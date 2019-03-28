@@ -10,7 +10,7 @@ Rendering options by using such grouping allows us to do some advanced functiona
 
 For example, in above example, what if the user wants to select all players from his favourite team, In this case, multiselect allows us to just click on team name and bingo, all the players from that team are selected as favourite.
 
-#Demo
+# Demo
 
 <ms-grouping></ms-grouping>
 
