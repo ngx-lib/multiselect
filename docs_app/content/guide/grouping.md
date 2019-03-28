@@ -15,8 +15,8 @@ For example, in above example, what if the user wants to select all players from
 <ms-grouping></ms-grouping>
 
 <code-tabs>
-  <code-pane title="app/app.component.ts" path="attribute-directives/src/app/app.component.ts"></code-pane>
-  <code-pane title="app/app.component.html" path="attribute-directives/src/app/app.component.html"></code-pane>
+  <code-pane title="app/grouping.component.ts" path="grouping/src/app/grouping.component.ts"></code-pane>
+  <code-pane title="app/grouping.component.html" path="grouping/src/app/grouping.component.html"></code-pane>
 </code-tabs>
 
 Gif Showing clicking on category selects all players of that team
