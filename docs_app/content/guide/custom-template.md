@@ -26,6 +26,6 @@ Demo showing list of countries with its flag picture
 <ms-custom-template></ms-custom-template>
 
 <code-tabs>
-  <code-pane title="app/app.component.ts" path="attribute-directives/src/app/app.component.ts"></code-pane>
-  <code-pane title="app/app.component.html" path="attribute-directives/src/app/app.component.html"></code-pane>
+  <code-pane title="app/custom-template.component.ts" path="custom-template/src/app/custom-template.component.ts"></code-pane>
+  <code-pane title="app/custom-template.component.html" path="custom-template/src/app/custom-template.component.html"></code-pane>
 </code-tabs>
