@@ -25,6 +25,6 @@ Demo: Example showing all events
 <ms-events></ms-events>
 
 <code-tabs>
-  <code-pane title="app/app.component.ts" path="attribute-directives/src/app/app.component.ts"></code-pane>
-  <code-pane title="app/app.component.html" path="attribute-directives/src/app/app.component.html"></code-pane>
+  <code-pane title="app/events.component.ts" path="events/src/app/events.component.ts"></code-pane>
+  <code-pane title="app/events.component.html" path="events/src/app/events.component.html"></code-pane>
 </code-tabs>
