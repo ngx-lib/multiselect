@@ -48,6 +48,6 @@ Demo showing passing only grouped property to array of json of teams bcoz teams 
 <ms-property-map></ms-property-map>
 
 <code-tabs>
-  <code-pane title="app/app.component.ts" path="attribute-directives/src/app/app.component.ts"></code-pane>
-  <code-pane title="app/app.component.html" path="attribute-directives/src/app/app.component.html"></code-pane>
+  <code-pane title="app/property-map.component.ts" path="property-map/src/app/property-map.component.ts"></code-pane>
+  <code-pane title="app/property-map.component.html" path="property-map/src/app/property-map.component.html"></code-pane>
 </code-tabs>
