@@ -136,6 +136,11 @@
 :host.mat-multiselect ::ng-deep .open .selection {
   border-bottom: 1px solid blue;
 }
+:host.mat-multiselect ::ng-deep .close {
+  float: right;
+  right: 10px;
+  position: relative;
+}
 /* 
 :host.mat-multiselect ::ng-deep .selection .open {
   color: blue;
@@ -250,8 +255,9 @@
   pointer-events: none;
   cursor: not-allowed !important;
 }
-/* Bootstrap multiselect theme end */
-/* .close{
+
+:host.bs-multiselect ::ng-deep .close {
   float: right;
-  margin-right: 15px;
-} */
+  right: 10px;
+  position: relative;
+}
