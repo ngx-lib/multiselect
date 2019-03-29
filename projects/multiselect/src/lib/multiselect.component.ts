@@ -259,6 +259,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     this.setOptions(changedOptions);
     // no value is selected so passing null
     this.viewToModel(null);
+    this.close();
     event.stopPropagation();
   }
 }
