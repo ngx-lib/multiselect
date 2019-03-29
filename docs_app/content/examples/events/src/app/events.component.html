@@ -1,0 +1,16 @@
+<ngx-multiselect
+  ngDefaultControl
+  [options]="options"
+  [multiple]="true"
+  (onOpen)="onOpenFired()"
+  (onClose)="onCloseFired()"
+  (onItemClick)="onItemClickFired($event)"
+  (onGroupItemClick)="onGroupItemClickFired($event)"
+  (onSelectAll)="onSelectAllFired()"
+  (onSelectNone)="onSelectNoneFired()"
+  (onReset)="onResetFired()"
+  (onClear)="onClearFired()"
+  (onSearchChange)="onSearchChangeFired($event)">
+</ngx-multiselect>
+
+<b *ngIf="message">{{ message }}</b>

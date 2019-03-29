@@ -17,11 +17,11 @@ In case of disabling the whole group on the fly, just iterate through the collec
 
 Demo showing disabling group on the fly
 
-#Demo
+# Demo
 
 <ms-enable-disable></ms-enable-disable>
 
 <code-tabs>
-  <code-pane title="app/app.component.ts" path="attribute-directives/src/app/app.component.ts"></code-pane>
-  <code-pane title="app/app.component.html" path="attribute-directives/src/app/app.component.html"></code-pane>
+  <code-pane title="app/enable-disable.component.ts" path="enable-disable/src/app/enable-disable.component.ts"></code-pane>
+  <code-pane title="app/enable-disable.component.html" path="enable-disable/src/app/enable-disable.component.html"></code-pane>
 </code-tabs>

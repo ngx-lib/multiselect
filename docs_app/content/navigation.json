@@ -12,34 +12,42 @@
   "TopBarNarrow": [],
 	"SideNav": [
 		{
+			"tooltip": "Getting Started",
 			"url": "guide/getting-started",
       "title": "Getting Started"
 		},
 		{
+			"tooltip": "Property Configuration",
 			"url": "guide/property-configuration",
 			"title": "Property Configuration"
 		},
 		{
+			"tooltip": "Events",
 			"url": "guide/events",
 			"title": "Events"
 		},
 		{
+			"tooltip": "Simple Select",
 			"url": "guide/simple-select",
 			"title": "Simple Select"
 		},
 		{
+			"tooltip": "Template Driven",
 			"url": "guide/template-driven",
 			"title": "Template Driven"
 		},
 		{
+			"tooltip": "Model Driven",
 			"url": "guide/model-driven",
 			"title": "Model Driven"
 		},
 		{
+			"tooltip": "Observable",
 			"url": "guide/observable",
 			"title": "Observable"
 		},
 		{
+			"tooltip": "Custom Template",
 			"url": "guide/custom-template",
 			"title": "Custom Template"
 		},
@@ -59,11 +67,13 @@
       "title": "Property Mapping"
     },
 		{
+			"tooltip": "Callbacks",
 			"url": "guide/callbacks",
 			"title": "Callbacks"
 		},
 		{
-			"url": "guide/v6/helper-elements",
+			"tooltip": "Helper Elements",
+			"url": "guide/helper-elements",
 			"title": "Helper Elements"
 		},
 		{
@@ -75,11 +85,6 @@
       "url": "guide/virtual-list",
       "title": "Virtual List",
       "tooltip": "Virtual List"
-		},
-		{
-			"url": "guide/bootstrap-theme",
-			"title": "Bootstrap Theme",
-			"tooltip": "Bootstrap Theme"
 		}
 	],
 	"docVersions": []

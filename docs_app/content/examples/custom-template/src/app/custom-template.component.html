@@ -1,0 +1,10 @@
+<ngx-multiselect
+  ngDefaultControl
+  [options]="options"
+  [multiple]="true"
+  [propertyMap]="{ img: 'flag' }">
+  <ng-template let-option="option">
+      <img [src]="option.img" width="40px" height="40px" [attr.alt]="option.name" />
+      {{ option.name }}
+  </ng-template>
+</ngx-multiselect>

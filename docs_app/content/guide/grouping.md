@@ -10,13 +10,13 @@ Rendering options by using such grouping allows us to do some advanced functiona
 
 For example, in above example, what if the user wants to select all players from his favourite team, In this case, multiselect allows us to just click on team name and bingo, all the players from that team are selected as favourite.
 
-#Demo
+# Demo
 
 <ms-grouping></ms-grouping>
 
 <code-tabs>
-  <code-pane title="app/app.component.ts" path="attribute-directives/src/app/app.component.ts"></code-pane>
-  <code-pane title="app/app.component.html" path="attribute-directives/src/app/app.component.html"></code-pane>
+  <code-pane title="app/grouping.component.ts" path="grouping/src/app/grouping.component.ts"></code-pane>
+  <code-pane title="app/grouping.component.html" path="grouping/src/app/grouping.component.html"></code-pane>
 </code-tabs>
 
 Gif Showing clicking on category selects all players of that team

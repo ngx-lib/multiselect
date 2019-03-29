@@ -13,8 +13,8 @@ If we want to use any of the theme while rendering, just pass the value of the t
 <ms-theme></ms-theme>
 
 <code-tabs>
-  <code-pane title="app/app.component.ts" path="attribute-directives/src/app/app.component.ts"></code-pane>
-  <code-pane title="app/app.component.html" path="attribute-directives/src/app/app.component.html"></code-pane>
+  <code-pane title="app/theming.component.ts" path="theming/src/app/theming.component.ts"></code-pane>
+  <code-pane title="app/theming.component.html" path="theming/src/app/theming.component.html"></code-pane>
 </code-tabs>
 
 If you select material theme, you can also specify the color for mutiselect from the angular material theme or any valid  css color.
@@ -26,6 +26,6 @@ If you select material theme, you can also specify the color for mutiselect from
 <ms-theme></ms-theme>
 
 <code-tabs>
-  <code-pane title="app/app.component.ts" path="attribute-directives/src/app/app.component.ts"></code-pane>
-  <code-pane title="app/app.component.html" path="attribute-directives/src/app/app.component.html"></code-pane>
+  <code-pane title="app/theming.component.ts" path="theming/src/app/theming.component.ts"></code-pane>
+  <code-pane title="app/theming.component.html" path="theming/src/app/theming.component.html"></code-pane>
 </code-tabs>
