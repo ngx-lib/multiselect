@@ -8,16 +8,16 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue.
-$rxjs-primary: mat-palette($mat-pink, 700, 600, 800);
-$rxjs-accent:  mat-palette($mat-red, 700, 600, 800);
+$mutliselect-primary: mat-palette($mat-blue, 700, 600, 800);
+$mutliselect-accent:  mat-palette($mat-red, 700, 600, 800);
 
 // The warn palette is optional (defaults to red).
-$rxjs-warn:    mat-palette($mat-red);
+$mutliselect-warn:    mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$rxjs-theme: mat-light-theme($rxjs-primary, $rxjs-accent, $rxjs-warn);
+$mutliselect-theme: mat-light-theme($mutliselect-primary, $mutliselect-accent, $mutliselect-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($rxjs-theme);
+@include angular-material-theme($mutliselect-theme);
