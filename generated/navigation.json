@@ -1,0 +1,127 @@
+{
+  "TopBar": [
+    {
+      "url": "guide/overview",
+      "title": "Overview"
+    },
+    {
+      "url": "api",
+      "title": "Reference"
+    },
+    {
+      "url": "guide/v6/migration",
+      "title": "Migration"
+    },
+    {
+      "url": "team",
+      "title": "Team"
+    }
+  ],
+  "TopBarNarrow": [],
+  "SideNav": [
+    {
+      "url": "guide/overview",
+      "title": "Overview",
+      "tooltip": "RxJS Overview",
+      "children": [
+        {
+          "url": "guide/observable",
+          "title": "Observables"
+        },
+        {
+          "url": "guide/operators",
+          "title": "Operators"
+        },
+        {
+          "url": "guide/subscription",
+          "title": "Subscription"
+        },
+        {
+          "url": "guide/subject",
+          "title": "Subjects"
+        },
+        {
+          "url": "guide/operators",
+          "title": "Operators"
+        },
+        {
+          "url": "guide/scheduler",
+          "title": "Scheduler"
+        },
+        {
+          "title": "Testing",
+          "children": [
+            {
+              "url": "guide/testing/marble-testing",
+              "title": "Marble Testing"
+            },
+            {
+              "url": "guide/testing/internal-marble-tests",
+              "title": "Contribute tests to RxJS"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "guide/installation",
+      "title": "Installation",
+      "tooltip": "Installation"
+    },
+    {
+      "url": "api",
+      "title": "Reference",
+      "tooltip": "RxJS Reference"
+    },
+    {
+      "tooltip": "Operator Decision Tree",
+      "url": "operator-decision-tree",
+      "title": "Operator Decision Tree"
+    },
+    {
+      "title": "About Version 6",
+      "children": [
+        {
+          "url": "guide/v6/migration",
+          "title": "Migration"
+        },
+        {
+          "url": "guide/v6/pipeable-operators",
+          "title": "Pipeable Operators"
+        },
+        {
+          "url": "api/deprecations",
+          "title": "Deprecations",
+          "tooltip": "List of Deprecations"
+        }
+      ]
+    },
+    {
+      "url": "resources",
+      "title": "External Resources",
+      "tooltip": "External Resources"
+    },
+    {
+      "url": "code-of-conduct",
+      "title": "Code of Conduct",
+      "tooltip": "Code of Conduct"
+    }
+  ],
+  "docVersions": [],
+  "__versionInfo": {
+    "raw": "0.0.4",
+    "major": 0,
+    "minor": 0,
+    "patch": 5,
+    "prerelease": [
+      "local"
+    ],
+    "build": "sha.bccbd81",
+    "version": "0.0.5-local",
+    "codeName": "snapshot",
+    "isSnapshot": true,
+    "full": "0.0.5-local+sha.bccbd81",
+    "branch": "master",
+    "commitSHA": "bccbd81084214ce845f59f41de25f35fb1ee1f77"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "id": "api/deprecations",
+  "title": "",
+  "contents": "\n<section class=\"deprecations\">\n  <h1>Deprecations</h1>\n  <p class=\"important\">The API listed below will be removed in the next major release!</p>\n  <table>\n\n  </table>\n</section>\n\n\n\n\n<!-- links to this doc:\n-->\n<!-- links from this doc:\n-->"
+}
