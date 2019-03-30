@@ -38,7 +38,7 @@
     "update-webdriver": "webdriver-manager update --standalone false --gecko false $CHROMEDRIVER_VERSION_ARG",
     "generate-stackblitz": "node ./tools/stackblitz-builder/generateStackblitz",
     "generate-zips": "node ./tools/example-zipper/generateZips",
-    "~~build": "ng build --configuration=stable --prod --source-map",
+    "~~build": "ng build --configuration=stable --base-href /multiselect/ --prod --source-map",
     "~~clean-generated": "node --eval \"require('shelljs').rm('-rf', 'src/generated')\""
   },
   "engines": {
@@ -64,6 +64,7 @@
     "@webcomponents/custom-elements": "^1.0.8",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.4.1",
+    "lite-server": "^2.4.0",
     "rxjs": "^6.2.0",
     "tslib": "^1.9.0",
     "web-animations-js": "^2.2.5",

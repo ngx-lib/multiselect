@@ -1,11 +1,11 @@
 {
   "TopBar": [
     {
-      "url": "guide/getting-started",
+      "url": "/guide/getting-started",
       "title": "Getting Started"
     },
     {
-      "url": "team",
+      "url": "/team",
       "title": "Contributors"
     }
   ],
@@ -13,76 +13,76 @@
 	"SideNav": [
 		{
 			"tooltip": "Getting Started",
-			"url": "guide/getting-started",
+			"url": "/guide/getting-started",
       "title": "Getting Started"
 		},
 		{
 			"tooltip": "Property Configuration",
-			"url": "guide/property-configuration",
+			"url": "/guide/property-configuration",
 			"title": "Property Configuration"
 		},
 		{
 			"tooltip": "Events",
-			"url": "guide/events",
+			"url": "/guide/events",
 			"title": "Events"
 		},
 		{
 			"tooltip": "Simple Select",
-			"url": "guide/simple-select",
+			"url": "/guide/simple-select",
 			"title": "Simple Select"
 		},
 		{
 			"tooltip": "Template Driven",
-			"url": "guide/template-driven",
+			"url": "/guide/template-driven",
 			"title": "Template Driven"
 		},
 		{
 			"tooltip": "Model Driven",
-			"url": "guide/model-driven",
+			"url": "/guide/model-driven",
 			"title": "Model Driven"
 		},
 		{
 			"tooltip": "Observable",
-			"url": "guide/observable",
+			"url": "/guide/observable",
 			"title": "Observable"
 		},
 		{
 			"tooltip": "Custom Template",
-			"url": "guide/custom-template",
+			"url": "/guide/custom-template",
 			"title": "Custom Template"
 		},
 		{
-			"url": "guide/grouping",
+			"url": "/guide/grouping",
 			"title": "Grouping",
 			"tooltip": "Grouping"
 		},
     {
-      "url": "guide/enable-disable",
+      "url": "/guide/enable-disable",
       "title": "Enable / Disable",
       "tooltip": "Enable / Disable"
     },
     {
       "tooltip": "Property Maping",
-      "url": "guide/property-mapping",
+      "url": "/guide/property-mapping",
       "title": "Property Mapping"
     },
 		{
 			"tooltip": "Callbacks",
-			"url": "guide/callbacks",
+			"url": "/guide/callbacks",
 			"title": "Callbacks"
 		},
 		{
 			"tooltip": "Helper Elements",
-			"url": "guide/helper-elements",
+			"url": "/guide/helper-elements",
 			"title": "Helper Elements"
 		},
 		{
-			"url": "guide/theming",
+			"url": "/guide/theming",
 			"title": "Theming",
 			"tooltip": "Theming"
 		},
 		{
-      "url": "guide/virtual-list",
+      "url": "/guide/virtual-list",
       "title": "Virtual List",
       "tooltip": "Virtual List"
 		}
