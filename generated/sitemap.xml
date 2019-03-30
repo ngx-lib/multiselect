@@ -1,37 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://rxjs-dev.firebaseapp.com/guide/installation</loc>
+    <loc>https://rxjs-dev.firebaseapp.com/guide/callbacks</loc>
+  </url>
+  <url>
+    <loc>https://rxjs-dev.firebaseapp.com/guide/custom-template</loc>
+  </url>
+  <url>
+    <loc>https://rxjs-dev.firebaseapp.com/guide/enable-disable</loc>
+  </url>
+  <url>
+    <loc>https://rxjs-dev.firebaseapp.com/guide/events</loc>
+  </url>
+  <url>
+    <loc>https://rxjs-dev.firebaseapp.com/guide/getting-started</loc>
+  </url>
+  <url>
+    <loc>https://rxjs-dev.firebaseapp.com/guide/grouping</loc>
+  </url>
+  <url>
+    <loc>https://rxjs-dev.firebaseapp.com/guide/helper-elements</loc>
+  </url>
+  <url>
+    <loc>https://rxjs-dev.firebaseapp.com/guide/model-driven</loc>
   </url>
   <url>
     <loc>https://rxjs-dev.firebaseapp.com/guide/observable</loc>
   </url>
   <url>
-    <loc>https://rxjs-dev.firebaseapp.com/guide/operators</loc>
-  </url>
-  <url>
     <loc>https://rxjs-dev.firebaseapp.com/guide/overview</loc>
   </url>
   <url>
-    <loc>https://rxjs-dev.firebaseapp.com/guide/scheduler</loc>
+    <loc>https://rxjs-dev.firebaseapp.com/guide/property-configuration</loc>
   </url>
   <url>
-    <loc>https://rxjs-dev.firebaseapp.com/guide/subject</loc>
+    <loc>https://rxjs-dev.firebaseapp.com/guide/property-mapping</loc>
   </url>
   <url>
-    <loc>https://rxjs-dev.firebaseapp.com/guide/subscription</loc>
+    <loc>https://rxjs-dev.firebaseapp.com/guide/simple-select</loc>
   </url>
   <url>
-    <loc>https://rxjs-dev.firebaseapp.com/guide/testing/internal-marble-tests</loc>
+    <loc>https://rxjs-dev.firebaseapp.com/guide/template-driven</loc>
   </url>
   <url>
-    <loc>https://rxjs-dev.firebaseapp.com/guide/testing/marble-testing</loc>
+    <loc>https://rxjs-dev.firebaseapp.com/guide/theming</loc>
   </url>
   <url>
-    <loc>https://rxjs-dev.firebaseapp.com/guide/v6/migration</loc>
-  </url>
-  <url>
-    <loc>https://rxjs-dev.firebaseapp.com/guide/v6/pipeable-operators</loc>
+    <loc>https://rxjs-dev.firebaseapp.com/guide/virtual-list</loc>
   </url>
   <url>
     <loc>https://rxjs-dev.firebaseapp.com/api</loc>

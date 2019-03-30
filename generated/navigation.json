@@ -1,110 +1,90 @@
 {
   "TopBar": [
     {
-      "url": "guide/overview",
-      "title": "Overview"
-    },
-    {
-      "url": "api",
-      "title": "Reference"
-    },
-    {
-      "url": "guide/v6/migration",
-      "title": "Migration"
+      "url": "guide/getting-started",
+      "title": "Getting Started"
     },
     {
       "url": "team",
-      "title": "Team"
+      "title": "Contributors"
     }
   ],
   "TopBarNarrow": [],
   "SideNav": [
     {
-      "url": "guide/overview",
-      "title": "Overview",
-      "tooltip": "RxJS Overview",
-      "children": [
-        {
-          "url": "guide/observable",
-          "title": "Observables"
-        },
-        {
-          "url": "guide/operators",
-          "title": "Operators"
-        },
-        {
-          "url": "guide/subscription",
-          "title": "Subscription"
-        },
-        {
-          "url": "guide/subject",
-          "title": "Subjects"
-        },
-        {
-          "url": "guide/operators",
-          "title": "Operators"
-        },
-        {
-          "url": "guide/scheduler",
-          "title": "Scheduler"
-        },
-        {
-          "title": "Testing",
-          "children": [
-            {
-              "url": "guide/testing/marble-testing",
-              "title": "Marble Testing"
-            },
-            {
-              "url": "guide/testing/internal-marble-tests",
-              "title": "Contribute tests to RxJS"
-            }
-          ]
-        }
-      ]
+      "tooltip": "Getting Started",
+      "url": "guide/getting-started",
+      "title": "Getting Started"
     },
     {
-      "url": "guide/installation",
-      "title": "Installation",
-      "tooltip": "Installation"
+      "tooltip": "Property Configuration",
+      "url": "guide/property-configuration",
+      "title": "Property Configuration"
     },
     {
-      "url": "api",
-      "title": "Reference",
-      "tooltip": "RxJS Reference"
+      "tooltip": "Events",
+      "url": "guide/events",
+      "title": "Events"
     },
     {
-      "tooltip": "Operator Decision Tree",
-      "url": "operator-decision-tree",
-      "title": "Operator Decision Tree"
+      "tooltip": "Simple Select",
+      "url": "guide/simple-select",
+      "title": "Simple Select"
     },
     {
-      "title": "About Version 6",
-      "children": [
-        {
-          "url": "guide/v6/migration",
-          "title": "Migration"
-        },
-        {
-          "url": "guide/v6/pipeable-operators",
-          "title": "Pipeable Operators"
-        },
-        {
-          "url": "api/deprecations",
-          "title": "Deprecations",
-          "tooltip": "List of Deprecations"
-        }
-      ]
+      "tooltip": "Template Driven",
+      "url": "guide/template-driven",
+      "title": "Template Driven"
     },
     {
-      "url": "resources",
-      "title": "External Resources",
-      "tooltip": "External Resources"
+      "tooltip": "Model Driven",
+      "url": "guide/model-driven",
+      "title": "Model Driven"
     },
     {
-      "url": "code-of-conduct",
-      "title": "Code of Conduct",
-      "tooltip": "Code of Conduct"
+      "tooltip": "Observable",
+      "url": "guide/observable",
+      "title": "Observable"
+    },
+    {
+      "tooltip": "Custom Template",
+      "url": "guide/custom-template",
+      "title": "Custom Template"
+    },
+    {
+      "url": "guide/grouping",
+      "title": "Grouping",
+      "tooltip": "Grouping"
+    },
+    {
+      "url": "guide/enable-disable",
+      "title": "Enable / Disable",
+      "tooltip": "Enable / Disable"
+    },
+    {
+      "tooltip": "Property Maping",
+      "url": "guide/property-mapping",
+      "title": "Property Mapping"
+    },
+    {
+      "tooltip": "Callbacks",
+      "url": "guide/callbacks",
+      "title": "Callbacks"
+    },
+    {
+      "tooltip": "Helper Elements",
+      "url": "guide/helper-elements",
+      "title": "Helper Elements"
+    },
+    {
+      "url": "guide/theming",
+      "title": "Theming",
+      "tooltip": "Theming"
+    },
+    {
+      "url": "guide/virtual-list",
+      "title": "Virtual List",
+      "tooltip": "Virtual List"
     }
   ],
   "docVersions": [],
@@ -116,12 +96,12 @@
     "prerelease": [
       "local"
     ],
-    "build": "sha.bccbd81",
+    "build": "sha.d555c91",
     "version": "0.0.5-local",
     "codeName": "snapshot",
     "isSnapshot": true,
-    "full": "0.0.5-local+sha.bccbd81",
+    "full": "0.0.5-local+sha.d555c91",
     "branch": "master",
-    "commitSHA": "bccbd81084214ce845f59f41de25f35fb1ee1f77"
+    "commitSHA": "d555c918b4f6353d9252e1a010b9388c205e0582"
   }
 }
