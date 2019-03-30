@@ -13,7 +13,7 @@
   "SideNav": [
     {
       "tooltip": "Getting Started",
-      "url": "guide/getting-started",
+      "url": "/guide/getting-started",
       "title": "Getting Started"
     },
     {
