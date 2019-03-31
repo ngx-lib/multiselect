@@ -9,8 +9,7 @@ const Package = require('dgeni').Package;
 
 const basePackage = require('../angular-base-package');
 const typeScriptPackage = require('dgeni-packages/typescript');
-const { API_SOURCE_PATH, API_TEMPLATES_PATH, MARBLE_IMAGES_PATH, MARBLE_IMAGES_WEB_PATH,
-  MARBLE_IMAGES_OUTPUT_PATH, requireFolder } = require('../config');
+const { API_SOURCE_PATH, API_TEMPLATES_PATH, requireFolder } = require('../config');
 
 module.exports = new Package('angular-api', [basePackage, typeScriptPackage])
 
@@ -184,16 +183,15 @@ module.exports = new Package('angular-api', [basePackage, typeScriptPackage])
     templateFinder.templateFolders.unshift(API_TEMPLATES_PATH);
   })
 
-  .config(function(embedMarbleDiagramsPostProcessor) {
-    embedMarbleDiagramsPostProcessor.marbleImagesPath = MARBLE_IMAGES_PATH;
-    embedMarbleDiagramsPostProcessor.marbleImagesOutputPath = MARBLE_IMAGES_OUTPUT_PATH;
-    embedMarbleDiagramsPostProcessor.marbleImagesOutputWebPath = `/${MARBLE_IMAGES_WEB_PATH}`;
-  })
+  // .config(function(embedMarbleDiagramsPostProcessor) {
+  //   embedMarbleDiagramsPostProcessor.marbleImagesPath = MARBLE_IMAGES_PATH;
+  //   embedMarbleDiagramsPostProcessor.marbleImagesOutputPath = MARBLE_IMAGES_OUTPUT_PATH;
+  //   embedMarbleDiagramsPostProcessor.marbleImagesOutputWebPath = `/${MARBLE_IMAGES_WEB_PATH}`;
+  // })
 
-  .config(function(convertToJsonProcessor, postProcessHtml, API_DOC_TYPES_TO_RENDER, API_DOC_TYPES, autoLinkCode, embedMarbleDiagramsPostProcessor) {
+  .config(function(convertToJsonProcessor, postProcessHtml, API_DOC_TYPES_TO_RENDER, API_DOC_TYPES, autoLinkCode) {
     convertToJsonProcessor.docTypes = convertToJsonProcessor.docTypes.concat(API_DOC_TYPES_TO_RENDER);
     postProcessHtml.docTypes = convertToJsonProcessor.docTypes.concat(API_DOC_TYPES_TO_RENDER);
-    postProcessHtml.plugins = [embedMarbleDiagramsPostProcessor.process];
     autoLinkCode.docTypes = API_DOC_TYPES;
     autoLinkCode.codeElements = ['code', 'code-example', 'code-pane'];
   });

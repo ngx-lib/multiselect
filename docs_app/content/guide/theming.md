@@ -1,12 +1,12 @@
 # Theming
 
-Customize the theme of dropdown is one of the common usecase that we observed. Multiselect currently supports two themes out of the box. These are   
+Customize the theme of dropdown is one of the common usecase that we observed. Multiselect currently supports two themes out of the box. These are
 1. Bootstrap
 2. Material
 
 You can use `theme` property binding to pass on theme you want to apply. By default it sets to `material`, you can pass `bootstrap` value as well.
 
-# Demo
+## Demo
 
 <ms-theme></ms-theme>
 
