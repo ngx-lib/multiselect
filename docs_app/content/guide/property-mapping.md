@@ -45,7 +45,7 @@ But sometimes it may happen you have data in exact format as shown below but onl
 
 Demo showing passing only grouped property to array of json of teams bcoz teams will have `team` key which will act as category for the particular team.
 
-# Demo
+## Demo
 
 <ms-property-map></ms-property-map>
 

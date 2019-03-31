@@ -1,27 +1,12 @@
 # Theming
 
-Multiselect currently supports two themes out of the box. These are   
+Customize the theme of dropdown is one of the common usecase that we observed. Multiselect currently supports two themes out of the box. These are
 1. Bootstrap
 2. Material
 
-If we want to use any of the theme while rendering, just pass the value of the theme as input to multiselect using theme input as shown below.
+You can use `theme` property binding to pass on theme you want to apply. By default it sets to `material`, you can pass `bootstrap` value as well.
 
---- Demo showing bootstrap theme.
-
-# Demo
-
-<ms-theme></ms-theme>
-
-<code-tabs>
-  <code-pane title="app/theming.component.ts" path="theming/src/app/theming.component.ts"></code-pane>
-  <code-pane title="app/theming.component.html" path="theming/src/app/theming.component.html"></code-pane>
-</code-tabs>
-
-If you select material theme, you can also specify the color for mutiselect from the angular material theme or any valid  css color.
-
---- Demo showing material theme and color used
-
-# Demo
+## Demo
 
 <ms-theme></ms-theme>
 
