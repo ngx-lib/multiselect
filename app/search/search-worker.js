@@ -5,8 +5,11 @@
 
 var SEARCH_TERMS_URL = '/generated/docs/app/search-data.json';
 
+var baseTag = document.getElementsByTagName('base')
+var base = baseTag? baseTag[0].attributes.href.nodeValue: '/'
+
 // NOTE: This needs to be kept in sync with `ngsw-config.json`.
-importScripts('/assets/js/lunr.min.js');
+importScripts(base + 'assets/js/lunr.min.js');
 
 var index;
 var pages /* : SearchInfo */ = {};
