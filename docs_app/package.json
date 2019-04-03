@@ -2,8 +2,8 @@
   "name": "rxjs.io",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:ReactiveX/  rxjs",
-  "author": "RxJS",
+  "repository": "git@github.com:ngx-lib/multiselect",
+  "author": "Ngx-Lib",
   "license": "MIT",
   "scripts": {
     "postinstall": "uglifyjs node_modules/lunr/lunr.js -c -m -o src/assets/js/lunr.min.js --source-map",
