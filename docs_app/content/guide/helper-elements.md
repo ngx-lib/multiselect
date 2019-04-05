@@ -1,5 +1,5 @@
 
-## Helper Elements Events
+# Helper Elements Events
 
 1. `onSelectAll` Event fired when the 'Select All' (to select all items clicked) helper element is clicked
     ```html

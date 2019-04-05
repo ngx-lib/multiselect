@@ -1,4 +1,4 @@
-## Grouping:
+# Grouping:
 
 If u have data in which each options falls into some category then if it can be good to render it in groups/categroy. The simplest example would be list of football players and users needed to select best three players. So, it will be good if we show the names of football team in dropdown and on click of any team name show the player belonging to that team as shown below.
 
@@ -10,7 +10,7 @@ Rendering options by using such grouping allows us to do some advanced functiona
 
 For example, in above example, what if the user wants to select all players from his favourite team, In this case, multiselect allows us to just click on team name and bingo, all the players from that team are selected as favourite.
 
-# Demo
+## Demo
 
 <ms-grouping></ms-grouping>
 

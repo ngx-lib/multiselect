@@ -1,4 +1,4 @@
-## Enable/Disable
+# Enable/Disable
 
 In multiselect you can either enable/disable a single option or disable whole dropdown.
 In order to disable whole dropdown just pass the disabled property to be true and the whole dropdown is disabled with the selected option shown as it is but not clickable.
@@ -17,7 +17,7 @@ In case of disabling the whole group on the fly, just iterate through the collec
 
 Demo showing disabling group on the fly
 
-# Demo
+## Demo
 
 <ms-enable-disable></ms-enable-disable>
 

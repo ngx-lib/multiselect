@@ -1,4 +1,4 @@
-## Getting Started
+# Getting Started
 
 Its very easy to get started with multiselct
 
@@ -20,6 +20,6 @@ Only three steps invloved.
     </ngx-multiselect>
     ```
 
-# Demo
+## Demo
 
 <ms-single-select></ms-single-select>

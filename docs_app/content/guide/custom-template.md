@@ -1,4 +1,4 @@
-## Custom Template :
+# Custom Template :
 
 By default, multiselect is rendered using a simple div which displays the name of option using interpolation(--link to github source code line from our lib--).If we want to display the options in some other fashion, we need to pass our own custom template which multiselect will use to render the options one by one
 
@@ -21,7 +21,7 @@ In above example, we pass a template which contains span element which shows one
 The best example suited for this will be the list of countries with its flag at right hand corner.Lets see how we can achieve this.
 
 
-Demo showing list of countries with its flag picture
+## Demo
 
 <ms-custom-template></ms-custom-template>
 
