@@ -1,6 +1,6 @@
 # Custom Template :
 
-By default, multiselect is rendered using a simple div which displays the name of option using interpolation(--link to github source code line from our lib--).If we want to display the options in some other fashion, we need to pass our own custom template which multiselect will use to render the options one by one
+By default, multiselect is rendered using a simple default template which displays the name of option using simple bindings. If we want to display the options list in different format, then we could pass  to pass our own custom template which would passed as an `ng-template` directive. Internally it will projected on options list.
 
 ```html
 <ngx-multiselect ngDefaultCOntrol 
@@ -9,17 +9,14 @@ By default, multiselect is rendered using a simple div which displays the name o
    [propertyMap]="{ ‘img’: 'imgPropKey' }">
     	<ng-template let-option="option">
          <span>
-            <img  src=“../path/to/img" />
+            <img  src="../path/to/img" />
             {{option.name}}
          </span>	
       </ng-template>
 </ngx-multiselect>
 ```
 
-In above example, we pass a template which contains span element which shows one fixed image and the name of option to be shown for each option.The use of let in this template is to pass a variable to be used inside a template.Notice the use of propertyMap here, it is used to specify which property from json should be used for image.When mapped correctly, we will have imag property ready to use in template as shown in following example
-
-The best example suited for this will be the list of countries with its flag at right hand corner.Lets see how we can achieve this.
-
+In above example, we pass a template which contains `span` element that consist of `img` tag and some text. The use of `let` in this template is to pass a variable to be used inside a template. Notice the use of `propertyMap` here is used to specify which property from JSON should be used for image. When mapped correctly, we will have image property ready to use in template as shown in following example
 
 ## Demo
 
