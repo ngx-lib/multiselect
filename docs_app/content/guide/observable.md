@@ -1,9 +1,8 @@
 # Observable
 
-Multiselect works pretty well with observables as it does with general data.
-There are two ways to use observable data in angular.
-1. Subscribing manually in ngOnInit and collecting all data into member variable and unsubcribe on ngOnDestroy.
-2. Using async pipe and let the multiselect subscribe and unsubscribe.
+Multiselect works pretty well with observables as it does with data collection. There are two ways to use observable data in angular.
+1. Manual Subscription
+2. Async Pipe
 
 <ms-observable-async></ms-observable-async>
 
@@ -12,10 +11,10 @@ There are two ways to use observable data in angular.
   <code-pane title="app/observable-async.component.html" path="observable/src/app/observable-async.component.html"></code-pane>
 </code-tabs>
 
-## 1. Manual subscription: 
-This is the easiest way to to use observable data in multiselect .Just subscribe to an observable, collect data from it and pass the collected data as input to multiselect. All other functionalities will work the same because we have used observable to subscribe to it and collect all the data required for multiselect.
+## 1. Manual subscription:
+You can retrieve a data from observable but when its come to providing that dataset to multiselect, you would give it directly once you recieved its value. That can happen by subscribing to an observable, collect data from it and pass the collected data as `Input` binding to multiselect. 
 
-Demo showing multiselect data fetched from observable and rendered.
+### Demo
 
 <ms-observable-async-update></ms-observable-async-update>
 
@@ -25,9 +24,9 @@ Demo showing multiselect data fetched from observable and rendered.
 </code-tabs>
 
 ## 2. Using async pipe
-Multiselect works perfectly with observable instance itself, just pass the observable data with async pipe. The task of subscribing and unsubscribing will be taken care by multiselect.
+Sometimes it could happen dataset would be an observable itself, that time you can directly pass Input binding data as an observable with `async` pipe. The task of subscribing and unsubscribing will be taken care by Angular framework.
 
-Demo showing multiselect data fetched from service and directly passing observable instance as input.
+### Demo
 
 <ms-observable-async-service></ms-observable-async-service>
 
@@ -36,7 +35,8 @@ Demo showing multiselect data fetched from service and directly passing observab
   <code-pane title="app/observable-async-service.component.html" path="observable/src/app/observable-async-service.component.html"></code-pane>
 </code-tabs>
 
-Changing the state in case of observable:
-If you want to dynamically update the multiselct, you can do it just by creating the whole new copy of json array and pass the whole array to observer next function as shown below.
+## TLDR;
 
-Demo showing dynamic update of multiselct and disable example side by side
+Changing the data collection value in between would reflect directly inside options. If you want to dynamically update the multiselct, you can do it just by creating the whole new copy of json array and pass the whole array to observer next function as shown below.
+
+### Demo:- Pending
