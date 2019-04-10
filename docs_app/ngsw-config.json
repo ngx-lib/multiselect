@@ -10,10 +10,10 @@
           "/index.html",
           "/pwa-manifest.json",
           "/app/search/search-worker.js",
-          "/assets/images/favicons/favicon.ico",
-          "/assets/js/*.js",
-          "/*.css",
-          "/*.js"
+          "assets/images/favicons/favicon.ico",
+          "assets/js/*.js",
+          "*.css",
+          "*.js"
         ],
         "urls": [
           "https://fonts.googleapis.com/**",
@@ -39,8 +39,8 @@
       "updateMode": "prefetch",
       "resources": {
         "files": [
-          "/assets/images/favicons/**",
-          "/generated/ie-polyfills.min.js",
+          "assets/images/favicons/**",
+          "generated/ie-polyfills.min.js",
           "!/**/_unused/**"
         ]
       }
@@ -50,10 +50,10 @@
       "updateMode": "prefetch",
       "resources": {
         "files": [
-          "/generated/*.json",
-          "/generated/docs/*.json",
-          "/generated/docs/api/api-list.json",
-          "/generated/docs/app/search-data.json"
+          "generated/*.json",
+          "generated/docs/*.json",
+          "generated/docs/api/api-list.json",
+          "generated/docs/app/search-data.json"
         ]
       }
     }, {
@@ -62,8 +62,8 @@
       "updateMode": "lazy",
       "resources": {
         "files": [
-          "/generated/docs/**/*.json",
-          "/generated/images/**",
+          "generated/docs/**/*.json",
+          "generated/images/**",
           "!/**/_unused/**"
         ]
       }
