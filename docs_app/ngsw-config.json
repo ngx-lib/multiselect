@@ -9,7 +9,7 @@
         "files": [
           "/index.html",
           "/pwa-manifest.json",
-          "/app/search/search-worker.js",
+          "app/search/search-worker.js",
           "assets/images/favicons/favicon.ico",
           "assets/js/*.js",
           "*.css",
@@ -27,9 +27,9 @@
       "updateMode": "prefetch",
       "resources": {
         "files": [
-          "/assets/images/**",
-          "/generated/images/marketing/**",
-          "!/assets/images/favicons/**",
+          "assets/images/**",
+          "generated/images/marketing/**",
+          "!assets/images/favicons/**",
           "!/**/_unused/**"
         ]
       }
