@@ -67,3 +67,7 @@ Various event will be emitted on different action from user
         (onGroupItemClick)="onGroupItemClickFired($event)">
     </ngx-multiselect>
     ```
+
+### Demo:
+
+<ms-events></ms-events>
