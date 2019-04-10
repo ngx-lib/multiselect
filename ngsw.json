@@ -21,15 +21,7 @@
       "name": "assets-eager",
       "installMode": "prefetch",
       "updateMode": "prefetch",
-      "urls": [
-        "/multiselect/assets/images/guide/marble-diagram-anatomy.svg",
-        "/multiselect/assets/images/logos/Rx_Logo_S.png",
-        "/multiselect/assets/images/logos/github-icon.svg",
-        "/multiselect/assets/images/logos/logo.png",
-        "/multiselect/assets/images/logos/twitter-icon.svg",
-        "/multiselect/assets/images/support/404.png",
-        "/multiselect/generated/images/marketing/home/Rx_Logo-512-512.png"
-      ],
+      "urls": [],
       "patterns": []
     },
     {
@@ -56,16 +48,9 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/multiselect/app/search/search-worker.js": "02fb0b96f35175fdd735c2633c394fbfa894d1bf",
-    "/multiselect/assets/images/guide/marble-diagram-anatomy.svg": "3eeae4da40a3cd9538c46513301f8139a6378498",
-    "/multiselect/assets/images/logos/Rx_Logo_S.png": "64d0bc283ccfc2beef23ec02956dd5e27f1d795d",
-    "/multiselect/assets/images/logos/github-icon.svg": "186a91bd0726801fe96c313fcceb1c3ba7bfd5ee",
-    "/multiselect/assets/images/logos/logo.png": "bdd6f0d0a8cff49fbc49f28b7822bb68b7067283",
-    "/multiselect/assets/images/logos/twitter-icon.svg": "4b7c8d5d3237a84af1065787e0a9478923e45110",
-    "/multiselect/assets/images/support/404.png": "d90d35132ee4fafd9e51ddbb2414b7a2c902463d",
-    "/multiselect/generated/images/marketing/home/Rx_Logo-512-512.png": "a32cb214b9499a1996b7d0e344109c27eefa1934",
+    "/multiselect/app/search/search-worker.js": "aa586c140ae83388b49fc7c160981496e0a2d641",
     "/multiselect/index.html": "8d4fbdff72fa79f70b4aef0a8ee53b174a060027",
-    "/multiselect/pwa-manifest.json": "95ad2ceca1cc36b1a1d31ea8800fad544ef10523"
+    "/multiselect/pwa-manifest.json": "c5065aacbc6d437b63c384d7eb2bc31a68f2ed42"
   },
   "navigationUrls": [
     {
