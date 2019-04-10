@@ -1,7 +1,7 @@
 # Template Driven:
-Angular forms can be built in two ways either Template Driven or Model Driven(--link to model driven-- ).Multiselect supports both of these ways out of the box.
+Angular forms can be built in two ways either Template Driven or Model Driven. Multiselect supports both of these way out of the box.
 
-To use template driven approach for multiselect, just provide multiselect with options and selected option using ngModel. You are done.
+To use template driven approach for multiselect, just provide multiselect with options and selected option using `ngModel`. And you are done.
 
 ```html
 <ngx-multiselect 
@@ -21,9 +21,9 @@ To use template driven approach for multiselect, just provide multiselect with o
   <code-pane title="app/template-driven.component.html" path="template-driven/src/app/template-driven.component.html"></code-pane>
 </code-tabs>
 
-/////////////////////////////////////////////////////////////////
-  is the following  right ? need to check
-Multiselect can have all functionalities like a normal standard html5 template input has like performing a validation, submitting a value of multiselect on (ngSubmit) etc.
+---
+
+Multiselect can have all kind of validations that are applicable on both form and form fields. 
 
 ```html
 <ngx-multiselect required #name=”ngModel” ngDefaultCOntrol [(ngModel)]="selectedOption" [options]="options" [multiple]=true></ngx-multiselect>`
