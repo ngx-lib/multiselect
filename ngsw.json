@@ -7,7 +7,6 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
-        "/multiselect/app/search/search-worker.js",
         "/multiselect/index.html",
         "/multiselect/pwa-manifest.json"
       ],
@@ -48,7 +47,6 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/multiselect/app/search/search-worker.js": "aa586c140ae83388b49fc7c160981496e0a2d641",
     "/multiselect/index.html": "8d4fbdff72fa79f70b4aef0a8ee53b174a060027",
     "/multiselect/pwa-manifest.json": "c5065aacbc6d437b63c384d7eb2bc31a68f2ed42"
   },
