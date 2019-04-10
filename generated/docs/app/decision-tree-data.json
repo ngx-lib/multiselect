@@ -1,1572 +1,1568 @@
 {
-  "1150": {
-    "id": "1150",
-    "label": "until another Observable emits a value",
-    "options": [
-      "d435"
-    ]
-  },
-  "1269": {
-    "id": "1269",
-    "label": "of"
-  },
-  "1349": {
-    "id": "1349",
-    "label": "distinctUntilChanged"
-  },
-  "1365": {
-    "id": "1365",
-    "label": "withLatestFrom"
-  },
-  "1373": {
-    "id": "1373",
-    "label": "skipLast"
-  },
-  "1679": {
-    "id": "1679",
-    "label": "throttle"
-  },
-  "2930": {
-    "id": "2930",
-    "label": "and emit the group as a nested Observable",
-    "options": [
-      "7bb6"
-    ]
-  },
-  "3158": {
-    "id": "3158",
-    "label": "bufferToggle"
-  },
-  "3217": {
-    "id": "3217",
-    "label": "I want to delay the emissions",
-    "options": [
-      "1c4c",
-      "b571"
-    ]
-  },
-  "3272": {
-    "id": "3272",
-    "label": "by emitting the last value as soon as enough silence has occured",
-    "options": [
-      "ad66",
-      "4433"
-    ]
-  },
-  "3405": {
-    "id": "3405",
-    "label": "I have some Observables to combine together as one Observable, and",
-    "options": [
-      "297b",
-      "9ea4",
-      "1c6d",
-      "f0e3",
-      "fdc9"
-    ]
-  },
-  "3657": {
-    "id": "3657",
-    "label": "I want to create a new Observable",
-    "options": [
-      "3c14",
-      "95c4",
-      "3cb6",
-      "6016",
-      "59e1",
-      "d17c",
-      "894b",
-      "92ed",
-      "af2d",
-      "6a49"
-    ]
-  },
-  "4145": {
-    "id": "4145",
-    "label": "that routes values to observers",
-    "options": [
-      "45c6"
-    ]
-  },
-  "4371": {
-    "id": "4371",
-    "label": "that includes the time past since the last emitted value",
-    "options": [
-      "7c2c"
-    ]
-  },
-  "4433": {
-    "id": "4433",
-    "label": "where the silence duration threshold is determined by a time duration",
-    "options": [
-      "1b7a"
-    ]
-  },
-  "4583": {
-    "id": "4583",
-    "label": "over the values in an array",
-    "options": [
-      "bd0b"
-    ]
-  },
-  "5640": {
-    "id": "5640",
-    "label": "generate"
-  },
-  "5700": {
-    "id": "5700",
-    "label": "and start it as soon as the first subscriber arrives",
-    "options": [
-      "6291"
-    ]
-  },
-  "5974": {
-    "id": "5974",
-    "label": "and emit the group as an array",
-    "options": [
-      "3158"
-    ]
-  },
-  "6016": {
-    "id": "6016",
-    "label": "that just completes, without emitting values",
-    "options": [
-      "af82"
-    ]
-  },
-  "6045": {
-    "id": "6045",
-    "label": "materialize"
-  },
-  "6062": {
-    "id": "6062",
-    "label": "combineLatest"
-  },
-  "6070": {
-    "id": "6070",
-    "label": "I want to ignore values",
-    "options": [
-      "5c90",
-      "6342",
-      "4cc5",
-      "1150",
-      "f6be",
-      "863a"
-    ]
-  },
-  "6283": {
-    "id": "6283",
-    "label": "consecutively in pairs, as arrays",
-    "options": [
-      "c8dd"
-    ]
-  },
-  "6291": {
-    "id": "6291",
-    "label": "share"
-  },
-  "6342": {
-    "id": "6342",
-    "label": "from the start of the Observable",
-    "options": [
-      "f8fe",
-      "d3a7"
-    ]
-  },
-  "6429": {
-    "id": "6429",
-    "label": "auditTime"
-  },
-  "6465": {
-    "id": "6465",
-    "label": "I want to compute a formula using all values emitted",
-    "options": [
-      "b564",
-      "222b",
-      "0d00"
-    ]
-  },
-  "7144": {
-    "id": "7144",
-    "label": "according to value equality",
-    "options": [
-      "4abc",
-      "afa5"
-    ]
-  },
-  "7221": {
-    "id": "7221",
-    "label": "publishLast"
-  },
-  "7472": {
-    "id": "7472",
-    "label": "based on the emissions of an Observable created on-demand",
-    "options": [
-      "ba58",
-      "0ade"
-    ]
-  },
-  "7490": {
-    "id": "7490",
-    "label": "delay"
-  },
-  "8014": {
-    "id": "8014",
-    "label": "where the nested Observable is calculated for each value",
-    "options": [
-      "e317"
-    ]
-  },
-  "8381": {
-    "id": "8381",
-    "label": "I want to receive values only from the Observable that emits a value first",
-    "options": [
-      "2d69"
-    ]
-  },
-  "8514": {
-    "id": "8514",
-    "label": "scan"
-  },
-  "8620": {
-    "id": "8620",
-    "label": "concatMap"
-  },
-  "8636": {
-    "id": "8636",
-    "label": "until another Observable emits",
-    "options": [
-      "85e5",
-      "2930"
-    ]
-  },
-  "9723": {
-    "id": "9723",
-    "label": "if they are exactly the n-th emission",
-    "options": [
-      "af4f"
-    ]
-  },
-  "9883": {
-    "id": "9883",
-    "label": "buffer"
-  },
-  "9945": {
-    "id": "9945",
-    "label": "from"
-  },
-  "b507": {
-    "id": "b507",
-    "label": "mapTo"
-  },
-  "b991": {
-    "id": "b991",
-    "label": "to be a constant value",
-    "options": [
-      "b507"
-    ]
-  },
-  "602f": {
-    "id": "602f",
-    "label": "map"
-  },
-  "f804": {
-    "id": "f804",
-    "label": "to be a value calculated through a formula",
-    "options": [
-      "602f"
-    ]
-  },
-  "8dfd": {
-    "id": "8dfd",
-    "label": "I want to change each emitted value",
-    "options": [
-      "b991",
-      "f804"
-    ]
-  },
-  "b5ca": {
-    "id": "b5ca",
-    "label": "pluck"
-  },
-  "e164": {
-    "id": "e164",
-    "label": "I want to pick a property off each emitted value",
-    "options": [
-      "b5ca"
-    ]
-  },
-  "23de": {
-    "id": "23de",
-    "label": "tap"
-  },
-  "a1e0": {
-    "id": "a1e0",
-    "label": "I want to spy the values being emitted without affecting them",
-    "options": [
-      "23de"
-    ]
-  },
-  "e201": {
-    "id": "e201",
-    "label": "filter"
-  },
-  "47cd": {
-    "id": "47cd",
-    "label": "based on custom logic",
-    "options": [
-      "e201"
-    ]
-  },
-  "7e2a": {
-    "id": "7e2a",
-    "label": "first"
-  },
-  "e073": {
-    "id": "e073",
-    "label": "and only the first value",
-    "options": [
-      "7e2a"
-    ]
-  },
-  "a53b": {
-    "id": "a53b",
-    "label": "take"
-  },
-  "f9f3": {
-    "id": "f9f3",
-    "label": "based on a given amount",
-    "options": [
-      "a53b"
-    ]
-  },
-  "def4": {
-    "id": "def4",
-    "label": "takeWhile"
-  },
-  "5afa": {
-    "id": "5afa",
-    "label": "based on custom logic",
-    "options": [
-      "def4"
-    ]
-  },
-  "d25d": {
-    "id": "d25d",
-    "label": "if they are at the start of the Observable",
-    "options": [
-      "e073",
-      "f9f3",
-      "5afa"
-    ]
-  },
-  "af4f": {
-    "id": "af4f",
-    "label": "elementAt"
-  },
-  "e2a8": {
-    "id": "e2a8",
-    "label": "last"
-  },
-  "7c82": {
-    "id": "7c82",
-    "label": "and only the last value",
-    "options": [
-      "e2a8"
-    ]
-  },
-  "0347": {
-    "id": "0347",
-    "label": "takeLast"
-  },
-  "e26b": {
-    "id": "e26b",
-    "label": "based on a given amount",
-    "options": [
-      "0347"
-    ]
-  },
-  "76ec": {
-    "id": "76ec",
-    "label": "if they are at the end of the Observable",
-    "options": [
-      "7c82",
-      "e26b"
-    ]
-  },
-  "0f95": {
-    "id": "0f95",
-    "label": "takeUntil"
-  },
-  "f614": {
-    "id": "f614",
-    "label": "until another Observable emits a value",
-    "options": [
-      "0f95"
-    ]
-  },
-  "5d30": {
-    "id": "5d30",
-    "label": "I want to allow some values to pass",
-    "options": [
-      "47cd",
-      "d25d",
-      "9723",
-      "76ec",
-      "f614"
-    ]
-  },
-  "ba69": {
-    "id": "ba69",
-    "label": "ignoreElements"
-  },
-  "5c90": {
-    "id": "5c90",
-    "label": "altogether",
-    "options": [
-      "ba69"
-    ]
-  },
-  "8c74": {
-    "id": "8c74",
-    "label": "skip"
-  },
-  "f8fe": {
-    "id": "f8fe",
-    "label": "based on a given amount",
-    "options": [
-      "8c74"
-    ]
-  },
-  "86bd": {
-    "id": "86bd",
-    "label": "skipWhile"
-  },
-  "d3a7": {
-    "id": "d3a7",
-    "label": "based on custom logic",
-    "options": [
-      "86bd"
-    ]
-  },
-  "4cc5": {
-    "id": "4cc5",
-    "label": "from the end of the Observable",
-    "options": [
-      "1373"
-    ]
-  },
-  "d435": {
-    "id": "d435",
-    "label": "skipUntil"
-  },
-  "4abc": {
-    "id": "4abc",
-    "label": "emitted just before the current value",
-    "options": [
-      "1349"
-    ]
-  },
-  "aaf6": {
-    "id": "aaf6",
-    "label": "distinct"
-  },
-  "afa5": {
-    "id": "afa5",
-    "label": "emitted some time in the past",
-    "options": [
-      "aaf6"
-    ]
-  },
-  "b936": {
-    "id": "b936",
-    "label": "distinctUntilKeyChanged"
-  },
-  "ec4a": {
-    "id": "ec4a",
-    "label": "emitted just before the current value",
-    "options": [
-      "b936"
-    ]
-  },
-  "2da5": {
-    "id": "2da5",
-    "label": "according to a key or object property",
-    "options": [
-      "ec4a"
-    ]
-  },
-  "f6be": {
-    "id": "f6be",
-    "label": "that match some previous value",
-    "options": [
-      "7144",
-      "2da5"
-    ]
-  },
-  "79d6": {
-    "id": "79d6",
-    "label": "where time windows are determined by another Observable's emissions",
-    "options": [
-      "1679"
-    ]
-  },
-  "ea2a": {
-    "id": "ea2a",
-    "label": "throttleTime"
-  },
-  "1bea": {
-    "id": "1bea",
-    "label": "where time windows are determined by a time duration",
-    "options": [
-      "ea2a"
-    ]
-  },
-  "bc46": {
-    "id": "bc46",
-    "label": "by emitting the first value in each time window",
-    "options": [
-      "79d6",
-      "1bea"
-    ]
-  },
-  "d4d1": {
-    "id": "d4d1",
-    "label": "audit"
-  },
-  "bfd8": {
-    "id": "bfd8",
-    "label": "where time windows are determined by another Observable's emissions",
-    "options": [
-      "d4d1"
-    ]
-  },
-  "d7a6": {
-    "id": "d7a6",
-    "label": "where time windows are determined by a time duration",
-    "options": [
-      "6429"
-    ]
-  },
-  "30b3": {
-    "id": "30b3",
-    "label": "by emitting the last value in each time window",
-    "options": [
-      "bfd8",
-      "d7a6"
-    ]
-  },
-  "c8b5": {
-    "id": "c8b5",
-    "label": "debounce"
-  },
-  "ad66": {
-    "id": "ad66",
-    "label": "where the silence duration threshold is determined by another Observable",
-    "options": [
-      "c8b5"
-    ]
-  },
-  "1b7a": {
-    "id": "1b7a",
-    "label": "debounceTime"
-  },
-  "863a": {
-    "id": "863a",
-    "label": "that occur too frequently",
-    "options": [
-      "bc46",
-      "30b3",
-      "3272"
-    ]
-  },
-  "295e": {
-    "id": "295e",
+  "1625": {
+    "id": "1625",
     "label": "reduce"
   },
-  "b564": {
-    "id": "b564",
-    "label": "and only output the final computed value",
-    "options": [
-      "295e"
-    ]
-  },
-  "222b": {
-    "id": "222b",
-    "label": "and output the computed values when the source emits a value",
-    "options": [
-      "8514"
-    ]
-  },
-  "bd91": {
-    "id": "bd91",
-    "label": "mergeScan"
-  },
-  "0d00": {
-    "id": "0d00",
-    "label": "and output the computed values as a nested Observable when the source emits a value",
-    "options": [
-      "bd91"
-    ]
-  },
-  "c625": {
-    "id": "c625",
-    "label": "that describes each notification (next, error, or complete)",
-    "options": [
-      "6045"
-    ]
-  },
-  "7c2c": {
-    "id": "7c2c",
-    "label": "timeInterval"
-  },
-  "5c06": {
-    "id": "5c06",
-    "label": "I want to wrap its messages with metadata",
-    "options": [
-      "c625",
-      "4371"
-    ]
-  },
-  "0baa": {
-    "id": "0baa",
-    "label": "timeout"
-  },
-  "df77": {
-    "id": "df77",
-    "label": "I want to throw an error",
-    "options": [
-      "0baa"
-    ]
-  },
-  "0138": {
-    "id": "0138",
-    "label": "timeoutWith"
-  },
-  "7b5e": {
-    "id": "7b5e",
-    "label": "I want to switch to another Observable",
-    "options": [
-      "0138"
-    ]
-  },
-  "009e": {
-    "id": "009e",
-    "label": "after a period of inactivity",
-    "options": [
-      "df77",
-      "7b5e"
-    ]
-  },
-  "dfee": {
-    "id": "dfee",
-    "label": "single"
-  },
-  "bbbd": {
-    "id": "bbbd",
-    "label": "I want to ensure there is only one value",
-    "options": [
-      "dfee"
-    ]
-  },
-  "87fe": {
-    "id": "87fe",
-    "label": "count"
-  },
-  "464c": {
-    "id": "464c",
-    "label": "I want to know how many values it emits",
-    "options": [
-      "87fe"
-    ]
-  },
-  "656e": {
-    "id": "656e",
-    "label": "startWith"
-  },
-  "7e13": {
-    "id": "7e13",
-    "label": "and emit the values from all nested Observables in parallel",
-    "options": [
-      "1b54",
-      "0316"
-    ]
-  },
-  "1c4c": {
-    "id": "1c4c",
-    "label": "based on a given amount of time",
-    "options": [
-      "7490"
-    ]
-  },
-  "063e": {
-    "id": "063e",
-    "label": "delayWhen"
-  },
-  "b571": {
-    "id": "b571",
-    "label": "based on the emissions of another Observable",
-    "options": [
-      "063e"
-    ]
-  },
-  "d681": {
-    "id": "d681",
-    "label": "toArray"
-  },
-  "fcc1": {
-    "id": "fcc1",
-    "label": "and convert to an array",
-    "options": [
-      "d681"
-    ]
-  },
-  "ad35": {
-    "id": "ad35",
-    "label": "Observable",
-    "method": "toPromise"
-  },
-  "6d18": {
-    "id": "6d18",
-    "label": "and convert to a Promise",
-    "options": [
-      "ad35"
-    ]
-  },
-  "f5db": {
-    "id": "f5db",
-    "label": "until the Observable completes",
-    "options": [
-      "fcc1",
-      "6d18"
-    ]
-  },
-  "c8dd": {
-    "id": "c8dd",
-    "label": "pairwise"
-  },
-  "1d0d": {
-    "id": "1d0d",
-    "label": "partition"
-  },
-  "ca65": {
-    "id": "ca65",
-    "label": "based on a criterion, and output two Observables: those that match the criterion and those that do not",
-    "options": [
-      "1d0d"
-    ]
-  },
-  "f5cf": {
-    "id": "f5cf",
-    "label": "bufferCount"
-  },
-  "bc33": {
-    "id": "bc33",
-    "label": "and emit the group as an array",
-    "options": [
-      "f5cf"
-    ]
-  },
-  "b349": {
-    "id": "b349",
-    "label": "windowCount"
-  },
-  "233e": {
-    "id": "233e",
-    "label": "and emit the group as a nested Observable",
-    "options": [
-      "b349"
-    ]
-  },
-  "4dd0": {
-    "id": "4dd0",
-    "label": "in batches of a particular size",
-    "options": [
-      "bc33",
-      "233e"
-    ]
-  },
-  "cae9": {
-    "id": "cae9",
-    "label": "bufferTime"
-  },
-  "8e1e": {
-    "id": "8e1e",
-    "label": "and emit the group as an array",
-    "options": [
-      "cae9"
-    ]
-  },
-  "2b4f": {
-    "id": "2b4f",
-    "label": "windowTime"
-  },
-  "e2a4": {
-    "id": "e2a4",
-    "label": "and emit the group as a nested Observable",
-    "options": [
-      "2b4f"
-    ]
-  },
-  "ba82": {
-    "id": "ba82",
+  "1947": {
+    "id": "1947",
     "label": "based on time",
     "options": [
-      "8e1e",
-      "e2a4"
+      "59cd",
+      "31ec"
     ]
   },
-  "85e5": {
-    "id": "85e5",
-    "label": "and emit the group as an array",
+  "1971": {
+    "id": "1971",
+    "label": "and convert to a Promise",
     "options": [
-      "9883"
+      "c6d9"
     ]
   },
-  "7bb6": {
-    "id": "7bb6",
+  "2503": {
+    "id": "2503",
+    "label": "throttle"
+  },
+  "2683": {
+    "id": "2683",
+    "label": "coming from the DOM or Node.js or similar",
+    "options": [
+      "ee6f"
+    ]
+  },
+  "2800": {
+    "id": "2800",
+    "label": "I want to allow some values to pass",
+    "options": [
+      "e77a",
+      "650e",
+      "25bc",
+      "93bd",
+      "d738"
+    ]
+  },
+  "2856": {
+    "id": "2856",
+    "label": "combineLatest"
+  },
+  "3245": {
+    "id": "3245",
+    "label": "I want to subscribe to each in order",
+    "options": [
+      "ddb7"
+    ]
+  },
+  "3279": {
+    "id": "3279",
+    "label": "bufferCount"
+  },
+  "3328": {
+    "id": "3328",
+    "label": "based on a given amount of time",
+    "options": [
+      "07fd"
+    ]
+  },
+  "3850": {
+    "id": "3850",
+    "label": "according to a key or object property",
+    "options": [
+      "dc76"
+    ]
+  },
+  "3856": {
+    "id": "3856",
+    "label": "I have no Observables yet, and",
+    "options": [
+      "269e",
+      "ffc3"
+    ]
+  },
+  "4270": {
+    "id": "4270",
     "label": "window"
   },
-  "549c": {
-    "id": "549c",
-    "label": "bufferWhen"
+  "4680": {
+    "id": "4680",
+    "label": "debounceTime"
   },
-  "ba58": {
-    "id": "ba58",
-    "label": "and emit the group as an array",
+  "5524": {
+    "id": "5524",
+    "label": "race"
+  },
+  "5978": {
+    "id": "5978",
+    "label": "I want to delay the emissions",
     "options": [
-      "549c"
+      "3328",
+      "3b2c"
     ]
   },
-  "6f29": {
-    "id": "6f29",
-    "label": "windowWhen"
-  },
-  "0ade": {
-    "id": "0ade",
-    "label": "and emit the group as a nested Observable",
+  "6707": {
+    "id": "6707",
+    "label": "regularly",
     "options": [
-      "6f29"
+      "f128"
     ]
   },
-  "d83e": {
-    "id": "d83e",
-    "label": "windowToggle"
+  "7195": {
+    "id": "7195",
+    "label": "filter"
   },
-  "47cb": {
-    "id": "47cb",
-    "label": "and emit the group as a nested Observable",
-    "options": [
-      "d83e"
-    ]
-  },
-  "7d7f": {
-    "id": "7d7f",
-    "label": "based on another Observable for opening a group, and an Observable for closing a group",
-    "options": [
-      "5974",
-      "47cb"
-    ]
-  },
-  "8a9e": {
-    "id": "8a9e",
-    "label": "groupBy"
-  },
-  "9dcb": {
-    "id": "9dcb",
-    "label": "based on a key calculated from the emitted values",
-    "options": [
-      "8a9e"
-    ]
-  },
-  "9de2": {
-    "id": "9de2",
-    "label": "I want to group the values",
-    "options": [
-      "f5db",
-      "6283",
-      "ca65",
-      "4dd0",
-      "ba82",
-      "8636",
-      "7472",
-      "7d7f",
-      "9dcb"
-    ]
-  },
-  "673a": {
-    "id": "673a",
-    "label": "mergeMapTo"
-  },
-  "1b54": {
-    "id": "1b54",
-    "label": "where the nested Observable is the same for every value",
-    "options": [
-      "673a"
-    ]
-  },
-  "bdc0": {
-    "id": "bdc0",
-    "label": "mergeMap"
-  },
-  "0316": {
-    "id": "0316",
-    "label": "where the nested Observable is calculated for each value",
-    "options": [
-      "bdc0"
-    ]
-  },
-  "b133": {
-    "id": "b133",
-    "label": "concatMapTo"
-  },
-  "ad54": {
-    "id": "ad54",
-    "label": "where the nested Observable is the same for every value",
-    "options": [
-      "b133"
-    ]
-  },
-  "b72d": {
-    "id": "b72d",
-    "label": "where the nested Observable is calculated for each value",
-    "options": [
-      "8620"
-    ]
-  },
-  "89b4": {
-    "id": "89b4",
-    "label": "and emit the values from each nested Observable in order",
-    "options": [
-      "ad54",
-      "b72d"
-    ]
-  },
-  "62dc": {
-    "id": "62dc",
-    "label": "switchMapTo"
-  },
-  "d7ca": {
-    "id": "d7ca",
-    "label": "where the nested Observable is the same for every value",
-    "options": [
-      "62dc"
-    ]
-  },
-  "e317": {
-    "id": "e317",
-    "label": "switchMap"
-  },
-  "d913": {
-    "id": "d913",
-    "label": "and cancel the previous nested Observable when a new value arrives",
-    "options": [
-      "d7ca",
-      "8014"
-    ]
-  },
-  "e2da": {
-    "id": "e2da",
-    "label": "exhaustMap"
-  },
-  "21b5": {
-    "id": "21b5",
-    "label": "and ignore incoming values while the current nested Observable has not yet completed",
-    "options": [
-      "e2da"
-    ]
-  },
-  "e9eb": {
-    "id": "e9eb",
-    "label": "expand"
-  },
-  "9bfb": {
-    "id": "9bfb",
-    "label": "and recursively start a new Observable for each new value",
-    "options": [
-      "e9eb"
-    ]
-  },
-  "506c": {
-    "id": "506c",
-    "label": "I want to start a new Observable for each value",
-    "options": [
-      "7e13",
-      "89b4",
-      "d913",
-      "21b5",
-      "9bfb"
-    ]
-  },
-  "b8e3": {
-    "id": "b8e3",
-    "label": "pipe"
-  },
-  "d0ae": {
-    "id": "d0ae",
-    "label": "I want to perform custom operations",
-    "options": [
-      "b8e3"
-    ]
-  },
-  "bf02": {
-    "id": "bf02",
-    "label": "publish"
-  },
-  "c89e": {
-    "id": "c89e",
-    "label": "and start it manually or imperatively",
-    "options": [
-      "bf02"
-    ]
-  },
-  "1f46": {
-    "id": "1f46",
-    "label": "using a conventional Subject",
-    "options": [
-      "5700",
-      "c89e"
-    ]
-  },
-  "037a": {
-    "id": "037a",
-    "label": "publishBehavior"
-  },
-  "cb84": {
-    "id": "cb84",
-    "label": "using a BehaviorSubject",
-    "options": [
-      "037a"
-    ]
-  },
-  "21b9": {
-    "id": "21b9",
-    "label": "publishReplay"
-  },
-  "50fd": {
-    "id": "50fd",
-    "label": "using a ReplaySubject",
-    "options": [
-      "21b9"
-    ]
-  },
-  "a3e2": {
-    "id": "a3e2",
-    "label": "using an AsyncSubject",
-    "options": [
-      "7221"
-    ]
-  },
-  "af93": {
-    "id": "af93",
-    "label": "multicast"
-  },
-  "071e": {
-    "id": "071e",
-    "label": "using a specific subject implementation",
-    "options": [
-      "af93"
-    ]
-  },
-  "a4d3": {
-    "id": "a4d3",
-    "label": "I want to share a subscription between multiple subscribers",
-    "options": [
-      "1f46",
-      "cb84",
-      "50fd",
-      "a3e2",
-      "071e"
-    ]
-  },
-  "28e5": {
-    "id": "28e5",
-    "label": "catchError"
-  },
-  "25c4": {
-    "id": "25c4",
-    "label": "I want to start a new Observable",
-    "options": [
-      "28e5"
-    ]
-  },
-  "490f": {
-    "id": "490f",
-    "label": "retry"
-  },
-  "c781": {
-    "id": "c781",
+  "7541": {
+    "id": "7541",
     "label": "immediately",
     "options": [
-      "490f"
+      "a357"
     ]
   },
-  "7a14": {
-    "id": "7a14",
-    "label": "retryWhen"
-  },
-  "d71a": {
-    "id": "d71a",
-    "label": "when another Observable emits",
+  "7817": {
+    "id": "7817",
+    "label": "I want to change the scheduler",
     "options": [
-      "7a14"
+      "754c",
+      "cffd"
     ]
   },
-  "b3c2": {
-    "id": "b3c2",
-    "label": "I want to re-subscribe",
+  "8094": {
+    "id": "8094",
+    "label": "I want to wrap its messages with metadata",
     "options": [
-      "c781",
-      "d71a"
+      "aa1b",
+      "241e"
     ]
   },
-  "99c2": {
-    "id": "99c2",
-    "label": "when an error occurs",
-    "options": [
-      "25c4",
-      "b3c2"
-    ]
+  "8281": {
+    "id": "8281",
+    "label": "delayWhen"
   },
-  "409b": {
-    "id": "409b",
+  "8283": {
+    "id": "8283",
     "label": "repeat"
   },
-  "5b17": {
-    "id": "5b17",
-    "label": "immediately",
+  "8385": {
+    "id": "8385",
+    "label": "and recursively start a new Observable for each new value",
     "options": [
-      "409b"
+      "5fef"
     ]
   },
-  "5df7": {
-    "id": "5df7",
-    "label": "repeatWhen"
-  },
-  "be99": {
-    "id": "be99",
-    "label": "when another Observable emits",
+  "8477": {
+    "id": "8477",
+    "label": "using a conventional Subject",
     "options": [
-      "5df7"
+      "5c83",
+      "9603"
+    ]
+  },
+  "8959": {
+    "id": "8959",
+    "label": "groupBy"
+  },
+  "9398": {
+    "id": "9398",
+    "label": "that throws an error",
+    "options": [
+      "c5d9"
+    ]
+  },
+  "9603": {
+    "id": "9603",
+    "label": "and start it manually or imperatively",
+    "options": [
+      "94a6"
+    ]
+  },
+  "9853": {
+    "id": "9853",
+    "label": "partition"
+  },
+  "9884": {
+    "id": "9884",
+    "label": "over values in a numeric range",
+    "options": [
+      "5cc0"
+    ]
+  },
+  "e8c6": {
+    "id": "e8c6",
+    "label": "mapTo"
+  },
+  "63b7": {
+    "id": "63b7",
+    "label": "to be a constant value",
+    "options": [
+      "e8c6"
+    ]
+  },
+  "ea0d": {
+    "id": "ea0d",
+    "label": "map"
+  },
+  "6a2a": {
+    "id": "6a2a",
+    "label": "to be a value calculated through a formula",
+    "options": [
+      "ea0d"
+    ]
+  },
+  "54ad": {
+    "id": "54ad",
+    "label": "I want to change each emitted value",
+    "options": [
+      "63b7",
+      "6a2a"
     ]
   },
   "e1c3": {
     "id": "e1c3",
-    "label": "I want to re-subscribe",
+    "label": "pluck"
+  },
+  "c6b8": {
+    "id": "c6b8",
+    "label": "I want to pick a property off each emitted value",
     "options": [
-      "5b17",
-      "be99"
+      "e1c3"
     ]
   },
-  "82a6": {
-    "id": "82a6",
-    "label": "concat"
+  "7a24": {
+    "id": "7a24",
+    "label": "tap"
   },
-  "c0c5": {
-    "id": "c0c5",
+  "264e": {
+    "id": "264e",
+    "label": "I want to spy the values being emitted without affecting them",
+    "options": [
+      "7a24"
+    ]
+  },
+  "e77a": {
+    "id": "e77a",
+    "label": "based on custom logic",
+    "options": [
+      "7195"
+    ]
+  },
+  "53c3": {
+    "id": "53c3",
+    "label": "first"
+  },
+  "48f7": {
+    "id": "48f7",
+    "label": "and only the first value",
+    "options": [
+      "53c3"
+    ]
+  },
+  "8ce6": {
+    "id": "8ce6",
+    "label": "take"
+  },
+  "e07e": {
+    "id": "e07e",
+    "label": "based on a given amount",
+    "options": [
+      "8ce6"
+    ]
+  },
+  "3d99": {
+    "id": "3d99",
+    "label": "takeWhile"
+  },
+  "75d9": {
+    "id": "75d9",
+    "label": "based on custom logic",
+    "options": [
+      "3d99"
+    ]
+  },
+  "650e": {
+    "id": "650e",
+    "label": "if they are at the start of the Observable",
+    "options": [
+      "48f7",
+      "e07e",
+      "75d9"
+    ]
+  },
+  "a8ae": {
+    "id": "a8ae",
+    "label": "elementAt"
+  },
+  "25bc": {
+    "id": "25bc",
+    "label": "if they are exactly the n-th emission",
+    "options": [
+      "a8ae"
+    ]
+  },
+  "1d66": {
+    "id": "1d66",
+    "label": "last"
+  },
+  "4b92": {
+    "id": "4b92",
+    "label": "and only the last value",
+    "options": [
+      "1d66"
+    ]
+  },
+  "542e": {
+    "id": "542e",
+    "label": "takeLast"
+  },
+  "1eb7": {
+    "id": "1eb7",
+    "label": "based on a given amount",
+    "options": [
+      "542e"
+    ]
+  },
+  "93bd": {
+    "id": "93bd",
+    "label": "if they are at the end of the Observable",
+    "options": [
+      "4b92",
+      "1eb7"
+    ]
+  },
+  "5b36": {
+    "id": "5b36",
+    "label": "takeUntil"
+  },
+  "d738": {
+    "id": "d738",
+    "label": "until another Observable emits a value",
+    "options": [
+      "5b36"
+    ]
+  },
+  "4f16": {
+    "id": "4f16",
+    "label": "ignoreElements"
+  },
+  "ff0e": {
+    "id": "ff0e",
+    "label": "altogether",
+    "options": [
+      "4f16"
+    ]
+  },
+  "73a2": {
+    "id": "73a2",
+    "label": "skip"
+  },
+  "1a0d": {
+    "id": "1a0d",
+    "label": "based on a given amount",
+    "options": [
+      "73a2"
+    ]
+  },
+  "ade1": {
+    "id": "ade1",
+    "label": "skipWhile"
+  },
+  "c3a8": {
+    "id": "c3a8",
+    "label": "based on custom logic",
+    "options": [
+      "ade1"
+    ]
+  },
+  "0041": {
+    "id": "0041",
+    "label": "from the start of the Observable",
+    "options": [
+      "1a0d",
+      "c3a8"
+    ]
+  },
+  "e333": {
+    "id": "e333",
+    "label": "skipLast"
+  },
+  "aaa3": {
+    "id": "aaa3",
+    "label": "from the end of the Observable",
+    "options": [
+      "e333"
+    ]
+  },
+  "2d22": {
+    "id": "2d22",
+    "label": "skipUntil"
+  },
+  "e785": {
+    "id": "e785",
+    "label": "until another Observable emits a value",
+    "options": [
+      "2d22"
+    ]
+  },
+  "80c7": {
+    "id": "80c7",
+    "label": "distinctUntilChanged"
+  },
+  "e1ab": {
+    "id": "e1ab",
+    "label": "emitted just before the current value",
+    "options": [
+      "80c7"
+    ]
+  },
+  "e8ba": {
+    "id": "e8ba",
+    "label": "distinct"
+  },
+  "de03": {
+    "id": "de03",
+    "label": "emitted some time in the past",
+    "options": [
+      "e8ba"
+    ]
+  },
+  "48f8": {
+    "id": "48f8",
+    "label": "according to value equality",
+    "options": [
+      "e1ab",
+      "de03"
+    ]
+  },
+  "f64f": {
+    "id": "f64f",
+    "label": "distinctUntilKeyChanged"
+  },
+  "dc76": {
+    "id": "dc76",
+    "label": "emitted just before the current value",
+    "options": [
+      "f64f"
+    ]
+  },
+  "f7d4": {
+    "id": "f7d4",
+    "label": "that match some previous value",
+    "options": [
+      "48f8",
+      "3850"
+    ]
+  },
+  "38ca": {
+    "id": "38ca",
+    "label": "where time windows are determined by another Observable's emissions",
+    "options": [
+      "2503"
+    ]
+  },
+  "4f0a": {
+    "id": "4f0a",
+    "label": "throttleTime"
+  },
+  "709f": {
+    "id": "709f",
+    "label": "where time windows are determined by a time duration",
+    "options": [
+      "4f0a"
+    ]
+  },
+  "efe6": {
+    "id": "efe6",
+    "label": "by emitting the first value in each time window",
+    "options": [
+      "38ca",
+      "709f"
+    ]
+  },
+  "fe34": {
+    "id": "fe34",
+    "label": "audit"
+  },
+  "dfc2": {
+    "id": "dfc2",
+    "label": "where time windows are determined by another Observable's emissions",
+    "options": [
+      "fe34"
+    ]
+  },
+  "f03e": {
+    "id": "f03e",
+    "label": "auditTime"
+  },
+  "51ca": {
+    "id": "51ca",
+    "label": "where time windows are determined by a time duration",
+    "options": [
+      "f03e"
+    ]
+  },
+  "d781": {
+    "id": "d781",
+    "label": "by emitting the last value in each time window",
+    "options": [
+      "dfc2",
+      "51ca"
+    ]
+  },
+  "370d": {
+    "id": "370d",
+    "label": "debounce"
+  },
+  "75b7": {
+    "id": "75b7",
+    "label": "where the silence duration threshold is determined by another Observable",
+    "options": [
+      "370d"
+    ]
+  },
+  "5ad3": {
+    "id": "5ad3",
+    "label": "where the silence duration threshold is determined by a time duration",
+    "options": [
+      "4680"
+    ]
+  },
+  "2ef2": {
+    "id": "2ef2",
+    "label": "by emitting the last value as soon as enough silence has occured",
+    "options": [
+      "75b7",
+      "5ad3"
+    ]
+  },
+  "b639": {
+    "id": "b639",
+    "label": "that occur too frequently",
+    "options": [
+      "efe6",
+      "d781",
+      "2ef2"
+    ]
+  },
+  "2ef0": {
+    "id": "2ef0",
+    "label": "I want to ignore values",
+    "options": [
+      "ff0e",
+      "0041",
+      "aaa3",
+      "e785",
+      "f7d4",
+      "b639"
+    ]
+  },
+  "fc94": {
+    "id": "fc94",
+    "label": "and only output the final computed value",
+    "options": [
+      "1625"
+    ]
+  },
+  "bc85": {
+    "id": "bc85",
+    "label": "scan"
+  },
+  "ff87": {
+    "id": "ff87",
+    "label": "and output the computed values when the source emits a value",
+    "options": [
+      "bc85"
+    ]
+  },
+  "8dad": {
+    "id": "8dad",
+    "label": "mergeScan"
+  },
+  "5c1d": {
+    "id": "5c1d",
+    "label": "and output the computed values as a nested Observable when the source emits a value",
+    "options": [
+      "8dad"
+    ]
+  },
+  "a734": {
+    "id": "a734",
+    "label": "I want to compute a formula using all values emitted",
+    "options": [
+      "fc94",
+      "ff87",
+      "5c1d"
+    ]
+  },
+  "37d6": {
+    "id": "37d6",
+    "label": "materialize"
+  },
+  "aa1b": {
+    "id": "aa1b",
+    "label": "that describes each notification (next, error, or complete)",
+    "options": [
+      "37d6"
+    ]
+  },
+  "2d17": {
+    "id": "2d17",
+    "label": "timeInterval"
+  },
+  "241e": {
+    "id": "241e",
+    "label": "that includes the time past since the last emitted value",
+    "options": [
+      "2d17"
+    ]
+  },
+  "68e7": {
+    "id": "68e7",
+    "label": "timeout"
+  },
+  "2bd5": {
+    "id": "2bd5",
+    "label": "I want to throw an error",
+    "options": [
+      "68e7"
+    ]
+  },
+  "2a9f": {
+    "id": "2a9f",
+    "label": "timeoutWith"
+  },
+  "37c3": {
+    "id": "37c3",
+    "label": "I want to switch to another Observable",
+    "options": [
+      "2a9f"
+    ]
+  },
+  "0a7f": {
+    "id": "0a7f",
+    "label": "after a period of inactivity",
+    "options": [
+      "2bd5",
+      "37c3"
+    ]
+  },
+  "f355": {
+    "id": "f355",
+    "label": "single"
+  },
+  "81cb": {
+    "id": "81cb",
+    "label": "I want to ensure there is only one value",
+    "options": [
+      "f355"
+    ]
+  },
+  "eeed": {
+    "id": "eeed",
+    "label": "count"
+  },
+  "9b97": {
+    "id": "9b97",
+    "label": "I want to know how many values it emits",
+    "options": [
+      "eeed"
+    ]
+  },
+  "09fc": {
+    "id": "09fc",
+    "label": "startWith"
+  },
+  "86c9": {
+    "id": "86c9",
+    "label": "I want to prepend one value",
+    "options": [
+      "09fc"
+    ]
+  },
+  "07fd": {
+    "id": "07fd",
+    "label": "delay"
+  },
+  "3b2c": {
+    "id": "3b2c",
+    "label": "based on the emissions of another Observable",
+    "options": [
+      "8281"
+    ]
+  },
+  "64f7": {
+    "id": "64f7",
+    "label": "toArray"
+  },
+  "2c49": {
+    "id": "2c49",
+    "label": "and convert to an array",
+    "options": [
+      "64f7"
+    ]
+  },
+  "c6d9": {
+    "id": "c6d9",
+    "label": "Observable",
+    "method": "toPromise"
+  },
+  "40ae": {
+    "id": "40ae",
+    "label": "until the Observable completes",
+    "options": [
+      "2c49",
+      "1971"
+    ]
+  },
+  "dfa2": {
+    "id": "dfa2",
+    "label": "pairwise"
+  },
+  "0739": {
+    "id": "0739",
+    "label": "consecutively in pairs, as arrays",
+    "options": [
+      "dfa2"
+    ]
+  },
+  "0500": {
+    "id": "0500",
+    "label": "based on a criterion, and output two Observables: those that match the criterion and those that do not",
+    "options": [
+      "9853"
+    ]
+  },
+  "339e": {
+    "id": "339e",
+    "label": "and emit the group as an array",
+    "options": [
+      "3279"
+    ]
+  },
+  "05d9": {
+    "id": "05d9",
+    "label": "windowCount"
+  },
+  "0d9b": {
+    "id": "0d9b",
+    "label": "and emit the group as a nested Observable",
+    "options": [
+      "05d9"
+    ]
+  },
+  "ce35": {
+    "id": "ce35",
+    "label": "in batches of a particular size",
+    "options": [
+      "339e",
+      "0d9b"
+    ]
+  },
+  "c4cf": {
+    "id": "c4cf",
+    "label": "bufferTime"
+  },
+  "59cd": {
+    "id": "59cd",
+    "label": "and emit the group as an array",
+    "options": [
+      "c4cf"
+    ]
+  },
+  "fec2": {
+    "id": "fec2",
+    "label": "windowTime"
+  },
+  "31ec": {
+    "id": "31ec",
+    "label": "and emit the group as a nested Observable",
+    "options": [
+      "fec2"
+    ]
+  },
+  "8d62": {
+    "id": "8d62",
+    "label": "buffer"
+  },
+  "364e": {
+    "id": "364e",
+    "label": "and emit the group as an array",
+    "options": [
+      "8d62"
+    ]
+  },
+  "a3aa": {
+    "id": "a3aa",
+    "label": "and emit the group as a nested Observable",
+    "options": [
+      "4270"
+    ]
+  },
+  "82e5": {
+    "id": "82e5",
+    "label": "until another Observable emits",
+    "options": [
+      "364e",
+      "a3aa"
+    ]
+  },
+  "e105": {
+    "id": "e105",
+    "label": "bufferWhen"
+  },
+  "4a18": {
+    "id": "4a18",
+    "label": "and emit the group as an array",
+    "options": [
+      "e105"
+    ]
+  },
+  "4b01": {
+    "id": "4b01",
+    "label": "using the latest value of each source whenever any source emits",
+    "options": [
+      "3c78"
+    ]
+  },
+  "5bcc": {
+    "id": "5bcc",
+    "label": "and emit the group as a nested Observable",
+    "options": [
+      "4b01"
+    ]
+  },
+  "e7f1": {
+    "id": "e7f1",
+    "label": "based on the emissions of an Observable created on-demand",
+    "options": [
+      "4a18",
+      "5bcc"
+    ]
+  },
+  "0435": {
+    "id": "0435",
+    "label": "bufferToggle"
+  },
+  "c5fa": {
+    "id": "c5fa",
+    "label": "and emit the group as an array",
+    "options": [
+      "0435"
+    ]
+  },
+  "8c11": {
+    "id": "8c11",
+    "label": "windowToggle"
+  },
+  "4f93": {
+    "id": "4f93",
+    "label": "and emit the group as a nested Observable",
+    "options": [
+      "8c11"
+    ]
+  },
+  "3f5c": {
+    "id": "3f5c",
+    "label": "based on another Observable for opening a group, and an Observable for closing a group",
+    "options": [
+      "c5fa",
+      "4f93"
+    ]
+  },
+  "f317": {
+    "id": "f317",
+    "label": "based on a key calculated from the emitted values",
+    "options": [
+      "8959"
+    ]
+  },
+  "b3ba": {
+    "id": "b3ba",
+    "label": "I want to group the values",
+    "options": [
+      "40ae",
+      "0739",
+      "0500",
+      "ce35",
+      "1947",
+      "82e5",
+      "e7f1",
+      "3f5c",
+      "f317"
+    ]
+  },
+  "49ac": {
+    "id": "49ac",
+    "label": "mergeMapTo"
+  },
+  "34d1": {
+    "id": "34d1",
+    "label": "where the nested Observable is the same for every value",
+    "options": [
+      "49ac"
+    ]
+  },
+  "edcb": {
+    "id": "edcb",
+    "label": "mergeMap"
+  },
+  "42f8": {
+    "id": "42f8",
+    "label": "where the nested Observable is calculated for each value",
+    "options": [
+      "edcb"
+    ]
+  },
+  "cb34": {
+    "id": "cb34",
+    "label": "and emit the values from all nested Observables in parallel",
+    "options": [
+      "34d1",
+      "42f8"
+    ]
+  },
+  "30f2": {
+    "id": "30f2",
+    "label": "concatMapTo"
+  },
+  "84f4": {
+    "id": "84f4",
+    "label": "using a ReplaySubject",
+    "options": [
+      "830a"
+    ]
+  },
+  "504f": {
+    "id": "504f",
+    "label": "concatMap"
+  },
+  "ea21": {
+    "id": "ea21",
+    "label": "where the nested Observable is calculated for each value",
+    "options": [
+      "504f"
+    ]
+  },
+  "d6a8": {
+    "id": "d6a8",
+    "label": "and emit the values from each nested Observable in order",
+    "options": [
+      "84f4",
+      "ea21"
+    ]
+  },
+  "21d5": {
+    "id": "21d5",
+    "label": "switchMapTo"
+  },
+  "ef55": {
+    "id": "ef55",
+    "label": "where the nested Observable is the same for every value",
+    "options": [
+      "21d5"
+    ]
+  },
+  "c7c4": {
+    "id": "c7c4",
+    "label": "switchMap"
+  },
+  "3ff2": {
+    "id": "3ff2",
+    "label": "where the nested Observable is calculated for each value",
+    "options": [
+      "c7c4"
+    ]
+  },
+  "89b7": {
+    "id": "89b7",
+    "label": "and cancel the previous nested Observable when a new value arrives",
+    "options": [
+      "ef55",
+      "3ff2"
+    ]
+  },
+  "2a34": {
+    "id": "2a34",
+    "label": "exhaustMap"
+  },
+  "0589": {
+    "id": "0589",
+    "label": "and ignore incoming values while the current nested Observable has not yet completed",
+    "options": [
+      "2a34"
+    ]
+  },
+  "5fef": {
+    "id": "5fef",
+    "label": "expand"
+  },
+  "f037": {
+    "id": "f037",
+    "label": "I want to start a new Observable for each value",
+    "options": [
+      "cb34",
+      "d6a8",
+      "89b7",
+      "0589",
+      "8385"
+    ]
+  },
+  "03d7": {
+    "id": "03d7",
+    "label": "pipe"
+  },
+  "9ece": {
+    "id": "9ece",
+    "label": "I want to perform custom operations",
+    "options": [
+      "03d7"
+    ]
+  },
+  "f3a5": {
+    "id": "f3a5",
+    "label": "share"
+  },
+  "5c83": {
+    "id": "5c83",
+    "label": "and start it as soon as the first subscriber arrives",
+    "options": [
+      "f3a5"
+    ]
+  },
+  "94a6": {
+    "id": "94a6",
+    "label": "publish"
+  },
+  "ef9f": {
+    "id": "ef9f",
+    "label": "publishBehavior"
+  },
+  "3d02": {
+    "id": "3d02",
+    "label": "using a BehaviorSubject",
+    "options": [
+      "ef9f"
+    ]
+  },
+  "830a": {
+    "id": "830a",
+    "label": "publishReplay"
+  },
+  "91e0": {
+    "id": "91e0",
+    "label": "publishLast"
+  },
+  "a8d1": {
+    "id": "a8d1",
+    "label": "using an AsyncSubject",
+    "options": [
+      "91e0"
+    ]
+  },
+  "be1b": {
+    "id": "be1b",
+    "label": "multicast"
+  },
+  "4a3b": {
+    "id": "4a3b",
+    "label": "using a specific subject implementation",
+    "options": [
+      "be1b"
+    ]
+  },
+  "c100": {
+    "id": "c100",
+    "label": "I want to share a subscription between multiple subscribers",
+    "options": [
+      "8477",
+      "3d02",
+      "84f4",
+      "a8d1",
+      "4a3b"
+    ]
+  },
+  "a2a6": {
+    "id": "a2a6",
+    "label": "catchError"
+  },
+  "61db": {
+    "id": "61db",
     "label": "I want to start a new Observable",
     "options": [
-      "82a6"
+      "a2a6"
     ]
   },
-  "949a": {
-    "id": "949a",
-    "label": "when it completes",
+  "a357": {
+    "id": "a357",
+    "label": "retry"
+  },
+  "2ee7": {
+    "id": "2ee7",
+    "label": "retryWhen"
+  },
+  "5bd0": {
+    "id": "5bd0",
+    "label": "when another Observable emits",
     "options": [
-      "e1c3",
-      "c0c5"
+      "2ee7"
     ]
   },
-  "e1a8": {
-    "id": "e1a8",
-    "label": "finalize"
-  },
-  "d2ec": {
-    "id": "d2ec",
-    "label": "when it completes, errors or unsubscribes, I want to execute a function",
+  "1d49": {
+    "id": "1d49",
+    "label": "I want to re-subscribe",
     "options": [
-      "e1a8"
+      "7541",
+      "5bd0"
     ]
   },
-  "415a": {
-    "id": "415a",
-    "label": "subscribeOn"
-  },
-  "e04b": {
-    "id": "e04b",
-    "label": "that routes calls to subscribe",
+  "dea3": {
+    "id": "dea3",
+    "label": "when an error occurs",
     "options": [
-      "415a"
+      "61db",
+      "1d49"
     ]
   },
-  "45c6": {
-    "id": "45c6",
-    "label": "observeOn"
-  },
-  "3c32": {
-    "id": "3c32",
-    "label": "I want to change the scheduler",
+  "07b9": {
+    "id": "07b9",
+    "label": "immediately",
     "options": [
-      "e04b",
-      "4145"
+      "8283"
     ]
   },
-  "2d69": {
-    "id": "2d69",
-    "label": "race"
+  "dd95": {
+    "id": "dd95",
+    "label": "repeatWhen"
   },
-  "5c31": {
-    "id": "5c31",
-    "label": "merge"
-  },
-  "2ea9": {
-    "id": "2ea9",
-    "label": "I want to output the values from either of them",
+  "891c": {
+    "id": "891c",
+    "label": "when another Observable emits",
     "options": [
-      "5c31"
+      "dd95"
     ]
   },
-  "b64e": {
-    "id": "b64e",
-    "label": "using the latest value of each source whenever any source emits",
+  "90cc": {
+    "id": "90cc",
+    "label": "I want to re-subscribe",
     "options": [
-      "6062"
+      "07b9",
+      "891c"
     ]
   },
-  "c076": {
-    "id": "c076",
-    "label": "using the latest value of each source only when the primary Observable emits",
-    "options": [
-      "1365"
-    ]
-  },
-  "b354": {
-    "id": "b354",
-    "label": "zip"
-  },
-  "9d9b": {
-    "id": "9d9b",
-    "label": "using each source value only once",
-    "options": [
-      "b354"
-    ]
-  },
-  "baba": {
-    "id": "baba",
-    "label": "I want to output a value computed from values of the source Observables",
-    "options": [
-      "b64e",
-      "c076",
-      "9d9b"
-    ]
-  },
-  "30ef": {
-    "id": "30ef",
-    "label": "I want to combine this Observable with others, and",
-    "options": [
-      "8381",
-      "2ea9",
-      "baba"
-    ]
-  },
-  "4c7f": {
-    "id": "4c7f",
-    "label": "I have one existing Observable, and",
-    "options": [
-      "8dfd",
-      "e164",
-      "a1e0",
-      "5d30",
-      "6070",
-      "6465",
-      "5c06",
-      "009e",
-      "bbbd",
-      "464c",
-      "7e13",
-      "3217",
-      "9de2",
-      "506c",
-      "d0ae",
-      "a4d3",
-      "99c2",
-      "949a",
-      "d2ec",
-      "3c32",
-      "30ef"
-    ]
-  },
-  "f344": {
-    "id": "f344",
-    "label": "race"
-  },
-  "297b": {
-    "id": "297b",
-    "label": "I want to receive values only from the Observable that emits a value first",
-    "options": [
-      "f344"
-    ]
-  },
-  "f71c": {
-    "id": "f71c",
-    "label": "forkJoin"
-  },
-  "9ea4": {
-    "id": "9ea4",
-    "label": "I want to be notified when all of them have completed",
-    "options": [
-      "f71c"
-    ]
-  },
-  "c15e": {
-    "id": "c15e",
-    "label": "merge"
-  },
-  "1c6d": {
-    "id": "1c6d",
-    "label": "I want to output the values from either of them",
-    "options": [
-      "c15e"
-    ]
-  },
-  "39a7": {
-    "id": "39a7",
-    "label": "combineLatest"
-  },
-  "ba61": {
-    "id": "ba61",
-    "label": "using the latest value of each source whenever any source emits",
-    "options": [
-      "39a7"
-    ]
-  },
-  "8e6b": {
-    "id": "8e6b",
-    "label": "zip"
-  },
-  "404d": {
-    "id": "404d",
-    "label": "using each source value only once",
-    "options": [
-      "8e6b"
-    ]
-  },
-  "f0e3": {
-    "id": "f0e3",
-    "label": "I want to output a value computed from values of the source Observables",
-    "options": [
-      "ba61",
-      "404d"
-    ]
-  },
-  "569b": {
-    "id": "569b",
+  "f553": {
+    "id": "f553",
     "label": "concat"
   },
-  "fdc9": {
-    "id": "fdc9",
-    "label": "I want to subscribe to each in order",
+  "3e6c": {
+    "id": "3e6c",
+    "label": "I want to start a new Observable",
     "options": [
-      "569b"
+      "f553"
     ]
   },
-  "e4e4": {
-    "id": "e4e4",
+  "c6a0": {
+    "id": "c6a0",
+    "label": "when it completes",
+    "options": [
+      "90cc",
+      "3e6c"
+    ]
+  },
+  "8df0": {
+    "id": "8df0",
+    "label": "finalize"
+  },
+  "a051": {
+    "id": "a051",
+    "label": "when it completes, errors or unsubscribes, I want to execute a function",
+    "options": [
+      "8df0"
+    ]
+  },
+  "f74e": {
+    "id": "f74e",
+    "label": "subscribeOn"
+  },
+  "754c": {
+    "id": "754c",
+    "label": "that routes calls to subscribe",
+    "options": [
+      "f74e"
+    ]
+  },
+  "047c": {
+    "id": "047c",
+    "label": "observeOn"
+  },
+  "cffd": {
+    "id": "cffd",
+    "label": "that routes values to observers",
+    "options": [
+      "047c"
+    ]
+  },
+  "c5a2": {
+    "id": "c5a2",
+    "label": "I want to receive values only from the Observable that emits a value first",
+    "options": [
+      "5524"
+    ]
+  },
+  "50ad": {
+    "id": "50ad",
+    "label": "merge"
+  },
+  "bb29": {
+    "id": "bb29",
+    "label": "I want to output the values from either of them",
+    "options": [
+      "50ad"
+    ]
+  },
+  "c382": {
+    "id": "c382",
+    "label": "using the latest value of each source whenever any source emits",
+    "options": [
+      "2856"
+    ]
+  },
+  "aee3": {
+    "id": "aee3",
+    "label": "withLatestFrom"
+  },
+  "e669": {
+    "id": "e669",
+    "label": "using the latest value of each source only when the primary Observable emits",
+    "options": [
+      "aee3"
+    ]
+  },
+  "7bc5": {
+    "id": "7bc5",
+    "label": "zip"
+  },
+  "7ee1": {
+    "id": "7ee1",
+    "label": "using each source value only once",
+    "options": [
+      "7bc5"
+    ]
+  },
+  "0ce3": {
+    "id": "0ce3",
+    "label": "I want to output a value computed from values of the source Observables",
+    "options": [
+      "c382",
+      "e669",
+      "7ee1"
+    ]
+  },
+  "d19e": {
+    "id": "d19e",
+    "label": "I want to combine this Observable with others, and",
+    "options": [
+      "c5a2",
+      "bb29",
+      "0ce3"
+    ]
+  },
+  "ab90": {
+    "id": "ab90",
+    "label": "I have one existing Observable, and",
+    "options": [
+      "54ad",
+      "c6b8",
+      "264e",
+      "2800",
+      "2ef0",
+      "a734",
+      "8094",
+      "0a7f",
+      "81cb",
+      "9b97",
+      "86c9",
+      "5978",
+      "b3ba",
+      "f037",
+      "9ece",
+      "c100",
+      "dea3",
+      "c6a0",
+      "a051",
+      "7817",
+      "d19e"
+    ]
+  },
+  "43c7": {
+    "id": "43c7",
+    "label": "race"
+  },
+  "762a": {
+    "id": "762a",
+    "label": "I want to receive values only from the Observable that emits a value first",
+    "options": [
+      "43c7"
+    ]
+  },
+  "bcd2": {
+    "id": "bcd2",
+    "label": "forkJoin"
+  },
+  "79bc": {
+    "id": "79bc",
+    "label": "I want to be notified when all of them have completed",
+    "options": [
+      "bcd2"
+    ]
+  },
+  "ff88": {
+    "id": "ff88",
+    "label": "merge"
+  },
+  "0542": {
+    "id": "0542",
+    "label": "I want to output the values from either of them",
+    "options": [
+      "ff88"
+    ]
+  },
+  "3c78": {
+    "id": "3c78",
+    "label": "combineLatest"
+  },
+  "5bb9": {
+    "id": "5bb9",
+    "label": "zip"
+  },
+  "b47d": {
+    "id": "b47d",
+    "label": "using each source value only once",
+    "options": [
+      "5bb9"
+    ]
+  },
+  "ee15": {
+    "id": "ee15",
+    "label": "I want to output a value computed from values of the source Observables",
+    "options": [
+      "4b01",
+      "b47d"
+    ]
+  },
+  "ddb7": {
+    "id": "ddb7",
+    "label": "concat"
+  },
+  "d2f4": {
+    "id": "d2f4",
+    "label": "I have some Observables to combine together as one Observable, and",
+    "options": [
+      "762a",
+      "79bc",
+      "0542",
+      "ee15",
+      "3245"
+    ]
+  },
+  "698b": {
+    "id": "698b",
     "label": "Observable",
     "method": "create"
   },
-  "3c14": {
-    "id": "3c14",
+  "d3a9": {
+    "id": "d3a9",
     "label": "using custom logic",
     "options": [
-      "e4e4"
+      "698b"
     ]
   },
-  "95c4": {
-    "id": "95c4",
+  "ef49": {
+    "id": "ef49",
+    "label": "generate"
+  },
+  "743d": {
+    "id": "743d",
     "label": "using a state machine similar to a for loop",
     "options": [
-      "5640"
+      "ef49"
     ]
   },
-  "906a": {
-    "id": "906a",
+  "c5d9": {
+    "id": "c5d9",
     "label": "throwError"
   },
-  "3cb6": {
-    "id": "3cb6",
-    "label": "that throws an error",
-    "options": [
-      "906a"
-    ]
-  },
-  "af82": {
-    "id": "af82",
+  "616d": {
+    "id": "616d",
     "label": "EMPTY"
   },
-  "3bd5": {
-    "id": "3bd5",
+  "9d22": {
+    "id": "9d22",
+    "label": "that just completes, without emitting values",
+    "options": [
+      "616d"
+    ]
+  },
+  "c256": {
+    "id": "c256",
     "label": "NEVER"
   },
-  "59e1": {
-    "id": "59e1",
+  "e2aa": {
+    "id": "e2aa",
     "label": "that never emits anything",
     "options": [
-      "3bd5"
+      "c256"
     ]
   },
-  "b084": {
-    "id": "b084",
+  "ee6f": {
+    "id": "ee6f",
     "label": "fromEvent"
   },
-  "a28c": {
-    "id": "a28c",
-    "label": "coming from the DOM or Node.js or similar",
-    "options": [
-      "b084"
-    ]
-  },
-  "0427": {
-    "id": "0427",
+  "a216": {
+    "id": "a216",
     "label": "fromEventPattern"
   },
-  "25cf": {
-    "id": "25cf",
+  "d726": {
+    "id": "d726",
     "label": "that uses an API to add and remove event handlers",
     "options": [
-      "0427"
+      "a216"
     ]
   },
-  "d17c": {
-    "id": "d17c",
+  "61f9": {
+    "id": "61f9",
     "label": "from an existing source of events",
     "options": [
-      "a28c",
-      "25cf"
+      "2683",
+      "d726"
     ]
   },
-  "894b": {
-    "id": "894b",
-    "label": "from a Promise or an event source",
-    "options": [
-      "9945"
-    ]
-  },
-  "bd0b": {
-    "id": "bd0b",
+  "b985": {
+    "id": "b985",
     "label": "from"
   },
-  "4e20": {
-    "id": "4e20",
+  "5b68": {
+    "id": "5b68",
+    "label": "from a Promise or an event source",
+    "options": [
+      "b985"
+    ]
+  },
+  "dc70": {
+    "id": "dc70",
+    "label": "from"
+  },
+  "8ac3": {
+    "id": "8ac3",
+    "label": "over the values in an array",
+    "options": [
+      "dc70"
+    ]
+  },
+  "5cc0": {
+    "id": "5cc0",
     "label": "range"
   },
-  "b334": {
-    "id": "b334",
-    "label": "over values in a numeric range",
-    "options": [
-      "4e20"
-    ]
+  "9f7a": {
+    "id": "9f7a",
+    "label": "of"
   },
-  "cb2e": {
-    "id": "cb2e",
+  "9c1e": {
+    "id": "9c1e",
     "label": "over prefined values given as arguments",
     "options": [
-      "1269"
+      "9f7a"
     ]
   },
-  "92ed": {
-    "id": "92ed",
+  "6f2c": {
+    "id": "6f2c",
     "label": "that iterates",
     "options": [
-      "4583",
-      "b334",
-      "cb2e"
+      "8ac3",
+      "9884",
+      "9c1e"
     ]
   },
-  "ebed": {
-    "id": "ebed",
+  "f128": {
+    "id": "f128",
     "label": "interval"
   },
-  "ea5a": {
-    "id": "ea5a",
-    "label": "regularly",
-    "options": [
-      "ebed"
-    ]
-  },
-  "c50f": {
-    "id": "c50f",
+  "94b0": {
+    "id": "94b0",
     "label": "timer"
   },
-  "4d62": {
-    "id": "4d62",
+  "c85c": {
+    "id": "c85c",
     "label": "with an optional initial delay",
     "options": [
-      "c50f"
+      "94b0"
     ]
   },
-  "af2d": {
-    "id": "af2d",
+  "d198": {
+    "id": "d198",
     "label": "that emits values on a timer",
     "options": [
-      "ea5a",
-      "4d62"
+      "6707",
+      "c85c"
     ]
   },
-  "f662": {
-    "id": "f662",
+  "201b": {
+    "id": "201b",
     "label": "defer"
   },
-  "6a49": {
-    "id": "6a49",
+  "a9e8": {
+    "id": "a9e8",
     "label": "which is built on demand when subscribed",
     "options": [
-      "f662"
+      "201b"
     ]
   },
-  "97b9": {
-    "id": "97b9",
+  "269e": {
+    "id": "269e",
+    "label": "I want to create a new Observable",
+    "options": [
+      "d3a9",
+      "743d",
+      "9398",
+      "9d22",
+      "e2aa",
+      "61f9",
+      "5b68",
+      "6f2c",
+      "d198",
+      "a9e8"
+    ]
+  },
+  "db26": {
+    "id": "db26",
     "label": "bindCallback"
   },
-  "4e1c": {
-    "id": "4e1c",
+  "5a5c": {
+    "id": "5a5c",
     "label": "supporting a conventional callback API",
     "options": [
-      "97b9"
+      "db26"
     ]
   },
-  "11e5": {
-    "id": "11e5",
+  "5ef4": {
+    "id": "5ef4",
     "label": "bindNodeCallback"
   },
-  "e88c": {
-    "id": "e88c",
+  "997e": {
+    "id": "997e",
     "label": "supporting Node.js callback style API",
     "options": [
-      "11e5"
+      "5ef4"
     ]
   },
-  "2f66": {
-    "id": "2f66",
+  "ffc3": {
+    "id": "ffc3",
     "label": "I want to convert a callback to an Observable",
     "options": [
-      "4e1c",
-      "e88c"
-    ]
-  },
-  "ac1b": {
-    "id": "ac1b",
-    "label": "I have no Observables yet, and",
-    "options": [
-      "3657",
-      "2f66"
+      "5a5c",
+      "997e"
     ]
   },
   "initial": {
     "id": "initial",
     "options": [
-      "4c7f",
-      "3405",
-      "ac1b"
+      "ab90",
+      "d2f4",
+      "3856"
     ]
   }
 }
