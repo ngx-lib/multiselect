@@ -96,12 +96,12 @@
     "prerelease": [
       "local"
     ],
-    "build": "sha.cd94606",
+    "build": "sha.decfffe",
     "version": "0.0.5-local",
     "codeName": "snapshot",
     "isSnapshot": true,
-    "full": "0.0.5-local+sha.cd94606",
+    "full": "0.0.5-local+sha.decfffe",
     "branch": "master",
-    "commitSHA": "cd946062e0e81d5ab796cb7490b0bbdd4a0cf45a"
+    "commitSHA": "decfffea543f7f5d615fbe02adc5b30812b830f2"
   }
 }
