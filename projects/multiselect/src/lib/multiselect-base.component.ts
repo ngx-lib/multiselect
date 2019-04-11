@@ -56,9 +56,10 @@ export abstract class NgxMultiselectBaseComponent implements ControlValueAccesso
   onTouched = () => {};
 
   writeValue(value) {
+    this.initialValue = value;
+    if (this.multiple && !value) this.initialValue = [];
     // Set selected value for initial load of value
     if (value) {
-      this.initialValue = value;
       this._options ? this.prepopulateOptions(value) : this.addOperation(value);
       this.formatPrepopulatedValues(value);
     }

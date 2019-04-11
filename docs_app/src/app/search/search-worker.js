@@ -3,7 +3,7 @@
 /* eslint-env worker */
 /* global importScripts, lunr */
 
-var SEARCH_TERMS_URL = '/generated/docs/app/search-data.json';
+var SEARCH_TERMS_URL = '/multiselect/generated/docs/app/search-data.json';
 
 // NOTE: This needs to be kept in sync with `ngsw-config.json`.
 importScripts('/multiselect/assets/js/lunr.min.js');
