@@ -140,7 +140,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   };
 
   isValueSelected() {
-    return this._multiple ? this._selectedOptions.length : this._selectedOptions;
+    return this._selectedOptions && this._multiple ? this._selectedOptions.length : this._selectedOptions;
   }
 
   searchChange(val: string) {
