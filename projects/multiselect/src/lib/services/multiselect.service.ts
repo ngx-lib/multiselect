@@ -124,7 +124,7 @@ export class NgxMultiselectService {
     return collection.map((item: any) => {
       let obj = groupedProperty ? { [groupedProperty]: item[groupedProperty] } : {};
       keys.reduce((a: any, b: string) => {
-        obj[b] = item[propertyMap[b]];
+        obj[propertyMap[b]] = item[b];
       }, obj);
       return obj;
     });
