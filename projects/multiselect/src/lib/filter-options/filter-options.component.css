@@ -8,7 +8,7 @@
 .mat-multiselect :host ::ng-deep .input-search {
   width: 100%;
   position: relative;
-  max-height: 40px;
+  max-height: 35px;
   overflow: hidden;
   box-sizing: content-box;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
@@ -33,7 +33,7 @@
 .mat-multiselect :host ::ng-deep .field-infix {
   display: block;
   position: relative;
-  padding: 10px;
+  padding: 5px;
   flex: auto;
   min-width: 0;
   width: 90%;
@@ -41,18 +41,24 @@
 }
 
 .mat-multiselect :host ::ng-deep .field-suffix {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   white-space: nowrap;
   flex: none;
   position: relative;
+  top: 5px;
+  right: 5px;
 }
 .mat-multiselect :host ::ng-deep .field-suffix button {
-  top: 5px;
   position: relative;
   border: none;
-  font-size: 20px;
-  min-width: 25px;
+  font-size: 14px;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border-radius: 10px;
+  line-height: 1;
+  font-weight: 500;
 }
 
 /* Material CSS end */
@@ -129,11 +135,20 @@
   white-space: nowrap;
 }
 .bs-multiselect :host ::ng-deep .field-suffix button {
-  top: 7px;
-  position: relative;
   border: none;
   font-size: 20px;
   min-width: 25px;
+  line-height: 1.1;
 }
 
 /* Boostrap CSS end */
+
+/* Common */
+
+.mat-multiselect :host ::ng-deep button[disabled],
+.mat-multiselect :host ::ng-deep button:disabled,
+.bs-multiselect :host ::ng-deep button[disabled],
+.bs-multiselect :host ::ng-deep button:disabled {
+  background: whitesmoke;
+  color: #dad4d4;
+}
