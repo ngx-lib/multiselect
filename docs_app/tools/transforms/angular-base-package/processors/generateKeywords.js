@@ -128,7 +128,7 @@ module.exports = function generateKeywordsProcessor(log, readFilesProcessor) {
       var searchData = filteredDocs.map(function(page) {
         // Copy the properties from the searchTerms object onto the search data object
         return Object.assign({
-          path: page.path,
+          path: `/${page.path}`,
           title: page.searchTitle,
           type: page.docType
         }, page.searchTerms);
