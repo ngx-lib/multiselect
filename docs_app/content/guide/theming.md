@@ -11,6 +11,6 @@ You can use `theme` property binding to pass on theme you want to apply. By defa
 <ms-theme></ms-theme>
 
 <code-tabs>
-  <code-pane title="app/theming.component.ts" path="theming/src/app/theming.component.ts"></code-pane>
   <code-pane title="app/theming.component.html" path="theming/src/app/theming.component.html"></code-pane>
+  <code-pane title="app/theming.component.ts" path="theming/src/app/theming.component.ts"></code-pane>
 </code-tabs>

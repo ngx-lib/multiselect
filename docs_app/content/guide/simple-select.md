@@ -11,6 +11,6 @@ Multiselect can be also used as single select, simply by specifying multiselect 
 <ms-single-select></ms-single-select>
 
 <code-tabs>
-  <code-pane title="app/single-select.component.ts" path="single-select/src/app/single-select.component.ts"></code-pane>
   <code-pane title="app/single-select.component.html" path="single-select/src/app/single-select.component.html"></code-pane>
+  <code-pane title="app/single-select.component.ts" path="single-select/src/app/single-select.component.ts"></code-pane>
 </code-tabs>
