@@ -23,6 +23,6 @@ In above example, we pass a template which contains `span` element that consist 
 <ms-custom-template></ms-custom-template>
 
 <code-tabs>
-  <code-pane title="app/custom-template.component.ts" path="custom-template/src/app/custom-template.component.ts"></code-pane>
   <code-pane title="app/custom-template.component.html" path="custom-template/src/app/custom-template.component.html"></code-pane>
+  <code-pane title="app/custom-template.component.ts" path="custom-template/src/app/custom-template.component.ts"></code-pane>
 </code-tabs>

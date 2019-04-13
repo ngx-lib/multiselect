@@ -40,6 +40,6 @@ We can do the same thing using template reference variable also.
 <ms-enable-disable></ms-enable-disable>
 
 <code-tabs>
-  <code-pane title="app/enable-disable.component.ts" path="enable-disable/src/app/enable-disable.component.ts"></code-pane>
   <code-pane title="app/enable-disable.component.html" path="enable-disable/src/app/enable-disable.component.html"></code-pane>
+  <code-pane title="app/enable-disable.component.ts" path="enable-disable/src/app/enable-disable.component.ts"></code-pane>
 </code-tabs>

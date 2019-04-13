@@ -7,8 +7,8 @@ Multiselect works pretty well with observables as it does with data collection. 
 <ms-observable-async></ms-observable-async>
 
 <code-tabs>
-  <code-pane title="app/observable-async.component.ts" path="observable/src/app/observable-async.component.ts"></code-pane>
   <code-pane title="app/observable-async.component.html" path="observable/src/app/observable-async.component.html"></code-pane>
+  <code-pane title="app/observable-async.component.ts" path="observable/src/app/observable-async.component.ts"></code-pane>
 </code-tabs>
 
 ## 1. Manual subscription:

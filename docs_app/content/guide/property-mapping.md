@@ -44,8 +44,8 @@ So, the multiselect converts the `propertyMap` to its understandable format as b
 <ms-property-map></ms-property-map>
 
 <code-tabs>
-  <code-pane title="app/property-map.component.ts" path="property-map/src/app/property-map.component.ts"></code-pane>
   <code-pane title="app/property-map.component.html" path="property-map/src/app/property-map.component.html"></code-pane>
+  <code-pane title="app/property-map.component.ts" path="property-map/src/app/property-map.component.ts"></code-pane>
 </code-tabs>
 
 But sometimes it may happen you have data in exact format as shown below but only the key to access category is different, in that case passing the key string to `groupedProperty` input will also work fine.
