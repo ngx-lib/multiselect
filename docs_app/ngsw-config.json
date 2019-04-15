@@ -27,10 +27,10 @@
       "updateMode": "prefetch",
       "resources": {
         "files": [
-          "assets/images/**",
-          "generated/images/marketing/**",
-          "!assets/images/favicons/**",
-          "!/**/_unused/**"
+          "/assets/images/**",
+          "/generated/images/marketing/**",
+          "/!assets/images/favicons/**",
+          "/!/**/_unused/**"
         ]
       }
     }, {
@@ -39,9 +39,9 @@
       "updateMode": "prefetch",
       "resources": {
         "files": [
-          "assets/images/favicons/**",
-          "generated/ie-polyfills.min.js",
-          "!/**/_unused/**"
+          "/assets/images/favicons/**",
+          "/generated/ie-polyfills.min.js",
+          "/!/**/_unused/**"
         ]
       }
     }, {
@@ -50,10 +50,10 @@
       "updateMode": "prefetch",
       "resources": {
         "files": [
-          "generated/*.json",
-          "generated/docs/*.json",
-          "generated/docs/api/api-list.json",
-          "generated/docs/app/search-data.json"
+          "/generated/*.json",
+          "/generated/docs/*.json",
+          "/generated/docs/api/api-list.json",
+          "/generated/docs/app/search-data.json"
         ]
       }
     }, {
@@ -62,9 +62,9 @@
       "updateMode": "lazy",
       "resources": {
         "files": [
-          "generated/docs/**/*.json",
-          "generated/images/**",
-          "!/**/_unused/**"
+          "/generated/docs/**/*.json",
+          "/generated/images/**",
+          "/!/**/_unused/**"
         ]
       }
     }
