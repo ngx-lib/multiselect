@@ -9,11 +9,11 @@
         "files": [
           "/index.html",
           "/pwa-manifest.json",
-          "app/search/search-worker.js",
-          "assets/images/favicons/favicon.ico",
-          "assets/js/*.js",
-          "*.css",
-          "*.js"
+          "/app/search/search-worker.js",
+          "/assets/images/favicons/favicon.ico",
+          "/assets/js/*.js",
+          "/*.css",
+          "/*.js"
         ],
         "urls": [
           "https://fonts.googleapis.com/**",
