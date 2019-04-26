@@ -1,4 +1,4 @@
-import { Directive, HostListener, Input, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Directive, HostListener, Input, ElementRef, Output, EventEmitter, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[msVirtualScroll]'
@@ -19,14 +19,12 @@ export class VirtualScrollDirective {
   @Output() rangeChanged = new EventEmitter<any>();
   private scrollTimer;
   private lastScrollFireTime = 0;
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   reset() {
-    this.top = this.el.nativeElement.querySelector('.top');
-    this.bottom = this.el.nativeElement.querySelector('.bottom');
-    this.top.style.height = '0';
-    this.bottom.style.height = '0';
-    this.el.nativeElement.scrollTop = '0';
+    this.renderer.setStyle(this.top, 'height', 0);
+    this.renderer.setStyle(this.bottom, 'height', 0);
+    this.renderer.setProperty(this.el.nativeElement, 'scrollTop', 0);
   }
 
   throttleScroll(target) {
@@ -48,8 +46,8 @@ export class VirtualScrollDirective {
     const bottomSpacing = totalHeight - (rangeStart + rangeToBeIncreamented * this.itemHeight);
 
     // Step: 3 - Pass the range to the child directive
-    this.top.style.height = rangeStart + 'px';
-    this.bottom.style.height = bottomSpacing + 'px';
+    this.renderer.setStyle(this.top, 'height', `${rangeStart}px`);
+    this.renderer.setStyle(this.bottom, 'height', `${bottomSpacing}px`);
     this.rangeChanged.emit({ start: itemStartRange, end: itemEndRange });
   }
 
@@ -72,10 +70,11 @@ export class VirtualScrollDirective {
   initialSetup() {
     // TODO: later think of usng ViewChild, instead of direct DOM manipulation.
     const { scrollTop, clientHeight } = this.el.nativeElement;
-    this.top = this.el.nativeElement.querySelector('.top');
-    this.bottom = this.el.nativeElement.querySelector('.bottom');
-    this.top.style.height = scrollTop + 'px';
-    this.bottom.style.height = this.itemHeight * this._totalCount + this.scrollOffset - clientHeight + 'px';
-    this.el.nativeElement.scrollTop = 0;
+    
+    this.top = this.renderer.selectRootElement('.top');
+    this.bottom = this.renderer.selectRootElement('.bottom');
+    this.renderer.setStyle(this.top, 'height', `${scrollTop}px`);
+    this.renderer.setStyle(this.bottom, 'height', `${this.itemHeight * this._totalCount + this.scrollOffset - clientHeight }px`);
+    this.renderer.setProperty(this.el.nativeElement, 'scrollTop', 0);
   }
 }
