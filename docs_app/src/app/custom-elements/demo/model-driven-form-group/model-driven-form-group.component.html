@@ -1,0 +1,33 @@
+<div style="border : 1px solid black; padding: 10px">
+<form [formGroup]="profileForm">
+  <label>
+    First Name:
+    <input type="text" formControlName="firstName">
+  </label>
+  <br>
+  <label>Marital Status:</label>
+  <label>
+    <input type="radio" value="single" formControlName="maritalStatus">
+    Single
+  </label>
+
+  <label>
+    <input type="radio" value="married" formControlName="maritalStatus">
+    Married
+  </label>
+  <br>
+  <label>
+    Gender:
+    <ngx-multiselect
+    formControlName="selectedGender"
+    [options]="genders"
+    ngDefaultControl>
+    </ngx-multiselect>
+  </label>
+  <br>
+  <button [disabled]="!profileForm.valid" type="submit">Submit</button>
+  <p>The above button will be enabled on selection of gender because of Validator applied to it...</p>
+</form>
+  <hr>
+  <p>Selected Value : {{ profileForm.value | json }}</p>
+</div>

@@ -22,4 +22,11 @@ Multiselect can be used with reactive forms as well. Just create a simple `formC
 We can also use multiselect `formControl` inside `formGroup`/`formArray`.
 Demonstration of `formGroup` consist of inputs, button, checkbox, etc. 
 
-## Demo:- Pending
+## Demo
+
+<ms-model-driven-form-group></ms-model-driven-form-group>
+<!-- <code-tabs>
+  <code-pane title="app/model-driven-form-group.component.html"></code-pane>
+  <code-pane title="app/model-driven-form-group.component.ts"></code-pane>
+</code-tabs> -->
+
