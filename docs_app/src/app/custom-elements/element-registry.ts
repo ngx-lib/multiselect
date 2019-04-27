@@ -79,8 +79,10 @@ export const ELEMENT_MODULE_PATHS_AS_ROUTES = [
   {
     selector: 'ms-model-driven',
     loadChildren: './demo/model-driven/model-driven.module#ModelDrivenModule'
-  },
-  {
+  },{
+    selector: 'ms-model-driven-form-group',
+    loadChildren: './demo/model-driven-form-group/model-driven-form-group.module#ModelDrivenFormGroupModule'
+  },{
     selector: 'ms-observable-async',
     loadChildren: './demo/observable-async/observable-async.module#ObservableAsyncModule'
   },
