@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class EventsAdvnacedComponent implements OnInit {
 
   countries;
+  country;
+  state;
   statesForSelectedCountry;
 
   data = [{
@@ -41,8 +43,15 @@ export class EventsAdvnacedComponent implements OnInit {
     this.countries = this.data;
   }
 
+  onCountryClear () {
+    this.country = null;
+    this.state = null;
+  }
+
   onCountrySelection(selectedCountry) {
-    this.statesForSelectedCountry = this.data.find(country => country.name === selectedCountry.name).states;
+    const country = this.data.find(country => country.name === selectedCountry.name)
+    this.statesForSelectedCountry = country ? country.states: [];
+    this.state = null;
   }
 
 }

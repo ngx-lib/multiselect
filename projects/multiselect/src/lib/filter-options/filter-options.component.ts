@@ -12,20 +12,12 @@ export class FilterOptionsComponent implements OnInit, OnDestroy {
   filterName: FormControl;
   filterNameSubscription: Subscription;
 
-  @Output() onClear = new EventEmitter<string>();
   @Output() onSearchChange = new EventEmitter<string>();
 
   constructor() {}
 
-  clearText() {
-    this.clearInputFilter();
-    this.onClear.emit();
-  }
-
   clearInputFilter() {
-    if (this.filterName.value) {
-      this.filterName.setValue('');
-    }
+    this.filterName.setValue('');
   }
 
   ngOnInit() {
