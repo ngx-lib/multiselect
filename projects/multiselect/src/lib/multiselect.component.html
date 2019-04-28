@@ -23,7 +23,6 @@
     </ms-helper-elements>
     <ms-filter-options
       #filterOptions
-      (onClear)="filterClear()"
       (onSearchChange)="searchChange($event)"
     ></ms-filter-options>
     <ng-container *ngIf="!groupedProperty; else groupedTemplate">

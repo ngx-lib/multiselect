@@ -148,11 +148,6 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     this.onSearchChange.emit(val);
   }
 
-  filterClear() {
-    this.filterOptionsList('');
-    this.onClear.emit();
-  }
-
   close() {
     this.isOpen = false;
     this.onClose.emit();
@@ -259,6 +254,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     this.setOptions(changedOptions);
     // no value is selected so passing null
     this.viewToModel(null);
+    this.onClear.emit();
     this.close();
     event.stopPropagation();
   }
