@@ -52,7 +52,7 @@ export class EnableDisableComponent implements OnInit {
   }
 
   disableWholeDropdownTempRefVariable(){
-    //this.multiselectRef.disabled = true;
+    this.selectedOptions.disable();
   }
 
   disableFirstOption(){
