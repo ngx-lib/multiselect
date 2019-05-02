@@ -8,7 +8,8 @@ import {
   Output,
   EventEmitter,
   ViewChild,
-  HostBinding
+  HostBinding,
+  Renderer2
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -31,7 +32,7 @@ export const DEFAULT_VALUE_ACCESSOR: any = {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
-  constructor(protected elementRef: ElementRef, protected multiselectService: NgxMultiselectService) {
+  constructor(protected elementRef: ElementRef, protected multiselectService: NgxMultiselectService, private renderer: Renderer2) {
     super(elementRef, multiselectService);
   }
 
@@ -257,5 +258,14 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     this.onClear.emit();
     this.close();
     event.stopPropagation();
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.renderer.setProperty(this.elementRef.nativeElement, 'disabled', isDisabled);
+    if (isDisabled) {
+      this.renderer.addClass(this.elementRef.nativeElement, 'disabled');
+    } else {
+      this.renderer.removeClass(this.elementRef.nativeElement, 'disabled');
+    }
   }
 }
