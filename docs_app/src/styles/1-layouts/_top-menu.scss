@@ -68,6 +68,7 @@ aio-shell.folder-tutorial mat-toolbar.mat-toolbar {
   height: 100%;
   margin: $hamburgerShownMargin;
   padding: 0;
+  min-width: 60px;
 
   &:not(.starting) {
     transition-duration: .4s;

@@ -1,4 +1,4 @@
-Using Angular 7 version right now. Slowly I'll try to downgrade and will add a support for 2+ versions.
+Using Angular 6 version right now.
 
 ## Plans
 
@@ -27,11 +27,11 @@ This plans are based on current idea, it could change in future. First thing I'd
 16. i18 support.
 17. Server side rendering support
 18. ~~Optimal / Super fast rendering.~~
-19. Theming Support
+19. ~~Theming Support~~
 20. Angular 2+ Support (make it backword compatible).
 
 **Note:** If you're willing to contribute please feel free to reach to me, you can contact me on pankajparkar@outlook.com.
 
-## Track Realtime Status of Feature
+## Track Realtime Status of Features
 
 [Trello Board here](https://trello.com/b/fsr5Xewa/ngx-lib-multiselect)

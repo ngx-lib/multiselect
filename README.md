@@ -1,7 +1,6 @@
 # Multiselect
 
-This project basically focused on serving a alternative and intutive select. This idea this UI component has been inspired by AngularJS [isteven-multiselect](http://isteven.github.io/angular-multi-select) directives. In terms of UI it might look somewhat similar to isteven multiselect, but interms of code it may not exactly architectured in the same way.
-Currently I'm planning to support the feature provided by isteven-multiselect, plus there are some other important features.
+This project focuses on serving an alternative and intutive select control. This UI component has been inspired by AngularJS [isteven-multiselect](http://isteven.github.io/angular-multi-select) directives. In terms of UI it might look somewhat similar to isteven multiselect, but in terms of code it may not exactly architectured in the same way.
 
 # Roadmap
 
