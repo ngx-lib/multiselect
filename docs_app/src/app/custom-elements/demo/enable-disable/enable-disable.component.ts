@@ -51,7 +51,7 @@ export class EnableDisableComponent implements OnInit {
   }
 
   disableWholeDropdown() {
-    // this.form.controls['selectedOptions'].disable();
+    this.form.controls['selectedOptions'].disable();
   }
 
   disableWholeDropdownTempRefVariable(){

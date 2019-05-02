@@ -261,11 +261,6 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   }
 
   setDisabledState(isDisabled: boolean): void {
-    this.renderer.setProperty(this.elementRef.nativeElement, 'disabled', isDisabled);
-    if (isDisabled) {
-      this.renderer.addClass(this.elementRef.nativeElement, 'disabled');
-    } else {
-      this.renderer.removeClass(this.elementRef.nativeElement, 'disabled');
-    }
+    this.disabled = isDisabled;
   }
 }

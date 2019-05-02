@@ -1,9 +1,9 @@
   <ngx-multiselect
+    [formControl]="control"
     [propertyMap]="propertyMap"
-    [multiple]="true"
     [options]="options"
-    multiple="true"
     ngDefaultControl
   >
   </ngx-multiselect>
 
+  <button mat-button (click)="disableForm()">Disable First Option</button>
