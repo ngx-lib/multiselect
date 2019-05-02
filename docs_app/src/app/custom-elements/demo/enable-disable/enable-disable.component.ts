@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -11,7 +11,7 @@ export class EnableDisableComponent implements OnInit {
   selectedOptions;
   form: FormGroup;
   @ViewChild('multiSelect')
-  multiselectRef: TemplateRef<any>;
+  multiselectRef: any;
 
   constructor() {}
 
@@ -55,7 +55,7 @@ export class EnableDisableComponent implements OnInit {
   }
 
   disableWholeDropdownTempRefVariable(){
-    // this.selectedOptions.disable();
+    this.multiselectRef.disabled = true;
   }
 
   disableFirstOption(){
