@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'ms-enable-disable',
@@ -9,9 +9,9 @@ export class EnableDisableComponent implements OnInit {
 
   options;
   selectedOptions;
-  isDisabled = false;
+  form: FormGroup;
   @ViewChild('multiSelect')
-  multiselectRef: TemplateRef<any>;
+  multiselectRef: any;
 
   constructor() {}
 
@@ -41,19 +41,21 @@ export class EnableDisableComponent implements OnInit {
       "name": "Leonel Messi",
       "team": "FC Barcelona"
     }];
-    this.selectedOptions = new FormControl([{
-      "id": 3,
-      "name": "Eden Hazard",
-      "team": "Chelsea FC"
-    }]);
+    this.form = new FormGroup({
+      selectedOptions: new FormControl([{
+        "id": 3,
+        "name": "Eden Hazard",
+        "team": "Chelsea FC"
+      }])
+    })
   }
 
-  disableWholeDropdown(){
-    this.isDisabled = true;
+  disableWholeDropdown() {
+    this.form.controls['selectedOptions'].disable();
   }
 
   disableWholeDropdownTempRefVariable(){
-    //this.multiselectRef.disabled = true;
+    this.multiselectRef.disabled = true;
   }
 
   disableFirstOption(){

@@ -4,13 +4,15 @@ import { WithCustomElementComponent } from '../../element-registry';
 import { EnableDisableComponent } from './enable-disable.component';
 import { NgxMultiselectModule } from '@ngx-lib/multiselect';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material';
 
 @NgModule({
   imports: [ 
     CommonModule,
     NgxMultiselectModule,
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule ,
+    MatButtonModule
   ],
   declarations: [ EnableDisableComponent ],
   entryComponents: [ EnableDisableComponent ]

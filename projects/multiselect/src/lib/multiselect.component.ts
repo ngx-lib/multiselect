@@ -8,7 +8,8 @@ import {
   Output,
   EventEmitter,
   ViewChild,
-  HostBinding
+  HostBinding,
+  Renderer2
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -31,7 +32,7 @@ export const DEFAULT_VALUE_ACCESSOR: any = {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
-  constructor(protected elementRef: ElementRef, protected multiselectService: NgxMultiselectService) {
+  constructor(protected elementRef: ElementRef, protected multiselectService: NgxMultiselectService, private renderer: Renderer2) {
     super(elementRef, multiselectService);
   }
 
@@ -149,11 +150,6 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     this.onSearchChange.emit(val);
   }
 
-  filterClear() {
-    this.filterOptionsList('');
-    this.onClear.emit();
-  }
-
   close() {
     this.isOpen = false;
     this.onClose.emit();
@@ -259,7 +255,12 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     this.setOptions(changedOptions);
     // no value is selected so passing null
     this.viewToModel(null);
+    this.onClear.emit();
     this.close();
     event.stopPropagation();
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
   }
 }

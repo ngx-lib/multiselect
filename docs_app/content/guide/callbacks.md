@@ -8,6 +8,6 @@ Okay, what if we want to perform some action based on click of some item? This c
 
 To make it more clear, lets assume you have contry, state, city dropdown. And their values are interdependent on each other. Well, in such cases you can use events emited by multiselect dropdown like `onItemClick`, `onOpen`, `onClose`, etc.
 
-## Demo - Pending
+<ms-events-advanced></ms-events-advanced>
 
 In case of searching something in textbox you can listen to `onSearchChange`, `onClear` events. While using grouping feature, you can use `onGroupItemClick` event to keep eyes on grouped options selection.
