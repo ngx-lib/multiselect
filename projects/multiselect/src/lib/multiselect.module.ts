@@ -7,7 +7,6 @@ import { HelperElementsComponent } from './helper-elements/helper-elements.compo
 import { FilterOptionsComponent } from './filter-options/filter-options.component';
 import { OptionsComponent } from './options/options.component';
 import { GroupedOptionsComponent } from './grouped-options/grouped-options.component';
-import { BottomReachedDirective } from './directives/bottom-reached.directive';
 import { VirtualScrollDirective } from './directives/virtual-scroll.directive';
 
 @NgModule({
@@ -19,7 +18,6 @@ import { VirtualScrollDirective } from './directives/virtual-scroll.directive';
     FilterOptionsComponent,
     OptionsComponent,
     GroupedOptionsComponent,
-    BottomReachedDirective,
     VirtualScrollDirective
   ],
   exports: [NgxMultiselectComponent, DisplaySelectedValuePipe]
