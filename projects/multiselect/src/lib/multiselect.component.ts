@@ -70,6 +70,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   // Input binding with getter / setter
   @Input() set isOpen(value) {
     this._isOpen = value;
+    // onOpen and onClose event will be fired by isOpen setter
     if (value) {
       this.onTouched();
       this.onOpen.emit();
@@ -162,7 +163,6 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
 
   toggleDropdown() {
     this.isOpen = !this.isOpen;
-    // onOpen and onClose event will be fired by isOpen setter
   }
 
   prepopulateOptions(selected: any) {

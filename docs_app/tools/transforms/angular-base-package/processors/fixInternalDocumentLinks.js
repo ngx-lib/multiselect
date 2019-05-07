@@ -16,7 +16,7 @@ module.exports = function fixInternalDocumentLinks() {
     $process: function(docs) {
       docs.forEach(doc => {
         doc.renderedContent = doc.renderedContent.replace(INTERNAL_LINK, (_, pre, hash) => {
-          return pre + doc.path + hash;
+          return pre + '/' + doc.path + hash;
         });
       });
     }
