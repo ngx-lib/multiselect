@@ -23,7 +23,7 @@ const link = options =>
       node.children.push({
         type: 'element',
         tagName: 'a',
-        properties: Object.assign(clone(options.properties), {href: `#/${node.properties.id}`}),
+        properties: Object.assign(clone(options.properties), {href: `#${node.properties.id}`}),
         children: clone(options.content)
       });
     }

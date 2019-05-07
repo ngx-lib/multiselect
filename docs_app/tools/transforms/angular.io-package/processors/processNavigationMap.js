@@ -14,7 +14,7 @@ module.exports = function processNavigationMap(versionInfo, log) {
 
       // Verify that all the navigation paths are to valid docs
       const pathMap = {};
-      docs.forEach(doc => pathMap[`/${doc.path}`] = true);
+      docs.forEach(doc => pathMap[doc.path] = true);
       const errors = walk(navigationDoc.data, pathMap, []);
 
       if (errors.length) {
