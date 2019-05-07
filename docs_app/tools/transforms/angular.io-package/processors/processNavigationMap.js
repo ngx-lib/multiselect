@@ -37,7 +37,6 @@ function walk(node, map, path) {
     if (child !== null) { // null is allowed
       if (key === 'url') {
         const url = child.replace(/#.*$/, ''); // strip hash
-        // console.log(url, map)
         if (isRelative(url) && !map[url]) {
           errors.push({ path: path.join('.'), url });
         }
