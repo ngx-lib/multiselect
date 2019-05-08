@@ -34,6 +34,12 @@ const DEFAULT_LINE_NUMS_COUNT = 10;
  *
  * Renders code provided through the `updateCode` method.
  */
+// <button *ngIf="!hideCopy" class="material-icons edit-button no-print"
+//   title="Edit in StackBlitz"
+//   [attr.aria-label]="ariaLabelEdit"
+//   (click)="editInStackBlitz()">
+//   <span aria-hidden="true">open_in_new</span>
+// </button>
 @Component({
   selector: 'aio-code',
   template: `
@@ -43,12 +49,6 @@ const DEFAULT_LINE_NUMS_COUNT = 10;
         [attr.aria-label]="ariaLabelCopy"
         (click)="doCopy()">
         <span aria-hidden="true">content_copy</span>
-      </button>
-      <button *ngIf="!hideCopy" class="material-icons edit-button no-print"
-        title="Edit in StackBlitz"
-        [attr.aria-label]="ariaLabelEdit"
-        (click)="editInStackBlitz()">
-        <span aria-hidden="true">open_in_new</span>
       </button>
       <code class="animated fadeIn" #codeContainer></code>
     </pre>
