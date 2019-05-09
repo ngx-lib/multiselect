@@ -54,10 +54,6 @@ export class EnableDisableComponent implements OnInit {
     this.form.controls['selectedOptions'].disable();
   }
 
-  disableWholeDropdownTempRefVariable(){
-    this.multiselectRef.disabled = true;
-  }
-
   disableFirstOption(){
     this.options[0].disabled = true;
     this.options = [...this.options];
@@ -69,6 +65,11 @@ export class EnableDisableComponent implements OnInit {
         player.disabled = true;
       return player;
     });
+  }
+
+  enableWholeDropdown () {
+    this.options = this.options.map((player) => ({ ...player, disabled: false }));
+    this.form.controls['selectedOptions'].enable();
   }
 
 }

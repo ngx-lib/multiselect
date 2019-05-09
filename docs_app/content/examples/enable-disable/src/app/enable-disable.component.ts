@@ -10,7 +10,7 @@ export class EnableDisableComponent implements OnInit {
   options;
   selectedOptions;
   isDisabled = false;
-  @ViewChild('multiSelect')
+  @ViewChild('multiselect')
   multiselectRef: TemplateRef<any>;
 
   constructor() {}
@@ -53,7 +53,7 @@ export class EnableDisableComponent implements OnInit {
   }
 
   disableWholeDropdownTempRefVariable(){
-    //this.multiselectRef.disabled = true;
+    // this.multiselectRef.disabled = true;
   }
 
   disableFirstOption(){
