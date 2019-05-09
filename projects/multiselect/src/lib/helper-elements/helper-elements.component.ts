@@ -8,6 +8,7 @@ import { Component, EventEmitter, Output, Input, ChangeDetectionStrategy } from 
 })
 export class HelperElementsComponent {
   @Input() multiple = false;
+  @Input() disabled = false;
 
   @Output() selectAllClicked = new EventEmitter();
   @Output() selectNoneClicked = new EventEmitter();
