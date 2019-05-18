@@ -38,6 +38,7 @@ import { CustomTemplateComponent } from './demos/doc-demos/custom-template/custo
 import { GroupingComponent } from './demos/doc-demos/grouping/grouping.component';
 import { EnableDisableComponent } from './demos/doc-demos/enable-disable/enable-disable.component';
 import { DemoShowcaseComponent } from './demos/testing-demos/demo-showcase/demo-showcase.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { DemoShowcaseComponent } from './demos/testing-demos/demo-showcase/demo-
     CustomMaterialModule,
     AppRoutingModule
   ],
+  schemas: [NO_ERRORS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })
