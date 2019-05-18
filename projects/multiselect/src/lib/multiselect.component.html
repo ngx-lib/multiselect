@@ -13,6 +13,7 @@
   <div class="listing-wrapper" *ngIf="isOpen">
     <ms-helper-elements
       [multiple]="multiple"
+      [disabled]="disabled"
       (onClear)="onClear.emit()"
       (resetClicked)="reset()"
       (onSearchChange)="onSearchChange.emit($event)"

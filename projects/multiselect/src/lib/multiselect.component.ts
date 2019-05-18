@@ -245,8 +245,10 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
 
   // Responsible for updating value from view to model
   viewToModel(selected) {
-    this._selectedOptions = selected;
-    this.onChange(selected);
+    if (this._selectedOptions !== selected) {
+      this._selectedOptions = selected;
+      this.onChange(selected);
+    }
   }
 
   clear(event){

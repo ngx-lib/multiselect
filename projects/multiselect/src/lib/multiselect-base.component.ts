@@ -88,8 +88,8 @@ export abstract class NgxMultiselectBaseComponent implements ControlValueAccesso
     this.onTouched = fn;
   }
 
-  // TODO: Consider creating a directive for this.
-  // TODO: Also convert below to be work for element specific
+  // // TODO: Consider creating a directive for this.
+  // // TODO: Also convert below to be work for element specific
   @HostListener('document:click', ['$event.target'])
   clickOutSide(event) {
     if (

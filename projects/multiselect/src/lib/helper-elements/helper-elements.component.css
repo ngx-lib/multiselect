@@ -71,3 +71,8 @@
 }
 
 /* Boostrap CSS end */
+
+fieldset {
+  padding: 0;
+  border: none;
+}

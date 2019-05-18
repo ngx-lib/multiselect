@@ -21,8 +21,8 @@ In case of disabling the whole group on the fly, just iterate through the collec
 <ms-enable-disable></ms-enable-disable>
 
 <code-tabs>
-  <code-pane title="app/enable-disable.component.ts" path="enable-disable/src/app/enable-disable.component.ts"></code-pane>
   <code-pane title="app/enable-disable.component.html" path="enable-disable/src/app/enable-disable.component.html"></code-pane>
+  <code-pane title="app/enable-disable.component.ts" path="enable-disable/src/app/enable-disable.component.ts"></code-pane>
 </code-tabs>
 
 ## 2. Disable whole multiselect dropdown
