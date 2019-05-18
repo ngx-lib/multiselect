@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'ms-template-driven',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class TemplateDrivenComponent implements OnInit {
 
   options;
-  selectedOptions;
+  selectedOptions = new FormControl({
+    "id": 1,
+    "name": "India"
+  });
 
   constructor() { }
 
@@ -34,9 +38,5 @@ export class TemplateDrivenComponent implements OnInit {
         "name": "Paris"
       }
     ];
-    this.selectedOptions = [{
-      "id": 1,
-      "name": "India"
-    }];
   }
 }

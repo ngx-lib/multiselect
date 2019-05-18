@@ -1,7 +1,6 @@
 <p>Select the countries you would like to visit?..</p>
 <ngx-multiselect
-  [(ngModel)]="selectedOptions"
+  [formControl]="selectedOptions"
   [options]="options"
-  ngDefaultControl
-  multiple="true">
+  ngDefaultControl>
 </ngx-multiselect>
