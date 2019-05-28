@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DebugElement, TemplateRef, ElementRef } from '@angular/core';
+import { DebugElement, TemplateRef, ElementRef, Renderer2 } from '@angular/core';
 
 import { GroupedOptionsComponent } from './grouped-options.component';
 import { NgxMultiselectComponent } from '../multiselect.component';
@@ -44,7 +44,7 @@ describe('Grouped Options Component', () => {
     selectedFirstOption = options.filter(o => o.id);
     component.multiple = true;
     component._selectedOptions = [];
-    multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService());
+    multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService(), <Renderer2> {});
     multiselect.multiple = true;
     multiselect.setOptions(options);
     component.options = multiselect.getOptions();
