@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   - "10"
-sudo: true
+sudo: false
 dist: trusty
 
 branches:
@@ -18,8 +18,8 @@ before_script:
  - sudo dpkg -i google-chrome*.deb
 
 script: 
-  - npm run build-prod 
   - npm test
+  - npm run build-prod 
 
 deploy:
   provider: pages
