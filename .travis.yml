@@ -3,7 +3,6 @@ node_js:
   - "10"
 sudo: false
 dist: trusty
-
 branches:
   only:
   - master
@@ -18,8 +17,8 @@ before_script:
  - sudo dpkg -i google-chrome*.deb
 
 script: 
-  - npm test
-  - npm run build-prod 
+  - npm test || travis_terminate 1
+  - npm run build-prod || travis_terminate 1
 
 deploy:
   provider: pages

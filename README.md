@@ -1,3 +1,10 @@
+[![https://nodei.co/npm/@ngx-lib/multiselect.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/@ngx-lib/multiselect.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/@ngx-lib/multiselect)
+
+[![HitCount](http://hits.dwyl.com/ngx-lib/multiselect.svg)](http://hits.dwyl.com/ngx-lib/multiselect.svg)
+
+[![Known Vulnerabilities](https://snyk.io/test/github/ngx-lib/multiselect/badge.svg?targetFile=package.json)](https://snyk.io/test/github/ngx-lib/multiselect?targetFile=package.json)
+
+
 # Multiselect
 
 This project focuses on serving an alternative and intutive select control. This UI component has been inspired by AngularJS [isteven-multiselect](http://isteven.github.io/angular-multi-select) directives. In terms of UI it might look somewhat similar to isteven multiselect, but in terms of code it may not exactly architectured in the same way.
