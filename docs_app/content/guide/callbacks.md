@@ -1,6 +1,6 @@
 # Callbacks: 
 
-Multiselect have various callbacks/events associated with it as described in [events](https://ngx-lib.github.io/multiselect/guide/events) section. In total multiselct has 9 events availbale. The following example shows how to use simple event of multiselect opening and closing.
+Multiselect have various callback events associated with it. As described in [events](https://ngx-lib.github.io/multiselect/guide/events) section, in total multiselct has 9 events availbale. The following example shows how to use simple event of multiselect opening and closing.
 
 <ms-events></ms-events>
 
