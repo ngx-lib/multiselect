@@ -1,10 +1,10 @@
 # Property Configuration:-
 
-There are various property binding options that are applicable, you can configure them as you need.
+There are various property binding options are applicable, you can configure them as per your need.
 
 ## General:-
 
-- `isOpen`: **Boolean?** - Use `isOpen` property if you want to programatically control multiselect dropdown behaviour. In case you haven't passed it we manage `isOpen` flag internally to control multiselect state. 
+- `isOpen`: **Boolean?** - Use `isOpen` property if you want to programatically control multiselect dropdown behaviour. In case you haven't passed it multiselect dropdown internally manage `isOpen` flag internally to control dropdwon state. 
 
   ```html
   <ngx-multiselect 
@@ -15,8 +15,10 @@ There are various property binding options that are applicable, you can configur
   ```
 
 - `disabled`: **Boolean?** -
-  There are two ways to disable multiselect. You can either disable option(s) from an array or you can set disabled property to be true for multiselect component, which makes thorough dropdown disabled. So it cannot be clicked and cannot be opened.
-  To disable particular option or group, place `disabled: true` option on desired element or group.
+  There are 3 ways to disable multiselect. 
+  1. You can either disable option(s) from an array, on each item (or group) level you can set `disabled` property. This provides flexibility to get granular control over disabling options.
+  2. You can set `disabled` property to be `true` for multiselect component, which makes thorough dropdown disabled. So it cannot be clicked and cannot be opened.
+  3. In case of reactive(model driven) forms, disable input using `formControl.disable()` method.
 
   ```html
   <ngx-multiselect 
@@ -27,7 +29,7 @@ There are various property binding options that are applicable, you can configur
   ```
 
 - `options`: **any[]** –
-This property serves as options/datasource to muliselect which being rendered by mulitiselect. There is a predefined format for data to be given as input to mutiselect which is expained in simple multiselect guide, grouping options guide. And if the data is not in specified format, you can also pass `propertyMap` which links the input data to muliselect format data which is explained here:                     
+Its name clearly states that, this property serves datasource/collection to muliselect dropdown. There is a predefined format for data to be given as input to mutiselect which is expained in [simple multiselect guide](https://ngx-lib.github.io/multiselect/guide/simple-select), [grouping options guide](https://ngx-lib.github.io/multiselect/guide/grouping). In same cases datasource doesn't align with the expected format. No worries! we've already taken care of that situation. Such cases can be easily tackled by using[ `propertyMap`](https://ngx-lib.github.io/multiselect/guide/property-mapping).
 
   ```html
   <ngx-multiselect 
@@ -37,7 +39,7 @@ This property serves as options/datasource to muliselect which being rendered by
   ```
 
 - `optionsTemplate`: **TemplateRef< any >?** –
-Use this property binding to pass the custom template to displayed by multiselect while rendering options. For example, while showing the list of countries, you can pass your own customize template which should display the name of country with its flag on right side. The below snippet demonstrate the usage of customTemplate option.
+In you want to change the internal look and feel of the each option, you can create your own `ng-template` and passed the name of to this property. For example, while showing the list of countries, you can pass your own customized template which should display the name of country with its flag on right side. The below snippet demonstrate the usage of `customTemplate` option.
  
   ```html
   <ngx-multiselect 
@@ -55,7 +57,7 @@ Use this property binding to pass the custom template to displayed by multiselec
 ## Styling :-
 
 - `showMaxLabels`: **number?** -
-Set value to configure how much selected values to be shown on dropdown. If selected values count exceeds `showMaxLabes`, dropdown will show ellipses(...) after text.
+Set value here to configure how much selected values to be shown on dropdown. If selected values count exceeds `showMaxLabes`, dropdown will show ellipses(...) after text.
 
   ```html 
   <ngx-multiselect
@@ -66,7 +68,7 @@ Set value to configure how much selected values to be shown on dropdown. If sele
   ```
 
 - `theme`: **String?** -
-Use this property to specify the theme for multiselect. There are two themes currently supported ‘material’ and ‘bootstrap’. If u select `material` you can also specify the color for mutiselect from the angular material theme or any valid css color.
+We currently support two themes, namely they are ‘material’ and ‘bootstrap’. Theme is defaulted to `material`.
 
 *Available Values*: ‘material’ | ‘bootstrap’  
 
@@ -79,9 +81,9 @@ Use this property to specify the theme for multiselect. There are two themes cur
 ```
 
 - `color`: **String?** -
-Use this property to specify the color for multiselect if you selected material theme. You can specify the color from angular material theme or any valid  css color.
+Pass on your current theme color.
 
-*Available Values*: any valid css color
+*Available Values*: any valid CSS color
 
   ```html 
   <ngx-multiselect 
@@ -91,12 +93,11 @@ Use this property to specify the color for multiselect if you selected material 
     color="blue">
   </ngx-multiselect>
   ```
-	
  
 ## Grouping Property Configuration :
 	
 - `groupedProperty`: **String** -
-Use this property to specify property name by which multiselect should create the groups.  
+It accepts the property name that belongs to collection each object, by which elements to be grouped.
 
   ``` html  
   <ngx-multiselect 
@@ -127,8 +128,7 @@ Use this property to specify property name by which multiselect should create th
   ```
 
 - `propertyMap`: **any** -
-Multiselect options needs data in predefined format as below which should have keys like id, name, category, disabled etc as below.  
-
+Multiselect `options` needs data in predefined format as below which includes keys like `id`, `name`, `disabled`, etc as below.  
   ```js
   {
     "id": 3,
@@ -137,7 +137,9 @@ Multiselect options needs data in predefined format as below which should have k
     "disabled": true
   }
   ```
-  If  the data is not present in the expected format, use `propertyMap` property binding and provide the desired `propertyMap` collection. This will be used to map the key of your `json` to the key of each item of collection. For eg. the data is
+
+  If the data is not present in the expected format, you could use `propertyMap` property binding and provide the desired object mapping. This will be used to map the key of your `json` to the key of each item of collection. For eg. the data is
+  
   ```js
   {
     "empId": 3,
@@ -146,7 +148,7 @@ Multiselect options needs data in predefined format as below which should have k
     "empActive": true
   }
   ```
-  The propertyMap should be
+  `propertyMap` should look like below
   ```js
   propertyMap = {
     "empId" : "id",
@@ -155,7 +157,7 @@ Multiselect options needs data in predefined format as below which should have k
     "empActive" : "disabled"
   }
   ```
-  So, the multiselect converts the propertyMap to its own format as 
+  So, the multiselect converts the `propertyMap` to its own format as below
   ```js
   {
     "id": 3,
