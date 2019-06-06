@@ -1,7 +1,16 @@
 <p>Select the countries you would like to visit?..</p>
-<ngx-multiselect
-  [(ngModel)]="selectedOptions"
-  [options]="options"
-  ngDefaultControl
-  multiple="true">
-</ngx-multiselect>
+<form name="form" #f="ngForm">
+  <ngx-multiselect required 
+    #name="ngModel"
+    name="country"
+    [(ngModel)]="selectedOption" [options]="options">
+  </ngx-multiselect>
+</form>
+<div *ngIf="name">
+  <span *ngIf="name.pristine">Pristine,</span>
+  <span *ngIf="name.touched">Touched,</span>
+  <span *ngIf="name.untouched">Untouched,</span>
+  <span *ngIf="name.dirty">Dirty,</span>
+  <span *ngIf="name.valid">Valid,</span>
+  <span *ngIf="name.invalid">Invalid</span>
+</div>
