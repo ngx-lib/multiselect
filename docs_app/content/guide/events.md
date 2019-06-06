@@ -1,10 +1,10 @@
 
 # Events:- 
-Various event will be emitted on different action from user
+Various events are emitted when user interacts with multiselect dropdown. In general we have categories them into 3 parts namely General, Filtering and Grouping.
 
 ## General Dropdown Events:-
 
-1. `onOpen` - Event fired when the dropdown open up
+1. `onOpen` - This event triggers when the dropdown open up.
     ```html
     <ngx-multiselect
     [multiple]="true"
@@ -14,7 +14,7 @@ Various event will be emitted on different action from user
     </ngx-multiselect>
     ```
 
-2. `onClose` - Event fired when the dropdown is closed
+2. `onClose` - This event triggers when the dropdown is closed.
     ```html
     <ngx-multiselect
         [multiple]="true"
@@ -24,7 +24,7 @@ Various event will be emitted on different action from user
     </ngx-multiselect>
     ```
 
-3. `onItemClick` - Event fired when one of the item from dropdown is clicked/selected. The event will contain the clicked item data.
+3. `onItemClick` - This event triggers when one of the item from dropdown is clicked. This event carries clicked item data.
     ```html
     <ngx-multiselect
         [multiple]="true"
@@ -36,7 +36,7 @@ Various event will be emitted on different action from user
 
 ## Filtering events
 
-1. `onClear` - Event fired when the 'Clear' button is clicked on search input box
+1. `onClear` - This event triggers when search input box's 'Clear' button is clicked. 
     ```html
     <ngx-multiselect
         [multiple] = true
@@ -46,7 +46,7 @@ Various event will be emitted on different action from user
     </ngx-multiselect>
     ```
 
-2. `onSearchChange` - Event fired when the text is typed into a search input box to filter the options list
+2. `onSearchChange` - This event triggers when the text is typed into a search input box to refine the options list.
     ```html
     <ngx-multiselect
         [multiple] = true
@@ -58,7 +58,7 @@ Various event will be emitted on different action from user
 
 ## Grouping events
 
-1. `onGroupItemClick` - Event fired when the items group(i.e. the parent of all items in case of grouping) is selected/clicked. The event will contain whole group data and all possible values.
+1. `onGroupItemClick` - This event triggers when the items group(i.e. the parent of all items in case of grouping) is clicked. This event carries whole group data.
     ```html
     <ngx-multiselect
         [multiple]="true"

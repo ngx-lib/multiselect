@@ -1,5 +1,5 @@
 {
-  "name": "ngx-multiselect",
+  "name": "@ngx-lib/ngx-multiselect",
   "version": "0.0.4",
   "homepage": "https://ngx-lib.github.io/multiselect/",
   "scripts": {
