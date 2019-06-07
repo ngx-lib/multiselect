@@ -15,6 +15,10 @@ export class ObservableDynamicUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.observableOptions = new Observable((observer) => {
       this.observableOptionsObserver = observer;
+      this.observableOptionsObserver.next([
+        { "id": 1, "name": "Manchester United" },
+        { "id": 2, "name": "Liverpool F.C." }
+      ])
     });
   }
 
@@ -25,6 +29,6 @@ export class ObservableDynamicUpdateComponent implements OnInit {
       { "id": 3, "name": "Chelsea F.C." },
       { "id": 4, "name": "Arsenal F.C."},
       { "id": 5, "name": "FC Barcelona" }
-  ]);
+    ]);
   }
 }
