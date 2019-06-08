@@ -1,6 +1,6 @@
 # Custom Template :
 
-By default, multiselect is rendered using a simple default template which displays the name of option using simple bindings. If we want to display the options list in different format, then we could pass to pass our own custom template which would passed as an `ng-template` directive. Internally it will projected on options list.
+By default, multiselect is rendered using its inbuilt default template. For customizing the typical format, we could pass our own custom template (`ng-template`). Internally custom template gets projected to the multiselect dropdown each option.
 
 ```html
 <ngx-multiselect ngDefaultCOntrol 
