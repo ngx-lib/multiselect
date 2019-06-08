@@ -11,8 +11,8 @@ When above events are triggered on button click, it emits below events where you
 1. `onSelectAll` Event fired when the 'Select All' (to select all items clicked) helper element is clicked
     ```html
     <ngx-multiselect
-      [multiple] = true
-      [formControl]="selectedOption”
+      [multiple] = "true"
+      [formControl]="selectedOption"
       [options]="options"
       (onSelectAll)="onSelectAllFired()">
     </ngx-multiselect>
@@ -22,7 +22,7 @@ When above events are triggered on button click, it emits below events where you
     ```html
     <ngx-multiselect
       [multiple] = true
-      [formControl]="selectedOption”
+      [formControl]="selectedOption"
       [options]="options"
       (onSelectNone)="onSelectNoneFired()">
     </ngx-multiselect>
@@ -32,7 +32,7 @@ When above events are triggered on button click, it emits below events where you
     ```html
     <ngx-multiselect
       [multiple] = true
-      [formControl]="selectedOption”
+      [formControl]="selectedOption"
       [options]="options"
       (onReset)="onResetFired()">
     </ngx-multiselect>
