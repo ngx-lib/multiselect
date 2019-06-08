@@ -10,8 +10,6 @@ export class EnableDisableComponent implements OnInit {
   options;
   selectedOptions;
   form: FormGroup;
-  @ViewChild('multiSelect')
-  multiselectRef: any;
 
   constructor() {}
 

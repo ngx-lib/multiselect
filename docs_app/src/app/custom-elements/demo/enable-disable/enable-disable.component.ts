@@ -10,8 +10,6 @@ export class EnableDisableComponent implements OnInit {
   options;
   selectedOptions;
   form: FormGroup;
-  @ViewChild('multiSelect', {read: FormControl})
-  multiselectRef: any;
 
   constructor() {}
 
@@ -48,10 +46,6 @@ export class EnableDisableComponent implements OnInit {
         "team": "Chelsea FC"
       }])
     })
-  }
-
-  disableTemplateVariable() {
-    this.multiselectRef.disable();
   }
 
   disableWholeDropdown() {
