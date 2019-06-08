@@ -13,4 +13,6 @@
   (onSearchChange)="onSearchChangeFired($event)">
 </ngx-multiselect>
 
-<b *ngIf="message">{{ message }}</b>
+<div *ngFor="let message of messages">
+  <b>{{ message }}</b>,
+</div>
