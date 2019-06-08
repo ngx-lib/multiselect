@@ -10,7 +10,7 @@ export class EnableDisableComponent implements OnInit {
   options;
   selectedOptions;
   form: FormGroup;
-  @ViewChild('multiSelect')
+  @ViewChild('multiSelect', {read: FormControl})
   multiselectRef: any;
 
   constructor() {}
@@ -50,19 +50,26 @@ export class EnableDisableComponent implements OnInit {
     })
   }
 
+  disableTemplateVariable() {
+    this.multiselectRef.disable();
+  }
+
   disableWholeDropdown() {
     this.form.controls['selectedOptions'].disable();
   }
 
   disableFirstOption(){
-    this.options[0].disabled = true;
-    this.options = [...this.options];
+    let options = [...this.options]
+    // disabled first element
+    options[0].disabled = true;
+    this.options = options;
   }
 
   disableWholeGroup(){
     this.options = this.options.map((player) => {
-      if(player.team === 'Manchester United')
+      if(player.team === 'Manchester United') {
         player.disabled = true;
+      }
       return player;
     });
   }

@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'ms-enable-disable',
@@ -9,9 +9,9 @@ export class EnableDisableComponent implements OnInit {
 
   options;
   selectedOptions;
-  isDisabled = false;
-  @ViewChild('multiselect')
-  multiselectRef: TemplateRef<any>;
+  form: FormGroup;
+  @ViewChild('multiSelect')
+  multiselectRef: any;
 
   constructor() {}
 
@@ -41,32 +41,38 @@ export class EnableDisableComponent implements OnInit {
       "name": "Leonel Messi",
       "team": "FC Barcelona"
     }];
-    this.selectedOptions = new FormControl([{
-      "id": 3,
-      "name": "Eden Hazard",
-      "team": "Chelsea FC"
-    }]);
+    this.form = new FormGroup({
+      selectedOptions: new FormControl([{
+        "id": 3,
+        "name": "Eden Hazard",
+        "team": "Chelsea FC"
+      }])
+    })
   }
 
-  disableWholeDropdown(){
-    this.isDisabled = true;
-  }
-
-  disableWholeDropdownTempRefVariable(){
-    // this.multiselectRef.disabled = true;
+  disableWholeDropdown() {
+    this.form.controls['selectedOptions'].disable();
   }
 
   disableFirstOption(){
-    this.options[0].disabled = true;
-    this.options = [...this.options];
+    let options = [...this.options]
+    // disabled first element
+    options[0].disabled = true;
+    this.options = options;
   }
 
   disableWholeGroup(){
     this.options = this.options.map((player) => {
-      if(player.team === 'Manchester United')
+      if(player.team === 'Manchester United') {
         player.disabled = true;
+      }
       return player;
     });
+  }
+
+  enableWholeDropdown () {
+    this.options = this.options.map((player) => ({ ...player, disabled: false }));
+    this.form.controls['selectedOptions'].enable();
   }
 
 }
