@@ -1,4 +1,4 @@
-import { DebugElement, ElementRef, SimpleChange } from '@angular/core';
+import { DebugElement, ElementRef, SimpleChange, Renderer2 } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
@@ -37,7 +37,7 @@ describe('Options Component', () => {
       { id: 6, name: 'Test 6' }
     ];
     component.options = [...options];
-    multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService());
+    multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService(),<Renderer2> {});
     multiselect.multiple = true;
     multiselect.setOptions(options);
     component.selectOption.subscribe(option => {

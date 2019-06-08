@@ -7,11 +7,11 @@ import { FormControl } from '@angular/forms';
 })
 export class GroupingComponent implements OnInit {
 
-  footBallPlayers;
-  selectedFootBallPlayers;
+  footballPlayers;
+  selectedFootballPlayers;
 
   constructor() {
-    this.footBallPlayers = [{
+    this.footballPlayers = [{
       "id": 1,
       "name": "Paul Pogba",
       "team": "Manchester United"
@@ -36,7 +36,7 @@ export class GroupingComponent implements OnInit {
       "name": "Leonel Messi",
       "team": "FC Barcelona"
     }];
-    this.selectedFootBallPlayers = new FormControl([{
+    this.selectedFootballPlayers = new FormControl([{
       "id": 3,
       "name": "Eden Hazard",
       "team": "Chelsea FC"
