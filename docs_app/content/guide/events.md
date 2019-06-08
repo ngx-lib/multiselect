@@ -7,10 +7,10 @@ Various events are emitted when user interacts with multiselect dropdown. In gen
 1. `onOpen` - This event triggers when the dropdown open up.
     ```html
     <ngx-multiselect
-    [multiple]="true"
-    [formControl]="selectedOption"
-    [options]="options"
-    (onOpen)="onOpenFired()">
+        [multiple]="true"
+        [formControl]="selectedOption"
+        [options]="options"
+        (onOpen)="onOpenFired()">
     </ngx-multiselect>
     ```
 

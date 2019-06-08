@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -10,8 +10,6 @@ export class EnableDisableComponent implements OnInit {
   options;
   selectedOptions;
   form: FormGroup;
-  @ViewChild('multiSelect')
-  multiselectRef: any;
 
   constructor() {}
 
@@ -55,14 +53,17 @@ export class EnableDisableComponent implements OnInit {
   }
 
   disableFirstOption(){
-    this.options[0].disabled = true;
-    this.options = [...this.options];
+    let options = [...this.options]
+    // disabled first element
+    options[0].disabled = true;
+    this.options = options;
   }
 
   disableWholeGroup(){
     this.options = this.options.map((player) => {
-      if(player.team === 'Manchester United')
+      if(player.team === 'Manchester United') {
         player.disabled = true;
+      }
       return player;
     });
   }

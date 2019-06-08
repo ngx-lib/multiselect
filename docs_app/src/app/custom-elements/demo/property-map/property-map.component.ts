@@ -8,8 +8,8 @@ export class PropertyMapComponent implements OnInit {
   options;
 
   propertyMap = {
-    teamId : "id",
-    teamName : "name"
+    "id" : "teamId",
+    "name" : "teamName"
   }
 
   constructor() {}

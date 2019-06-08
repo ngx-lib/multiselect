@@ -6,9 +6,9 @@ Only three steps required.
 
 1.  Install `@ngx-lib/multiselect` package
 
-    ```js
-    npm install @ngx-lib/multiselect --save
-    ```
+    <code-example language="sh" class="code-shell">
+    npm install -g @angular/cli
+    </code-example>
 
 2.  Import module into your `app.module.ts`
     ```js
