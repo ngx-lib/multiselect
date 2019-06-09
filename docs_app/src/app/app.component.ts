@@ -140,27 +140,41 @@ export class AppComponent implements OnInit {
 
     this.navigationService.currentNodes.subscribe(currentNodes => this.currentNodes = currentNodes);
 
-    // Compute the version picker list from the current version and the versions in the navigation map
-    combineLatest(
-      this.navigationService.versionInfo,
-      this.navigationService.navigationViews.pipe(map(views => views['docVersions'])))
-      .subscribe(([versionInfo, versions]) => {
-        // TODO(pbd): consider whether we can lookup the stable and next versions from the internet
-        const computedVersions: NavigationNode[] = [
-          { title: 'next', url: 'https://next.angular.io' },
-          { title: 'stable', url: 'https://angular.io' },
-        ];
-        if (this.deployment.mode === 'archive') {
-          computedVersions.push({ title: `v${versionInfo.major}` });
-        }
-        this.docVersions = [...computedVersions, ...versions];
+    // // Compute the version picker list from the current version and the versions in the navigation map
+    // combineLatest(
+    //   this.navigationService.versionInfo,
+    //   this.navigationService.navigationViews.pipe(map(views => views['docVersions'])))
+    //   .subscribe(([versionInfo, versions]) => {
+    //     // TODO(pbd): consider whether we can lookup the stable and next versions from the internet
+    //     const computedVersions: NavigationNode[] = [
+    //       { title: 'next', url: 'https://next.angular.io' },
+    //       { title: 'stable', url: 'https://angular.io' },
+    //     ];
+    //     if (this.deployment.mode === 'archive') {
+    //       computedVersions.push({ title: `v${versionInfo.major}` });
+    //     }
+    //     this.docVersions = [...computedVersions, ...versions];
 
-        // Find the current version - eithers title matches the current deployment mode
-        // or its title matches the major version of the current version info
-        this.currentDocVersion = this.docVersions.find(version =>
-          version.title === this.deployment.mode || version.title === `v${versionInfo.major}`)!;
-        this.currentDocVersion.title += ` (v${versionInfo.raw})`;
-      });
+    //     // Find the current version - eithers title matches the current deployment mode
+    //     // or its title matches the major version of the current version info
+    //     this.currentDocVersion = this.docVersions.find(version =>
+    //       version.title === this.deployment.mode || version.title === `v${versionInfo.major}`)!;
+    //     this.currentDocVersion.title += ` (v${versionInfo.raw})`;
+    //   });
+    this.versionInfo = {
+      full: '0.0.19',
+      major: 0,
+      minor: 0,
+      patch: 19,
+      raw: '0.0.19',
+      branch: 'master',
+      build: '0.0.19',
+      codeName: '',
+      commitSHA: '',
+      isSnapshot: false,
+      prerelease: [],
+      version: '0.0.19'
+    }
 
     this.navigationService.navigationViews.subscribe(views => {
       this.footerNodes  = views['Footer']  || [];
@@ -169,7 +183,7 @@ export class AppComponent implements OnInit {
       this.topMenuNarrowNodes = views['TopBarNarrow'] || this.topMenuNodes;
     });
 
-    this.navigationService.versionInfo.subscribe(vi => this.versionInfo = vi);
+    // this.navigationService.versionInfo.subscribe(vi => this.versionInfo = vi);
 
     const hasNonEmptyToc = this.tocService.tocList.pipe(map(tocList => tocList.length > 0));
     combineLatest(hasNonEmptyToc, this.showFloatingToc)
