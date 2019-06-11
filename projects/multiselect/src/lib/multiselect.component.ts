@@ -152,7 +152,6 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
 
   close() {
     this.isOpen = false;
-    this.onClose.emit();
   }
 
   removeItem(collection, item) {
