@@ -72,6 +72,8 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     this._isOpen = value;
     // onOpen and onClose event will be fired by isOpen setter
     if (value) {
+      // list populate, based on empty value
+      this.filterOptionsList('');
       this.onTouched();
       this.onOpen.emit();
     } else {
@@ -142,7 +144,9 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   };
 
   isValueSelected() {
-    return this._selectedOptions && this._multiple ? this._selectedOptions.length : this._selectedOptions;
+    return this._selectedOptions && this._multiple ? 
+      this._selectedOptions.length :
+      this._selectedOptions;
   }
 
   searchChange(val: string) {
@@ -152,7 +156,6 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
 
   close() {
     this.isOpen = false;
-    this.onClose.emit();
   }
 
   removeItem(collection, item) {

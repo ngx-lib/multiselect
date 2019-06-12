@@ -8,7 +8,7 @@ import { FormControl } from '@angular/forms';
 })
 export class EventsDemoComponent implements OnInit {
   options;
-  message: string;
+  messages: string[] = [];
 
   constructor() {}
 
@@ -36,39 +36,40 @@ export class EventsDemoComponent implements OnInit {
     }];
   }
 
+  
   onOpenFired() {
-    this.message = 'I am open now, you can now click on any of my items ';
+    this.messages.push('I am open now, you can now click on any of my items');
   }
 
   onCloseFired() {
-    this.message = 'Oops, I am closed';
+    this.messages.push('Oops, I am closed');
   }
 
   onItemClickFired($event: any) {
-    this.message = `Yaay, u selected an item ${$event.name}`;
+    this.messages.push(`Yaay, you selected an item ${$event.name}`);
   }
 
   onGroupItemClickFired($event: any) {
-    this.message = `Ohh, you are a pro. U selected a group '${$event.name}' containing '${$event.values.length}' names`;
+    this.messages.push(`Ohh, you are a pro. You selected a group '${$event.name}' containing '${$event.values.length}' names`);
   }
 
   onSelectAllFired() {
-    this.message = 'You have selected all the items of list';
+    this.messages.push('You have selected all the items of list');
   }
 
   onSelectNoneFired() {
-    this.message = 'Hmm, You dont want any selection';
+    this.messages.push('Hmm, You dont want any selection');
   }
 
   onResetFired() {
-    this.message = 'Look like you want to reset the component to initial state';
+    this.messages.push('Look like you want to reset the component to initial state');
   }
 
   onClearFired() {
-    this.message = 'You have cleared the text from input box. Now its empty';
+    this.messages.push('You have cleared the text from input box. Now its empty');
   }
 
   onSearchChangeFired($event: any) {
-    this.message = 'You have changed the search input for filtering. The new input is ' + $event;
+    this.messages.push('You have changed the search input for filtering. The new input is ' + $event);
   }
 }
