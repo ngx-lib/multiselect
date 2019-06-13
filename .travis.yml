@@ -19,7 +19,7 @@ before_script:
  - npm install -g @angular/cli
 
 script: 
-  - ng test-prod
+  - npm run test-prod
   - npm run deploy-docs
 
 deploy:
