@@ -23,7 +23,7 @@
     "copy-readme": "cp README.md dist/multiselect/README.md",
     "copy-files": "npm run copy-license && npm run copy-readme",
     "npm_pack": "cd dist/multiselect && npm pack",
-    "package": "npm run build_lib && npm run copy-files",
+    "package": "npm run build_lib && npm run copy-files && npm run npm_pack",
     "prerelease": "npm run release -- --prerelease beta",
     "minor-release": "npm run release -- --release-as minor",
     "major-release": "npm run release -- --release-as major",
