@@ -27,9 +27,9 @@
 			"title": "Events"
 		},
 		{
-			"tooltip": "Simple Select",
-			"url": "/guide/simple-select",
-			"title": "Simple Select"
+			"tooltip": "Single Select",
+			"url": "/guide/single-select",
+			"title": "Single Select"
 		},
 		{
 			"tooltip": "Template Driven",

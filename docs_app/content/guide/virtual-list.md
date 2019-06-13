@@ -1,6 +1,6 @@
 # Virtual List
 
-Virtual list has been supported by multiselect dropdown out of the box. Virtualisation feature has already baked for multiselect for performance reason.
+Virtual list has been supported by multiselect dropdown out of the box. Virtualisation feature has been baked for multiselect for performance reason.
 
 ## Demo
 

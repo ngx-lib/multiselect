@@ -1,8 +1,8 @@
 # Getting Started
 
-Its super easy to get started with Angular multiselct dropdown
+It's super easy to get started with Angular multiselect dropdown.
 
-Only three steps required.
+Only three steps are required:
 
 1.  Install `@ngx-lib/multiselect` package
 
@@ -10,7 +10,7 @@ Only three steps required.
     npm install -S @ngx-lib/multiselect
     </code-example>
 
-2.  Import module into your `app.module.ts`
+2.  Import module `NgxMultiselectModule` into your `app.module.ts`
     ```js
     import { NgxMultiselectModule } from '@ngx-lib/multiselect';
 
@@ -41,12 +41,12 @@ Only three steps required.
 
     ```js
     import { Component, OnInit } from '@angular/core';
-    
+
     @Component({...})
-    export class SingleSelectComponent implements OnInit {
+    export class AppComponent implements OnInit {
         countries;
         selectedCountry;
-        
+
         ngOnInit() {
             this.countries = [
                 { id: 1, name: "India"},
@@ -54,7 +54,7 @@ Only three steps required.
                 { id: 3, name: "China" },
                 { id: 4, name: "Japan" }
             ];
-        
+
             this.selectedCountry = {
                 id: 1,
                 name: "India"
@@ -63,7 +63,7 @@ Only three steps required.
     }
     ```
 
-[**Stackblitz Demo here**](https://stackblitz.com/edit/ngx-multilselect)
+&emsp;[**Stackblitz demo is here**](https://stackblitz.com/edit/ngx-multilselect)
 
 ## Demo
 

@@ -1,11 +1,11 @@
-# Template Driven:
+# Template Driven
 
 To use multiselect dropdown control with template driven forms, just provide multiselect with `options` and selected option using `ngModel` directive. That's it!
 
 ```html
-<ngx-multiselect 
-  ngDefaultControl 
-  [(ngModel)]="selectedOption" 
+<ngx-multiselect
+  ngDefaultControl
+  [(ngModel)]="selectedOption"
   [options]="options">
 </ngx-multiselect>
 ```
