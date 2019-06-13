@@ -19,7 +19,7 @@ export class DocComponent implements OnInit {
   ];
 
   navLinks = [
-    { link: ['/docs', 'simple-select'], text: 'Simple Select' },
+    { link: ['/docs', 'single-select'], text: 'Single Select' },
     { link: ['/docs', 'template-driven'], text: 'Template Driven' },
     { link: ['/docs', 'model-driven'], text: 'Model Driven' },
     { link: ['/docs', 'observable-data'], text: 'Observable' },

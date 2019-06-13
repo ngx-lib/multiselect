@@ -1,8 +1,8 @@
 # Enable/Disable
 
 There are two ways to disable multiselect.
-1. Disable single / group option
-2. Disable whole multiselect dropdown
+  1. Disable single / group option
+  2. Disable whole multiselect dropdown
 
 ---
 
@@ -34,7 +34,7 @@ disableWholeGroup(){
 
 ## 2. Disable whole multiselect dropdown
 
-In order to disable whole dropdown just pass the `disabled` property to be `true` and the whole dropdown is `disabled` with the selected option. We can also do the same thing using reactive form as well like shown below.
+In order to disable whole dropdown, just set the `disabled` property to `true` and the whole dropdown becomes `disabled` with the selected option. We can also do the same thing using reactive form as well like shown below.
 
 ```js
 disableWholeDropdown() {

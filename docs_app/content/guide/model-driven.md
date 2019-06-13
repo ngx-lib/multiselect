@@ -1,11 +1,11 @@
-# Model Driven (Reactive Forms):
+# Model Driven (Reactive Forms)
 
-Multiselect can be used with reactive forms as well. Just create a simple `FormControl` variable and use it inside. You can apply all kind of validation that are applicable for Reactive Forms.
+Multiselect can be used with reactive forms as well. Just create a simple `FormControl` variable and set it on `formControl` attribute. You can apply all kinds of validation that are applicable for Reactive Forms.
 
 ```html
-<ngx-multiselect 
-  ngDefaultControl 
-  [formControl]="selectedOption" 
+<ngx-multiselect
+  ngDefaultControl
+  [formControl]="selectedOption"
   [options]="options">
 </ngx-multiselect>
 ```
@@ -20,7 +20,7 @@ Multiselect can be used with reactive forms as well. Just create a simple `FormC
 </code-tabs>
 
 We can also use multiselect `formControl` inside `formGroup`/`formArray`.
-Demonstration of `formGroup` consist of inputs, button, checkbox, etc. 
+Demonstration of `formGroup` consists of inputs, button, checkbox, etc.
 
 ## Demo
 

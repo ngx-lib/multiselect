@@ -6,9 +6,9 @@ These are the helper buttons available for fast forward actions
 - *Select None*
 - *Reset*
 
-When above events are triggered on button click, it emits below events where you can hook in for listning to particular event.
+When above buttons are clicked, they emit below events where you can hook in for listening.
 
-1. `onSelectAll` Event fired when the 'Select All' is clicked to select all items.
+1. `onSelectAll` - Event fired when the 'Select All' is clicked to select all items.
     ```html
     <ngx-multiselect
       [multiple] = "true"
@@ -28,7 +28,7 @@ When above events are triggered on button click, it emits below events where you
     </ngx-multiselect>
     ```
 
-3. `onReset` - Event fired when the 'Reset' button is clicked to reset selection back to user provided default state) helper element is clicked
+3. `onReset` - Event fired when the 'Reset' button is clicked to reset selection back to user provided default state.
     ```html
     <ngx-multiselect
       [multiple] = true
