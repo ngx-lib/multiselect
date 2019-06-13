@@ -39,7 +39,7 @@ describe('Options Component', () => {
     component.options = [...options];
     multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService(),<Renderer2> {});
     multiselect.multiple = true;
-    multiselect.setOptions(options);
+    multiselect.setOptions([...options]);
     component.selectOption.subscribe(option => {
       clickedOption = option;
       multiselect.select(option);
@@ -49,7 +49,7 @@ describe('Options Component', () => {
     multiselectSelectSpy = spyOn(multiselect, 'select').and.callThrough();
     // TODO: Woraround for firing ngOnChanges manually.
     component.ngOnChanges({
-      options: new SimpleChange(options, undefined, false)
+      options: new SimpleChange([...options], undefined, false)
     });
     fixture.detectChanges();
   });
@@ -167,6 +167,7 @@ describe('Options Component', () => {
       multiselect.multiple = false;
       multiselect.isOpen = true;
       fixture.detectChanges();
+      multiselect.setOptions([...options]);
     });
 
     it('list should close based on option selection', () => {

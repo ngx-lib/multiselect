@@ -10,6 +10,7 @@
     "onchange": "onchange",
     "multiselect-watch": "npx onchange \"./projects/multiselect/src/lib/**/*.*\" -- ng build multiselect",
     "test": "ng test --project=multiselect",
+    "test-prod": "ng test --project=multiselect --watch=false",
     "format:fix": "pretty-quick --staged",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -27,7 +28,7 @@
     "major-release": "npm run release -- --release-as major",
     "predeploy": "npm run build-prod",
     "deploy": "npx gh-pages -d dist/ngx-multiselect",
-    "deploy-docs": "cd docs_app && npm run build && cp dist/index.html dist/404.html && npx gh-pages -d dist",
+    "deploy-docs": "cd docs_app && cp dist/index.html dist/404.html && npx gh-pages -d dist",
     "only-deploy": "npx gh-pages -d dist/ngx-multiselect"
   },
   "private": true,
