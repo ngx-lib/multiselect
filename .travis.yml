@@ -19,7 +19,7 @@ before_script:
  - npm install -g @angular/cli
 
 script: 
-  - npm run build
+  - npm run build-multiselect
   - npm run test-prod
   - cd docs_app
   - npm run build
