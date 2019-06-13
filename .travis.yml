@@ -19,8 +19,9 @@ before_script:
  - npm install -g @angular/cli
 
 script: 
+  - npm run build
   - npm run test-prod
-  - npm run deploy-docs
+  - cd docs_app && npm run build
 
 deploy:
   provider: pages
