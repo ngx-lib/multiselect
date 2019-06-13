@@ -1,11 +1,12 @@
 language: node_js
 node_js:
-  - "10"
-sudo: false
+  - "9"
 dist: trusty
+sudo: required
+
 branches:
   only:
-  - master
+    - master
 
 before_script:
  - export CHROME_BIN=/usr/bin/google-chrome
@@ -15,10 +16,13 @@ before_script:
  - sudo apt-get install -y libappindicator1 fonts-liberation
  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
  - sudo dpkg -i google-chrome*.deb
+ - npm install -g @angular/cli
 
 script: 
-  - npm test || travis_terminate 1
-  - npm run build-prod || travis_terminate 1
+  - npm run build-multiselect
+  - npm run test-prod
+  - cd docs_app
+  - npm run build
 
 deploy:
   provider: pages

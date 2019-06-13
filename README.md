@@ -1,8 +1,4 @@
-[![https://nodei.co/npm/@ngx-lib/multiselect.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/@ngx-lib/multiselect.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/@ngx-lib/multiselect)
-
-[![HitCount](http://hits.dwyl.com/ngx-lib/multiselect.svg)](http://hits.dwyl.com/ngx-lib/multiselect.svg)
-
-[![Known Vulnerabilities](https://snyk.io/test/github/ngx-lib/multiselect/badge.svg?targetFile=package.json)](https://snyk.io/test/github/ngx-lib/multiselect?targetFile=package.json)
+[![https://nodei.co/npm/@ngx-lib/multiselect.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/@ngx-lib/multiselect.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/@ngx-lib/multiselect) [![HitCount](http://hits.dwyl.com/ngx-lib/multiselect.svg)](http://hits.dwyl.com/ngx-lib/multiselect.svg) [![Known Vulnerabilities](https://snyk.io/test/github/ngx-lib/multiselect/badge.svg?targetFile=package.json)](https://snyk.io/test/github/ngx-lib/multiselect?targetFile=package.json) [![Build Status](https://travis-ci.com/ngx-lib/multiselect.svg?branch=master)](https://travis-ci.com/ngx-lib/multiselect)
 
 
 # Multiselect
