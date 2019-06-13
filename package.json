@@ -28,7 +28,7 @@
     "major-release": "npm run release -- --release-as major",
     "predeploy": "npm run build-prod",
     "deploy": "npx gh-pages -d dist/ngx-multiselect",
-    "deploy-docs": "cd docs_app && cp dist/index.html dist/404.html && npx gh-pages -d dist",
+    "deploy-docs": "cd docs_app && npm run build-prod && cp dist/index.html dist/404.html && npx gh-pages -d dist",
     "only-deploy": "npx gh-pages -d dist/ngx-multiselect"
   },
   "private": true,
