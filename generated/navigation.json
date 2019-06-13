@@ -27,9 +27,9 @@
       "title": "Events"
     },
     {
-      "tooltip": "Simple Select",
-      "url": "/guide/simple-select",
-      "title": "Simple Select"
+      "tooltip": "Single Select",
+      "url": "/guide/single-select",
+      "title": "Single Select"
     },
     {
       "tooltip": "Template Driven",
@@ -96,12 +96,12 @@
     "prerelease": [
       "local"
     ],
-    "build": "sha.26846e3",
+    "build": "sha.1018fa1",
     "version": "0.0.5-local",
     "codeName": "snapshot",
     "isSnapshot": true,
-    "full": "0.0.5-local+sha.26846e3",
+    "full": "0.0.5-local+sha.1018fa1",
     "branch": "master",
-    "commitSHA": "26846e3972bac68b19fc1c61c12adc2e71241c63"
+    "commitSHA": "1018fa1c44a1539ee374e79ca86f0464cddd35ce"
   }
 }
