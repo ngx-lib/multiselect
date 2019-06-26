@@ -22,9 +22,11 @@ export class VirtualScrollDirective {
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   reset() {
-    this.renderer.setStyle(this.top, 'height', 0);
-    this.renderer.setStyle(this.bottom, 'height', 0);
-    this.renderer.setProperty(this.el.nativeElement, 'scrollTop', 0);
+    if (this.top && this.bottom) {
+      this.renderer.setStyle(this.top, 'height', 0);
+      this.renderer.setStyle(this.bottom, 'height', 0);
+      this.renderer.setProperty(this.el.nativeElement, 'scrollTop', 0);
+    }
   }
 
   throttleScroll(target) {

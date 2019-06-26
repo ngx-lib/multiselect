@@ -12,6 +12,7 @@
   </button>
   <div class="listing-wrapper" *ngIf="isOpen">
     <ms-helper-elements
+      *ngIf="showHelperElements"
       [multiple]="multiple"
       [disabled]="disabled"
       (onClear)="onClear.emit()"
@@ -23,6 +24,7 @@
     >
     </ms-helper-elements>
     <ms-filter-options
+      *ngIf="showSearchFilter"
       #filterOptions
       (onSearchChange)="searchChange($event)"
     ></ms-filter-options>

@@ -4,7 +4,7 @@
   "homepage": "https://ngx-lib.github.io/multiselect/",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently \"npm run build\" \"ng serve\"",
+    "start": "concurrently \"npm run build\" \"ng serve\" \"npm run multiselect-watch\"",
     "build-prod": "ng build --prod multiselect && ng build --prod --base-href /multiselect/",
     "build": "ng build multiselect && ng build",
     "build-multiselect": "ng build --prod multiselect",

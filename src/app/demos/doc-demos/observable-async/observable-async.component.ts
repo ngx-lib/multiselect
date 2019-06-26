@@ -22,29 +22,29 @@ export class ObservableAsyncComponent implements OnInit {
       "id": 3,
       "name": "Chelsea F.C."
     },]);
-
-    this.observableOptions = new Observable((observer) => {
-      observer.next([{
-        "id": 1,
-        "name": "Manchester United"
-      },
-      {
-        "id": 2,
-        "name": "Liverpool F.C."
-      },
-      {
-        "id": 3,
-        "name": "Chelsea F.C."
-      },
-      {
-        "id": 4,
-        "name": "Arsenal F.C."
-      },
-      {
-        "id": 5,
-        "name": "FC Barcelona"
-      }]);
-    });
-
+    setTimeout(() => {
+      this.observableOptions = new Observable((observer) => {
+        observer.next([{
+          "id": 1,
+          "name": "Manchester United"
+        },
+        {
+          "id": 2,
+          "name": "Liverpool F.C."
+        },
+        {
+          "id": 3,
+          "name": "Chelsea F.C."
+        },
+        {
+          "id": 4,
+          "name": "Arsenal F.C."
+        },
+        {
+          "id": 5,
+          "name": "FC Barcelona"
+        }]);
+      });
+    }, 5000)
   }
 }

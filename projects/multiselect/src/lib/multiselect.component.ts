@@ -52,6 +52,8 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   // Input bindings
   @Input() disabled: boolean = false;
   @Input() color: string = 'blue';
+  @Input() showHelperElements: boolean = true;
+  @Input() showSearchFilter: boolean = true;
   @Input() groupedProperty: string;
   @Input() showMaxLabels: number = 3;
   @ContentChild(TemplateRef)
