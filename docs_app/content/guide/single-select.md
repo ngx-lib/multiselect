@@ -1,9 +1,9 @@
 # Single Select
 
-Simply use multiselect dropdown as a single select by specifying `multiselect` property binding as `false`. By default it is set to `true`. Also you can hook up on different [events](https://ngx-lib.github.io/multiselect/guide/events) of the multiselect dropdown.
+Simply use multiselect dropdown as a single select by specifying `multiselect` property binding as `false`. Also by default it is set to `false`. Also you can hook up on different [events](https://ngx-lib.github.io/multiselect/guide/events) of the multiselect dropdown.
 
 <div class="l-sub-section">
-	For single select dropdown, the helper buttons such as ‘Select All’, ‘Select None’ won't be shown because they are not required here.
+	For single select dropdown, the helper buttons such as *Select All*, *Select None* won't be shown because they are not required here.
 </div>
 
 ## Demo

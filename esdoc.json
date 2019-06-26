@@ -11,7 +11,6 @@
   "styles": ["./doc/styles/main.css"],
   "scripts": [
     "./dist/global/Rx.js",
-    "./doc/asset/devtools-welcome.js",
     "./doc/scripts/custom-manual-styles.js",
     "./doc/decision-tree-widget/dist/decision-tree-widget.min.js",
     "./doc/scripts/theme-toggler.js"

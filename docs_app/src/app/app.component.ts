@@ -162,18 +162,18 @@ export class AppComponent implements OnInit {
     //     this.currentDocVersion.title += ` (v${versionInfo.raw})`;
     //   });
     this.versionInfo = {
-      full: '0.0.25',
+      full: '0.0.26',
       major: 0,
       minor: 0,
-      patch: 25,
-      raw: '0.0.25',
+      patch: 26,
+      raw: '0.0.26',
       branch: 'master',
-      build: '0.0.25',
+      build: '0.0.26',
       codeName: '',
       commitSHA: '',
       isSnapshot: false,
       prerelease: [],
-      version: '0.0.25'
+      version: '0.0.26'
     }
 
     this.navigationService.navigationViews.subscribe(views => {

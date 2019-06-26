@@ -54,6 +54,42 @@ If you want to change the internal look and feel of each option, you can create 
   </ngx-multiselect>
   ```
 
+## Add / Remove features
+
+- `multiple`: **Boolean?** - 
+Use `multiple` property binding, when you want to allow user to select multiple values from the dropdown. By default `multiple` property value is `false`.
+
+  ```html
+  <ngx-multiselect
+    [(ngModel)]="selectedOptions"
+    [options]="options"
+    [multiple]="true"
+    [isOpen]=”true”>
+  </ngx-multiselect>
+  ```
+
+- `showHelperElements`: **Boolean?** –
+This options hide all the buttons from helper element buttons like *Select All*, *Select None* and *Reset*. Its default value is `true`.
+
+  ```html
+  <ngx-multiselect
+    [(ngModel)]="selectedOption"
+    [showHelperElements]="false"
+    [options]="options">
+  </ngx-multiselect>
+  ```
+
+- `showSearchFilter`: **Boolean?** –
+This options hide search input box where you can seek for option from the collection. Its default value is `true`.
+
+  ```html
+  <ngx-multiselect
+    [showSearchFilter]="false"
+    [(ngModel)]="selectedOption"
+    [options]="options">
+  </ngx-multiselect>
+  ```
+
 ## Styling
 
 - `showMaxLabels`: **number?** -
