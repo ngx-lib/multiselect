@@ -336,11 +336,11 @@ aio-shell {
   text-transform: uppercase;
 }
 
-aio-shell:not(.view-SideNav) {
-  mat-sidenav-container.sidenav-container {
-    max-width: none;
-  }
-}
+// aio-shell:not(.view-SideNav) {
+//   mat-sidenav-container.sidenav-container {
+//     max-width: none;
+//   }
+// }
 
 div[layout=row]{
     display: flex;
