@@ -6,7 +6,7 @@ Customizing the theme of a dropdown is one of the common use cases that we have 
 
 You can use `theme` property binding to pass on theme you want to apply. By default it sets to `material`, you can pass `bootstrap` value as well.
 
-## Demo
+### Theming Demo
 
 <ms-theme></ms-theme>
 

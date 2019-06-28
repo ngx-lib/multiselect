@@ -2,7 +2,7 @@
 
 It's super easy to get started with Angular multiselect dropdown.
 
-## Demo
+## Getting Started Demo
 
 <ms-single-select></ms-single-select>
 

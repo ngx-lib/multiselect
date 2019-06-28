@@ -4,7 +4,7 @@ Multiselect supports grouping, similar as that of `select` controls `optgroup` o
 
 For eg. we've a list of football players from different contries. It will be great if we can show the football players grouped by their respective teams. This bifurcation of data is helpful in visualization.
 
-## Demo
+## Grouping Demo
 
 <ms-grouping></ms-grouping>
 

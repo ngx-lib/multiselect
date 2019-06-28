@@ -10,7 +10,7 @@ To use multiselect dropdown control with template driven forms, just provide mul
 </ngx-multiselect>
 ```
 
-## Demo
+### Template Driven Form
 
 <ms-template-driven></ms-template-driven>
 

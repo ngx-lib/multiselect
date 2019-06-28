@@ -10,7 +10,7 @@ Multiselect can be used with reactive forms as well. Just create a simple `FormC
 </ngx-multiselect>
 ```
 
-## Demo
+### Model Driven with ngModel
 
 <ms-model-driven></ms-model-driven>
 
@@ -22,6 +22,6 @@ Multiselect can be used with reactive forms as well. Just create a simple `FormC
 We can also use multiselect `formControl` inside `formGroup`/`formArray`.
 Demonstration of `formGroup` consists of inputs, button, checkbox, etc.
 
-## Demo
+### Model Driven with Form Group
 
 <ms-model-driven-form-group></ms-model-driven-form-group>
