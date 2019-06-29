@@ -6,7 +6,7 @@
     },
     {
       "url": "/team",
-      "title": "Contributors"
+      "title": "Team"
     }
   ],
   "TopBarNarrow": [],
@@ -96,12 +96,12 @@
     "prerelease": [
       "local"
     ],
-    "build": "sha.0d94ed1",
+    "build": "sha.67cf6a6",
     "version": "0.0.5-local",
     "codeName": "snapshot",
     "isSnapshot": true,
-    "full": "0.0.5-local+sha.0d94ed1",
+    "full": "0.0.5-local+sha.67cf6a6",
     "branch": "master",
-    "commitSHA": "0d94ed1ddda5e611a469835ec0f753f90a571c9d"
+    "commitSHA": "67cf6a6ebfb19f5729256a63fae3be772c43a264"
   }
 }
