@@ -1,12 +1,8 @@
 # Getting Started
 
-It's super easy to get started with Angular multiselect dropdown.
-
-## Getting Started Demo
-
 <ms-single-select></ms-single-select>
 
-Only three steps are required:
+It's super easy to get started with Angular multiselect dropdown. Only three steps are required:
 
 1.  Install `@ngx-lib/multiselect` package
 
