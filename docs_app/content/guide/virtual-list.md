@@ -2,7 +2,7 @@
 
 Virtual list has been supported by multiselect dropdown out of the box. Virtualisation feature has been baked for multiselect for performance reason.
 
-## Demo
+### Large Volume data handling demo
 
 <ms-large-volume-data></ms-large-volume-data>
 

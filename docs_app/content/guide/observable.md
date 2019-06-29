@@ -9,7 +9,7 @@ There are two ways to use observable with multiselect.
 
 You can use traditional way to retrieve a data from a stream inside `.subscribe` method and assign it to a local component variable and then you can pass that variable to `options` binding of multiselect dropdown.
 
-### Demo
+### Observable Async Demo
 
 <ms-observable-async></ms-observable-async>
 
@@ -22,7 +22,7 @@ You can use traditional way to retrieve a data from a stream inside `.subscribe`
 
 You can directly assign the observable data stream (with async pipe) to multiselect `options` binding. `Async` pipe helps here to unwrap the data from stream.
 
-### Demo
+###  Observable with AsyncPipe
 
 <ms-observable-async-service></ms-observable-async-service>
 
@@ -31,7 +31,7 @@ You can directly assign the observable data stream (with async pipe) to multisel
   <code-pane title="app/observable-async-service.component.html" path="observable/src/app/observable-async-service.component.html"></code-pane>
 </code-tabs>
 
-## TL;DR
+### TL;DR
 
 If you want to dynamically update the multiselect datasource, you can do it just by creating the whole new copy of json array and pass that array to `observer.next` function as shown below. Changing the data collection value in between would directly reflect on to the screen.
 

@@ -35,7 +35,7 @@ So, the multiselect API internally takes care of converting the collection to th
 }
 ```
 
-## Demo
+### Property Mapping Demo
 
 <ms-property-map></ms-property-map>
 

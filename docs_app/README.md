@@ -1,4 +1,4 @@
-# RxJS documentation project
+# Angular Ngx-Multiselect documentation project
 
 Everything in this folder is part of the documentation project. This includes
 
@@ -8,7 +8,7 @@ Everything in this folder is part of the documentation project. This includes
 ## Developer tasks
 
 We use `npm` to manage the dependencies and to run build tasks.
-You should run all these tasks from the `rxjs/docs_app` folder.
+You should run all these tasks from the `multiselect/docs_app` folder.
 Here are the most important tasks you might need to use:
 
 * `npm install` - install all the dependencies.
@@ -24,7 +24,7 @@ Here are the most important tasks you might need to use:
 * `npm run e2e` - run all the e2e tests for the doc-viewer.
 
 * `npm run docs` - generate all the docs from the source files.
-* `npm run docs-watch` - watch the RxJS source and the docs files and run a short-circuited doc-gen for the docs that changed (don't work properly at the moment).
+* `npm run docs-watch` - watch the multiselect source and the docs files and run a short-circuited doc-gen for the docs that changed (don't work properly at the moment).
 * `npm run docs-lint` - check that the doc gen code follows our style rules.
 * `npm run docs-test` - run the unit tests for the doc generation code.
 
@@ -40,14 +40,14 @@ serve the files in `dist/` with `npm run http-server -- dist -p 4200`.
 
 There are two types of content in the documentation:
 
-* **API docs**: descriptions of the modules, classes, interfaces, etc that make up RxJS.
+* **API docs**: descriptions of the modules, classes, interfaces, etc that make up Multiselect.
 API docs are generated directly from the source code.
-The source code is contained in TypeScript files, located in the `rxjs/src` folder.
+The source code is contained in TypeScript files, located in the `multiselect/src` folder.
 Each API item may have a preceding comment, which contains JSDoc style tags and content.
 The content is written in markdown.
 
 * **Other content**: guides, tutorials, and other marketing material.
-All other content is written using markdown in text files, located in the `rxjs/docs_app/content` folder.
+All other content is written using markdown in text files, located in the `multiselect/docs_app/content` folder.
 More specifically, there are sub-folders that contain particular types of content: guides, tutorial and marketing.
 
 ### Generating the complete docs
@@ -104,4 +104,4 @@ the [Authors Style Guide](https://angular.io/guide/docs-style-guide).
 ## Disclaimer
 
 Starting the new documentation, we worked closely together with the Angular team and therefore adapted their way of generating docs. This leads to the effect, that there may be some references to angular (e.g. variable names, file names ...). Don't be confused by this, this shouldn't bother you. Thanks to the Angular Team for their support.
-Anyway RxJS will always be an independent project, which aims to work closely with other technologies and frameworks!
+Anyway Ngx-Multiselect will always be an independent project, which aims to work closely with other technologies and frameworks!

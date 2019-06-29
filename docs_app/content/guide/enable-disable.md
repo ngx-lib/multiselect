@@ -42,7 +42,7 @@ disableWholeDropdown() {
 }
 ```
 
-### Demo
+### Enable Disable Multiselect Demo
 
 <ms-enable-disable></ms-enable-disable>
 

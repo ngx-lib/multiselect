@@ -6,7 +6,7 @@ Simply use multiselect dropdown as a single select by specifying `multiselect` p
 	For single select dropdown, the helper buttons such as *Select All*, *Select None* won't be shown because they are not required here.
 </div>
 
-## Demo
+### Single select Demo
 
 <ms-single-select></ms-single-select>
 

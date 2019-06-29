@@ -68,6 +68,6 @@ Various events are emitted when user interacts with multiselect dropdown. We hav
     </ngx-multiselect>
     ```
 
-### Demo:
+### Events Demo:
 
 <ms-events></ms-events>
