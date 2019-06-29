@@ -25,16 +25,16 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="translucent">
 
-  <!-- <script>
+  <script>
     // Dynamically, pre-emptively, add `noindex`, which will be removed when the doc is ready and valid
     var tag = document.createElement('meta'); tag.name = 'googlebot'; tag.content = 'noindex';
     document.head.appendChild(tag);
     tag = document.createElement('meta'); tag.name = 'robots'; tag.content = 'noindex';
     document.head.appendChild(tag);
-  </script> -->
+  </script>
 
   <!-- Google Analytics -->
-  <!-- <script>
+  <script>
   // Note this is a customised version of the GA tracking snippet
   // See the comments below for more info
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -43,10 +43,20 @@
   ~i.name.indexOf('NG_DEFER_BOOTSTRAP')|| // only load library if not running e2e tests
   m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  </script> -->
+  </script>
   <!-- End Google Analytics -->
 
-  <!-- <script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142982334-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-142982334-1');
+  </script>
+
+  <script>
     // Report fatal errors to Google Analytics
     window.onerror = function() {
       ga('send', 'exception', {exDescription: formatError.apply(null, arguments), exFatal: true});
@@ -76,7 +86,7 @@
         return (msg + '\n' + stack).substr(0, 150);
       }
     };
-  </script> -->
+  </script>
 
   <script>
     if (window.document.documentMode) {
