@@ -63,4 +63,4 @@ It's super easy to get started with Angular multiselect dropdown. Only three ste
     }
     ```
 
-&emsp;[**Stackblitz demo is here**](https://stackblitz.com/edit/ngx-multilselect)
+## [**Stackblitz Demo**](https://stackblitz.com/edit/ngx-multilselect)

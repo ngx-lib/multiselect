@@ -23,8 +23,11 @@
       <mat-icon svgIcon="menu"></mat-icon>
     </button>
     <a class="nav-link home" href="/" [ngSwitch]="isSideBySide">
-      <img *ngSwitchCase="true" src="assets/images/favicons/angular.png" width="40" height="40" title="ngx-multiselect" alt="ngx-multiselect">
-      <strong>ngx-multiselect</strong>
+      <ng-container *ngSwitchCase="true">
+        <img src="assets/images/favicons/angular.png" width="40" height="40" title="ngx-multiselect" alt="ngx-multiselect" />
+        <strong>ngx-multiselect</strong>
+      </ng-container>
+      <strong *ngSwitchDefault>ngx-lib</strong>
     </a>
     <aio-top-menu *ngIf="isSideBySide" [nodes]="topMenuNodes"></aio-top-menu>
     <aio-search-box class="search-container" #searchBox (onSearch)="doSearch($event)" (onFocus)="doSearch($event)"></aio-search-box>
