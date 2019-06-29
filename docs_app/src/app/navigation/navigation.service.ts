@@ -95,7 +95,9 @@ export class NavigationService {
       this.location.currentPath,
 
       (navMap, url) => {
-        const urlKey = url.startsWith('api/') ? 'api' : url;
+        let urlKey = url.startsWith('api/') ? 'api' : url;
+        // Prepending `/` for node matching
+        if (!urlKey.startsWith('/')) urlKey = `/${urlKey}`;
         return navMap.get(urlKey) || { '' : { view: '', url: urlKey, nodes: [] }};
       })
       .pipe(publishReplay(1));
