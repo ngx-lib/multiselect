@@ -37,7 +37,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   }
 
   // private variables
-  private _multiple = false;
+  private _multiple = true;
   private _theme: string = 'material';
   private _optionsCopy; //TODO: in future this will be master list
   private _isOpen: boolean = false;
