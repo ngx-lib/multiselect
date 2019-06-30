@@ -1,6 +1,12 @@
 # Getting Started
 
+## Single Select
+
 <ms-single-select></ms-single-select>
+
+## Multiple Select
+
+<ms-model-driven></ms-model-driven>
 
 It's super easy to get started with Angular multiselect dropdown. Only three steps are required:
 
