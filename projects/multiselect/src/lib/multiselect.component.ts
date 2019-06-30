@@ -37,7 +37,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   }
 
   // private variables
-  private _multiple = false;
+  private _multiple = true;
   private _theme: string = 'material';
   private _optionsCopy; //TODO: in future this will be master list
   private _isOpen: boolean = false;
@@ -172,8 +172,17 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
 
   prepopulateOptions(selected: any) {
     let selectedIds = [];
-    selectedIds = this._multiple ? (selected || []).map(i => i.id) : selected ? [selected.id] : [];
-    this.setOptions(this.getOptions().map(o => ({ ...o, ticked: selectedIds.indexOf(o.id) !== -1 })));
+    selectedIds = this._multiple ? 
+      (selected || []).map(i => i.id):
+      selected ? [selected.id]: [];
+    this.setOptions(
+      this.getOptions()
+        .map(o => ({ 
+            ...o, 
+            ticked: selectedIds.indexOf(o.id) !== -1 
+          })
+        )
+      );
     // TODO: do we really need this reassignment?
     this.viewToModel(selected);
   }
@@ -196,7 +205,13 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     } else {
       // TODO: find optimized way to do below
       let val = option && option.id;
-      let changedOptions = this.getOptions().map(o => ({ ...o, ticked: o.id == val }));
+      let changedOptions = this.getOptions()
+        .map(
+          o => ({ 
+            ...o,
+            ticked: o.id == val 
+          })
+        );
       selectedOptions = changedOptions.find(i => i.ticked);
       this.setOptions(changedOptions);
       this.close();
@@ -206,14 +221,24 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   }
 
   selectAll() {
-    let allSelectedOptions = this.getOptions().map(o => ({ ...o, ticked: true }));
+    let allSelectedOptions = this.getOptions()
+      .map(
+        o => ({
+          ...o,
+          ticked: true
+        })
+      );
     this.setOptions(allSelectedOptions);
     this.viewToModel(allSelectedOptions);
     this.onSelectAll.emit();
   }
 
   selectNone() {
-    this.setOptions(this.getOptions().map(o => ({ ...o, ticked: false })));
+    const options = this.getOptions().map(o => ({
+      ...o,
+      ticked: false
+    }))
+    this.setOptions(options);
     this.viewToModel([]);
     this.onSelectNone.emit();
   }

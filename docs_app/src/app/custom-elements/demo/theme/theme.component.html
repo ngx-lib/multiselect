@@ -3,12 +3,14 @@
   [(ngModel)]="selectedCountry"
   [options]="countries"
   theme="bootstrap"
+  [multiple]="false"
   ngDefaultControl>
 </ngx-multiselect>
 
 <p>Material theme</p>
 <ngx-multiselect
   [(ngModel)]="selectedCountry"
+  [multiple]="false"
   [options]="countries"
   theme="material"
   ngDefaultControl>

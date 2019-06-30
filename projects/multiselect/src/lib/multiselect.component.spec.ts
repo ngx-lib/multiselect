@@ -145,8 +145,8 @@ describe('MultiselectComponent', () => {
         component.optionsTemplate = null;
         component.isOpen = true;
         fixture.detectChanges();
-        const groupOptionsComponentDebugEle = debugElement.query(By.css('ms-grouped-options'));
-        const groupOptionsComponent = groupOptionsComponentDebugEle.componentInstance;
+        const groupOptionsComponentDebugElement = debugElement.query(By.css('ms-grouped-options'));
+        const groupOptionsComponent = groupOptionsComponentDebugElement.componentInstance;
         // assert
         expect(groupOptionsComponent.defaultOptionsTemplate).toBeTruthy();
       });

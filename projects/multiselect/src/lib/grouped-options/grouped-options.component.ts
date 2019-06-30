@@ -48,14 +48,24 @@ export class GroupedOptionsComponent implements OnInit {
   constructor(public multiselectService: NgxMultiselectService) {}
 
   formGroupOptions(collection, selectedOptions) {
-    let selectedIds = this.multiple ? selectedOptions.map(s => s.id) : selectedOptions ? [selectedOptions.id] : [];
-    const values = collection.map(v => ({ ...v, ticked: !v.isGroup ? selectedIds.indexOf(v.id) !== -1 : v.ticked }));
+    let selectedIds = this.multiple ? 
+      (selectedOptions || []).map(s => s.id) : 
+        selectedOptions ? [selectedOptions.id]
+        :[];
+    const values = collection.map(v => ({ 
+      ...v, 
+      ticked: !v.isGroup ? selectedIds.indexOf(v.id) !== -1 : v.ticked
+     }));
     this.groupedOptions = this.multiselectService.virtualOptionsGroupingFlatten(values, this.groupedProperty);
     this.updateRange({ start: this.start, end: this.end });
   }
 
   getOptionStyle(option: any) {
-    return { group: option.isGroup, marked: option.ticked, disabled: this.disabled || option.disabled };
+    return {
+      group: option.isGroup,
+      marked: option.ticked,
+      disabled: this.disabled || option.disabled
+    };
   }
 
   trackByFn(_, option) {
@@ -80,7 +90,10 @@ export class GroupedOptionsComponent implements OnInit {
     } else {
       option.ticked = !option.ticked;
       const values = this.multiselectService.collectAllDescendants(this.options, this.groupedProperty, option.name);
-      this.selectGroup.emit({ ...option, values: values });
+      this.selectGroup.emit({ 
+        ...option,
+        values: values
+      });
     }
   }
 }

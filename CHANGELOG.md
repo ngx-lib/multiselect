@@ -14,3 +14,9 @@ etc.
 ## Bug Fixes
 
 None
+
+# 1.0.0 (2019-30-06)
+
+## Breaking Changes
+
+- Changed `multiple` binding default value to `true`

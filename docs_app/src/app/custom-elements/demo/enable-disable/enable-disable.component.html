@@ -1,6 +1,9 @@
 <p>Select your favourite teams from the following:</p>
 <form [formGroup]="form">
-  <ngx-multiselect formControlName="selectedOptions" ngDefaultControl [options]="options" [multiple]="true"
+  <ngx-multiselect
+    formControlName="selectedOptions"
+    ngDefaultControl
+    [options]="options"
     [groupedProperty]="'team'" #multiSelect>
   </ngx-multiselect>
 </form>

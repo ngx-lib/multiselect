@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PropertyMapComponent implements OnInit {
   options;
-
+  team;
   propertyMap = {
     "id" : "teamId",
     "name" : "teamName"
@@ -35,6 +35,9 @@ export class PropertyMapComponent implements OnInit {
       "teamId": 5,
       "teamName": "FC Barcelona"
     }];
-
+    // this.team = {
+    //   "teamId": 1,
+    //   "teamName": "Manchester United"
+    // }
   }
 }

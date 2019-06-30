@@ -29,5 +29,13 @@
     "aio-builds-setup",
     "node_modules",
     "scripts"
-  ]
+  ],
+  "paths": {
+    "@ngx-lib/multiselect": [
+      "../dist/multiselect"
+    ],
+    "@ngx-lib/multiselect/*": [
+      "../dist/multiselect/*"
+    ]
+  }
 }
