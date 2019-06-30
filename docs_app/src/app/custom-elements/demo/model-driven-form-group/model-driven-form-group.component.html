@@ -19,9 +19,10 @@
   <label>
     Gender:
     <ngx-multiselect
-    formControlName="selectedGender"
-    [options]="genders"
-    ngDefaultControl>
+      formControlName="selectedGender"
+      [options]="genders"
+      [multiple]="false"
+      ngDefaultControl>
     </ngx-multiselect>
   </label>
   <br>

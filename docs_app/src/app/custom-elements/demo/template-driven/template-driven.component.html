@@ -3,6 +3,7 @@
   <ngx-multiselect required
     #name="ngModel"
     name="country"
+    [multiple]="false"
     [(ngModel)]="selectedOptions" [options]="options">
   </ngx-multiselect>
 </form>

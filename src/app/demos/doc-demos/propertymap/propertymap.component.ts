@@ -9,8 +9,8 @@ export class PropertyMapComponent implements OnInit {
   options;
   control: FormControl;
   propertyMap = {
-    teamId : "id",
-    teamName : "name"
+    "id" : "teamId",
+    "name" : "teamName"
   }
 
   constructor() {}
@@ -40,9 +40,6 @@ export class PropertyMapComponent implements OnInit {
       "teamId": 5,
       "teamName": "FC Barcelona"
     }];
-    this.control = new FormControl({
-      "teamId": 1,
-      "teamName": "Manchester United"
-    })
+    this.control = new FormControl()
   }
 }

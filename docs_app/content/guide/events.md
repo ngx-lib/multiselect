@@ -2,6 +2,10 @@
 # Events
 Various events are emitted when user interacts with multiselect dropdown. We have categorized them into 3 types, namely General, Filtering and Grouping.
 
+## Events Demo:
+
+<ms-events></ms-events>
+
 ## General Dropdown Events
 
 1. `onOpen` - This event is triggered when the dropdown opens up.
@@ -67,7 +71,3 @@ Various events are emitted when user interacts with multiselect dropdown. We hav
         (onGroupItemClick)="onGroupItemClickFired($event)">
     </ngx-multiselect>
     ```
-
-### Events Demo:
-
-<ms-events></ms-events>
