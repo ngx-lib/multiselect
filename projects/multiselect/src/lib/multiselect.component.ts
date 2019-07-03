@@ -173,7 +173,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   prepopulateOptions(selected: any) {
     let selectedIds = [];
     selectedIds = this._multiple ? 
-      (selected || []).map(i => i.id):
+    (selected ? (selected.length ? selected : [selected]) : []).map(i => i.id):
       selected ? [selected.id]: [];
     this.setOptions(
       this.getOptions()
@@ -192,7 +192,9 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     option.ticked = !option.ticked;
     // TODO: Refactor below logic
     if (this._multiple) {
-      selectedOptions = [...this._selectedOptions];
+      selectedOptions = this._selectedOptions
+                ? (this._selectedOptions.length ? [...this._selectedOptions] : [this._selectedOptions])
+                : [];
       let selectedIds = selectedOptions.map(i => i.id);
       if (selectedIds.indexOf(option.id) === -1) {
         // if selected item not exist in collection, push it
