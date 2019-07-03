@@ -15,8 +15,14 @@ etc.
 
 None
 
-# 1.0.0 (2019-30-06)
+# 1.0.2 (2019-30-06)
 
 ## Breaking Changes
 
-- Changed `multiple` binding default value to `true`
+- Changed `multiple` binding default value to `true` - #92
+
+# 1.0.3 (2019-1-06)
+
+## Bugfix
+
+- Fixed broken selection for multiselect when no option is selected - #94

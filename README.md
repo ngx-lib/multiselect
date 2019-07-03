@@ -4,13 +4,13 @@
 
 This project focuses on serving an intuitive select control. This look and feel of the component has been inspired by AngularJS [isteven-multiselect](http://isteven.github.io/angular-multi-select) directive, but from coding perspective, this may not be architectured in the similar way. 
 It supports ultimate features like
-🖱️Virtual scroll
-📃Forms
-🎨Theming (bootstrap/material)
-👀Observable
-🅰️@angular 6+
-👨‍👧‍👧Grouping
-etc.
+- 🖱️Virtual scroll
+- 📃Forms
+- 🎨Theming (bootstrap/material)
+- 👀Observable
+- 🅰️@angular 6+
+- 👨‍👧‍👧Grouping
+- etc...
 
 [visit docs](https://ngx-lib.github.io/multiselect/)
 
@@ -71,10 +71,10 @@ It's super easy to get started with Angular multiselect dropdown. Only three ste
                 { id: 4, name: "Japan" }
             ];
 
-            this.selectedCountry = {
+            this.selectedCountry = [{
                 id: 1,
                 name: "India"
-            };
+            }];
         }
     }
     ```
