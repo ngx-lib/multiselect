@@ -37,7 +37,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   }
 
   // private variables
-  private _multiple = true;
+  private _multiple;
   private _theme: string = 'material';
   private _optionsCopy; //TODO: in future this will be master list
   private _isOpen: boolean = false;
@@ -93,7 +93,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     return this._multiple;
   }
   set multiple(value: boolean) {
-    if (value) this.viewToModel([]);
+    this.viewToModel(value ? []: null);
     this._multiple = value;
   }
 
@@ -294,5 +294,12 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
 
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
+  }
+
+  ngOnInit () {
+    // Check if value have not been assigned then default to true
+    if (typeof this._multiple === 'undefined') {
+      this.multiple = true;
+    }
   }
 }
