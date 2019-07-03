@@ -71,10 +71,10 @@ It's super easy to get started with Angular multiselect dropdown. Only three ste
                 { id: 4, name: "Japan" }
             ];
 
-            this.selectedCountry = {
+            this.selectedCountry = [{
                 id: 1,
                 name: "India"
-            };
+            }];
         }
     }
     ```
