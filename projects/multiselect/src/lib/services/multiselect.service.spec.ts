@@ -13,14 +13,44 @@ describe('MultiselectService', () => {
     [NgxMultiselectService],
     (service: NgxMultiselectService) => {
       // arrange
+      const div = document.createElement('div')
+      div.classList.add('grand-parent');
+      div.innerHTML = `<div class="parent">
+        <div class="child">
+          <div class="grand-child">Some Text</div>
+        </div>
+      </div>`
+
       // act
+      const grandChild = div.querySelector('.grand-child');
+      const closest = service.closest(grandChild, '.grand-parent');
+
       // assert
-      expect(true).toBeTruthy();
+      expect(closest).toBeTruthy();
+    }
+  ));
+
+  it('should be mirror the object', inject(
+    [NgxMultiselectService],
+    (service: NgxMultiselectService) => {
+      // arrange
+      const obj = {id: 'Team', name: 'TeamName'};
+      const keys = Object.keys(obj);
+      const values = Object.values(obj);
+
+      // act
+      const reverse = service.mirrorObject(obj);
+
+      // assert
+      expect(reverse[values[0]]).toBeDefined();
+      expect(reverse[values[0]]).toBe(keys[0]);
+      expect(reverse[values[1]]).toBeDefined();
+      expect(reverse[values[1]]).toBe(keys[1]);
     }
   ));
 
   describe('optionsGrouping', () => {
-    it('should group by passed group property', () => {
+    it('should group by pass group property', () => {
       // arrange
       // act
       // assert

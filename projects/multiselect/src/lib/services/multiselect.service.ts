@@ -111,7 +111,7 @@ export class NgxMultiselectService {
     return result;
   }
 
-  swap(json) {
+  mirrorObject(json) {
     const ret = {};
     for (var key in json) {
       ret[json[key]] = key;

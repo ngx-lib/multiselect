@@ -67,7 +67,7 @@ export abstract class NgxMultiselectBaseComponent implements ControlValueAccesso
     let options = value;
     // TODO: can we improve below logic?
     if (Object.keys(this._defaultPropertyMap).length == this._defaultPropertyMapLength) return;
-    const swappedPropertyMap: any = this.multiselectService.swap(this._defaultPropertyMap);
+    const swappedPropertyMap: any = this.multiselectService.mirrorObject(this._defaultPropertyMap);
     if (this.multiple) {
       options.forEach(o => {
         o.id = o[swappedPropertyMap.id];
