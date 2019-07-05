@@ -55,12 +55,12 @@ export class NgxMultiselectService {
     return allDescendants;
   }
 
-  allDescendantsAreTicked(collection, groupProperty, groupName) {
+  private allDescendantsAreTicked(collection, groupProperty, groupName) {
     const allDescendants = this.collectAllDescendants(collection, groupProperty, groupName);
     const allAreTicked = allDescendants.every(d => d.ticked);
     return allAreTicked;
   }
-  allDescendantsAreDisabled(collection, groupProperty, groupName) {
+  private allDescendantsAreDisabled(collection, groupProperty, groupName) {
     const allDescendants = this.collectAllDescendants(collection, groupProperty, groupName);
     const allAreDisabled = allDescendants.every(d => d.disabled);
     return allAreDisabled;
