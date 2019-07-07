@@ -14,11 +14,15 @@ describe('VirtualScrollDirective', () => {
     const directive = new VirtualScrollDirective(<ElementRef>{}, <Renderer2>{});
     expect(directive).toBeTruthy();
   });
+  it('should determine maximum items range', () => {
+    const directive = new VirtualScrollDirective(<ElementRef>{}, <Renderer2>{});
+    expect(directive).toBeTruthy();
+  });
   it('should scroll and show next items of the list', () => {
     const directive = new VirtualScrollDirective(<ElementRef>{}, <Renderer2>{});
     expect(directive).toBeTruthy();
   });
-  it('should show only elements which are present in scrolling div', () => {
+  it('should manage top and bottom div propotionally in case of scroll', () => {
     const directive = new VirtualScrollDirective(<ElementRef>{}, <Renderer2>{});
     expect(directive).toBeTruthy();
   });
