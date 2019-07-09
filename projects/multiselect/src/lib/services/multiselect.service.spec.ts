@@ -58,6 +58,18 @@ describe('MultiselectService', () => {
     }
   ));
 
+  it('should not return closest element', inject(
+    [NgxMultiselectService],
+    (service: NgxMultiselectService) => {
+      // arrange
+      // act
+      const closest = service.closest(null, '.grand-parent');
+
+      // assert
+      expect(closest).toBeFalsy();
+    }
+  ));
+
   it('should be mirror the object', inject(
     [NgxMultiselectService],
     (service: NgxMultiselectService) => {
