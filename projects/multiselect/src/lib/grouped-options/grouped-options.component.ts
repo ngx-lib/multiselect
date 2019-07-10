@@ -47,6 +47,7 @@ export class GroupedOptionsComponent implements OnInit {
 
   constructor(public multiselectService: NgxMultiselectService) {}
 
+  // TODO: Refactor below logic
   formGroupOptions(collection, selectedOptions) {
     let selectedIds = this.multiple ? 
       (selectedOptions || []).map(s => s.id) : 

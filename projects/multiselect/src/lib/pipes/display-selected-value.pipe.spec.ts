@@ -66,4 +66,11 @@ describe('DisplaySelectedValuePipe', () => {
     expect(result.split(',').length).toBeTruthy(4);
     expect(result.indexOf('...')).toBeGreaterThan(-1);
   });
+  it('should return blank string in case of no value is selected', () => {
+    // arrange
+    // act
+    const result = pipe.transform([], 4);
+    // assert
+    expect('').toBe('');
+  });
 });

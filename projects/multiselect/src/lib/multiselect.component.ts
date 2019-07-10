@@ -107,6 +107,8 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     );
     const options = this.getOptionsCopy();
     this.setOptions(options);
+    // Sometimes binding can happens lazily, 
+    // so `finishPendingOperations` helps to execute such operations
     if (this.isOperationPending()) this.finishPendingOperations();
   }
 
@@ -135,6 +137,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   getOptionsCopy() {
     return this._optionsCopy ? [...this._optionsCopy] : [];
   }
+
   filterOptionsList = (val: string) => {
     const optionsCopy = this.getOptionsCopy();
     let result = optionsCopy;
@@ -282,7 +285,6 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   }
 
   clear(event){
-    this._selectedOptions.ticked = !this._selectedOptions.ticked;
     let changedOptions = this.getOptions().map(o => ({...o, ticked: false}));
     this.setOptions(changedOptions);
     // no value is selected so passing null
