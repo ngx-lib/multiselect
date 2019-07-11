@@ -1,65 +1,37 @@
 /* Material CSS start */
 
 :host {
-  width: 100%;
-  display: block;
+  display: flex;
 }
 
 .mat-multiselect :host ::ng-deep .input-search {
-  width: 100%;
-  position: relative;
-  max-height: 35px;
-  overflow: hidden;
-  box-sizing: content-box;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  display: inline-flex;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
 }
 
 .mat-multiselect :host ::ng-deep .input-filter {
   font: inherit;
-  background: 0 0;
-  color: currentColor;
   border: none;
-  outline: 0;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  max-width: 100%;
-  vertical-align: bottom;
-  text-align: inherit;
-  margin-top: -0.0625em;
 }
 
 .mat-multiselect :host ::ng-deep .field-infix {
-  display: block;
-  position: relative;
   padding: 5px 10px;
-  flex: auto;
-  min-width: 0;
   width: 90%;
-  position: relative;
 }
 
 .mat-multiselect :host ::ng-deep .field-suffix {
-  width: 20px;
-  height: 20px;
   white-space: nowrap;
-  flex: none;
-  position: relative;
-  top: 5px;
-  right: 5px;
+  margin: 3px;
 }
 .mat-multiselect :host ::ng-deep .field-suffix button {
-  position: relative;
   padding: 0;
   border: none;
-  font-size: 14px;
+  font-size: inherit;
   width: 20px;
   height: 20px;
   min-width: 20px;
   border-radius: 10px;
-  line-height: 1;
-  font-weight: 500;
 }
 
 /* Material CSS end */
