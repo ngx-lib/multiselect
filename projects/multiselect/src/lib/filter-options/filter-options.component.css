@@ -12,6 +12,7 @@
 
 .mat-multiselect :host ::ng-deep .input-filter {
   font: inherit;
+  outline: none;
   border: none;
 }
 
