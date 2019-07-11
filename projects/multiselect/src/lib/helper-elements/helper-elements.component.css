@@ -2,15 +2,12 @@
 
 .mat-multiselect :host .helper-buttons {
   border-bottom: 1px solid #ddd;
-  padding: 4px;
+  padding: 2px 0;
 }
 
 .mat-multiselect :host .helper-button {
-  display: inline-block;
   font-weight: 400;
   color: #444;
-  text-align: center;
-  vertical-align: middle;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -27,7 +24,7 @@
 }
 
 .mat-multiselect :host .helper-button:not(:last-child) {
-  margin-right: 4px;
+  margin: 0 2px;
 }
 
 /* Material CSS end */
