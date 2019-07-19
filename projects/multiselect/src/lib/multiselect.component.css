@@ -5,7 +5,7 @@
 
 /* Material multiselect theme start*/
 
-:host.mat-multiselect ::ng-deep .caret {
+:host.mat-multiselect ::ng-deep .symbols .caret {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 5px solid;
@@ -114,17 +114,17 @@
 :host.mat-multiselect ::ng-deep .open .selection {
   border-bottom: 1px solid blue;
 }
-:host.mat-multiselect ::ng-deep .close {
-  float: right;
-  right: 10px;
-  position: relative;
+:host.mat-multiselect ::ng-deep .symbols {
+  justify-content: flex-end;
+  display: flex;
+  align-items: center;
 }
 
 /* Material multiselect theme end*/
 
 /* Bootstrap multiselect theme start */
 
-:host.bs-multiselect ::ng-deep .caret {
+:host.bs-multiselect ::ng-deep .symbols .caret {
   right: 0;
   position: absolute;
   margin-right: 5px;
@@ -236,7 +236,7 @@
   cursor: not-allowed !important;
 }
 
-:host.bs-multiselect ::ng-deep .close {
+:host.bs-multiselect ::ng-deep .symbols .close {
   float: right;
   right: 10px;
   position: relative;
