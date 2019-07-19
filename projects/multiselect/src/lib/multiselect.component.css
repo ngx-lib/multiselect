@@ -3,28 +3,43 @@
   outline: none;
 }
 
-/* Material multiselect theme start*/
+.multiselect-wrapper {
+  width: 240px;
+  display: flex;
+  flex-grow: 1;
+}
 
-:host.mat-multiselect ::ng-deep .symbols .caret {
+.selection {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.symbols {
+  justify-content: flex-end;
+  display: flex;
+  align-items: center;
+}
+
+.symbols .caret {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 5px solid;
 }
 
-:host.mat-multiselect ::ng-deep .multiselect-wrapper {
-  width: 240px;
-}
+/* Material multiselect theme start*/
 
 :host.mat-multiselect ::ng-deep .dropdown-button {
   display: flex;
   text-align: left;
-  width: 100%;
+  flex-grow: 1;
   position: relative;
   cursor: pointer;
   border: none;
   padding: 5px;
   font-size: inherit;
-  min-height: 38px!important;
+  min-height: 39px;
   border-radius: 4px;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -103,57 +118,30 @@
 
 :host.mat-multiselect ::ng-deep .selection {
   color: #000;
-  display: flex;
   padding-bottom: 10px;
   border-bottom: 1px solid #000;
-  flex-grow: 1;
-  justify-content: space-between;
-  align-items: center;
 }
 
 :host.mat-multiselect ::ng-deep .open .selection {
   border-bottom: 1px solid blue;
-}
-:host.mat-multiselect ::ng-deep .symbols {
-  justify-content: flex-end;
-  display: flex;
-  align-items: center;
 }
 
 /* Material multiselect theme end*/
 
 /* Bootstrap multiselect theme start */
 
-:host.bs-multiselect ::ng-deep .symbols .caret {
-  right: 0;
-  position: absolute;
-  margin-right: 5px;
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid;
-  top: 16px;
-}
-
 :host.bs-multiselect ::ng-deep .marked {
   background-color: green;
 }
 
-:host.bs-multiselect ::ng-deep .multiselect-wrapper {
-  width: 240px;
-}
-
 :host.bs-multiselect ::ng-deep .dropdown-button {
-  width: 100%;
-  text-align: left;
-  display: inline-block;
-  position: relative;
+  display: flex;
   cursor: pointer;
   border: 1px solid #c6c6c6;
   padding: 5px;
-  font-size: 14px;
-  min-height: 38px !important;
+  flex-grow: 1;
+  font-size: inherit;
+  min-height: 39px;
   border-radius: 4px;
   color: #555;
   -webkit-user-select: none;
@@ -163,7 +151,7 @@
   user-select: none;
   white-space: normal;
   background-color: #fff;
-  background-image: linear-gradient(#fff, #f7f7f7);
+  background-image: linear-gradient(#fff,#f7f7f7);
 }
 
 :host.bs-multiselect ::ng-deep .listing-wrapper {
@@ -234,10 +222,4 @@
   color: #c4c4c4 !important;
   pointer-events: none;
   cursor: not-allowed !important;
-}
-
-:host.bs-multiselect ::ng-deep .symbols .close {
-  float: right;
-  right: 10px;
-  position: relative;
 }
