@@ -8,6 +8,8 @@
   display: flex;
   flex-grow: 1;
   align-items: center;
+  max-height: 35px;
+  border-bottom: 1px solid rgba(0,0,0,.12);
 }
 
 .mat-multiselect :host ::ng-deep .input-filter {
