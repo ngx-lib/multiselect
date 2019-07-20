@@ -28,19 +28,14 @@
   border-top: 5px solid;
 }
 
-/* Material multiselect theme start*/
-
-:host.mat-multiselect ::ng-deep .dropdown-button {
+.dropdown-button {
   display: flex;
-  text-align: left;
   flex-grow: 1;
-  position: relative;
   cursor: pointer;
   border: none;
   padding: 5px;
   font-size: inherit;
   min-height: 39px;
-  border-radius: 4px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -50,7 +45,7 @@
   background-color: #fff;
 }
 
-:host.mat-multiselect ::ng-deep .listing-wrapper {
+.listing-wrapper {
   width: inherit;
   background-color: #fff;
   position: absolute;
@@ -60,6 +55,8 @@
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
 }
+
+/* Material multiselect theme start*/
 
 :host.mat-multiselect ::ng-deep .options-container {
   height: 200px;
@@ -135,34 +132,10 @@
 }
 
 :host.bs-multiselect ::ng-deep .dropdown-button {
-  display: flex;
-  cursor: pointer;
   border: 1px solid #c6c6c6;
-  padding: 5px;
-  flex-grow: 1;
-  font-size: inherit;
-  min-height: 39px;
   border-radius: 4px;
   color: #555;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-  white-space: normal;
-  background-color: #fff;
   background-image: linear-gradient(#fff,#f7f7f7);
-}
-
-:host.bs-multiselect ::ng-deep .listing-wrapper {
-  width: inherit;
-  background-color: #fff;
-  position: absolute;
-  z-index: 999;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
 }
 
 :host.bs-multiselect ::ng-deep .options-container {
