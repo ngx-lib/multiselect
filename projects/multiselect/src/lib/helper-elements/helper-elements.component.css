@@ -41,6 +41,7 @@ fieldset {
   box-sizing: border-box;
   cursor: pointer;
   outline: 0;
+  padding: .25em;
   -webkit-tap-highlight-color: transparent;
 }
 
