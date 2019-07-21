@@ -1,9 +1,5 @@
 /* Material CSS start */
 
-:host {
-  display: flex;
-}
-
 .mat-multiselect :host ::ng-deep .input-search {
   display: flex;
   flex-grow: 1;
@@ -19,8 +15,8 @@
 }
 
 .mat-multiselect :host ::ng-deep .field-infix {
-  padding: 5px 10px;
-  width: 90%;
+  padding: 5px;
+  flex: 1;
 }
 
 .mat-multiselect :host ::ng-deep .field-suffix {
@@ -48,21 +44,22 @@
   border-radius: 50%;
   border: none;
   cursor: pointer;
+  background-color: #f1f1f1;
 }
 
 .bs-multiselect :host ::ng-deep .input-search {
   display: flex;
-  padding: 2px 0px 4px 0px;
+  flex: 1;
   max-height: 30px;
-  overflow: hidden;
   box-sizing: content-box;
+  padding: 2px;
 }
 
 .bs-multiselect :host ::ng-deep .input-filter {
   border-radius: 2px;
   height: 30px;
-  font-size: 14px;
   width: 100%;
+  font-size: inherit;
   padding-left: 7px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -87,32 +84,20 @@
 
 .bs-multiselect :host ::ng-deep .field-infix {
   display: flex;
-  padding: 2px; 
-  flex: 18;
+  flex-grow: 1;
 }
 
 .bs-multiselect :host ::ng-deep .field-suffix {
-  flex: 2;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
 }
 .bs-multiselect :host ::ng-deep .field-suffix button {
   border: none;
   padding: 0;
-  font-size: 20px;
-  min-width: 25px;
-  line-height: 1.1;
+  font-size: inherit;
 }
 
 /* Boostrap CSS end */
 
 /* Common */
-
-.mat-multiselect :host ::ng-deep button[disabled],
-.mat-multiselect :host ::ng-deep button:disabled,
-.bs-multiselect :host ::ng-deep button[disabled],
-.bs-multiselect :host ::ng-deep button:disabled {
-  background: whitesmoke;
-  color: #dad4d4;
-}

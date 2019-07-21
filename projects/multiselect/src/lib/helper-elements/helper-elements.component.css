@@ -2,7 +2,7 @@
 
 .mat-multiselect :host .helper-buttons {
   border-bottom: 1px solid #ddd;
-  padding: 2px 0;
+  padding: 2px;
 }
 
 .mat-multiselect :host .helper-button {
@@ -33,7 +33,7 @@
 
 .bs-multiselect :host .helper-buttons {
   border-bottom: 1px solid #ddd;
-  padding: 4px 4px 4px;
+  padding: 4px;
 }
 
 .bs-multiselect :host .helper-button {
