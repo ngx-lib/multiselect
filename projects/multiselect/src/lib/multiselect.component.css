@@ -91,14 +91,6 @@
   content: '✓';
 }
 
-:host.mat-multiselect ::ng-deep .option.disabled,
-:host.mat-multiselect ::ng-deep .option.disabled:hover:not(.message),
-:host.mat-multiselect ::ng-deep .option.disabled label input:hover ~ span {
-  color: #c4c4c4 !important;
-  pointer-events: none;
-  cursor: not-allowed !important;
-}
-
 :host.mat-multiselect ::ng-deep .none-selected {
   color: #7a7a7a;
   -webkit-text-fill-color: #7a7a7a;
@@ -166,6 +158,11 @@
   width: 15px;
 }
 
+
+::ng-deep fieldset .option,
+:host.mat-multiselect ::ng-deep .option.disabled,
+:host.mat-multiselect ::ng-deep .option.disabled:hover:not(.message),
+:host.mat-multiselect ::ng-deep .option.disabled label input:hover ~ span,
 :host.bs-multiselect ::ng-deep .option.disabled,
 :host.bs-multiselect ::ng-deep .option.disabled:hover,
 :host.bs-multiselect ::ng-deep .option.disabled label input:hover ~ span {
