@@ -5,14 +5,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgxMultiselectModule } from '@ngx-lib/multiselect';
 
 @NgModule({
-  imports: [ 
-    CommonModule,
-    NgxMultiselectModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  declarations: [ EventsDemoComponent ],
-  entryComponents: [ EventsDemoComponent ]
+  imports: [CommonModule, NgxMultiselectModule, FormsModule, ReactiveFormsModule],
+  declarations: [EventsDemoComponent],
+  entryComponents: [EventsDemoComponent]
 })
-export class EventsDemoModule {
-}
+export class EventsDemoModule {}

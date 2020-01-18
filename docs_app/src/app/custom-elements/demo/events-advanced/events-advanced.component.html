@@ -1,20 +1,14 @@
-<p>Select Country: </p>
+<p>Select Country:</p>
 <ngx-multiselect
   ngDefaultControl
   [multiple]="false"
   [options]="countries"
   [(ngModel)]="country"
   (onItemClick)="onCountrySelection($event)"
-  (onClear)="onCountryClear()">
+  (onClear)="onCountryClear()"
+>
 </ngx-multiselect>
 
-<p>Select State: </p>
-<ngx-multiselect
-  ngDefaultControl
-  [multiple]="false"
-  [(ngModel)]="state"
-  [options]="statesForSelectedCountry">
+<p>Select State:</p>
+<ngx-multiselect ngDefaultControl [multiple]="false" [(ngModel)]="state" [options]="statesForSelectedCountry">
 </ngx-multiselect>
-
-
-

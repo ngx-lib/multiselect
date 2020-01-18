@@ -9,7 +9,7 @@ import { WithCustomElementComponent } from '../element-registry';
   imports: [CommonModule],
   declarations: [ContributorListComponent, ContributorComponent],
   entryComponents: [ContributorListComponent],
-  providers: [ContributorService],
+  providers: [ContributorService]
 })
 export class ContributorListModule implements WithCustomElementComponent {
   customElementComponent: Type<any> = ContributorListComponent;

@@ -22,9 +22,7 @@ export class FilterOptionsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.filterName = new FormControl('');
-    this.filterNameSubscription = this.filterName.valueChanges.subscribe(
-      val => this.onSearchChange.emit(val)
-    );
+    this.filterNameSubscription = this.filterName.valueChanges.subscribe(val => this.onSearchChange.emit(val));
   }
 
   ngOnDestroy() {

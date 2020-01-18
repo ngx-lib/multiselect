@@ -8,8 +8,6 @@ export class OperatorDecisionTreeDataService {
   constructor(private http: HttpClient) {}
 
   getDecisionTree$(): Observable<OperatorDecisionTree> {
-    return this.http.get<OperatorDecisionTree>(
-      '/generated/docs/app/decision-tree-data.json'
-    );
+    return this.http.get<OperatorDecisionTree>('/generated/docs/app/decision-tree-data.json');
   }
 }

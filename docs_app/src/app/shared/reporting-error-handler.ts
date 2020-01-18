@@ -8,7 +8,6 @@ import { WindowToken } from './window';
  */
 @Injectable()
 export class ReportingErrorHandler extends ErrorHandler {
-
   constructor(@Inject(WindowToken) private window: Window) {
     super();
   }
@@ -18,7 +17,6 @@ export class ReportingErrorHandler extends ErrorHandler {
    * @param error Information about the error.
    */
   handleError(error: string | Error) {
-
     try {
       super.handleError(error);
     } catch (e) {

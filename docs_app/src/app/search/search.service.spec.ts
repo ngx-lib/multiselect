@@ -5,7 +5,6 @@ import { SearchService } from './search.service';
 import { WebWorkerClient } from 'app/shared/web-worker';
 
 describe('SearchService', () => {
-
   let injector: ReflectiveInjector;
   let service: SearchService;
   let sendMessageSpy: jasmine.Spy;
@@ -17,8 +16,8 @@ describe('SearchService', () => {
     spyOn(WebWorkerClient, 'create').and.returnValue(mockWorker);
 
     injector = ReflectiveInjector.resolveAndCreate([
-        SearchService,
-        { provide: NgZone, useFactory: () => new NgZone({ enableLongStackTrace: false }) }
+      SearchService,
+      { provide: NgZone, useFactory: () => new NgZone({ enableLongStackTrace: false }) }
     ]);
     service = injector.get(SearchService);
   });
@@ -57,7 +56,7 @@ describe('SearchService', () => {
       const mockSearchResults = { results: ['a', 'b'] };
       let actualSearchResults: any;
       (mockWorker.sendMessage as jasmine.Spy).and.returnValue(of(mockSearchResults));
-      service.search('some query').subscribe(results => actualSearchResults = results);
+      service.search('some query').subscribe(results => (actualSearchResults = results));
       expect(actualSearchResults).toEqual(mockSearchResults);
     });
   });

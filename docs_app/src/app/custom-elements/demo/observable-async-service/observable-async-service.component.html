@@ -1,6 +1,4 @@
 <p>Select your favourite teams from the following:</p>
-<ngx-multiselect
-  ngDefaultControl
-  [(ngModel)]="selectedOptions"
-  [options]="options | async">
-</ngx-multiselect>
+<fieldset disabled>
+  <ngx-multiselect ngDefaultControl [(ngModel)]="selectedOptions" [options]="options | async"> </ngx-multiselect>
+</fieldset>

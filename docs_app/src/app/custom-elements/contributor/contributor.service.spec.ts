@@ -6,7 +6,6 @@ import { ContributorService } from './contributor.service';
 import { ContributorGroup } from './contributors.model';
 
 describe('ContributorService', () => {
-
   let injector: Injector;
   let contribService: ContributorService;
   let httpMock: HttpTestingController;
@@ -14,9 +13,7 @@ describe('ContributorService', () => {
   beforeEach(() => {
     injector = TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [
-        ContributorService
-      ]
+      providers: [ContributorService]
     });
 
     contribService = injector.get(ContributorService);
@@ -31,19 +28,18 @@ describe('ContributorService', () => {
   });
 
   describe('#contributors', () => {
-
     let contribs: ContributorGroup[];
     let testData: any;
 
     beforeEach(() => {
       testData = getTestContribs();
       httpMock.expectOne({}).flush(testData);
-      contribService.contributors.subscribe(results => contribs = results);
+      contribService.contributors.subscribe(results => (contribs = results));
     });
 
     it('contributors observable should complete', () => {
       let completed = false;
-      contribService.contributors.subscribe(undefined, undefined, () => completed = true);
+      contribService.contributors.subscribe(undefined, undefined, () => (completed = true));
       expect(completed).toBe(true, 'observable completed');
     });
 
@@ -110,8 +106,8 @@ function getTestContribs() {
       picture: 'naomi.jpg',
       twitter: 'naomitraveller',
       website: 'http://google.com/+NaomiBlack',
-      bio: 'Naomi is Angular\'s TPM generalist and jack-of-all-trades.',
+      bio: "Naomi is Angular's TPM generalist and jack-of-all-trades.",
       group: 'Angular'
     }
- };
+  };
 }

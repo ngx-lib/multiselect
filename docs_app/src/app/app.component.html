@@ -10,7 +10,8 @@
       notificationId="angular-v6-announcement"
       expirationDate="2018-07-01"
       [dismissOnContentClick]="true"
-      (dismissed)="notificationDismissed()">
+      (dismissed)="notificationDismissed()"
+    >
       <a href="https://blog.angular.io/version-6-0-0-of-angular-now-available-cc56b0efa7a4">
         <mat-icon class="icon" svgIcon="insert_comment" aria-label="Announcement"></mat-icon>
         <span class="message">Version 6 of Angular Now Available!</span>
@@ -24,26 +25,58 @@
     </button>
     <a class="nav-link home" href="/" [ngSwitch]="isSideBySide">
       <ng-container *ngSwitchCase="true">
-        <img src="assets/images/favicons/angular.png" width="40" height="40" title="ngx-multiselect" alt="ngx-multiselect" />
+        <img
+          src="assets/images/favicons/angular.png"
+          width="40"
+          height="40"
+          title="ngx-multiselect"
+          alt="ngx-multiselect"
+        />
         <strong>ngx-multiselect</strong>
       </ng-container>
       <strong *ngSwitchDefault>ngx-lib</strong>
     </a>
     <aio-top-menu *ngIf="isSideBySide" [nodes]="topMenuNodes"></aio-top-menu>
-    <aio-search-box class="search-container" #searchBox (onSearch)="doSearch($event)" (onFocus)="doSearch($event)"></aio-search-box>
+    <aio-search-box
+      class="search-container"
+      #searchBox
+      (onSearch)="doSearch($event)"
+      (onFocus)="doSearch($event)"
+    ></aio-search-box>
     <div class="toolbar-external-icons-container">
       <a href="https://github.com/ngx-lib/multiselect" title="GitHub" target="_blank">
-        <img src="assets/images/logos/github-icon.svg" alt="View on GitHub"></a>
+        <img src="assets/images/logos/github-icon.svg" alt="View on GitHub"
+      /></a>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
 
-<aio-search-results #searchResultsView *ngIf="showSearchResults" [searchResults]="searchResults | async" (resultSelected)="hideSearchResults()"></aio-search-results>
+<aio-search-results
+  #searchResultsView
+  *ngIf="showSearchResults"
+  [searchResults]="searchResults | async"
+  (resultSelected)="hideSearchResults()"
+></aio-search-results>
 
-<mat-sidenav-container class="sidenav-container" [class.starting]="isStarting" [class.has-floating-toc]="hasFloatingToc">
-
-  <mat-sidenav [ngClass]="{'collapsed': !isSideBySide}" #sidenav class="sidenav" [mode]="mode" [opened]="isOpened" (openedChange)="updateHostClasses()">
-    <aio-nav-menu *ngIf="!isSideBySide" [nodes]="topMenuNarrowNodes" [currentNode]="currentNodes?.TopBarNarrow" [isWide]="false"></aio-nav-menu>
+<mat-sidenav-container
+  class="sidenav-container"
+  [class.starting]="isStarting"
+  [class.has-floating-toc]="hasFloatingToc"
+>
+  <mat-sidenav
+    [ngClass]="{ collapsed: !isSideBySide }"
+    #sidenav
+    class="sidenav"
+    [mode]="mode"
+    [opened]="isOpened"
+    (openedChange)="updateHostClasses()"
+  >
+    <aio-nav-menu
+      *ngIf="!isSideBySide"
+      [nodes]="topMenuNarrowNodes"
+      [currentNode]="currentNodes?.TopBarNarrow"
+      [isWide]="false"
+    ></aio-nav-menu>
     <aio-nav-menu [nodes]="sideNavNodes" [currentNode]="currentNodes?.SideNav" [isWide]="isSideBySide"></aio-nav-menu>
 
     <!-- <div class="doc-version">
@@ -53,23 +86,28 @@
 
   <section class="sidenav-content" [id]="pageId" role="main">
     <aio-mode-banner [mode]="deployment.mode" [version]="versionInfo"></aio-mode-banner>
-    <aio-doc-viewer [class.no-animations]="isStarting"
-        [doc]="currentDocument"
-        (docReady)="onDocReady()"
-        (docRemoved)="onDocRemoved()"
-        (docInserted)="onDocInserted()"
-        (docRendered)="onDocRendered()">
+    <aio-doc-viewer
+      [class.no-animations]="isStarting"
+      [doc]="currentDocument"
+      (docReady)="onDocReady()"
+      (docRemoved)="onDocRemoved()"
+      (docInserted)="onDocInserted()"
+      (docRendered)="onDocRendered()"
+    >
     </aio-doc-viewer>
     <aio-dt [on]="dtOn" [(doc)]="currentDocument"></aio-dt>
   </section>
-
 </mat-sidenav-container>
 
-<div *ngIf="hasFloatingToc" class="toc-container no-print" [style.max-height.px]="tocMaxHeight" (mousewheel)="restrainScrolling($event)">
+<div
+  *ngIf="hasFloatingToc"
+  class="toc-container no-print"
+  [style.max-height.px]="tocMaxHeight"
+  (mousewheel)="restrainScrolling($event)"
+>
   <aio-lazy-ce selector="aio-toc"></aio-lazy-ce>
 </div>
 
 <footer class="no-print">
-  <aio-footer [nodes]="footerNodes" [versionInfo]="versionInfo" ></aio-footer>
+  <aio-footer [nodes]="footerNodes" [versionInfo]="versionInfo"></aio-footer>
 </footer>
-

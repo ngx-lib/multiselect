@@ -32,7 +32,11 @@ export const DEFAULT_VALUE_ACCESSOR: any = {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
-  constructor(protected elementRef: ElementRef, protected multiselectService: NgxMultiselectService, private renderer: Renderer2) {
+  constructor(
+    protected elementRef: ElementRef,
+    protected multiselectService: NgxMultiselectService,
+    private renderer: Renderer2
+  ) {
     super(elementRef, multiselectService);
   }
 
@@ -93,7 +97,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     return this._multiple;
   }
   set multiple(value: boolean) {
-    this.viewToModel(value ? []: null);
+    this.viewToModel(value ? [] : null);
     this._multiple = value;
   }
 
@@ -107,7 +111,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     );
     const options = this.getOptionsCopy();
     this.setOptions(options);
-    // Sometimes binding can happens lazily, 
+    // Sometimes binding can happens lazily,
     // so `finishPendingOperations` helps to execute such operations
     if (this.isOperationPending()) this.finishPendingOperations();
   }
@@ -149,9 +153,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   };
 
   isValueSelected() {
-    return this._selectedOptions && this._multiple ? 
-      this._selectedOptions.length :
-      this._selectedOptions;
+    return this._selectedOptions && this._multiple ? this._selectedOptions.length : this._selectedOptions;
   }
 
   searchChange(val: string) {
@@ -175,17 +177,13 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
 
   prepopulateOptions(selected: any) {
     let selectedIds = [];
-    selectedIds = this._multiple ? 
-      (selected || []).map(i => i.id):
-      selected ? [selected.id]: [];
+    selectedIds = this._multiple ? (selected || []).map(i => i.id) : selected ? [selected.id] : [];
     this.setOptions(
-      this.getOptions()
-        .map(o => ({ 
-            ...o, 
-            ticked: selectedIds.indexOf(o.id) !== -1 
-          })
-        )
-      );
+      this.getOptions().map(o => ({
+        ...o,
+        ticked: selectedIds.indexOf(o.id) !== -1
+      }))
+    );
     // TODO: do we really need this reassignment?
     this.viewToModel(selected);
   }
@@ -208,13 +206,10 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     } else {
       // TODO: find optimized way to do below
       let val = option && option.id;
-      let changedOptions = this.getOptions()
-        .map(
-          o => ({ 
-            ...o,
-            ticked: o.id == val 
-          })
-        );
+      let changedOptions = this.getOptions().map(o => ({
+        ...o,
+        ticked: o.id == val
+      }));
       selectedOptions = changedOptions.find(i => i.ticked);
       this.setOptions(changedOptions);
       this.close();
@@ -224,13 +219,10 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   }
 
   selectAll() {
-    let allSelectedOptions = this.getOptions()
-      .map(
-        o => ({
-          ...o,
-          ticked: true
-        })
-      );
+    let allSelectedOptions = this.getOptions().map(o => ({
+      ...o,
+      ticked: true
+    }));
     this.setOptions(allSelectedOptions);
     this.viewToModel(allSelectedOptions);
     this.onSelectAll.emit();
@@ -240,7 +232,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     const options = this.getOptions().map(o => ({
       ...o,
       ticked: false
-    }))
+    }));
     this.setOptions(options);
     this.viewToModel([]);
     this.onSelectNone.emit();
@@ -284,8 +276,8 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     }
   }
 
-  clear(event){
-    let changedOptions = this.getOptions().map(o => ({...o, ticked: false}));
+  clear(event) {
+    let changedOptions = this.getOptions().map(o => ({ ...o, ticked: false }));
     this.setOptions(changedOptions);
     // no value is selected so passing null
     this.viewToModel(null);
@@ -298,7 +290,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     this.disabled = isDisabled;
   }
 
-  ngOnInit () {
+  ngOnInit() {
     // Check if value have not been assigned then default to true
     if (typeof this._multiple === 'undefined') {
       this.multiple = true;

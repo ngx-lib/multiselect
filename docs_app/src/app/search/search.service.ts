@@ -27,18 +27,14 @@ export class SearchService {
    */
   initWorker(workerUrl: string, initDelay: number) {
     // Wait for the initDelay or the first search
-    const ready = this.ready = race<any>(
-        timer(initDelay),
-        this.searchesSubject.asObservable().pipe(first()),
-      )
-      .pipe(
-        concatMap(() => {
-          // Create the worker and load the index
-          this.worker = WebWorkerClient.create(workerUrl, this.zone);
-          return this.worker.sendMessage<boolean>('load-index');
-        }),
-        publishReplay(1),
-      );
+    const ready = (this.ready = race<any>(timer(initDelay), this.searchesSubject.asObservable().pipe(first())).pipe(
+      concatMap(() => {
+        // Create the worker and load the index
+        this.worker = WebWorkerClient.create(workerUrl, this.zone);
+        return this.worker.sendMessage<boolean>('load-index');
+      }),
+      publishReplay(1)
+    ));
 
     // Connect to the observable to kick off the timer
     (ready as ConnectableObservable<boolean>).connect();

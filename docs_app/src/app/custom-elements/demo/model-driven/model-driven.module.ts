@@ -6,14 +6,9 @@ import { NgxMultiselectModule } from '@ngx-lib/multiselect';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [ 
-    CommonModule,
-    NgxMultiselectModule,
-    FormsModule,
-    ReactiveFormsModule 
-  ],
-  declarations: [ ModelDrivenComponent ],
-  entryComponents: [ ModelDrivenComponent ]
+  imports: [CommonModule, NgxMultiselectModule, FormsModule, ReactiveFormsModule],
+  declarations: [ModelDrivenComponent],
+  entryComponents: [ModelDrivenComponent]
 })
 export class ModelDrivenModule implements WithCustomElementComponent {
   customElementComponent: Type<any> = ModelDrivenComponent;

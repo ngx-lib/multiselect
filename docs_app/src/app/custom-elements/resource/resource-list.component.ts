@@ -9,29 +9,26 @@ import { ResourceService } from './resource.service';
   templateUrl: 'resource-list.component.html'
 })
 export class ResourceListComponent implements OnInit {
-
   categories: Category[];
   location: string;
   scrollPos = 0;
 
-  constructor(
-    location: PlatformLocation,
-    private resourceService: ResourceService) {
+  constructor(location: PlatformLocation, private resourceService: ResourceService) {
     this.location = location.pathname.replace(/^\/+/, '');
   }
 
-  href(cat: {id: string}) {
+  href(cat: { id: string }) {
     return this.location + '#' + cat.id;
   }
 
   ngOnInit() {
     // Not using async pipe because cats appear twice in template
     // No need to unsubscribe because categories observable completes.
-    this.resourceService.categories.subscribe(cats => this.categories = cats);
+    this.resourceService.categories.subscribe(cats => (this.categories = cats));
   }
 
   @HostListener('window:scroll', ['$event.target'])
   onScroll(target: any) {
-    this.scrollPos = target ? target.scrollTop || target.body.scrollTop ||  0 : 0;
+    this.scrollPos = target ? target.scrollTop || target.body.scrollTop || 0 : 0;
   }
 }

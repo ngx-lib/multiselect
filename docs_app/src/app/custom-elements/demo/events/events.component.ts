@@ -12,26 +12,28 @@ export class EventsDemoComponent implements OnInit {
 
   ngOnInit(): void {
     // Retrieving data for dropdown
-    this.options = [{
-      "id": 1,
-      "name": "Manchester United"
-    },
-    {
-      "id": 2,
-      "name": "Liverpool F.C."
-    },
-    {
-      "id": 3,
-      "name": "Chelsea F.C."
-    },
-    {
-      "id": 4,
-      "name": "Arsenal F.C."
-    },
-    {
-      "id": 5,
-      "name": "FC Barcelona"
-    }];
+    this.options = [
+      {
+        id: 1,
+        name: 'Manchester United'
+      },
+      {
+        id: 2,
+        name: 'Liverpool F.C.'
+      },
+      {
+        id: 3,
+        name: 'Chelsea F.C.'
+      },
+      {
+        id: 4,
+        name: 'Arsenal F.C.'
+      },
+      {
+        id: 5,
+        name: 'FC Barcelona'
+      }
+    ];
   }
 
   onOpenFired() {
@@ -47,7 +49,9 @@ export class EventsDemoComponent implements OnInit {
   }
 
   onGroupItemClickFired($event: any) {
-    this.messages.push(`Ohh, you are a pro. You selected a group '${$event.name}' containing '${$event.values.length}' names`);
+    this.messages.push(
+      `Ohh, you are a pro. You selected a group '${$event.name}' containing '${$event.values.length}' names`
+    );
   }
 
   onSelectAllFired() {

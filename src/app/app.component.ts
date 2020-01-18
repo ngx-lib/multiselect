@@ -24,10 +24,16 @@ export class AppComponent implements OnInit, OnDestroy {
 
   singleSelect: any = { id: 1, name: 'a' };
   propertyMapValue: any = { id: 2, name: 'b' };
-  mutlipleSelect = new FormControl([{ id: 1, name: 'Test 1' }, { id: 2, name: 'Test 2' }]);
+  mutlipleSelect = new FormControl([
+    { id: 1, name: 'Test 1' },
+    { id: 2, name: 'Test 2' }
+  ]);
   groupingSupport = new FormControl([{ id: 1, name: 'Test 1' }]);
   withObservable = new FormControl([{ id: 1, name: 'Test 1' }]);
-  customTemplateSelect: any = new FormControl([{ id: 1, name: 'a' }, { id: 2, name: 'b' }]);
+  customTemplateSelect: any = new FormControl([
+    { id: 1, name: 'a' },
+    { id: 2, name: 'b' }
+  ]);
 
   propertyMap = {
     EmpId: 'id',

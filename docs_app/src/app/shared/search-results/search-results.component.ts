@@ -6,10 +6,9 @@ import { SearchResult, SearchResults, SearchArea } from 'app/search/interfaces';
  */
 @Component({
   selector: 'aio-search-results',
-  templateUrl: './search-results.component.html',
+  templateUrl: './search-results.component.html'
 })
 export class SearchResultsComponent implements OnChanges {
-
   /**
    * The results to display
    */
@@ -46,12 +45,14 @@ export class SearchResultsComponent implements OnChanges {
     this.notFoundMessage = 'No results found.';
     const searchAreaMap: { [key: string]: SearchResult[] } = {};
     search.results.forEach(result => {
-      if (!result.title) { return; } // bad data; should fix
+      if (!result.title) {
+        return;
+      } // bad data; should fix
       const areaName = this.computeAreaName(result) || this.defaultArea;
-      const area = searchAreaMap[areaName] = searchAreaMap[areaName] || [];
+      const area = (searchAreaMap[areaName] = searchAreaMap[areaName] || []);
       area.push(result);
     });
-    const keys = Object.keys(searchAreaMap).sort((l, r) => l > r ? 1 : -1);
+    const keys = Object.keys(searchAreaMap).sort((l, r) => (l > r ? 1 : -1));
     return keys.map(name => {
       let pages: SearchResult[] = searchAreaMap[name];
 

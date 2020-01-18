@@ -6,14 +6,9 @@ import { NgxMultiselectModule } from '@ngx-lib/multiselect';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [ 
-    CommonModule,
-    NgxMultiselectModule,
-    FormsModule,
-    ReactiveFormsModule 
-  ],
-  declarations: [ CustomTemplateComponent ],
-  entryComponents: [ CustomTemplateComponent ]
+  imports: [CommonModule, NgxMultiselectModule, FormsModule, ReactiveFormsModule],
+  declarations: [CustomTemplateComponent],
+  entryComponents: [CustomTemplateComponent]
 })
 export class CustomTemplateModule implements WithCustomElementComponent {
   customElementComponent: Type<any> = CustomTemplateComponent;

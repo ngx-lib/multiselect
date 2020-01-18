@@ -1,8 +1,4 @@
-import {
-  OperatorDecisionTree,
-  OperatorTreeNode,
-  OperatorTreeNodeWithOptions
-} from './interfaces';
+import { OperatorDecisionTree, OperatorTreeNode, OperatorTreeNodeWithOptions } from './interfaces';
 
 export const treeNodeStubWithOptionsA: OperatorTreeNodeWithOptions = {
   id: 'treeNodeStubWithOptionsA',

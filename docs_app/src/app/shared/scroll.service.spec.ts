@@ -22,8 +22,7 @@ describe('ScrollService', () => {
   }
 
   class MockElement {
-    getBoundingClientRect = jasmine.createSpy('Element getBoundingClientRect')
-                                   .and.returnValue({top: 0});
+    getBoundingClientRect = jasmine.createSpy('Element getBoundingClientRect').and.returnValue({ top: 0 });
     scrollIntoView = jasmine.createSpy('Element scrollIntoView');
   }
 
@@ -33,9 +32,9 @@ describe('ScrollService', () => {
 
   beforeEach(() => {
     injector = ReflectiveInjector.resolveAndCreate([
-        ScrollService,
-        { provide: DOCUMENT, useClass: MockDocument },
-        { provide: PlatformLocation, useClass: MockPlatformLocation }
+      ScrollService,
+      { provide: DOCUMENT, useClass: MockDocument },
+      { provide: PlatformLocation, useClass: MockPlatformLocation }
     ]);
     location = injector.get(PlatformLocation);
     document = injector.get(DOCUMENT);
@@ -50,8 +49,8 @@ describe('ScrollService', () => {
       expect(document.querySelector).toHaveBeenCalled();
     });
 
-    it('should be calculated based on the top-bar\'s height + margin', () => {
-      (document.querySelector as jasmine.Spy).and.returnValue({clientHeight: 50});
+    it("should be calculated based on the top-bar's height + margin", () => {
+      (document.querySelector as jasmine.Spy).and.returnValue({ clientHeight: 50 });
       expect(scrollService.topOffset).toBe(50 + topMargin);
     });
 
@@ -63,9 +62,9 @@ describe('ScrollService', () => {
       expect(document.querySelector).not.toHaveBeenCalled();
     });
 
-    it('should retrieve the top-bar\'s height again after resize', () => {
+    it("should retrieve the top-bar's height again after resize", () => {
       let clientHeight = 50;
-      (document.querySelector as jasmine.Spy).and.callFake(() => ({clientHeight}));
+      (document.querySelector as jasmine.Spy).and.callFake(() => ({ clientHeight }));
 
       expect(scrollService.topOffset).toBe(50 + topMargin);
       expect(document.querySelector).toHaveBeenCalled();
@@ -110,8 +109,7 @@ describe('ScrollService', () => {
       location.hash = '';
 
       const topOfPage = new MockElement();
-      document.getElementById.and
-              .callFake((id: string) => id === 'top-of-page' ? topOfPage : null);
+      document.getElementById.and.callFake((id: string) => (id === 'top-of-page' ? topOfPage : null));
 
       scrollService.scroll();
       expect(topOfPage.scrollIntoView).toHaveBeenCalled();
@@ -162,12 +160,12 @@ describe('ScrollService', () => {
       const getBoundingClientRect = element.getBoundingClientRect as jasmine.Spy;
       const topOffset = scrollService.topOffset;
 
-      getBoundingClientRect.and.returnValue({top: topOffset + 100});
+      getBoundingClientRect.and.returnValue({ top: topOffset + 100 });
       scrollService.scrollToElement(element);
       expect(element.scrollIntoView).toHaveBeenCalledTimes(1);
       expect(window.scrollBy).toHaveBeenCalledWith(0, 100);
 
-      getBoundingClientRect.and.returnValue({top: topOffset - 10});
+      getBoundingClientRect.and.returnValue({ top: topOffset - 10 });
       scrollService.scrollToElement(element);
       expect(element.scrollIntoView).toHaveBeenCalledTimes(2);
       expect(window.scrollBy).toHaveBeenCalledWith(0, -10);
@@ -199,15 +197,12 @@ describe('ScrollService', () => {
 
   describe('#scrollToTop', () => {
     it('should scroll to top', () => {
-      const topOfPageElement = <Element><any> new MockElement();
-      document.getElementById.and.callFake(
-        (id: string) => id === 'top-of-page' ? topOfPageElement : null
-      );
+      const topOfPageElement = <Element>(<any>new MockElement());
+      document.getElementById.and.callFake((id: string) => (id === 'top-of-page' ? topOfPageElement : null));
 
       scrollService.scrollToTop();
       expect(topOfPageElement.scrollIntoView).toHaveBeenCalled();
       expect(window.scrollBy).toHaveBeenCalledWith(0, -topMargin);
     });
   });
-
 });

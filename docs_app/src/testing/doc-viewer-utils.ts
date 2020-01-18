@@ -10,7 +10,6 @@ import { TocService } from 'app/shared/toc.service';
 import { MockLogger } from 'testing/logger.service';
 import { ElementsLoader } from 'app/custom-elements/elements-loader';
 
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// `TestDocViewerComponent` (for exposing internal `DocViewerComponent` methods as public).     ///
 /// Only used for type-casting; the actual implementation is irrelevant.                         ///
@@ -20,11 +19,16 @@ export class TestDocViewerComponent extends DocViewerComponent {
   currViewContainer: HTMLElement;
   nextViewContainer: HTMLElement;
 
-  prepareTitleAndToc(targetElem: HTMLElement, docId: string): () => void { return null as any; }
-  render(doc: DocumentContents): Observable<void> { return null as any; }
-  swapViews(onInsertedCb?: () => void): Observable<void> { return null as any; }
+  prepareTitleAndToc(targetElem: HTMLElement, docId: string): () => void {
+    return null as any;
+  }
+  render(doc: DocumentContents): Observable<void> {
+    return null as any;
+  }
+  swapViews(onInsertedCb?: () => void): Observable<void> {
+    return null as any;
+  }
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// `TestModule` and `TestParentComponent`.                                                      ///
@@ -33,10 +37,10 @@ export class TestDocViewerComponent extends DocViewerComponent {
 // Test parent component.
 @Component({
   selector: 'aio-test',
-  template: '<aio-doc-viewer [doc]="currentDoc">Test Component</aio-doc-viewer>',
+  template: '<aio-doc-viewer [doc]="currentDoc">Test Component</aio-doc-viewer>'
 })
 export class TestParentComponent {
-  currentDoc?: DocumentContents|null;
+  currentDoc?: DocumentContents | null;
   @ViewChild(DocViewerComponent, { static: false }) docViewer: DocViewerComponent;
 }
 
@@ -56,25 +60,20 @@ export class MockTocService {
 }
 
 export class MockElementsLoader {
-  loadContainedCustomElements =
-      jasmine.createSpy('MockElementsLoader#loadContainedCustomElements');
+  loadContainedCustomElements = jasmine.createSpy('MockElementsLoader#loadContainedCustomElements');
 }
 
 @NgModule({
-  declarations: [
-    DocViewerComponent,
-    TestParentComponent,
-  ],
+  declarations: [DocViewerComponent, TestParentComponent],
   providers: [
     { provide: Logger, useClass: MockLogger },
     { provide: Title, useClass: MockTitle },
     { provide: Meta, useClass: MockMeta },
     { provide: TocService, useClass: MockTocService },
-    { provide: ElementsLoader, useClass: MockElementsLoader },
-  ],
+    { provide: ElementsLoader, useClass: MockElementsLoader }
+  ]
 })
-export class TestModule { }
-
+export class TestModule {}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// An observable with spies to test subscribing/unsubscribing.                                  ///
@@ -89,5 +88,7 @@ export class ObservableWithSubscriptionSpies<T = void> extends Observable<T> {
     return subscription;
   });
 
-  constructor(subscriber = () => undefined) { super(subscriber); }
+  constructor(subscriber = () => undefined) {
+    super(subscriber);
+  }
 }

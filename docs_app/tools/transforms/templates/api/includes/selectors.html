@@ -2,8 +2,7 @@
 <section class="selectors">
   <h2>Selectors</h2>
   <code-example hideCopy="true" class="no-box api-heading selector">
-  {%- for selector in doc.selector.split(',') %}
-  {$ selector $}{% endfor %}
+    {%- for selector in doc.selector.split(',') %} {$ selector $}{% endfor %}
   </code-example>
 </section>
 {% endif %}

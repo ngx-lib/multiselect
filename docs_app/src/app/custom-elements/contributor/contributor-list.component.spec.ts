@@ -10,7 +10,6 @@ import { LocationService } from 'app/shared/location.service';
 // Testing the component class behaviors, independent of its template
 // Let e2e tests verify how it displays.
 describe('ContributorListComponent', () => {
-
   let component: ContributorListComponent;
   let injector: ReflectiveInjector;
   let contributorService: TestContributorService;
@@ -20,8 +19,8 @@ describe('ContributorListComponent', () => {
   beforeEach(() => {
     injector = ReflectiveInjector.resolveAndCreate([
       ContributorListComponent,
-      {provide: ContributorService, useClass: TestContributorService },
-      {provide: LocationService, useClass: TestLocationService }
+      { provide: ContributorService, useClass: TestContributorService },
+      { provide: LocationService, useClass: TestLocationService }
     ]);
 
     locationService = injector.get(LocationService);
@@ -73,21 +72,22 @@ describe('ContributorListComponent', () => {
   });
 
   //// Test Helpers ////
-  function  getComponent(): ContributorListComponent {
+  function getComponent(): ContributorListComponent {
     const comp = injector.get(ContributorListComponent);
     comp.ngOnInit();
     return comp;
   }
 
-  interface SearchResult { [index: string]: string; };
+  interface SearchResult {
+    [index: string]: string;
+  }
 
   class TestLocationService {
     searchResult: SearchResult = {};
     search = jasmine.createSpy('search').and.callFake(() => this.searchResult);
-    setSearch = jasmine.createSpy('setSearch')
-      .and.callFake((label: string, result: SearchResult) => {
-        this.searchResult = result;
-      });
+    setSearch = jasmine.createSpy('setSearch').and.callFake((label: string, result: SearchResult) => {
+      this.searchResult = result;
+    });
   }
 
   class TestContributorService {
@@ -99,7 +99,7 @@ describe('ContributorListComponent', () => {
     return [
       // Not interested in the contributors data in these tests
       { name: 'Angular', order: 0, contributors: [] },
-      { name: 'GDE', order: 1, contributors: [] },
+      { name: 'GDE', order: 1, contributors: [] }
     ];
   }
 });

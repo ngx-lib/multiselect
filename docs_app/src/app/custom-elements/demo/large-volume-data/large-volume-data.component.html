@@ -1,9 +1,5 @@
 <h2>Load large data set</h2>
 <div>
-  <ngx-multiselect
-    [(ngModel)]="largeDatasetValue"
-    [options]="largeDatasetOptions"
-    ngDefaultControl>
-  </ngx-multiselect>
+  <ngx-multiselect [(ngModel)]="largeDatasetValue" [options]="largeDatasetOptions" ngDefaultControl> </ngx-multiselect>
 </div>
 <b>Selected Values: </b> {{ largeDatasetValue | json }}

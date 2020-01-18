@@ -6,14 +6,9 @@ import { NgxMultiselectModule } from '@ngx-lib/multiselect';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [ 
-    CommonModule,
-    NgxMultiselectModule,
-    FormsModule,
-    ReactiveFormsModule 
-  ],
-  declarations: [ LargeVolumeDataComponent ],
-  entryComponents: [ LargeVolumeDataComponent ]
+  imports: [CommonModule, NgxMultiselectModule, FormsModule, ReactiveFormsModule],
+  declarations: [LargeVolumeDataComponent],
+  entryComponents: [LargeVolumeDataComponent]
 })
 export class LargeVolumeDataModule implements WithCustomElementComponent {
   customElementComponent: Type<any> = LargeVolumeDataComponent;

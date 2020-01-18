@@ -6,7 +6,6 @@ import { FormControl } from '@angular/forms';
   templateUrl: './model-driven.component.html'
 })
 export class ModelDrivenComponent implements OnInit {
-
   options;
   selectedOptions;
 
@@ -14,16 +13,15 @@ export class ModelDrivenComponent implements OnInit {
 
   ngOnInit(): void {
     this.options = [
-      { "id": 1, "name": "Manchester United" },
-      { "id": 2, "name": "Liverpool F.C." },
-      { "id": 3, "name": "Chelsea F.C." },
-      { "id": 4, "name": "Arsenal F.C." }, 
-      { "id": 5, "name": "FC Barcelona" }
+      { id: 1, name: 'Manchester United' },
+      { id: 2, name: 'Liverpool F.C.' },
+      { id: 3, name: 'Chelsea F.C.' },
+      { id: 4, name: 'Arsenal F.C.' },
+      { id: 5, name: 'FC Barcelona' }
     ];
     this.selectedOptions = new FormControl([
-      { "id": 2, "name": "Liverpool F.C." },
-      { "id": 3, "name": "Chelsea F.C." }
+      { id: 2, name: 'Liverpool F.C.' },
+      { id: 3, name: 'Chelsea F.C.' }
     ]);
   }
-
 }

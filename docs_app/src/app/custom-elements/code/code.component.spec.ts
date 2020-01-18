@@ -48,18 +48,19 @@ describe('CodeComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ NoopAnimationsModule, CodeModule ],
-      declarations: [ HostComponent ],
+      imports: [NoopAnimationsModule, CodeModule],
+      declarations: [HostComponent],
       providers: [
         PrettyPrinter,
         CopierService,
         { provide: Logger, useClass: TestLogger },
         {
-          provide: StackblitzService, useValue: {
+          provide: StackblitzService,
+          useValue: {
             openProject() {}
           }
         }
-     ]
+      ]
     }).compileComponents();
   });
 
@@ -129,9 +130,9 @@ describe('CodeComponent', () => {
       hostComponent.linenums = false;
       fixture.detectChanges();
 
-      hostComponent.setCode('  abc\n   let x = text.split(\'\\n\');\n  ghi\n\n  jkl\n');
+      hostComponent.setCode("  abc\n   let x = text.split('\\n');\n  ghi\n\n  jkl\n");
       const codeContent = fixture.nativeElement.querySelector('code').textContent;
-      expect(codeContent).toEqual('abc\n let x = text.split(\'\\n\');\nghi\n\njkl');
+      expect(codeContent).toEqual("abc\n let x = text.split('\\n');\nghi\n\njkl");
     });
 
     it('should trim whitespace from the code before rendering', () => {
@@ -153,7 +154,6 @@ describe('CodeComponent', () => {
   });
 
   describe('error message', () => {
-
     function getErrorMessage() {
       const missing: HTMLElement = fixture.nativeElement.querySelector('.code-missing');
       return missing ? missing.textContent : null;
@@ -192,7 +192,6 @@ describe('CodeComponent', () => {
   });
 
   describe('copy button', () => {
-
     function getButton() {
       const btnDe = fixture.debugElement.query(By.css('button'));
       return btnDe ? btnDe.nativeElement : null;
@@ -236,7 +235,10 @@ describe('CodeComponent', () => {
     it('should preserve newlines in the copied code', () => {
       const copierService: CopierService = TestBed.get(CopierService);
       const spy = spyOn(copierService, 'copyText');
-      const expectedCode = smallMultiLineCode.trim().replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+      const expectedCode = smallMultiLineCode
+        .trim()
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>');
       let actualCode;
 
       hostComponent.setCode(smallMultiLineCode);
@@ -278,7 +280,6 @@ describe('CodeComponent', () => {
   });
 
   describe('edit button', () => {
-
     function getButton() {
       const btnDe = fixture.debugElement.query(By.css('.edit-button'));
       return btnDe ? btnDe.nativeElement : null;
@@ -345,9 +346,14 @@ describe('CodeComponent', () => {
 @Component({
   selector: 'aio-host-comp',
   template: `
-    <aio-code [language]="language"
-    [linenums]="linenums" [path]="path" [region]="region"
-    [hideCopy]="hideCopy" [title]="title"></aio-code>
+    <aio-code
+      [language]="language"
+      [linenums]="linenums"
+      [path]="path"
+      [region]="region"
+      [hideCopy]="hideCopy"
+      [title]="title"
+    ></aio-code>
   `
 })
 class HostComponent implements AfterViewInit {

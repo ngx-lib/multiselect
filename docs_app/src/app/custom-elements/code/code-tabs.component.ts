@@ -3,13 +3,13 @@ import { Component, AfterViewInit, ViewChild, Input, ViewChildren, QueryList, On
 import { CodeComponent } from './code.component';
 
 export interface TabInfo {
-  class: string|null;
+  class: string | null;
   code: string;
-  language: string|null;
+  language: string | null;
   linenums: any;
   path: string;
   region: string;
-  title: string|null;
+  title: string | null;
 }
 
 /**
@@ -31,17 +31,19 @@ export interface TabInfo {
           <ng-template mat-tab-label>
             <span class="{{ tab.class }}">{{ tab.title }}</span>
           </ng-template>
-          <aio-code class="{{ tab.class }}"
-                    [language]="tab.language"
-                    [linenums]="tab.linenums"
-                    [path]="tab.path"
-                    [region]="tab.region"
-                    [title]="tab.title">
+          <aio-code
+            class="{{ tab.class }}"
+            [language]="tab.language"
+            [linenums]="tab.linenums"
+            [path]="tab.path"
+            [region]="tab.region"
+            [title]="tab.title"
+          >
           </aio-code>
         </mat-tab>
       </mat-tab-group>
     </mat-card>
-  `,
+  `
 })
 export class CodeTabsComponent implements OnInit, AfterViewInit {
   tabs: TabInfo[];

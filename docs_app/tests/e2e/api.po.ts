@@ -37,6 +37,6 @@ export class ApiPage extends SitePage {
   }
 
   getBadge(cls) {
-    return element(by.css('.api-status-label.' +  cls));
+    return element(by.css('.api-status-label.' + cls));
   }
 }

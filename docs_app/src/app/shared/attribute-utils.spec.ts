@@ -73,11 +73,9 @@ describe('Attribute Utilities', () => {
       expect(getAttrValue(attrMap, '')).toBeUndefined();
       expect(getAttrValue(attrMap, ['', 'x'])).toBeUndefined();
     });
-
   });
 
   describe('boolFromValue', () => {
-
     it('should return true for "" as in present but unassigned attr "a"', () => {
       expect(boolFromValue('')).toBe(true);
     });
@@ -96,7 +94,6 @@ describe('Attribute Utilities', () => {
     it('should return true for "False" because case-sensitive', () => {
       expect(boolFromValue('False')).toBe(true);
     });
-
 
     it('should return false by default as in undefined attr "x"', () => {
       expect(boolFromValue(undefined)).toBe(false);

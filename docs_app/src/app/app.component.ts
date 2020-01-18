@@ -1,5 +1,13 @@
-import { Component, ElementRef, HostBinding, HostListener, OnInit,
-         QueryList, ViewChild, ViewChildren } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostBinding,
+  HostListener,
+  OnInit,
+  QueryList,
+  ViewChild,
+  ViewChildren
+} from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 
 import { CurrentNodes, NavigationService, NavigationNode, VersionInfo } from 'app/navigation/navigation.service';
@@ -20,10 +28,9 @@ const sideNavView = 'SideNav';
 
 @Component({
   selector: 'aio-shell',
-  templateUrl: './app.component.html',
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-
   currentDocument: DocumentContents;
   currentDocVersion: NavigationNode;
   currentNodes: CurrentNodes = {};
@@ -77,8 +84,12 @@ export class AppComponent implements OnInit {
 
   versionInfo: VersionInfo;
 
-  get isOpened() { return this.isSideBySide && this.isSideNavDoc; }
-  get mode() { return this.isSideBySide ? 'side' : 'over'; }
+  get isOpened() {
+    return this.isSideBySide && this.isSideNavDoc;
+  }
+  get mode() {
+    return this.isSideBySide ? 'side' : 'over';
+  }
 
   // Search related properties
   showSearchResults = false;
@@ -104,7 +115,7 @@ export class AppComponent implements OnInit {
     private scrollService: ScrollService,
     private searchService: SearchService,
     private tocService: TocService
-  ) { }
+  ) {}
 
   ngOnInit() {
     // Do not initialize the search on browsers that lack web worker support
@@ -117,7 +128,7 @@ export class AppComponent implements OnInit {
 
     /* No need to unsubscribe because this root component never dies */
 
-    this.documentService.currentDocument.subscribe(doc => this.currentDocument = doc);
+    this.documentService.currentDocument.subscribe(doc => (this.currentDocument = doc));
 
     this.locationService.currentPath.subscribe(path => {
       // Redirect to docs if we are in archive mode and are not hitting a docs page
@@ -134,11 +145,11 @@ export class AppComponent implements OnInit {
 
         // Start progress bar if doc not rendered within brief time
         clearTimeout(this.isFetchingTimeout);
-        this.isFetchingTimeout = setTimeout(() => this.isFetching = true, 200);
+        this.isFetchingTimeout = setTimeout(() => (this.isFetching = true), 200);
       }
     });
 
-    this.navigationService.currentNodes.subscribe(currentNodes => this.currentNodes = currentNodes);
+    this.navigationService.currentNodes.subscribe(currentNodes => (this.currentNodes = currentNodes));
 
     // // Compute the version picker list from the current version and the versions in the navigation map
     // combineLatest(
@@ -174,20 +185,21 @@ export class AppComponent implements OnInit {
       isSnapshot: false,
       prerelease: [],
       version: '1.0.2'
-    }
+    };
 
     this.navigationService.navigationViews.subscribe(views => {
-      this.footerNodes  = views['Footer']  || [];
+      this.footerNodes = views['Footer'] || [];
       this.sideNavNodes = views['SideNav'] || [];
-      this.topMenuNodes = views['TopBar']  || [];
+      this.topMenuNodes = views['TopBar'] || [];
       this.topMenuNarrowNodes = views['TopBarNarrow'] || this.topMenuNodes;
     });
 
     // this.navigationService.versionInfo.subscribe(vi => this.versionInfo = vi);
 
     const hasNonEmptyToc = this.tocService.tocList.pipe(map(tocList => tocList.length > 0));
-    combineLatest(hasNonEmptyToc, this.showFloatingToc)
-        .subscribe(([hasToc, showFloatingToc]) => this.hasFloatingToc = hasToc && showFloatingToc);
+    combineLatest(hasNonEmptyToc, this.showFloatingToc).subscribe(
+      ([hasToc, showFloatingToc]) => (this.hasFloatingToc = hasToc && showFloatingToc)
+    );
 
     // Generally, we want to delay updating the shell (e.g. host classes, sidenav state) for the new
     // document, until after the leaving document has been removed (to avoid having the styles for
@@ -195,8 +207,9 @@ export class AppComponent implements OnInit {
     // For the first document, though, (when we know there is no previous document), we want to
     // ensure the styles are applied as soon as possible to avoid flicker.
     combineLatest(
-      this.documentService.currentDocument,  // ...needed to determine host classes
-      this.navigationService.currentNodes)   // ...needed to determine `sidenav` state
+      this.documentService.currentDocument, // ...needed to determine host classes
+      this.navigationService.currentNodes
+    ) // ...needed to determine `sidenav` state
       .pipe(first())
       .subscribe(() => this.updateShell());
   }
@@ -214,7 +227,7 @@ export class AppComponent implements OnInit {
     clearTimeout(this.isFetchingTimeout);
 
     // If progress bar has been shown, keep it for at least 500ms (to avoid flashing).
-    setTimeout(() => this.isFetching = false, 500);
+    setTimeout(() => (this.isFetching = false), 500);
   }
 
   onDocRemoved() {
@@ -241,7 +254,7 @@ export class AppComponent implements OnInit {
       // adjustment happens without animation, we need to ensure that
       // `isStarting` remains `true` until the margin change is triggered.
       // (Apparently, this happens with a slight delay.)
-      setTimeout(() => this.isStarting = false, 100);
+      setTimeout(() => (this.isStarting = false), 100);
     }
 
     this.isTransitioning = false;
@@ -270,7 +283,6 @@ export class AppComponent implements OnInit {
 
   @HostListener('click', ['$event.target', '$event.button', '$event.ctrlKey', '$event.metaKey', '$event.altKey'])
   onClick(eventTarget: HTMLElement, button: number, ctrlKey: boolean, metaKey: boolean, altKey: boolean): boolean {
-
     // Hide the search results if we clicked outside both the "search box" and the "search results"
     if (!this.searchElements.some(element => element.nativeElement.contains(eventTarget))) {
       this.hideSearchResults();
@@ -283,7 +295,7 @@ export class AppComponent implements OnInit {
     }
 
     // Deal with anchor clicks; climb DOM tree until anchor found (or null)
-    let target: HTMLElement|null = eventTarget;
+    let target: HTMLElement | null = eventTarget;
     while (target && !(target instanceof HTMLAnchorElement)) {
       target = target.parentElement;
     }
@@ -297,20 +309,20 @@ export class AppComponent implements OnInit {
 
   setPageId(id: string) {
     // Special case the home page
-    this.pageId = (id === 'index') ? 'home' : id.replace('/', '-');
+    this.pageId = id === 'index' ? 'home' : id.replace('/', '-');
   }
 
   setFolderId(id: string) {
     // Special case the home page
-    this.folderId = (id === 'index') ? 'home' : id.split('/', 1)[0];
+    this.folderId = id === 'index' ? 'home' : id.split('/', 1)[0];
   }
 
   notificationDismissed() {
     this.notificationAnimating = true;
-      // this should be kept in sync with the animation durations in:
-      // - aio/src/styles/2-modules/_notification.scss
-      // - aio/src/app/layout/notification/notification.component.ts
-      setTimeout(() => this.notificationAnimating = false, 250);
+    // this should be kept in sync with the animation durations in:
+    // - aio/src/styles/2-modules/_notification.scss
+    // - aio/src/app/layout/notification/notification.component.ts
+    setTimeout(() => (this.notificationAnimating = false), 250);
     this.updateHostClasses();
   }
 
@@ -319,7 +331,9 @@ export class AppComponent implements OnInit {
     const sideNavOpen = `sidenav-${this.sidenav.opened ? 'open' : 'closed'}`;
     const pageClass = `page-${this.pageId}`;
     const folderClass = `folder-${this.folderId}`;
-    const viewClasses = Object.keys(this.currentNodes).map(view => `view-${view}`).join(' ');
+    const viewClasses = Object.keys(this.currentNodes)
+      .map(view => `view-${view}`)
+      .join(' ');
     const notificationClass = `aio-notification-${this.notification.showNotification}`;
     const notificationAnimatingClass = this.notificationAnimating ? 'aio-notification-animating' : '';
 
@@ -366,9 +380,7 @@ export class AppComponent implements OnInit {
       // Must wait until now for mat-toolbar to be measurable.
       const el = this.hostElement.nativeElement as Element;
       this.tocMaxHeightOffset =
-          el.querySelector('footer')!.clientHeight +
-          el.querySelector('.app-toolbar')!.clientHeight +
-          24; //  fudge margin
+        el.querySelector('footer')!.clientHeight + el.querySelector('.app-toolbar')!.clientHeight + 24; //  fudge margin
     }
 
     this.tocMaxHeight = (document.body.scrollHeight - window.pageYOffset - this.tocMaxHeightOffset).toFixed(2);
@@ -393,7 +405,6 @@ export class AppComponent implements OnInit {
     }
   }
 
-
   // Search related methods and handlers
 
   hideSearchResults() {
@@ -417,7 +428,7 @@ export class AppComponent implements OnInit {
     if (key === '/' || keyCode === 191) {
       this.focusSearchBox();
     }
-    if (key === 'Escape' || keyCode === 27 ) {
+    if (key === 'Escape' || keyCode === 27) {
       // escape key
       if (this.showSearchResults) {
         this.hideSearchResults();

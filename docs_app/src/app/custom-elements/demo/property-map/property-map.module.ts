@@ -6,14 +6,9 @@ import { NgxMultiselectModule } from '@ngx-lib/multiselect';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [ 
-    CommonModule,
-    NgxMultiselectModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  declarations: [ PropertyMapComponent ],
-  entryComponents: [ PropertyMapComponent ]
+  imports: [CommonModule, NgxMultiselectModule, FormsModule, ReactiveFormsModule],
+  declarations: [PropertyMapComponent],
+  entryComponents: [PropertyMapComponent]
 })
 export class PropertyMapModule implements WithCustomElementComponent {
   customElementComponent: Type<any> = PropertyMapComponent;

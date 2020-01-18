@@ -8,7 +8,7 @@ interface StackBlitzExampleConfig {
   html?: string;
   dependencies: {
     [name: string]: string;
-  }
+  };
 }
 
 @Injectable({
@@ -16,34 +16,36 @@ interface StackBlitzExampleConfig {
 })
 export class StackblitzService {
   openProject(config: StackBlitzExampleConfig) {
-    const codeExtension: 'js' | 'ts' = {
-      'ts': 'ts',
-      'typescript': 'ts'
-    }[config.language] || 'js';
+    const codeExtension: 'js' | 'ts' =
+      {
+        ts: 'ts',
+        typescript: 'ts'
+      }[config.language] || 'js';
 
-    const template: Project['template'] = codeExtension === 'ts'
-      ? 'typescript'
-      : 'javascript';
+    const template: Project['template'] = codeExtension === 'ts' ? 'typescript' : 'javascript';
 
-    StackBlitzkSDK.openProject({
-      files: {
-        'index.html': config.html || '',
-        [`index.${codeExtension}`]: config.code
-      },
-      title: 'RxJS example',
-      description: 'RxJS example',
-      template,
-      tags: ['rxjs', 'demo'],
-      dependencies: config.dependencies,
-      settings: {
-        compile: {
-          trigger: 'auto',
-          action: 'refresh',
-          clearConsole: true,
+    StackBlitzkSDK.openProject(
+      {
+        files: {
+          'index.html': config.html || '',
+          [`index.${codeExtension}`]: config.code
         },
-      }
-    }, {
+        title: 'RxJS example',
+        description: 'RxJS example',
+        template,
+        tags: ['rxjs', 'demo'],
+        dependencies: config.dependencies,
+        settings: {
+          compile: {
+            trigger: 'auto',
+            action: 'refresh',
+            clearConsole: true
+          }
+        }
+      },
+      {
         devToolsHeight: 50
-    });
+      }
+    );
   }
 }

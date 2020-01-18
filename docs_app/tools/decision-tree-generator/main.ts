@@ -10,9 +10,7 @@ const decisionTreeJson: TreeNodeRaw[] = parse(yamlContent);
 let apiList: ApiListNode[];
 
 try {
-  apiList = JSON.parse(
-    readFileSync(`${generatedBase}/api/api-list.json`, 'utf8')
-  );
+  apiList = JSON.parse(readFileSync(`${generatedBase}/api/api-list.json`, 'utf8'));
 } catch (error) {
   console.log(
     chalk.red('Decision Tree Generator - error:'),
@@ -24,10 +22,7 @@ try {
   const flattenedApiList = flattenApiList(apiList);
   const jsonContent = build(flattenedApiList, decisionTreeJson);
   writeFileSync(outFilename, JSON.stringify(jsonContent, null, '  '), 'utf8');
-  console.log(
-    chalk.green('Decision Tree Generator - success:'),
-    'Finished generating decision tree'
-  );
+  console.log(chalk.green('Decision Tree Generator - success:'), 'Finished generating decision tree');
 } catch (error) {
   console.log(chalk.red('Decision Tree Generator - error:'), error.message);
 }

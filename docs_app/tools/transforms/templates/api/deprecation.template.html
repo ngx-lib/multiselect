@@ -3,18 +3,16 @@
   <h1>Deprecations</h1>
   <p class="important">The API listed below will be removed in the next major release!</p>
   <table>
-{% for deprecation in doc.data %}
+    {% for deprecation in doc.data %}
     <tr>
-        <td>
-            <a href="{$ deprecation.path $}">{$ deprecation.name $}</a>
-        </td>
-        <td>
-            {$ deprecation.text $}
-        </td>
+      <td>
+        <a href="{$ deprecation.path $}">{$ deprecation.name $}</a>
+      </td>
+      <td>
+        {$ deprecation.text $}
+      </td>
     </tr>
     {% endfor %}
   </table>
 </section>
 {% endblock %}
-
-

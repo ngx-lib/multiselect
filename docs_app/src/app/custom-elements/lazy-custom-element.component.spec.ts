@@ -12,15 +12,15 @@ describe('LazyCustomElementComponent', () => {
   beforeEach(() => {
     mockElementsLoader = jasmine.createSpyObj<ElementsLoader>('ElementsLoader', [
       'loadContainedCustomElements',
-      'loadCustomElement',
+      'loadCustomElement'
     ]);
 
     const injector = TestBed.configureTestingModule({
-      declarations: [ LazyCustomElementComponent ],
+      declarations: [LazyCustomElementComponent],
       providers: [
         { provide: ElementsLoader, useValue: mockElementsLoader },
-        { provide: Logger, useClass: MockLogger },
-      ],
+        { provide: Logger, useClass: MockLogger }
+      ]
     });
 
     mockLogger = injector.get(Logger);
@@ -52,7 +52,7 @@ describe('LazyCustomElementComponent', () => {
 
     expect(mockElementsLoader.loadCustomElement).not.toHaveBeenCalled();
     expect(mockLogger.output.error).toEqual([[jasmine.any(Error)]]);
-    expect(mockLogger.output.error[0][0].message).toBe('Invalid selector for \'aio-lazy-ce\': ');
+    expect(mockLogger.output.error[0][0].message).toBe("Invalid selector for 'aio-lazy-ce': ");
   });
 
   it('should log an error (and abort) if the selector is invalid', () => {
@@ -62,6 +62,7 @@ describe('LazyCustomElementComponent', () => {
     expect(mockElementsLoader.loadCustomElement).not.toHaveBeenCalled();
     expect(mockLogger.output.error).toEqual([[jasmine.any(Error)]]);
     expect(mockLogger.output.error[0][0].message).toBe(
-        'Invalid selector for \'aio-lazy-ce\': foo-bar><script></script><foo-bar');
+      "Invalid selector for 'aio-lazy-ce': foo-bar><script></script><foo-bar"
+    );
   });
 });

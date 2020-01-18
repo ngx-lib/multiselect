@@ -12,7 +12,7 @@ describe('addUniqueId', () => {
       baseProperties = expect.objectContaining({
         id: expect.any(String),
         label: expect.any(String),
-        depth: expect.any(Number),
+        depth: expect.any(Number)
       });
     });
 
@@ -27,10 +27,12 @@ describe('addUniqueId', () => {
           if (!node.children) {
             expect(node).not.toHaveProperty('options');
           } else {
-            expect(node).toEqual(expect.objectContaining({
-              children: expect.any(Array),
-              options: expect.any(Array),
-            }));
+            expect(node).toEqual(
+              expect.objectContaining({
+                children: expect.any(Array),
+                options: expect.any(Array)
+              })
+            );
             node.children.forEach(child => {
               expect(child).toEqual(baseProperties);
             });

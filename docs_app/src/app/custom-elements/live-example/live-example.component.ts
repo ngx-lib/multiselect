@@ -4,7 +4,6 @@ import { Location } from '@angular/common';
 import { CONTENT_URL_PREFIX } from 'app/documents/document.service';
 import { AttrMap, boolFromValue, getAttrs, getAttrValue } from 'app/shared/attribute-utils';
 
-
 const LIVE_EXAMPLE_BASE = CONTENT_URL_PREFIX + 'live-examples/';
 const ZIP_BASE = CONTENT_URL_PREFIX + 'zips/';
 
@@ -55,7 +54,6 @@ const ZIP_BASE = CONTENT_URL_PREFIX + 'zips/';
   templateUrl: 'live-example.component.html'
 })
 export class LiveExampleComponent implements AfterContentInit {
-
   readonly mode: 'default' | 'embedded' | 'downloadOnly';
   readonly enableDownload: boolean;
   readonly stackblitz: string;
@@ -104,9 +102,7 @@ export class LiveExampleComponent implements AfterContentInit {
     const downloadOnly = boolFromValue(getAttrValue(attrs, 'downloadOnly'));
     const isEmbedded = boolFromValue(getAttrValue(attrs, 'embedded'));
 
-    return downloadOnly ? 'downloadOnly'
-           : isEmbedded ? 'embedded' :
-                          'default';
+    return downloadOnly ? 'downloadOnly' : isEmbedded ? 'embedded' : 'default';
   }
 
   private getStackblitz(exampleDir: string, stackblitzName: string, isEmbedded: boolean) {
@@ -136,8 +132,10 @@ export class LiveExampleComponent implements AfterContentInit {
  */
 @Component({
   selector: 'aio-embedded-stackblitz',
-  template: `<iframe #iframe frameborder="0" width="100%" height="100%"></iframe>`,
-  styles: [ 'iframe { min-height: 400px; }' ]
+  template: `
+    <iframe #iframe frameborder="0" width="100%" height="100%"></iframe>
+  `,
+  styles: ['iframe { min-height: 400px; }']
 })
 export class EmbeddedStackblitzComponent implements AfterViewInit {
   @Input() src: string;

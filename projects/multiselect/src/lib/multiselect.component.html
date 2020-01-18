@@ -4,7 +4,7 @@
       <!-- TODO: None selected template should be ng-template -->
       <span class="none-selected" *ngIf="!isValueSelected()">None selected</span>
       <span class="selected" *ngIf="isValueSelected()">
-        <span class="text">{{_selectedOptions | displaySelectedValue: showMaxLabels}}</span>
+        <span class="text">{{ _selectedOptions | displaySelectedValue: showMaxLabels }}</span>
       </span>
       <div class="symbols">
         <span class="close" (click)="clear($event)" *ngIf="isValueSelected() && !multiple">×</span>

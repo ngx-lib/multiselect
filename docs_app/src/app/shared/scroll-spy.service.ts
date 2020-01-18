@@ -5,7 +5,6 @@ import { auditTime, distinctUntilChanged, takeUntil } from 'rxjs/operators';
 
 import { ScrollService } from 'app/shared/scroll.service';
 
-
 export interface ScrollItem {
   element: Element;
   index: number;
@@ -81,7 +80,7 @@ export class ScrollSpiedElementGroup {
    */
   calibrate(scrollTop: number, topOffset: number) {
     this.spiedElements.forEach(spiedElem => spiedElem.calculateTop(scrollTop, topOffset));
-    this.spiedElements.sort((a, b) => b.top - a.top);   // Sort in descending `top` order.
+    this.spiedElements.sort((a, b) => b.top - a.top); // Sort in descending `top` order.
   }
 
   /*
@@ -97,7 +96,7 @@ export class ScrollSpiedElementGroup {
    * @param {number} maxScrollTop - The maximum possible `scrollTop` (based on the viewport size).
    */
   onScroll(scrollTop: number, maxScrollTop: number) {
-    let activeItem: ScrollItem|undefined;
+    let activeItem: ScrollItem | undefined;
 
     if (scrollTop + 1 >= maxScrollTop) {
       activeItem = this.spiedElements[0];
@@ -166,7 +165,7 @@ export class ScrollSpyService {
   }
 
   private getScrollTop() {
-    return window && window.pageYOffset || 0;
+    return (window && window.pageYOffset) || 0;
   }
 
   private getTopOffset() {

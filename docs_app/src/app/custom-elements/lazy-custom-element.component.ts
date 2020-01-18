@@ -4,16 +4,12 @@ import { ElementsLoader } from './elements-loader';
 
 @Component({
   selector: 'aio-lazy-ce',
-  template: '',
+  template: ''
 })
 export class LazyCustomElementComponent implements OnInit {
   @Input() selector = '';
 
-  constructor(
-    private elementRef: ElementRef,
-    private elementsLoader: ElementsLoader,
-    private logger: Logger,
-  ) {}
+  constructor(private elementRef: ElementRef, private elementsLoader: ElementsLoader, private logger: Logger) {}
 
   ngOnInit() {
     if (!this.selector || /[^\w-]/.test(this.selector)) {

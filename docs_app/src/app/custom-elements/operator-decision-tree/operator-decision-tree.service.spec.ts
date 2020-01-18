@@ -32,18 +32,14 @@ describe('OperatorDecisionTreeService', () => {
     const initialSetence = 'Start by choosing an option from the list below.';
 
     beforeEach(() => {
-      dataServiceStub.getDecisionTree$.and.returnValue(
-        cold('x', { x: treeStub })
-      );
+      dataServiceStub.getDecisionTree$.and.returnValue(cold('x', { x: treeStub }));
       service = TestBed.get(OperatorDecisionTreeService);
     });
 
     describe('when it is the initial sequence', () => {
       it('should emit an initial sentence', () => {
         spyOn(service, 'selectOption');
-        expect(service.currentSentence$).toBeObservable(
-          cold('x', { x: initialSetence })
-        );
+        expect(service.currentSentence$).toBeObservable(cold('x', { x: initialSetence }));
         expect(service.selectOption).not.toHaveBeenCalled();
       });
     });
@@ -51,16 +47,12 @@ describe('OperatorDecisionTreeService', () => {
     describe('when an option is selected', () => {
       it('should emit a sentence based on previous chosen labels', () => {
         service.selectOption(treeNodeStubWithOptionsA.id);
-        expect(service.currentSentence$).toBeObservable(
-          cold('x', { x: `${treeNodeStubWithOptionsA.label}...` })
-        );
+        expect(service.currentSentence$).toBeObservable(cold('x', { x: `${treeNodeStubWithOptionsA.label}...` }));
 
         service.selectOption(treeNodeStubWithOptionsB.id);
         expect(service.currentSentence$).toBeObservable(
           cold('x', {
-            x: `${treeNodeStubWithOptionsA.label} ${
-              treeNodeStubWithOptionsB.label
-            }...`
+            x: `${treeNodeStubWithOptionsA.label} ${treeNodeStubWithOptionsB.label}...`
           })
         );
       });
@@ -70,9 +62,7 @@ describe('OperatorDecisionTreeService', () => {
           service.selectOption(treeNodeStubWithOptionsA.id);
           service.selectOption(treeNodeStubWithOptionsB.id);
           service.back();
-          expect(service.currentSentence$).toBeObservable(
-            cold('x', { x: `${treeNodeStubWithOptionsA.label}...` })
-          );
+          expect(service.currentSentence$).toBeObservable(cold('x', { x: `${treeNodeStubWithOptionsA.label}...` }));
         });
       });
 
@@ -80,9 +70,7 @@ describe('OperatorDecisionTreeService', () => {
         it('should emit the initial sentence', () => {
           service.selectOption(treeNodeStubWithOptionsA.id);
           service.startOver();
-          expect(service.currentSentence$).toBeObservable(
-            cold('x', { x: initialSetence })
-          );
+          expect(service.currentSentence$).toBeObservable(cold('x', { x: initialSetence }));
         });
       });
     });
@@ -125,17 +113,13 @@ describe('OperatorDecisionTreeService', () => {
 
     describe('when signals get past the filter', () => {
       beforeEach(() => {
-        dataServiceStub.getDecisionTree$.and.returnValue(
-          cold('x', { x: treeStub })
-        );
+        dataServiceStub.getDecisionTree$.and.returnValue(cold('x', { x: treeStub }));
         service = TestBed.get(OperatorDecisionTreeService);
       });
 
       describe('when it is the initial sequence', () => {
         it('should be an array of the tree nodes from the initial options', () => {
-          expect(service.options$).toBeObservable(
-            cold('a', { a: [treeStub[treeNodeInitialStub.initial.options[0]]] })
-          );
+          expect(service.options$).toBeObservable(cold('a', { a: [treeStub[treeNodeInitialStub.initial.options[0]]] }));
         });
       });
 
@@ -143,9 +127,7 @@ describe('OperatorDecisionTreeService', () => {
         describe('and there are additional options', () => {
           it('should be an array of the new option nodes', () => {
             service.selectOption(treeNodeStubWithOptionsA.id);
-            expect(service.options$).toBeObservable(
-              cold('a', { a: [treeNodeStubWithOptionsB] })
-            );
+            expect(service.options$).toBeObservable(cold('a', { a: [treeNodeStubWithOptionsB] }));
           });
         });
 
@@ -161,18 +143,14 @@ describe('OperatorDecisionTreeService', () => {
 
   describe('isBeyondInitialQuestion$', () => {
     beforeEach(() => {
-      dataServiceStub.getDecisionTree$.and.returnValue(
-        cold('x', { x: treeStub })
-      );
+      dataServiceStub.getDecisionTree$.and.returnValue(cold('x', { x: treeStub }));
       service = TestBed.get(OperatorDecisionTreeService);
     });
 
     describe('when not beyond the initial question', () => {
       it('should be false', () => {
         spyOn(service, 'selectOption');
-        expect(service.isBeyondInitialQuestion$).toBeObservable(
-          cold('a', { a: false })
-        );
+        expect(service.isBeyondInitialQuestion$).toBeObservable(cold('a', { a: false }));
         expect(service.selectOption).not.toHaveBeenCalled();
       });
     });
@@ -180,9 +158,7 @@ describe('OperatorDecisionTreeService', () => {
     describe('when beyond the initial question', () => {
       it('should be true', () => {
         service.selectOption(treeNodeStubWithOptionsA.id);
-        expect(service.isBeyondInitialQuestion$).toBeObservable(
-          cold('a', { a: true })
-        );
+        expect(service.isBeyondInitialQuestion$).toBeObservable(cold('a', { a: true }));
       });
     });
   });
@@ -198,9 +174,7 @@ describe('OperatorDecisionTreeService', () => {
 
     describe('when the tree has no error', () => {
       it('shoud not emit', () => {
-        dataServiceStub.getDecisionTree$.and.returnValue(
-          cold('x', { x: treeStub })
-        );
+        dataServiceStub.getDecisionTree$.and.returnValue(cold('x', { x: treeStub }));
         service = TestBed.get(OperatorDecisionTreeService);
         expect(service.hasError$).toBeObservable(cold('-'));
       });

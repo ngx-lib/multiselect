@@ -8,5 +8,5 @@ import { LocationService } from 'app/shared/location.service';
   template: '{{ location.currentPath | async }}'
 })
 export class CurrentLocationComponent {
-  constructor(public location: LocationService) { }
+  constructor(public location: LocationService) {}
 }

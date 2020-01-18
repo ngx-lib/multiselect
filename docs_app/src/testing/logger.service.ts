@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class MockLogger {
-
-  output: { log: any[], error: any[], warn: any[] } = {
+  output: { log: any[]; error: any[]; warn: any[] } = {
     log: [],
     error: [],
     warn: []

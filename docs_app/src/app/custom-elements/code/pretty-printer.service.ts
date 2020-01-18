@@ -16,7 +16,6 @@ type PrettyPrintOne = (code: string, language?: string, linenums?: number | bool
  */
 @Injectable()
 export class PrettyPrinter {
-
   private prettyPrintOne: Observable<PrettyPrintOne>;
 
   constructor(private logger: Logger) {
@@ -25,17 +24,20 @@ export class PrettyPrinter {
 
   private getPrettyPrintOne(): Promise<PrettyPrintOne> {
     const ppo = (window as any)['prettyPrintOne'];
-    return ppo ? Promise.resolve(ppo) :
-      // prettify.js is not in window global; load it with webpack loader
-      System.import('assets/js/prettify.js')
-        .then(
+    return ppo
+      ? Promise.resolve(ppo)
+      : // prettify.js is not in window global; load it with webpack loader
+        System.import('assets/js/prettify.js').then(
           () => (window as any)['prettyPrintOne'],
           err => {
             const msg = `Cannot get prettify.js from server: ${err.message}`;
             this.logger.error(new Error(msg));
             // return a pretty print fn that always fails.
-            return () => { throw new Error(msg); };
-          });
+            return () => {
+              throw new Error(msg);
+            };
+          }
+        );
   }
 
   /**
@@ -59,7 +61,7 @@ export class PrettyPrinter {
           throw new Error(msg);
         }
       }),
-      first(),  // complete immediately
+      first() // complete immediately
     );
   }
 }

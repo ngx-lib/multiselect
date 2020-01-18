@@ -15,7 +15,7 @@ import {
   selector: 'ms-options',
   templateUrl: './options.component.html',
   styleUrls: ['./options.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OptionsComponent implements OnInit, OnChanges {
   _options: any[] = [];

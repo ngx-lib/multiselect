@@ -5,7 +5,7 @@ describe('FirebaseRedirector', () => {
     const redirector = new FirebaseRedirector([
       { source: '/a/b/c', destination: '/X/Y/Z' },
       { source: '/a/:foo/c', destination: '/X/:foo/Z' },
-      { source: '/**/:foo/c', destination: '/A/:foo/zzz' },
+      { source: '/**/:foo/c', destination: '/A/:foo/zzz' }
     ]);
     expect(redirector.redirect('/a/b/c')).toEqual('/X/Y/Z');
     expect(redirector.redirect('/a/moo/c')).toEqual('/X/moo/Z');
@@ -17,7 +17,7 @@ describe('FirebaseRedirector', () => {
     const redirector = new FirebaseRedirector([
       { source: 'x', destination: 'X' },
       { source: 'y', destination: 'Y' },
-      { source: 'z', destination: 'Z' },
+      { source: 'z', destination: 'Z' }
     ]);
     expect(redirector.redirect('a')).toEqual('a');
   });
@@ -26,7 +26,7 @@ describe('FirebaseRedirector', () => {
     const redirector = new FirebaseRedirector([
       { source: 'a', destination: 'b' },
       { source: 'b', destination: 'c' },
-      { source: 'c', destination: 'd' },
+      { source: 'c', destination: 'd' }
     ]);
     expect(redirector.redirect('a')).toEqual('d');
   });
@@ -35,7 +35,7 @@ describe('FirebaseRedirector', () => {
     const redirector = new FirebaseRedirector([
       { source: 'a', destination: 'b' },
       { source: 'b', destination: 'c' },
-      { source: 'c', destination: 'a' },
+      { source: 'c', destination: 'a' }
     ]);
     expect(() => redirector.redirect('a')).toThrowError('infinite redirect loop');
   });

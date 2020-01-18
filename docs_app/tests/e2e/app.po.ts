@@ -3,7 +3,6 @@ import { browser, element, by, promise, ElementFinder, ExpectedConditions } from
 const githubRegex = /https:\/\/github.com\/angular\/angular\//;
 
 export class SitePage {
-
   links = element.all(by.css('md-toolbar a'));
   homeLink = element(by.css('a.home'));
   docsMenuLink = element(by.cssContainingText('aio-top-menu a', 'Docs'));
@@ -20,9 +19,10 @@ export class SitePage {
   }
 
   getNavItem(pattern: RegExp) {
-    return element.all(by.css('aio-nav-item .vertical-menu-item'))
-                  .filter(element => element.getText().then(text => pattern.test(text)))
-                  .first();
+    return element
+      .all(by.css('aio-nav-item .vertical-menu-item'))
+      .filter(element => element.getText().then(text => pattern.test(text)))
+      .first();
   }
   getNavItemHeadings(parent: ElementFinder, level: number) {
     const targetSelector = `aio-nav-item .vertical-menu-item.heading.level-${level}`;
@@ -33,16 +33,23 @@ export class SitePage {
     const script = `return arguments[0].parentNode.querySelector('${targetSelector}');`;
     return element(() => browser.executeScript(script, heading));
   }
-  getTopMenuLink(path) { return element(by.css(`aio-top-menu a[href="${path}"]`)); }
+  getTopMenuLink(path) {
+    return element(by.css(`aio-top-menu a[href="${path}"]`));
+  }
 
-  ga() { return browser.executeScript('return window["ga"].q') as promise.Promise<any[][]>; }
-  locationPath() { return browser.executeScript('return document.location.pathname') as promise.Promise<string>; }
+  ga() {
+    return browser.executeScript('return window["ga"].q') as promise.Promise<any[][]>;
+  }
+  locationPath() {
+    return browser.executeScript('return document.location.pathname') as promise.Promise<string>;
+  }
 
   navigateTo(pageUrl) {
     // Navigate to the page, disable animations, and wait for Angular.
-    return browser.get('/' + pageUrl)
-        .then(() => browser.executeScript('document.body.classList.add(\'no-animations\')'))
-        .then(() => browser.waitForAngular());
+    return browser
+      .get('/' + pageUrl)
+      .then(() => browser.executeScript("document.body.classList.add('no-animations')"))
+      .then(() => browser.waitForAngular());
   }
 
   getDocViewerText() {

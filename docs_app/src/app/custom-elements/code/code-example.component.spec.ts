@@ -13,13 +13,9 @@ describe('CodeExampleComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ CodeExampleModule ],
-      declarations: [
-        HostComponent,
-      ],
-      providers: [
-        { provide: Logger, useClass: MockLogger },
-      ]
+      imports: [CodeExampleModule],
+      declarations: [HostComponent],
+      providers: [{ provide: Logger, useClass: MockLogger }]
     });
 
     fixture = TestBed.createComponent(HostComponent);
@@ -53,8 +49,7 @@ describe('CodeExampleComponent', () => {
   });
 
   it('should set avoidFile class if path has .avoid.', () => {
-    const codeExampleComponentElement: HTMLElement =
-        fixture.nativeElement.querySelector('code-example');
+    const codeExampleComponentElement: HTMLElement = fixture.nativeElement.querySelector('code-example');
 
     expect(codeExampleComponent.path).toBe('code-path');
     expect(codeExampleComponentElement.className.indexOf('avoidFile') === -1).toBe(true);
@@ -86,7 +81,7 @@ describe('CodeExampleComponent', () => {
   selector: 'aio-host-comp',
   template: `
     <code-example [title]="title" [path]="path" [hidecopy]="hidecopy">
-      {{code}}
+      {{ code }}
     </code-example>
   `
 })

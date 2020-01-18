@@ -14,7 +14,7 @@ import { NgxMultiselectService } from '../services/multiselect.service';
   selector: 'ms-grouped-options',
   templateUrl: './grouped-options.component.html',
   styleUrls: ['./grouped-options.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GroupedOptionsComponent implements OnInit {
   _options = [];
@@ -49,14 +49,15 @@ export class GroupedOptionsComponent implements OnInit {
 
   // TODO: Refactor below logic
   formGroupOptions(collection, selectedOptions) {
-    let selectedIds = this.multiple ? 
-      (selectedOptions || []).map(s => s.id) : 
-        selectedOptions ? [selectedOptions.id]
-        :[];
-    const values = collection.map(v => ({ 
-      ...v, 
+    let selectedIds = this.multiple
+      ? (selectedOptions || []).map(s => s.id)
+      : selectedOptions
+      ? [selectedOptions.id]
+      : [];
+    const values = collection.map(v => ({
+      ...v,
       ticked: !v.isGroup ? selectedIds.indexOf(v.id) !== -1 : v.ticked
-     }));
+    }));
     this.groupedOptions = this.multiselectService.virtualOptionsGroupingFlatten(values, this.groupedProperty);
     this.updateRange({ start: this.start, end: this.end });
   }
@@ -91,7 +92,7 @@ export class GroupedOptionsComponent implements OnInit {
     } else {
       option.ticked = !option.ticked;
       const values = this.multiselectService.collectAllDescendants(this.options, this.groupedProperty, option.name);
-      this.selectGroup.emit({ 
+      this.selectGroup.emit({
         ...option,
         values: values
       });

@@ -1,10 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {
-  MatButtonModule,
-  MatCardModule,
-  MatRippleModule
-} from '@angular/material';
+import { MatButtonModule, MatCardModule, MatRippleModule } from '@angular/material';
 import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ScrollService } from 'app/shared/scroll.service';
@@ -31,13 +27,7 @@ describe('OperatorDecisionTreeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        CommonModule,
-        MatButtonModule,
-        MatCardModule,
-        MatRippleModule,
-        NoopAnimationsModule
-      ],
+      imports: [CommonModule, MatButtonModule, MatCardModule, MatRippleModule, NoopAnimationsModule],
       declarations: [OperatorDecisionTreeComponent],
       providers: [
         {
@@ -58,9 +48,7 @@ describe('OperatorDecisionTreeComponent', () => {
   });
 
   afterEach(() => {
-    operatorDecisionTreeServiceStub.currentSentence$.next(
-      'Conditioner is better'
-    );
+    operatorDecisionTreeServiceStub.currentSentence$.next('Conditioner is better');
     operatorDecisionTreeServiceStub.options$.next([treeNodeStubWithOptionsA]);
     operatorDecisionTreeServiceStub.isBeyondInitialQuestion$.next(false);
     operatorDecisionTreeServiceStub.hasError$.next(false);
@@ -73,39 +61,27 @@ describe('OperatorDecisionTreeComponent', () => {
   describe('in the template', () => {
     describe('when the OperatorDecisionTreeService.currentSentence$ emits a signal', () => {
       it('should update what is being displayed as the current sentence', () => {
-        expect(
-          fixture.debugElement.query(By.css('h2')).nativeElement.textContent
-        ).toContain('Conditioner is better');
+        expect(fixture.debugElement.query(By.css('h2')).nativeElement.textContent).toContain('Conditioner is better');
 
-        operatorDecisionTreeServiceStub.currentSentence$.next(
-          'Shampoo is better'
-        );
+        operatorDecisionTreeServiceStub.currentSentence$.next('Shampoo is better');
         fixture.detectChanges();
 
-        expect(
-          fixture.debugElement.query(By.css('h2')).nativeElement.textContent
-        ).toContain('Shampoo is better');
+        expect(fixture.debugElement.query(By.css('h2')).nativeElement.textContent).toContain('Shampoo is better');
       });
     });
 
     describe('when there are options to choose', () => {
       it('should have option buttons', () => {
-        expect(
-          fixture.debugElement.queryAll(By.css('button.option')).length
-        ).toBeTruthy();
+        expect(fixture.debugElement.queryAll(By.css('button.option')).length).toBeTruthy();
       });
     });
 
     describe('when there are no more options to choose', () => {
       it('should have no option buttons', () => {
-        operatorDecisionTreeServiceStub.options$.next([
-          treeNodeStubNoOptions as any
-        ]);
+        operatorDecisionTreeServiceStub.options$.next([treeNodeStubNoOptions as any]);
         fixture.detectChanges();
 
-        expect(
-          fixture.debugElement.queryAll(By.css('button.option')).length
-        ).toBeFalsy();
+        expect(fixture.debugElement.queryAll(By.css('button.option')).length).toBeFalsy();
       });
 
       describe('when there is a method associated with the operator', () => {
@@ -117,38 +93,24 @@ describe('OperatorDecisionTreeComponent', () => {
           operatorDecisionTreeServiceStub.options$.next([node as any]);
           fixture.detectChanges();
 
-          const sentence: HTMLParagraphElement = fixture.debugElement.query(
-            By.css('p')
-          ).nativeElement;
-          const link: HTMLAnchorElement = fixture.debugElement
-            .query(By.css('a'))
-            .nativeElement.getAttribute('href');
+          const sentence: HTMLParagraphElement = fixture.debugElement.query(By.css('p')).nativeElement;
+          const link: HTMLAnchorElement = fixture.debugElement.query(By.css('a')).nativeElement.getAttribute('href');
 
-          expect(sentence.textContent).toContain(
-            `You want the ${node.method} of the ${node.docType} ${node.label}.`
-          );
+          expect(sentence.textContent).toContain(`You want the ${node.method} of the ${node.docType} ${node.label}.`);
           expect(link).toContain(`${node.path}#${node.method}`);
         });
       });
 
       describe('when there is no method associated with the operator', () => {
         it('should display a docType, label, and a link to the operator path', () => {
-          operatorDecisionTreeServiceStub.options$.next([
-            treeNodeStubNoOptions as any
-          ]);
+          operatorDecisionTreeServiceStub.options$.next([treeNodeStubNoOptions as any]);
           fixture.detectChanges();
 
-          const sentence: HTMLParagraphElement = fixture.debugElement.query(
-            By.css('p')
-          ).nativeElement;
-          const link: HTMLAnchorElement = fixture.debugElement
-            .query(By.css('a'))
-            .nativeElement.getAttribute('href');
+          const sentence: HTMLParagraphElement = fixture.debugElement.query(By.css('p')).nativeElement;
+          const link: HTMLAnchorElement = fixture.debugElement.query(By.css('a')).nativeElement.getAttribute('href');
 
           expect(sentence.textContent).toContain(
-            `You want the ${treeNodeStubNoOptions.docType} ${
-              treeNodeStubNoOptions.label
-            }.`
+            `You want the ${treeNodeStubNoOptions.docType} ${treeNodeStubNoOptions.label}.`
           );
           expect(link).toContain(treeNodeStubNoOptions.path);
         });
@@ -174,9 +136,7 @@ describe('OperatorDecisionTreeComponent', () => {
     describe('when an option is clicked', () => {
       it('should call the selectOption method', () => {
         spyOn(component, 'selectOption');
-        fixture.debugElement
-          .query(By.css('button.option'))
-          .triggerEventHandler('click', null);
+        fixture.debugElement.query(By.css('button.option')).triggerEventHandler('click', null);
         expect(component.selectOption).toHaveBeenCalled();
       });
     });
@@ -184,9 +144,7 @@ describe('OperatorDecisionTreeComponent', () => {
     describe('when fired', () => {
       it('should call the selectOption method on the operatorDecisionTreeService', () => {
         component.selectOption(treeNodeStubWithOptionsA.id);
-        expect(operatorDecisionTreeService.selectOption).toHaveBeenCalledWith(
-          treeNodeStubWithOptionsA.id
-        );
+        expect(operatorDecisionTreeService.selectOption).toHaveBeenCalledWith(treeNodeStubWithOptionsA.id);
       });
       it('should call the scrollToTop method of the scrollService', () => {
         spyOn(scrollService, 'scrollToTop');
@@ -202,9 +160,7 @@ describe('OperatorDecisionTreeComponent', () => {
         spyOn(component, 'back');
         operatorDecisionTreeServiceStub.isBeyondInitialQuestion$.next(true);
         fixture.detectChanges();
-        fixture.debugElement
-          .query(By.css('button.back'))
-          .triggerEventHandler('click', null);
+        fixture.debugElement.query(By.css('button.back')).triggerEventHandler('click', null);
         expect(component.back).toHaveBeenCalled();
       });
     });
@@ -223,9 +179,7 @@ describe('OperatorDecisionTreeComponent', () => {
         spyOn(component, 'startOver');
         operatorDecisionTreeServiceStub.isBeyondInitialQuestion$.next(true);
         fixture.detectChanges();
-        fixture.debugElement
-          .query(By.css('button.start-over'))
-          .triggerEventHandler('click', null);
+        fixture.debugElement.query(By.css('button.start-over')).triggerEventHandler('click', null);
         expect(component.startOver).toHaveBeenCalled();
       });
     });

@@ -44,7 +44,7 @@ describe('Grouped Options Component', () => {
     selectedFirstOption = options.filter(o => o.id);
     component.multiple = true;
     component._selectedOptions = [];
-    multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService(), <Renderer2> {});
+    multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService(), <Renderer2>{});
     multiselect.multiple = true;
     multiselect.setOptions(options);
     component.options = multiselect.getOptions();

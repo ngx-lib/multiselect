@@ -1,10 +1,5 @@
 import chalk from 'chalk';
-import {
-  DecisionTree,
-  FlattenedApiList,
-  FlattenedApiNode,
-  TreeNode
-} from './interfaces';
+import { DecisionTree, FlattenedApiList, FlattenedApiNode, TreeNode } from './interfaces';
 
 /**
  * Recursively walks the tree and pulls relevant information from the API list.
@@ -15,10 +10,7 @@ import {
  * @param {FlattenedApiList} apiList
  * @returns {DecisionTree}
  */
-export function decisionTreeReducer(
-  tree: TreeNode[],
-  apiList: FlattenedApiList
-): DecisionTree {
+export function decisionTreeReducer(tree: TreeNode[], apiList: FlattenedApiList): DecisionTree {
   return tree.reduce((acc, curr) => {
     let nested;
     let treeNode: TreeNode = {

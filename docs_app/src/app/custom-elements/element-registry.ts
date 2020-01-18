@@ -3,7 +3,7 @@ import { InjectionToken, Type } from '@angular/core';
 // Modules containing custom elements must be set up as lazy-loaded routes (loadChildren)
 // TODO(andrewjs): This is a hack, Angular should have first-class support for preparing a module
 // that contains custom elements.
- export const ELEMENT_MODULE_PATHS_AS_ROUTES = [
+export const ELEMENT_MODULE_PATHS_AS_ROUTES = [
   {
     selector: 'aio-announcement-bar',
     loadChildren: './announcement-bar/announcement-bar.module#AnnouncementBarModule'
@@ -67,7 +67,8 @@ import { InjectionToken, Type } from '@angular/core';
   {
     selector: 'ms-events',
     loadChildren: './demo/events/events.module#EventsModule'
-  },{
+  },
+  {
     selector: 'ms-events-advanced',
     loadChildren: './demo/events-advanced/events-advanced.module#EventsAdvnacedModule'
   },
@@ -82,10 +83,12 @@ import { InjectionToken, Type } from '@angular/core';
   {
     selector: 'ms-model-driven',
     loadChildren: './demo/model-driven/model-driven.module#ModelDrivenModule'
-  },{
+  },
+  {
     selector: 'ms-model-driven-form-group',
     loadChildren: './demo/model-driven-form-group/model-driven-form-group.module#ModelDrivenFormGroupModule'
-  },{
+  },
+  {
     selector: 'ms-observable-async',
     loadChildren: './demo/observable-async/observable-async.module#ObservableAsyncModule'
   },

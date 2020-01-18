@@ -12,17 +12,12 @@ export class OperatorDecisionTreeService {
     currentBranchId: 'initial'
   };
   private state$ = new BehaviorSubject<State>(this.initialState);
-  private tree$: Observable<
-    OperatorDecisionTree
-  > = this.dataService.getDecisionTree$().pipe(
+  private tree$: Observable<OperatorDecisionTree> = this.dataService.getDecisionTree$().pipe(
     catchError(error => of({ error })), // This helps if the JSON for some reason fails to get fetched
     shareReplay()
   );
 
-  currentSentence$: Observable<string> = combineLatest(
-    this.tree$,
-    this.state$
-  ).pipe(
+  currentSentence$: Observable<string> = combineLatest(this.tree$, this.state$).pipe(
     filter(([tree]) => treeIsErrorFree(tree)),
     map(([tree, { previousBranchIds }]) =>
       isInitialDecision(previousBranchIds)
@@ -35,16 +30,9 @@ export class OperatorDecisionTreeService {
     )
   );
 
-  options$: Observable<(OperatorTreeNode)[]> = combineLatest(
-    this.tree$,
-    this.state$
-  ).pipe(
+  options$: Observable<OperatorTreeNode[]> = combineLatest(this.tree$, this.state$).pipe(
     filter(([tree, state]) => {
-      return (
-        treeIsErrorFree(tree) &&
-        !!tree[state.currentBranchId] &&
-        !!tree[state.currentBranchId].options
-      );
+      return treeIsErrorFree(tree) && !!tree[state.currentBranchId] && !!tree[state.currentBranchId].options;
     }),
     map(([tree, state]) => {
       // Project is currently using TypeScript 2.9.2
@@ -81,18 +69,11 @@ export class OperatorDecisionTreeService {
   }
 
   back(): void {
-    const previousOptionId = this.snapShot.previousBranchIds[
-      this.snapShot.previousBranchIds.length - 2
-    ];
+    const previousOptionId = this.snapShot.previousBranchIds[this.snapShot.previousBranchIds.length - 2];
 
     if (previousOptionId) {
       this.state$.next({
-        previousBranchIds: [
-          ...this.snapShot.previousBranchIds.slice(
-            0,
-            this.snapShot.previousBranchIds.length - 1
-          )
-        ],
+        previousBranchIds: [...this.snapShot.previousBranchIds.slice(0, this.snapShot.previousBranchIds.length - 1)],
         currentBranchId: previousOptionId
       });
     }

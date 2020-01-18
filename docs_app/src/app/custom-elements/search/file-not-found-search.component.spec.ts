@@ -8,16 +8,14 @@ import { SearchResultsComponent } from 'app/shared/search-results/search-results
 import { SearchService } from 'app/search/search.service';
 import { FileNotFoundSearchComponent } from './file-not-found-search.component';
 
-
 describe('FileNotFoundSearchComponent', () => {
   let fixture: ComponentFixture<FileNotFoundSearchComponent>;
   let searchService: SearchService;
   let searchResultSubject: Subject<SearchResults>;
 
   beforeEach(() => {
-
     TestBed.configureTestingModule({
-      declarations: [ FileNotFoundSearchComponent, SearchResultsComponent ],
+      declarations: [FileNotFoundSearchComponent, SearchResultsComponent],
       providers: [
         { provide: LocationService, useValue: new MockLocationService('base/initial-url?some-query') },
         SearchService
@@ -39,7 +37,7 @@ describe('FileNotFoundSearchComponent', () => {
     const searchResultsComponent = fixture.debugElement.query(By.directive(SearchResultsComponent)).componentInstance;
     expect(searchResultsComponent.searchResults).toBe(null);
 
-    const results = { query: 'base initial url', results: []};
+    const results = { query: 'base initial url', results: [] };
     searchResultSubject.next(results);
     fixture.detectChanges();
     expect(searchResultsComponent.searchResults).toEqual(results);

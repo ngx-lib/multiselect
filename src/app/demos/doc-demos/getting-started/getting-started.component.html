@@ -1,18 +1,16 @@
 <p>Select the countries you would like to visit?</p>
-<ngx-multiselect
-  [(ngModel)]="selectedOptions"
-  [options]="options"
-  ngDefaultControl>
-</ngx-multiselect>
+<fieldset disabled>
+  <ngx-multiselect [(ngModel)]="selectedOptions" [options]="options" ngDefaultControl> </ngx-multiselect>
+</fieldset>
 
 <ms-observable-async-service></ms-observable-async-service>
 
 <ms-custom-template></ms-custom-template>
 
 <ms-large-volume-data></ms-large-volume-data>
-<br>
+<br />
 <ms-events></ms-events>
-<br>
+<br />
 <ms-observable-async></ms-observable-async>
-<br>
+<br />
 <ms-theme></ms-theme>

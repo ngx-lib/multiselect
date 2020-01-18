@@ -6,14 +6,9 @@ import { NgxMultiselectModule } from '@ngx-lib/multiselect';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [ 
-    CommonModule,
-    NgxMultiselectModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  declarations: [ ObservableDynamicUpdateComponent ],
-  entryComponents: [ ObservableDynamicUpdateComponent ]
+  imports: [CommonModule, NgxMultiselectModule, FormsModule, ReactiveFormsModule],
+  declarations: [ObservableDynamicUpdateComponent],
+  entryComponents: [ObservableDynamicUpdateComponent]
 })
 export class ObservableDynamicUpdateModule implements WithCustomElementComponent {
   customElementComponent: Type<any> = ObservableDynamicUpdateComponent;

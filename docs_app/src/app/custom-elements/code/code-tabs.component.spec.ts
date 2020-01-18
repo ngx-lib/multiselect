@@ -14,12 +14,10 @@ describe('CodeTabsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ HostComponent ],
-      imports: [ CodeTabsModule, NoopAnimationsModule ],
-      schemas: [ NO_ERRORS_SCHEMA ],
-      providers: [
-       { provide: Logger, useClass: MockLogger },
-      ]
+      declarations: [HostComponent],
+      imports: [CodeTabsModule, NoopAnimationsModule],
+      schemas: [NO_ERRORS_SCHEMA],
+      providers: [{ provide: Logger, useClass: MockLogger }]
     });
 
     fixture = TestBed.createComponent(HostComponent);
@@ -73,19 +71,17 @@ describe('CodeTabsComponent', () => {
   selector: 'aio-host-comp',
   template: `
     <code-tabs linenums="default-linenums">
-      <code-pane class="class-A"
-                 language="language-A"
-                 linenums="linenums-A"
-                 path="path-A"
-                 region="region-A"
-                 title="title-A">
+      <code-pane
+        class="class-A"
+        language="language-A"
+        linenums="linenums-A"
+        path="path-A"
+        region="region-A"
+        title="title-A"
+      >
         Code example 1
       </code-pane>
-      <code-pane class="class-B"
-                 language="language-B"
-                 path="path-B"
-                 region="region-B"
-                 title="title-B">
+      <code-pane class="class-B" language="language-B" path="path-B" region="region-B" title="title-B">
         Code example 2
       </code-pane>
     </code-tabs>

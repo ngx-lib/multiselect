@@ -6,36 +6,35 @@ import { FormControl } from '@angular/forms';
   templateUrl: './template-driven.component.html'
 })
 export class TemplateDrivenComponent implements OnInit {
-
   options;
   selectedOptions = new FormControl({
-    "id": 1,
-    "name": "India"
+    id: 1,
+    name: 'India'
   });
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.options = [
       {
-        "id": 1,
-        "name": "India"
+        id: 1,
+        name: 'India'
       },
       {
-        "id": 2,
-        "name": "Japan"
+        id: 2,
+        name: 'Japan'
       },
       {
-        "id": 3,
-        "name": "China"
+        id: 3,
+        name: 'China'
       },
       {
-        "id": 4,
-        "name": "Australia"
+        id: 4,
+        name: 'Australia'
       },
       {
-        "id": 5,
-        "name": "Paris"
+        id: 5,
+        name: 'Paris'
       }
     ];
   }

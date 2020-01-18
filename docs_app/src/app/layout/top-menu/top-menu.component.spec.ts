@@ -11,10 +11,8 @@ describe('TopMenuComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ TopMenuComponent ],
-      providers: [
-        { provide: NavigationService, useClass: TestNavigationService }
-      ]
+      declarations: [TopMenuComponent],
+      providers: [{ provide: NavigationService, useClass: TestNavigationService }]
     });
   });
 
@@ -33,9 +31,9 @@ describe('TopMenuComponent', () => {
 class TestNavigationService {
   navJson = {
     TopBar: [
-      {url: 'api', title: 'API' },
-      {url: 'features', title: 'Features' }
-    ],
+      { url: 'api', title: 'API' },
+      { url: 'features', title: 'Features' }
+    ]
   };
 
   navigationViews = new BehaviorSubject<NavigationViews>(this.navJson);

@@ -5,14 +5,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgxMultiselectModule } from '@ngx-lib/multiselect';
 
 @NgModule({
-  imports: [ 
-    CommonModule,
-    NgxMultiselectModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  declarations: [ GroupingComponent ],
-  entryComponents: [ GroupingComponent ]
+  imports: [CommonModule, NgxMultiselectModule, FormsModule, ReactiveFormsModule],
+  declarations: [GroupingComponent],
+  entryComponents: [GroupingComponent]
 })
-export class GroupingModule {
-}
+export class GroupingModule {}

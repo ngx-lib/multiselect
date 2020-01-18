@@ -55,7 +55,6 @@ export function rawNodesWithMethodCount(tree) {
   }).length;
 }
 
-
 /**
  * Recursively count valid API references
  * Deprecated API refs are invalid

@@ -6,10 +6,10 @@ import { CodeModule } from './code.module';
 import { WithCustomElementComponent } from '../element-registry';
 
 @NgModule({
-  imports: [ CommonModule, MatCardModule, MatTabsModule, CodeModule ],
-  declarations: [ CodeTabsComponent ],
-  exports: [ CodeTabsComponent ],
-  entryComponents: [ CodeTabsComponent ]
+  imports: [CommonModule, MatCardModule, MatTabsModule, CodeModule],
+  declarations: [CodeTabsComponent],
+  exports: [CodeTabsComponent],
+  entryComponents: [CodeTabsComponent]
 })
 export class CodeTabsModule implements WithCustomElementComponent {
   customElementComponent: Type<any> = CodeTabsComponent;

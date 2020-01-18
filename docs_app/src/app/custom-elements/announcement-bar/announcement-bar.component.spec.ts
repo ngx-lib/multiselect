@@ -11,7 +11,6 @@ const tomorrow = changeDays(today, 1);
 const nextWeek = changeDays(today, 7);
 
 describe('AnnouncementBarComponent', () => {
-
   let element: HTMLElement;
   let fixture: ComponentFixture<AnnouncementBarComponent>;
   let component: AnnouncementBarComponent;
@@ -66,9 +65,7 @@ describe('AnnouncementBarComponent', () => {
       const request = httpMock.expectOne('generated/announcements.json');
       request.flush('some random response');
       expect(component.announcement).toBeUndefined();
-      expect(mockLogger.output.error).toEqual([
-        [jasmine.any(Error)]
-      ]);
+      expect(mockLogger.output.error).toEqual([[jasmine.any(Error)]]);
       expect(mockLogger.output.error[0][0].message).toMatch(/^generated\/announcements\.json contains invalid data:/);
     });
 
@@ -77,9 +74,7 @@ describe('AnnouncementBarComponent', () => {
       const request = httpMock.expectOne('generated/announcements.json');
       request.error(new ErrorEvent('404'));
       expect(component.announcement).toBeUndefined();
-      expect(mockLogger.output.error).toEqual([
-        [jasmine.any(Error)]
-      ]);
+      expect(mockLogger.output.error).toEqual([[jasmine.any(Error)]]);
       expect(mockLogger.output.error[0][0].message).toMatch(/^generated\/announcements\.json request failed:/);
     });
   });
@@ -111,5 +106,5 @@ describe('AnnouncementBarComponent', () => {
 });
 
 function changeDays(initial: Date, days: number) {
-  return (new Date(initial.valueOf()).setDate(initial.getDate() + days));
+  return new Date(initial.valueOf()).setDate(initial.getDate() + days);
 }

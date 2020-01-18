@@ -16,4 +16,3 @@ export interface SearchArea {
   pages: SearchResult[];
   priorityPages: SearchResult[];
 }
-

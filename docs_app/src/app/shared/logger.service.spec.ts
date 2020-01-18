@@ -41,7 +41,6 @@ describe('logger service', () => {
   });
 });
 
-
 class MockErrorHandler implements ErrorHandler {
   handleError = jasmine.createSpy('handleError');
 }

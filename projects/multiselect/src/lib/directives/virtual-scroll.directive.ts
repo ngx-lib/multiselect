@@ -72,11 +72,15 @@ export class VirtualScrollDirective {
   initialSetup() {
     // TODO: later think of usng ViewChild, instead of direct DOM manipulation.
     const { scrollTop, clientHeight } = this.el.nativeElement;
-    
+
     this.top = this.renderer.selectRootElement('.top');
     this.bottom = this.renderer.selectRootElement('.bottom');
     this.renderer.setStyle(this.top, 'height', `${scrollTop}px`);
-    this.renderer.setStyle(this.bottom, 'height', `${this.itemHeight * this._totalCount + this.scrollOffset - clientHeight }px`);
+    this.renderer.setStyle(
+      this.bottom,
+      'height',
+      `${this.itemHeight * this._totalCount + this.scrollOffset - clientHeight}px`
+    );
     this.renderer.setProperty(this.el.nativeElement, 'scrollTop', 0);
   }
 }

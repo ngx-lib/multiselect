@@ -1,10 +1,13 @@
 <p>Select the countries you would like to visit?</p>
 <form name="form" #f="ngForm">
-  <ngx-multiselect required
+  <ngx-multiselect
+    required
     #name="ngModel"
     name="country"
     [multiple]="false"
-    [(ngModel)]="selectedOptions" [options]="options">
+    [(ngModel)]="selectedOptions"
+    [options]="options"
+  >
   </ngx-multiselect>
 </form>
 <div *ngIf="name">

@@ -30,15 +30,11 @@ const FETCHING_ERROR_CONTENTS = `
 
 @Injectable()
 export class DocumentService {
-
   private cache = new Map<string, Observable<DocumentContents>>();
 
   currentDocument: Observable<DocumentContents>;
 
-  constructor(
-    private logger: Logger,
-    private http: HttpClient,
-    location: LocationService) {
+  constructor(private logger: Logger, private http: HttpClient, location: LocationService) {
     // Whenever the URL changes we try to get the appropriate doc
     this.currentDocument = location.currentPath.pipe(switchMap(path => this.getDocument(path)));
   }
@@ -46,7 +42,7 @@ export class DocumentService {
   private getDocument(url: string) {
     const id = url || 'index';
     this.logger.log('getting document', id);
-    if ( !this.cache.has(id)) {
+    if (!this.cache.has(id)) {
       this.cache.set(id, this.fetchDocument(id));
     }
     return this.cache.get(id)!;
@@ -58,7 +54,7 @@ export class DocumentService {
 
     this.logger.log('fetching document from', requestPath);
     this.http
-      .get<DocumentContents>(requestPath, {responseType: 'json'})
+      .get<DocumentContents>(requestPath, { responseType: 'json' })
       .pipe(
         tap(data => {
           if (!data || typeof data !== 'object') {
@@ -68,7 +64,7 @@ export class DocumentService {
         }),
         catchError((error: HttpErrorResponse) => {
           return error.status === 404 ? this.getFileNotFoundDoc(id) : this.getErrorDoc(id, error);
-        }),
+        })
       )
       .subscribe(subject);
 

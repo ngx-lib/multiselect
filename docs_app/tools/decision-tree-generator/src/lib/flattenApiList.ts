@@ -21,15 +21,15 @@ export function flattenApiList(apiList: ApiListNode[]): FlattenedApiList {
             ...acc,
             [curr.title]: {
               path: curr.path,
-              docType: curr.docType,
+              docType: curr.docType
             }
           };
         }
 
         return {
-          ...acc,
+          ...acc
         };
-      }, {} as FlattenedApiList),
+      }, {} as FlattenedApiList)
     };
   }, {} as FlattenedApiList);
 }

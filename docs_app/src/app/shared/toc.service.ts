@@ -4,7 +4,6 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ReplaySubject } from 'rxjs';
 import { ScrollSpyInfo, ScrollSpyService } from 'app/shared/scroll-spy.service';
 
-
 export interface TocItem {
   content: SafeHtml;
   href: string;
@@ -20,9 +19,10 @@ export class TocService {
   private scrollSpyInfo: ScrollSpyInfo | null = null;
 
   constructor(
-      @Inject(DOCUMENT) private document: any,
-      private domSanitizer: DomSanitizer,
-      private scrollSpyService: ScrollSpyService) { }
+    @Inject(DOCUMENT) private document: any,
+    private domSanitizer: DomSanitizer,
+    private scrollSpyService: ScrollSpyService
+  ) {}
 
   genToc(docElement?: Element, docId = '') {
     this.resetScrollSpyInfo();
@@ -38,7 +38,7 @@ export class TocService {
       content: this.extractHeadingSafeHtml(heading),
       href: `/${docId}#${this.getId(heading, idMap)}`,
       level: heading.tagName.toLowerCase(),
-      title: (heading.textContent || '').trim(),
+      title: (heading.textContent || '').trim()
     }));
 
     this.tocList.next(tocList);
@@ -98,7 +98,10 @@ export class TocService {
     if (id) {
       addToMap(id);
     } else {
-      id = (h.textContent || '').trim().toLowerCase().replace(/\W+/g, '-');
+      id = (h.textContent || '')
+        .trim()
+        .toLowerCase()
+        .replace(/\W+/g, '-');
       id = addToMap(id);
       h.id = id;
     }

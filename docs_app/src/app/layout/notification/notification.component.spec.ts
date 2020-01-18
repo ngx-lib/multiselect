@@ -15,7 +15,7 @@ describe('NotificationComponent', () => {
       declarations: [TestComponent, NotificationComponent],
       providers: [
         { provide: WindowToken, useClass: MockWindow },
-        { provide: CurrentDateToken, useValue: now },
+        { provide: CurrentDateToken, useValue: now }
       ],
       imports: [NoopAnimationsModule],
       schemas: [NO_ERRORS_SCHEMA]
@@ -115,20 +115,18 @@ describe('NotificationComponent', () => {
 
 @Component({
   template: `
-  <aio-notification
-    notificationId="survey-january-2018"
-    expirationDate="2018-01-22">
-    <span class="messageholder">
-    <a href="https://blog.angular.io/version-6-0-0-of-angular-now-available-cc56b0efa7a4">
-      <span *ngIf="false" class="bad">This should not appear</span>
-      <span class="message">Version 6 of Angular Now Available!</span>
-      <span class="action-button">Learn More</span>
-    </a>
-    </span>
-  </aio-notification>`
+    <aio-notification notificationId="survey-january-2018" expirationDate="2018-01-22">
+      <span class="messageholder">
+        <a href="https://blog.angular.io/version-6-0-0-of-angular-now-available-cc56b0efa7a4">
+          <span *ngIf="false" class="bad">This should not appear</span>
+          <span class="message">Version 6 of Angular Now Available!</span>
+          <span class="action-button">Learn More</span>
+        </a>
+      </span>
+    </aio-notification>
+  `
 })
-class TestComponent {
-}
+class TestComponent {}
 
 class MockWindow {
   localStorage = jasmine.createSpyObj('localStorage', ['getItem', 'setItem']);

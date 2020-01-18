@@ -7,14 +7,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgxMultiselectModule } from '@ngx-lib/multiselect';
 
 @NgModule({
-  imports: [ 
-    CommonModule,
-    NgxMultiselectModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  declarations: [ CustomTemplateComponent ],
-  entryComponents: [ CustomTemplateComponent ]
+  imports: [CommonModule, NgxMultiselectModule, FormsModule, ReactiveFormsModule],
+  declarations: [CustomTemplateComponent],
+  entryComponents: [CustomTemplateComponent]
 })
-export class CustomTemplateModule {
-}
+export class CustomTemplateModule {}

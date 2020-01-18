@@ -9,9 +9,11 @@
   (onSelectNone)="onSelectNoneFired()"
   (onReset)="onResetFired()"
   (onClear)="onClearFired()"
-  (onSearchChange)="onSearchChangeFired($event)">
+  (onSearchChange)="onSearchChangeFired($event)"
+>
 </ngx-multiselect>
 
 <div *ngFor="let message of messages">
-  <b>{{ message }}</b>,
+  <b>{{ message }}</b
+  >,
 </div>

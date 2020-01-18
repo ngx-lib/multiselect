@@ -22,10 +22,7 @@ describe('decisionTreeReducer', () => {
     describe('that have options', () => {
       it('should have an optons property that is an array of strings', () => {
         for (const key in tree) {
-          if (
-            tree.hasOwnProperty(key) &&
-            tree[key].options
-          ) {
+          if (tree.hasOwnProperty(key) && tree[key].options) {
             tree[key].options.forEach(option => {
               expect(typeof option).toBe('string');
             });
@@ -37,20 +34,14 @@ describe('decisionTreeReducer', () => {
     describe('when a node does not have options', () => {
       it('should not have an options property', () => {
         for (const key in tree) {
-          if (
-            tree.hasOwnProperty(key) &&
-            !tree[key].options
-          ) {
+          if (tree.hasOwnProperty(key) && !tree[key].options) {
             expect(tree[key]).not.toHaveProperty('options');
           }
         }
       });
       it('should have a docType and a path', () => {
         for (const key in tree) {
-          if (
-            tree.hasOwnProperty(key) &&
-            !tree[key].options
-          ) {
+          if (tree.hasOwnProperty(key) && !tree[key].options) {
             expect(tree[key]).toHaveProperty('docType');
             expect(tree[key]).toHaveProperty('path');
           }
@@ -77,10 +68,7 @@ describe('decisionTreeReducer', () => {
       it('should have a method property', () => {
         let count = 0;
         for (const key in tree) {
-          if (
-            tree.hasOwnProperty(key) &&
-            tree[key].method
-          ) {
+          if (tree.hasOwnProperty(key) && tree[key].method) {
             count++;
           }
         }

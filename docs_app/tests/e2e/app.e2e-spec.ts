@@ -5,7 +5,7 @@ describe('site App', function() {
   let page: SitePage;
 
   beforeEach(() => {
-    SitePage.setWindowWidth(1050);   // Make the window wide enough to show the SideNav side-by-side.
+    SitePage.setWindowWidth(1050); // Make the window wide enough to show the SideNav side-by-side.
     page = new SitePage();
   });
 
@@ -128,12 +128,12 @@ describe('site App', function() {
   });
 
   describe('google analytics', () => {
-
     it('should call ga with initial URL', done => {
       let path: string;
       page.navigateTo('api');
-      page.locationPath()
-        .then(p => path = p)
+      page
+        .locationPath()
+        .then(p => (path = p))
         .then(() => page.ga())
         .then(calls => {
           // The last call (length-1) will be the `send` command
@@ -147,8 +147,9 @@ describe('site App', function() {
       let path: string;
       page.navigateTo('');
       page.click(page.getTopMenuLink('features'));
-      page.locationPath()
-        .then(p => path = p)
+      page
+        .locationPath()
+        .then(p => (path = p))
         .then(() => page.ga())
         .then(calls => {
           // The last call (length-1) will be the `send` command

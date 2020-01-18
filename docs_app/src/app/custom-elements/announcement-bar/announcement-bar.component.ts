@@ -44,13 +44,14 @@ export interface Announcement {
 @Component({
   selector: 'aio-announcement-bar',
   template: `
-  <div class="homepage-container" *ngIf="announcement">
-    <div class="announcement-bar">
-      <img [src]="announcement.imageUrl">
-      <p [innerHTML]="announcement.message"></p>
-      <a class="button" [href]="announcement.linkUrl">Learn More</a>
+    <div class="homepage-container" *ngIf="announcement">
+      <div class="announcement-bar">
+        <img [src]="announcement.imageUrl" />
+        <p [innerHTML]="announcement.message"></p>
+        <a class="button" [href]="announcement.linkUrl">Learn More</a>
+      </div>
     </div>
-  </div>`
+  `
 })
 export class AnnouncementBarComponent implements OnInit {
   announcement: Announcement;
@@ -58,7 +59,8 @@ export class AnnouncementBarComponent implements OnInit {
   constructor(private http: HttpClient, private logger: Logger) {}
 
   ngOnInit() {
-    this.http.get<Announcement[]>(announcementsPath)
+    this.http
+      .get<Announcement[]>(announcementsPath)
       .pipe(
         catchError(error => {
           this.logger.error(new Error(`${announcementsPath} request failed: ${error.message}`));
@@ -68,9 +70,9 @@ export class AnnouncementBarComponent implements OnInit {
         catchError(error => {
           this.logger.error(new Error(`${announcementsPath} contains invalid data: ${error.message}`));
           return [];
-        }),
+        })
       )
-      .subscribe(announcement => this.announcement = announcement);
+      .subscribe(announcement => (this.announcement = announcement));
   }
 
   /**
@@ -79,7 +81,6 @@ export class AnnouncementBarComponent implements OnInit {
   private findCurrentAnnouncement(announcements: Announcement[]) {
     return announcements
       .filter(announcement => new Date(announcement.startDate).valueOf() < Date.now())
-      .filter(announcement => new Date(announcement.endDate).valueOf() > Date.now())
-      [0];
+      .filter(announcement => new Date(announcement.endDate).valueOf() > Date.now())[0];
   }
 }

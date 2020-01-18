@@ -5,39 +5,39 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './getting-started.component.html'
 })
 export class GettingStartedComponent implements OnInit {
-
   options;
   selectedOptions;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.options = [
       {
-        "id": 1,
-        "name": "India"
+        id: 1,
+        name: 'India'
       },
       {
-        "id": 2,
-        "name": "Japan"
+        id: 2,
+        name: 'Japan'
       },
       {
-        "id": 3,
-        "name": "China"
+        id: 3,
+        name: 'China'
       },
       {
-        "id": 4,
-        "name": "Australia"
+        id: 4,
+        name: 'Australia'
       },
       {
-        "id": 5,
-        "name": "France"
+        id: 5,
+        name: 'France'
       }
     ];
-    this.selectedOptions = [{
-      "id": 1,
-      "name": "India"
-    }];
+    this.selectedOptions = [
+      {
+        id: 1,
+        name: 'India'
+      }
+    ];
   }
-
 }

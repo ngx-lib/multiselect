@@ -1,10 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, Type } from '@angular/core';
-import {
-  MatButtonModule,
-  MatCardModule,
-  MatRippleModule
-} from '@angular/material';
+import { MatButtonModule, MatCardModule, MatRippleModule } from '@angular/material';
 import { ScrollService } from 'app/shared/scroll.service';
 import { WithCustomElementComponent } from '../element-registry';
 import { OperatorDecisionTreeDataService } from './operator-decision-tree-data.service';
@@ -15,14 +11,8 @@ import { OperatorDecisionTreeService } from './operator-decision-tree.service';
   imports: [CommonModule, MatButtonModule, MatCardModule, MatRippleModule],
   declarations: [OperatorDecisionTreeComponent],
   entryComponents: [OperatorDecisionTreeComponent],
-  providers: [
-    OperatorDecisionTreeDataService,
-    OperatorDecisionTreeService,
-    ScrollService
-  ]
+  providers: [OperatorDecisionTreeDataService, OperatorDecisionTreeService, ScrollService]
 })
 export class OperatorDecisionTreeModule implements WithCustomElementComponent {
-  customElementComponent: Type<
-    OperatorDecisionTreeComponent
-  > = OperatorDecisionTreeComponent;
+  customElementComponent: Type<OperatorDecisionTreeComponent> = OperatorDecisionTreeComponent;
 }

@@ -1,10 +1,10 @@
 /*
-* API List & Filter Component
-*
-* A page that displays a formatted list of the public Angular API entities.
-* Clicking on a list item triggers navigation to the corresponding API entity document.
-* Can add/remove API entity links based on filter settings.
-*/
+ * API List & Filter Component
+ *
+ * A page that displays a formatted list of the public Angular API entities.
+ * Clicking on a list item triggers navigation to the corresponding API entity document.
+ * Can add/remove API entity links based on filter settings.
+ */
 
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
@@ -23,10 +23,9 @@ class SearchCriteria {
 
 @Component({
   selector: 'aio-api-list',
-  templateUrl: './api-list.component.html',
+  templateUrl: './api-list.component.html'
 })
 export class ApiListComponent implements OnInit {
-
   filteredSections: Observable<ApiSection[]>;
 
   showStatusMenu = false;
@@ -42,7 +41,7 @@ export class ApiListComponent implements OnInit {
   types: Option[] = [
     { value: 'all', title: 'All' },
     { value: 'class', title: 'Class' },
-    { value: 'const', title: 'Const'},
+    { value: 'const', title: 'Const' },
     { value: 'enum', title: 'Enum' },
     { value: 'function', title: 'Function' },
     { value: 'interface', title: 'Interface' },
@@ -59,18 +58,12 @@ export class ApiListComponent implements OnInit {
 
   @ViewChild('filter', { static: false }) queryEl: ElementRef;
 
-  constructor(
-    private apiService: ApiService,
-    private locationService: LocationService) { }
+  constructor(private apiService: ApiService, private locationService: LocationService) {}
 
   ngOnInit() {
-    this.filteredSections = combineLatest(
-      this.apiService.sections,
-      this.criteriaSubject,
-      (sections, criteria) => {
-        return sections.filter(section => this.filterSection(section, criteria));
-      }
-    );
+    this.filteredSections = combineLatest(this.apiService.sections, this.criteriaSubject, (sections, criteria) => {
+      return sections.filter(section => this.filterSection(section, criteria));
+    });
 
     this.initializeSearchCriteria();
   }
@@ -78,19 +71,19 @@ export class ApiListComponent implements OnInit {
   // Todo: may need to debounce as the original did
   // although there shouldn't be any perf consequences if we don't
   setQuery(query: string) {
-    this.setSearchCriteria({query: (query || '').toLowerCase().trim() });
+    this.setSearchCriteria({ query: (query || '').toLowerCase().trim() });
   }
 
   setStatus(status: Option) {
     this.toggleStatusMenu();
     this.status = status;
-    this.setSearchCriteria({status: status.value});
+    this.setSearchCriteria({ status: status.value });
   }
 
   setType(type: Option) {
     this.toggleTypeMenu();
     this.type = type;
-    this.setSearchCriteria({type: type.value});
+    this.setSearchCriteria({ type: type.value });
   }
 
   toggleStatusMenu() {
@@ -107,22 +100,18 @@ export class ApiListComponent implements OnInit {
     let showSection = false;
 
     section.items.forEach(item => {
-      item.show =  matchesType() && matchesStatus() && matchesQuery();
+      item.show = matchesType() && matchesStatus() && matchesQuery();
 
       // show section if any of its items will be shown
       showSection = showSection || item.show;
 
       function matchesQuery() {
-        return !query ||
-          section.name.indexOf(query) !== -1 ||
-          item.name.indexOf(query) !== -1;
+        return !query || section.name.indexOf(query) !== -1 || item.name.indexOf(query) !== -1;
       }
 
       function matchesStatus() {
-        return status === 'all' ||
-          status === item.stability ||
-          (status === 'security-risk' && item.securityRisk);
-      };
+        return status === 'all' || status === item.stability || (status === 'security-risk' && item.securityRisk);
+      }
 
       function matchesType() {
         return type === 'all' || type === item.docType;
@@ -130,12 +119,11 @@ export class ApiListComponent implements OnInit {
     });
 
     return showSection;
-
   }
 
   // Get initial search criteria from URL search params
   private initializeSearchCriteria() {
-    const {query, status, type} = this.locationService.search();
+    const { query, status, type } = this.locationService.search();
 
     const q = (query || '').toLowerCase();
     // Hack: can't bind to query because input cursor always forced to end-of-line.
@@ -154,11 +142,11 @@ export class ApiListComponent implements OnInit {
   }
 
   private setLocationSearch() {
-    const {query, status, type} = this.searchCriteria;
+    const { query, status, type } = this.searchCriteria;
     const params = {
-      query:  query ? query : undefined,
+      query: query ? query : undefined,
       status: status !== 'all' ? status : undefined,
-      type:   type   !== 'all' ? type   : undefined
+      type: type !== 'all' ? type : undefined
     };
 
     this.locationService.setSearch('API Search', params);

@@ -6,17 +6,15 @@ import { AppService } from '../../../app.service';
   templateUrl: './observable-subscribe.component.html'
 })
 export class ObservableSubscribeComponent implements OnInit {
-
   selectedOptions;
   options;
 
-  constructor(private _appService: AppService) { }
+  constructor(private _appService: AppService) {}
 
   ngOnInit() {
-    this.options = this._appService.getObservableOptions().subscribe((data) => {
+    this.options = this._appService.getObservableOptions().subscribe(data => {
       this.options = data;
       this.selectedOptions = [this.options[0], this.options[1]];
     });
   }
-
 }

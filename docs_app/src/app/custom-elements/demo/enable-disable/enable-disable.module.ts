@@ -7,15 +7,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material';
 
 @NgModule({
-  imports: [ 
-    CommonModule,
-    NgxMultiselectModule,
-    FormsModule,
-    ReactiveFormsModule ,
-    MatButtonModule
-  ],
-  declarations: [ EnableDisableComponent ],
-  entryComponents: [ EnableDisableComponent ]
+  imports: [CommonModule, NgxMultiselectModule, FormsModule, ReactiveFormsModule, MatButtonModule],
+  declarations: [EnableDisableComponent],
+  entryComponents: [EnableDisableComponent]
 })
 export class EnableDisableModule implements WithCustomElementComponent {
   customElementComponent: Type<any> = EnableDisableComponent;

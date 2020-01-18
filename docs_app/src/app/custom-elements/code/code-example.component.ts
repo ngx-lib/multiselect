@@ -19,17 +19,19 @@ import { CodeComponent } from './code.component';
     <!-- Content projection is used to get the content HTML provided to this component -->
     <div #content style="display: none"><ng-content></ng-content></div>
 
-    <header *ngIf="title">{{title}}</header>
+    <header *ngIf="title">{{ title }}</header>
 
-    <aio-code [ngClass]="classes"
-              [language]="language"
-              [linenums]="linenums"
-              [path]="path"
-              [region]="region"
-              [hideCopy]="hidecopy"
-              [title]="title">
+    <aio-code
+      [ngClass]="classes"
+      [language]="language"
+      [linenums]="linenums"
+      [path]="path"
+      [region]="region"
+      [hideCopy]="hidecopy"
+      [title]="title"
+    >
     </aio-code>
-  `,
+  `
 })
 export class CodeExampleComponent implements AfterViewInit {
   classes: {};
@@ -45,10 +47,12 @@ export class CodeExampleComponent implements AfterViewInit {
     this._title = title;
     this.classes = {
       'headed-code': !!this.title,
-      'simple-code': !this.title,
+      'simple-code': !this.title
     };
   }
-  get title(): string { return this._title; }
+  get title(): string {
+    return this._title;
+  }
   private _title: string;
 
   @Input()
@@ -56,7 +60,9 @@ export class CodeExampleComponent implements AfterViewInit {
     this._path = path;
     this.isAvoid = this.path.indexOf('.avoid.') !== -1;
   }
-  get path(): string { return this._path; }
+  get path(): string {
+    return this._path;
+  }
   private _path = '';
 
   @Input()
@@ -64,7 +70,9 @@ export class CodeExampleComponent implements AfterViewInit {
     // Coerce the boolean value.
     this._hidecopy = hidecopy != null && `${hidecopy}` !== 'false';
   }
-  get hidecopy(): boolean { return this._hidecopy; }
+  get hidecopy(): boolean {
+    return this._hidecopy;
+  }
   private _hidecopy: boolean;
 
   @Input('hide-copy')
