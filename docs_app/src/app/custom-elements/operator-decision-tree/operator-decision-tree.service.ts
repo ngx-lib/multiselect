@@ -12,7 +12,7 @@ export class OperatorDecisionTreeService {
     currentBranchId: 'initial'
   };
   private state$ = new BehaviorSubject<State>(this.initialState);
-  private tree$: Observable<OperatorDecisionTree> = this.dataService.getDecisionTree$().pipe(
+  private tree$: Observable<OperatorDecisionTree | {error: any}> = this.dataService.getDecisionTree$().pipe(
     catchError(error => of({ error })), // This helps if the JSON for some reason fails to get fetched
     shareReplay()
   );
