@@ -358,7 +358,7 @@ class HostComponent implements AfterViewInit {
   region: string;
   title: string;
 
-  @ViewChild(CodeComponent) codeComponent: CodeComponent;
+  @ViewChild(CodeComponent, { static: false }) codeComponent: CodeComponent;
 
   ngAfterViewInit() {
     this.setCode(oneLineCode);

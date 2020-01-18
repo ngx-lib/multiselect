@@ -11,7 +11,7 @@ export class CodeViewComponent implements OnInit {
   code: string;
   @Input()
   language: string;
-  @ViewChild('code')
+  @ViewChild('code', { static: false })
   codeElement: ElementRef;
 
   constructor() {}

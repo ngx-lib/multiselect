@@ -85,13 +85,13 @@ export class AppComponent implements OnInit {
   searchResults: Observable<SearchResults>;
   @ViewChildren('searchBox, searchResultsView', { read: ElementRef })
   searchElements: QueryList<ElementRef>;
-  @ViewChild(SearchBoxComponent)
+  @ViewChild(SearchBoxComponent, { static: false })
   searchBox: SearchBoxComponent;
 
-  @ViewChild(MatSidenav)
+  @ViewChild(MatSidenav, { static: false })
   sidenav: MatSidenav;
 
-  @ViewChild(NotificationComponent)
+  @ViewChild(NotificationComponent, { static: false })
   notification: NotificationComponent;
   notificationAnimating = false;
 

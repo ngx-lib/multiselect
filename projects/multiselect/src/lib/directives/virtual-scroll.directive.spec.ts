@@ -26,7 +26,7 @@ import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 })
 class TestVirtualScrollComponent {
   count = 0;
-  @ViewChild(VirtualScrollDirective) virtualScroll: VirtualScrollDirective;
+  @ViewChild(VirtualScrollDirective, { static: false }) virtualScroll: VirtualScrollDirective;
 }
 
 describe('VirtualScrollDirective', () => {

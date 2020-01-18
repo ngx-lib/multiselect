@@ -48,7 +48,7 @@ export class CodeTabsComponent implements OnInit, AfterViewInit {
 
   @Input('linenums') linenums: string;
 
-  @ViewChild('content') content;
+  @ViewChild('content', { static: false }) content;
 
   @ViewChildren(CodeComponent) codeComponents: QueryList<CodeComponent>;
 

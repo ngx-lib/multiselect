@@ -107,7 +107,7 @@ export class CodeComponent implements OnChanges {
   @Output() codeFormatted = new EventEmitter<void>();
 
   /** The element in the template that will display the formatted code. */
-  @ViewChild('codeContainer') codeContainer: ElementRef;
+  @ViewChild('codeContainer', { static: false }) codeContainer: ElementRef;
 
   constructor(
     private snackbar: MatSnackBar,

@@ -62,7 +62,7 @@ export class LiveExampleComponent implements AfterContentInit {
   readonly zip: string;
   title: string;
 
-  @ViewChild('content')
+  @ViewChild('content', { static: false })
   private content: ElementRef;
 
   constructor(elementRef: ElementRef, location: Location) {
@@ -142,7 +142,7 @@ export class LiveExampleComponent implements AfterContentInit {
 export class EmbeddedStackblitzComponent implements AfterViewInit {
   @Input() src: string;
 
-  @ViewChild('iframe') iframe: ElementRef;
+  @ViewChild('iframe', { static: false }) iframe: ElementRef;
 
   ngAfterViewInit() {
     // DEVELOPMENT TESTING ONLY

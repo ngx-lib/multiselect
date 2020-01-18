@@ -10,7 +10,7 @@ export class EnableDisableComponent implements OnInit {
   options;
   selectedOptions;
   isDisabled = false;
-  @ViewChild('multiSelect')
+  @ViewChild('multiSelect', { static: false })
   multiselectRef: TemplateRef<any>;
 
   constructor() {}

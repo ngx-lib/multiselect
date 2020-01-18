@@ -57,7 +57,7 @@ export class ApiListComponent implements OnInit {
     // { value: 'security-risk', title: 'Security Risk' }
   ];
 
-  @ViewChild('filter') queryEl: ElementRef;
+  @ViewChild('filter', { static: false }) queryEl: ElementRef;
 
   constructor(
     private apiService: ApiService,

@@ -56,7 +56,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   @Input() showHelperElements: boolean = true;
   @Input() showSearchFilter: boolean = true;
   @Input() showMaxLabels: number = 3;
-  @ContentChild(TemplateRef)
+  @ContentChild(TemplateRef, { static: false })
   @Input()
   optionsTemplate: TemplateRef<any>;
   @Input()
@@ -123,7 +123,7 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   @Output() onClear: EventEmitter<any> = new EventEmitter<void>();
   @Output() onSearchChange: EventEmitter<any> = new EventEmitter<string>();
 
-  @ViewChild('filterOptions', { read: FilterOptionsComponent }) filterOptions;
+  @ViewChild('filterOptions', { read: FilterOptionsComponent, static: false }) filterOptions;
 
   // All update to options should happen from below method.
   setOptions(options) {
