@@ -1,4 +1,4 @@
-import chalk from 'chalk';
+import * as chalk from 'chalk';
 import { readFileSync, writeFileSync } from 'fs';
 import { resolve } from 'path';
 import { parse } from 'yamljs';

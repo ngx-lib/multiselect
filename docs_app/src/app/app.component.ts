@@ -99,7 +99,7 @@ export class AppComponent implements OnInit {
   @ViewChild(SearchBoxComponent, { static: false })
   searchBox: SearchBoxComponent;
 
-  @ViewChild(MatSidenav, { static: false })
+  @ViewChild(MatSidenav, { static: true })
   sidenav: MatSidenav;
 
   @ViewChild(NotificationComponent, { static: false })
