@@ -15,14 +15,6 @@
     "lib": [
       "es2017",
       "dom"
-    ],
-    "paths": {
-      "@ngx-lib/multiselect": [
-        "dist/multiselect"
-      ],
-      "@ngx-lib/multiselect/*": [
-        "dist/multiselect/*"
-      ]
-    }
+    ]
   }
 }

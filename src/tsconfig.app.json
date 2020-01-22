@@ -3,10 +3,17 @@
   "compilerOptions": {
     "outDir": "../out-tsc/app",
     "module": "es2015",
+    "baseUrl": "./",
     "types": [],
     "paths": {
       "core-js/es7/reflect": [
         "node_modules/core-js/proposals/reflect-metadata"
+      ],
+      "@ngx-lib/multiselect": [
+        "./../projects/multiselect/src/public_api"
+      ],
+      "@ngx-lib/multiselect/*": [
+        "./../projects/multiselect/src/public_api"
       ]
     }
   },
