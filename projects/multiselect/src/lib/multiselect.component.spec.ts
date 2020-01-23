@@ -346,6 +346,14 @@ describe('MultiselectComponent', () => {
       // assert
       expect(true).toBeTruthy();
     });
+
+    // TODO: check where to keep this test case
+    it('on fieldset disabled all inner field should be non selectable', () => {
+      // arrange
+      // act
+      // assert
+      expect(true).toBeTruthy();
+    });
   }
   // without observable
   beforeEachSetup();
