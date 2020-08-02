@@ -165,5 +165,8 @@
       }
     }
   },
-  "defaultProject": "ngx-multiselect"
+  "defaultProject": "ngx-multiselect",
+  "cli": {
+    "analytics": "42f4a5be-1116-4661-8271-9928202d334a"
+  }
 }
