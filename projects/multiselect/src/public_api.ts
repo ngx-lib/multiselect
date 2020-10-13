@@ -3,6 +3,7 @@
  */
 
 export * from './lib/multiselect.module';
+export * from './lib/multiselect.component';
 export * from './lib/pipes/display-selected-value.pipe';
 export * from './lib/services/multiselect.service';
 export * from './lib/grouped-options/grouped-options.component';
