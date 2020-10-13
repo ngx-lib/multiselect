@@ -12,6 +12,9 @@
     "ngx",
     "ngx multiselect"
   ],
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
   "peerDependencies": {
     "@angular/animations": ">= 6.0.4 < 10.0.5",
     "@angular/common": ">=6.0.4 < 10.0.5",

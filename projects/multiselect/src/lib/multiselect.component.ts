@@ -9,12 +9,11 @@ import {
   EventEmitter,
   ViewChild,
   HostBinding,
-  Renderer2
+  HostListener, Renderer2
 } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { NgxMultiselectService } from './services/multiselect.service';
-import { NgxMultiselectBaseComponent } from './multiselect-base.component';
 import { forwardRef } from '@angular/core';
 import { FilterOptionsComponent } from './filter-options/filter-options.component';
 
@@ -31,9 +30,99 @@ export const DEFAULT_VALUE_ACCESSOR: any = {
   providers: [DEFAULT_VALUE_ACCESSOR],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
+export class NgxMultiselectComponent implements ControlValueAccessor {
   constructor(protected elementRef: ElementRef, protected multiselectService: NgxMultiselectService, private renderer: Renderer2) {
-    super(elementRef, multiselectService);
+  }
+
+  private operationPendingQueue: any[] = [];
+  _defaultPropertyMap = {
+    id: 'id',
+    name: 'name',
+    disabled: 'disabled'
+  };
+  _defaultPropertyMapLength = Object.keys(this._defaultPropertyMap).length;
+
+  // Adding pending operation in queue
+  addOperation(item) {
+    this.operationPendingQueue.push(item);
+  }
+
+  // Poping pending operation from queue sequentially
+  popOperation() {
+    return this.operationPendingQueue.pop();
+  }
+
+  /* 
+    In future this code is going to resides inside different Service,
+    This pendingOperation feature is fine grained in future, 
+    and can be used for multiple purpose like model update, collection update, etc.
+  */
+  // Extracting and finishing all pending operation
+  finishPendingOperations() {
+    const operation = this.popOperation();
+    this.prepopulateOptions(operation);
+  }
+
+  // Check pending operation queue status
+  isOperationPending() {
+    return this.operationPendingQueue.length;
+  }
+
+  private _initialValue: any;
+  set initialValue(value: any) {
+    this._initialValue = value;
+  }
+  get initialValue() {
+    return this._initialValue;
+  }
+
+  onChange = (_: any) => {};
+  onTouched = () => {};
+
+  writeValue(value) {
+    // Set selected value for initial load of value
+    if (value) {
+      this.initialValue = value;
+      this._options ? this.prepopulateOptions(value) : this.addOperation(value);
+      this.formatPrepopulatedValues(value);
+    }
+  }
+  private formatPrepopulatedValues(value): any {
+    let options = value;
+    // TODO: can we improve below logic?
+    if (Object.keys(this._defaultPropertyMap).length == this._defaultPropertyMapLength) return;
+    const swappedPropertyMap: any = this.multiselectService.mirrorObject(this._defaultPropertyMap);
+    if (this.multiple) {
+      options.forEach(o => {
+        o.id = o[swappedPropertyMap.id];
+        o.name = o[swappedPropertyMap.name];
+      });
+    } else {
+      value.id = value[swappedPropertyMap.id];
+      value.name = value[swappedPropertyMap.name];
+      options = value;
+    }
+  }
+
+  registerOnChange(fn: (value: any) => any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => any): void {
+    this.onTouched = fn;
+  }
+
+  // TODO: Consider creating a directive for this.
+  // TODO: Also convert below to be work for element specific
+  @HostListener('document:click', ['$event.target'])
+  clickOutSide(event) {
+    if (
+      this.isOpen &&
+      this.elementRef.nativeElement !== event &&
+      !this.multiselectService.closest(event, 'ngx-multiselect')
+    ) {
+      this.close();
+    }
   }
 
   // private variables
@@ -56,9 +145,13 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   @Input() showHelperElements: boolean = true;
   @Input() showSearchFilter: boolean = true;
   @Input() showMaxLabels: number = 3;
-  @ContentChild(TemplateRef)
-  @Input()
-  optionsTemplate: TemplateRef<any>;
+  @ContentChild(TemplateRef) _optionsTemplate: TemplateRef<any>;
+  @Input() get optionsTemplate() {
+    return this._optionsTemplate;
+  }
+  set optionsTemplate(template) {
+    this._optionsTemplate = template;
+  };
   @Input()
   public get theme(): string {
     return this._theme;
