@@ -9,12 +9,11 @@ import {
   EventEmitter,
   ViewChild,
   HostBinding,
-  Renderer2
+  HostListener
 } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { NgxMultiselectService } from './services/multiselect.service';
-import { NgxMultiselectBaseComponent } from './multiselect-base.component';
 import { forwardRef } from '@angular/core';
 import { FilterOptionsComponent } from './filter-options/filter-options.component';
 
@@ -31,20 +30,29 @@ export const DEFAULT_VALUE_ACCESSOR: any = {
   providers: [DEFAULT_VALUE_ACCESSOR],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
-  constructor(protected elementRef: ElementRef, protected multiselectService: NgxMultiselectService, private renderer: Renderer2) {
-    super(elementRef, multiselectService);
-  }
+export class NgxMultiselectComponent implements ControlValueAccessor {
+  constructor(
+    private elementRef: ElementRef,
+    private multiselectService: NgxMultiselectService
+  ) { }
 
   // private variables
   private _multiple;
   private _theme: string = 'material';
-  private _optionsCopy; //TODO: in future this will be master list
+  private _optionsCopy;
   private _isOpen: boolean = false;
+  private operationPendingQueue: any[] = [];
 
   // public variables
+  _optionsTemplate: TemplateRef<any>;
   _selectedOptions: any | any[] = null;
-  _options; //TODO: this will be local list
+  _defaultPropertyMap = {
+    id: 'id',
+    name: 'name',
+    disabled: 'disabled'
+  };
+  _defaultPropertyMapLength = Object.keys(this._defaultPropertyMap).length;
+  _options;
 
   @HostBinding('class.mat-multiselect') matMultiselect: boolean = true;
   @HostBinding('class.bs-multiselect') bsMultiselect: boolean = false;
@@ -58,7 +66,12 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   @Input() showMaxLabels: number = 3;
   @ContentChild(TemplateRef)
   @Input()
-  optionsTemplate: TemplateRef<any>;
+  get optionsTemplate() {
+    return this._optionsTemplate;
+  }
+  set optionsTemplate(template) {
+    this._optionsTemplate = template;
+  }
   @Input()
   public get theme(): string {
     return this._theme;
@@ -124,6 +137,76 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
   @Output() onSearchChange: EventEmitter<any> = new EventEmitter<string>();
 
   @ViewChild('filterOptions', { read: FilterOptionsComponent }) filterOptions;
+
+  // Adding pending operation in queue
+  addOperation(item) {
+    this.operationPendingQueue.push(item);
+  }
+
+  // Poping pending operation from queue sequentially
+  popOperation() {
+    return this.operationPendingQueue.pop();
+  }
+
+  /* 
+    In future this code is going to resides inside different Service,
+    This pendingOperation feature is fine grained in future, 
+    and can be used for multiple purpose like model update, collection update, etc.
+  */
+  // Extracting and finishing all pending operation
+  finishPendingOperations() {
+    const operation = this.popOperation();
+    this.prepopulateOptions(operation);
+  }
+
+  // Check pending operation queue status
+  isOperationPending() {
+    return this.operationPendingQueue.length;
+  }
+
+  private _initialValue: any;
+  set initialValue(value: any) {
+    this._initialValue = value;
+  }
+  get initialValue() {
+    return this._initialValue;
+  }
+
+  onChange = (_: any) => {};
+  onTouched = () => {};
+
+  writeValue(value) {
+    // Set selected value for initial load of value
+    if (value) {
+      this.initialValue = value;
+      this._options ? this.prepopulateOptions(value) : this.addOperation(value);
+      this.formatPrepopulatedValues(value);
+    }
+  }
+  private formatPrepopulatedValues(value): any {
+    let options = value;
+    // TODO: can we improve below logic?
+    if (Object.keys(this._defaultPropertyMap).length == this._defaultPropertyMapLength) return;
+    const swappedPropertyMap: any = this.multiselectService.mirrorObject(this._defaultPropertyMap);
+    if (this.multiple) {
+      options.forEach(o => {
+        o.id = o[swappedPropertyMap.id];
+        o.name = o[swappedPropertyMap.name];
+      });
+    } else {
+      value.id = value[swappedPropertyMap.id];
+      value.name = value[swappedPropertyMap.name];
+      options = value;
+    }
+  }
+
+  registerOnChange(fn: (value: any) => any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => any): void {
+    this.onTouched = fn;
+  }
 
   // All update to options should happen from below method.
   setOptions(options) {
@@ -302,6 +385,19 @@ export class NgxMultiselectComponent extends NgxMultiselectBaseComponent {
     // Check if value have not been assigned then default to true
     if (typeof this._multiple === 'undefined') {
       this.multiple = true;
+    }
+  }
+
+  // TODO: Consider creating a directive for this.
+  // TODO: Also convert below to be work for element specific
+  @HostListener('document:click', ['$event.target'])
+  clickOutSide(event) {
+    if (
+      this.isOpen &&
+      this.elementRef.nativeElement !== event &&
+      !this.multiselectService.closest(event, 'ngx-multiselect')
+    ) {
+      this.close();
     }
   }
 }
