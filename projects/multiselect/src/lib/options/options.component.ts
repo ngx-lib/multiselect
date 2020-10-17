@@ -51,13 +51,13 @@ export class OptionsComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    if (!this.optionsTemplate) {
-      this.optionsTemplate = this.defaultOptionsTemplate;
-    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     const { options } = changes;
+    if (!this.optionsTemplate) {
+      this.optionsTemplate = this.defaultOptionsTemplate;
+    }
     if (options.currentValue !== options.previousValue) {
       this.updateRange({ start: this.start, end: this.end });
     }
