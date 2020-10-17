@@ -6,7 +6,8 @@ import {
   Output,
   EventEmitter,
   TemplateRef,
-  ViewChild
+  ViewChild,
+  OnChanges
 } from '@angular/core';
 import { NgxMultiselectService } from '../services/multiselect.service';
 
@@ -16,7 +17,7 @@ import { NgxMultiselectService } from '../services/multiselect.service';
   styleUrls: ['./grouped-options.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GroupedOptionsComponent implements OnInit {
+export class GroupedOptionsComponent implements OnInit, OnChanges {
   _options = [];
   _selectedOptions = [];
   groupedOptions = [];
@@ -79,12 +80,6 @@ export class GroupedOptionsComponent implements OnInit {
     this.filteredOptions = [...this.options].slice(start, end);
   }
 
-  ngOnInit() {
-    if (!this.optionsTemplate) {
-      this.optionsTemplate = this.defaultOptionsTemplate;
-    }
-  }
-
   select(option) {
     if (!option.isGroup) {
       this.selectOption.emit(option);
@@ -95,6 +90,15 @@ export class GroupedOptionsComponent implements OnInit {
         ...option,
         values: values
       });
+    }
+  }
+
+  ngOnInit() {
+  }
+
+  ngOnChanges() {
+    if (!this.optionsTemplate) {
+      this.optionsTemplate = this.defaultOptionsTemplate;
     }
   }
 }

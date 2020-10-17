@@ -26,3 +26,15 @@ None
 ## Bugfix
 
 - Fixed broken selection for multiselect when no option is selected - #94
+
+# 1.0.4 (2020-13-10)
+
+## Bugfix
+
+- Fix Ivy compatibilty issue
+
+# 1.0.5 (2020-13-18)
+
+## Bugfix
+
+- Fixes #113 - Issue implementing multiselect in angular 9, text values in the dropdown list are empty.
