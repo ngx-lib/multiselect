@@ -34,7 +34,7 @@ export class OptionsComponent implements OnInit, OnChanges {
   end: number = 5;
   filteredOptions;
 
-  @ViewChild('defaultOptionsTemplate') defaultOptionsTemplate: TemplateRef<any>;
+  @ViewChild('defaultOptionsTemplate', { static: true }) defaultOptionsTemplate: TemplateRef<any>;
 
   constructor() {}
 

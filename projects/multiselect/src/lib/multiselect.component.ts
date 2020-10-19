@@ -44,7 +44,6 @@ export class NgxMultiselectComponent implements ControlValueAccessor {
   private operationPendingQueue: any[] = [];
 
   // public variables
-  _optionsTemplate: TemplateRef<any>;
   _selectedOptions: any | any[] = null;
   _defaultPropertyMap = {
     id: 'id',
@@ -64,7 +63,7 @@ export class NgxMultiselectComponent implements ControlValueAccessor {
   @Input() showHelperElements: boolean = true;
   @Input() showSearchFilter: boolean = true;
   @Input() showMaxLabels: number = 3;
-  @ContentChild(TemplateRef)
+  @ContentChild(TemplateRef) _optionsTemplate: TemplateRef<any>;
   @Input()
   get optionsTemplate() {
     return this._optionsTemplate;
