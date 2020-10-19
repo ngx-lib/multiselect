@@ -38,3 +38,9 @@ None
 ## Bugfix
 
 - Fixes #113 - Issue implementing multiselect in angular 9, text values in the dropdown list are empty.
+
+# 1.0.6 (2020-13-19)
+
+## Bugfix
+
+- Changed `defaultOptionsTemplate` ViewChild query to `{ static: true }`.
