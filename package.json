@@ -44,7 +44,7 @@
     "@ngx-lib/multiselect": "^1.0.3",
     "core-js": "^2.5.4",
     "hammerjs": "^2.0.8",
-    "highlight.js": "^9.13.1",
+    "highlight.js": "^10.4.1",
     "rxjs": "^6.2.2",
     "zone.js": "^0.8.26"
   },
