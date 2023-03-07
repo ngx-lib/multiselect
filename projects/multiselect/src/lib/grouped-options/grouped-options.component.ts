@@ -44,7 +44,8 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
   @Output() selectGroup = new EventEmitter<any>();
   @Output() selectOption = new EventEmitter<any>();
 
-  @ViewChild('defaultOptionsTemplate', { static: true }) defaultOptionsTemplate: TemplateRef<any>;
+
+  @ViewChild('defaultOptionsTemplate', { static: true } as any) defaultOptionsTemplate: TemplateRef<any>;
 
   constructor(public multiselectService: NgxMultiselectService) {}
 
