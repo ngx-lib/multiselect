@@ -13,43 +13,21 @@
     </div>
   </button>
   <div class="listing-wrapper" *ngIf="isOpen">
-    <ms-helper-elements
-      *ngIf="showHelperElements"
-      [multiple]="multiple"
-      [disabled]="disabled"
-      (onClear)="onClear.emit()"
-      (resetClicked)="reset()"
-      (onSearchChange)="onSearchChange.emit($event)"
-      (selectNoneClicked)="selectNone()"
-      (selectAllClicked)="selectAll()"
-      (selectNoneClicked)="selectNone()"
-    >
+    <ms-helper-elements *ngIf="showHelperElements" [multiple]="multiple" [disabled]="disabled"
+      (onClear)="onClear.emit()" (resetClicked)="reset()" (onSearchChange)="onSearchChange.emit($any($event))"
+      (selectNoneClicked)="selectNone()" (selectAllClicked)="selectAll()" (selectNoneClicked)="selectNone()">
     </ms-helper-elements>
-    <ms-filter-options
-      *ngIf="showSearchFilter"
-      #filterOptions
-      (onSearchChange)="searchChange($event)"
-    ></ms-filter-options>
+    <ms-filter-options *ngIf="showSearchFilter" #filterOptions
+      (onSearchChange)="searchChange($event)"></ms-filter-options>
     <ng-container *ngIf="!groupedProperty; else groupedTemplate">
-      <ms-options
-        [optionsTemplate]="optionsTemplate"
-        [options]="_options"
-        [disabled]="disabled"
-        (selectOption)="select($event)"
-      ></ms-options>
+      <ms-options [optionsTemplate]="optionsTemplate" [options]="_options" [disabled]="disabled"
+        (selectOption)="select($event)"></ms-options>
     </ng-container>
   </div>
 </div>
 <ng-template #groupedTemplate>
-  <ms-grouped-options
-    [multiple]="multiple"
-    [optionsTemplate]="optionsTemplate"
-    [selectedOptions]="_selectedOptions"
-    [options]="_options"
-    [disabled]="disabled"
-    [groupedProperty]="groupedProperty"
-    (selectOption)="select($event)"
-    (selectGroup)="selectGroup($event)"
-  >
+  <ms-grouped-options [multiple]="multiple" [optionsTemplate]="optionsTemplate"
+    [selectedOptions]="$any(_selectedOptions)" [options]="$any(_options)" [disabled]="disabled"
+    [groupedProperty]="groupedProperty" (selectOption)="select($event)" (selectGroup)="selectGroup($event)">
   </ms-grouped-options>
 </ng-template>

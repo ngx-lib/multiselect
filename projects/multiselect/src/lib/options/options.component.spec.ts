@@ -37,7 +37,7 @@ describe('Options Component', () => {
       { id: 6, name: 'Test 6' }
     ];
     component.options = [...options];
-    multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService(),<Renderer2> {});
+    multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService(), <Renderer2>{});
     multiselect.multiple = true;
     multiselect.setOptions([...options]);
     component.selectOption.subscribe(option => {

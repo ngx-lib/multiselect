@@ -9,8 +9,8 @@ import { Subscription } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FilterOptionsComponent implements OnInit, OnDestroy {
-  filterName: FormControl;
-  filterNameSubscription: Subscription;
+  filterName!: FormControl;
+  filterNameSubscription!: Subscription;
 
   @Output() onSearchChange = new EventEmitter<string>();
 
@@ -22,9 +22,7 @@ export class FilterOptionsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.filterName = new FormControl('');
-    this.filterNameSubscription = this.filterName.valueChanges.subscribe(
-      val => this.onSearchChange.emit(val)
-    );
+    this.filterNameSubscription = this.filterName.valueChanges.subscribe(val => this.onSearchChange.emit(val));
   }
 
   ngOnDestroy() {

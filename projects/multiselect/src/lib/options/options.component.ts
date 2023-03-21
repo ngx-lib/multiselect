@@ -10,50 +10,48 @@ import {
   SimpleChanges,
   OnChanges
 } from '@angular/core';
+import { GroupByMultiselectOption, MultiselectOption } from '../models/multiselect-option.model';
 
 @Component({
   selector: 'ms-options',
   templateUrl: './options.component.html',
   styleUrls: ['./options.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OptionsComponent implements OnInit, OnChanges {
-  _options: any[] = [];
+  _options: MultiselectOption[] | GroupByMultiselectOption[] = [];
 
   @Input() disabled: boolean = false;
-  @Input() set options(value) {
+  @Input() set options(value: MultiselectOption[] | GroupByMultiselectOption[]) {
     this._options = value;
   }
   get() {
     return this._options;
   }
-  @Input() optionsTemplate: TemplateRef<any>;
+  @Input() optionsTemplate!: TemplateRef<any>;
   @Output() selectOption = new EventEmitter<any>();
 
   start: number = 0;
   end: number = 5;
-  filteredOptions;
+  filteredOptions!: MultiselectOption[] | GroupByMultiselectOption[];
 
-  @ViewChild('defaultOptionsTemplate', { 
-    static: true
-  }  as any) defaultOptionsTemplate: TemplateRef<any>;
+  @ViewChild('defaultOptionsTemplate', { static: true } as any) defaultOptionsTemplate!: TemplateRef<any>;
 
   constructor() {}
 
-  getOptionStyle(option: any) {
+  getOptionStyle(option: MultiselectOption | GroupByMultiselectOption) {
     return { marked: option.ticked, disabled: this.disabled || option.disabled };
   }
 
-  select(option) {
+  select(option: MultiselectOption | GroupByMultiselectOption) {
     this.selectOption.emit(option);
   }
 
-  updateRange({ start, end }) {
-    this.filteredOptions = [...this._options].slice(start, end);
+  updateRange({ start, end }: Record<string, number>) {
+    this.filteredOptions = [...this._options].slice(start, end) as MultiselectOption[] | GroupByMultiselectOption[];
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ngOnChanges(changes: SimpleChanges): void {
     const { options } = changes;

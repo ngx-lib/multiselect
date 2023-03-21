@@ -16,8 +16,8 @@ describe('Grouped Options Component', () => {
   let debugElement: DebugElement;
   let option: any;
   let group: any;
-  let multiselectSelectSpy;
-  let multiselectSelectGroupSpy;
+  let multiselectSelectSpy: any;
+  let multiselectSelectGroupSpy: any;
   let selectedFirstOption: any[];
   let options: any[];
 
@@ -44,7 +44,7 @@ describe('Grouped Options Component', () => {
     selectedFirstOption = options.filter(o => o.id);
     component.multiple = true;
     component._selectedOptions = [];
-    multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService(), <Renderer2> {});
+    multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService(), <Renderer2>{});
     multiselect.multiple = true;
     multiselect.setOptions(options);
     component.options = multiselect.getOptions();

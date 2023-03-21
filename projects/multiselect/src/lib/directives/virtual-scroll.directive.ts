@@ -4,22 +4,22 @@ import { Directive, HostListener, Input, ElementRef, Output, EventEmitter, Rende
   selector: '[msVirtualScroll]'
 })
 export class VirtualScrollDirective {
-  private _totalCount: number;
-  top: HTMLElement;
-  bottom: HTMLElement;
+  private _totalCount!: number | undefined;
+  top!: HTMLElement;
+  bottom!: HTMLElement;
   scrollOffset = 0;
   @Input() itemHeight: number = 40;
-  @Input() set totalCount(count) {
-    this._totalCount = count;
+  @Input() set totalCount(count: number) {
+    this._totalCount = count ?? 0;
     count ? this.initialSetup() : this.reset();
   }
   get() {
-    return this._totalCount;
+    return this._totalCount ?? 0;
   }
   @Output() rangeChanged = new EventEmitter<any>();
-  private scrollTimer;
+  private scrollTimer!: any;
   private lastScrollFireTime = 0;
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  constructor(private el: ElementRef, private renderer: Renderer2) { }
 
   reset() {
     if (this.top && this.bottom) {
@@ -29,9 +29,9 @@ export class VirtualScrollDirective {
     }
   }
 
-  throttleScroll(target) {
+  throttleScroll(target: any) {
     const { scrollTop, clientHeight } = target;
-    const totalHeight = this.itemHeight * this._totalCount + this.scrollOffset;
+    const totalHeight = this.itemHeight * this.totalCount + this.scrollOffset;
 
     // Step: 1 - Calculate the position
     const topSpacing = scrollTop;
@@ -44,7 +44,7 @@ export class VirtualScrollDirective {
     const itemStartRange = Math.floor(topNonVisible);
     const rangeToBeIncreamented = rangeOffset ? maxItemsRange + 1 : maxItemsRange;
     const calculatedEndRange = itemStartRange + rangeToBeIncreamented;
-    const itemEndRange = calculatedEndRange >= this._totalCount ? this._totalCount : calculatedEndRange;
+    const itemEndRange = calculatedEndRange >= this.totalCount ? this.totalCount : calculatedEndRange;
     const bottomSpacing = totalHeight - (rangeStart + rangeToBeIncreamented * this.itemHeight);
 
     // Step: 3 - Pass the range to the child directive
@@ -54,7 +54,7 @@ export class VirtualScrollDirective {
   }
 
   @HostListener('scroll', ['$event'])
-  onscroll({ target }) {
+  onscroll({ target }: Event) {
     const minScrollTime = 50;
     const now = new Date().getTime();
     if (!this.scrollTimer) {
@@ -72,11 +72,11 @@ export class VirtualScrollDirective {
   initialSetup() {
     // TODO: later think of usng ViewChild, instead of direct DOM manipulation.
     const { scrollTop, clientHeight } = this.el.nativeElement;
-    
+
     this.top = this.renderer.selectRootElement('.top');
     this.bottom = this.renderer.selectRootElement('.bottom');
     this.renderer.setStyle(this.top, 'height', `${scrollTop}px`);
-    this.renderer.setStyle(this.bottom, 'height', `${this.itemHeight * this._totalCount + this.scrollOffset - clientHeight }px`);
+    this.renderer.setStyle(this.bottom, 'height', `${this.itemHeight * this.totalCount + this.scrollOffset - clientHeight}px`);
     this.renderer.setProperty(this.el.nativeElement, 'scrollTop', 0);
   }
 }

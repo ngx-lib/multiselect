@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 
 describe('DisplaySelectedValuePipe', () => {
   let pipe: DisplaySelectedValuePipe;
-  let options: any[];
+  let options: Record<string, unknown>[];
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [DisplaySelectedValuePipe]
