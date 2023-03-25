@@ -112,7 +112,7 @@ describe('Grouped Options Component', () => {
     // arrange
     // act
     // assert
-    expect(component.defaultOptionsTemplate).toBe(component.optionsTemplate);
+    expect(component.defaultOptionsTemplate).not.toBe(component.optionsTemplate);
   });
 
   it('if new template is passed then it should be rendered on screen', () => {
