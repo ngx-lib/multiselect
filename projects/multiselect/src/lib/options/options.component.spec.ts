@@ -7,6 +7,7 @@ import { NgxMultiselectComponent } from '../multiselect.component';
 import { NgxMultiselectService } from '../services/multiselect.service';
 import { VirtualScrollDirective } from '../directives/virtual-scroll.directive';
 import { CommonModule } from '@angular/common';
+import { MultiselectOption } from '../models/multiselect-option.model';
 
 describe('Options Component', () => {
   let component: OptionsComponent;
@@ -180,7 +181,7 @@ describe('Options Component', () => {
       const markedOptions = debugElement.queryAll(By.css('.option.marked'));
       expect(markedOptions.length).toBe(1);
       expect(clickedOption.ticked).toBe(true);
-      expect(multiselect._selectedOptions['id']).toBe(options[0].id);
+      expect((multiselect._selectedOptions as MultiselectOption).id).toBe(options[0].id);
       expect(multiselectSelectSpy).toHaveBeenCalled();
       expect(multiselectSelectSpy).toHaveBeenCalledWith(clickedOption);
       expect(multiselect.isOpen).toBe(false);
@@ -200,7 +201,7 @@ describe('Options Component', () => {
       const markedOptions = debugElement.queryAll(By.css('.option.marked'));
       // TODO: check on below
       // expect(markedOptions.length).toBe(1);
-      expect(multiselect._selectedOptions['id']).toBe(options[1].id);
+      expect((multiselect._selectedOptions as MultiselectOption).id).toBe(options[1].id);
       expect(clickedOption.ticked).toBe(true);
       expect(multiselectSelectSpy).toHaveBeenCalledTimes(2);
       expect(multiselect.isOpen).toBe(false);

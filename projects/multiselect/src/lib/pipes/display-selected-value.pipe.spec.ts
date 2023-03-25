@@ -1,9 +1,10 @@
 import { DisplaySelectedValuePipe } from './display-selected-value.pipe';
 import { TestBed } from '@angular/core/testing';
+import { MultiselectOption } from '@ngx-lib/multiselect/lib/models/multiselect-option.model';
 
 describe('DisplaySelectedValuePipe', () => {
   let pipe: DisplaySelectedValuePipe;
-  let options: Record<string, unknown>[];
+  let options: MultiselectOption[];
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [DisplaySelectedValuePipe]

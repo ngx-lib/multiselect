@@ -88,7 +88,7 @@ export class NgxMultiselectService {
     return result as GroupByMultiselectOption[];
   }
 
-  findUnique(expression: string[]) {
+  findUnique<T>(expression: T[]) {
     return [...Array.from(new Set(expression))];
   }
 

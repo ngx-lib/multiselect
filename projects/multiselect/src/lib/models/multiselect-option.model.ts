@@ -7,7 +7,7 @@ export interface MultiselectOption {
 }
 
 export interface GroupByMultiselectOption extends MultiselectOption {
-  isGroup: boolean;
+  isGroup?: boolean;
   parent?: string;
   values?: MultiselectOption[];
   depth?: number;

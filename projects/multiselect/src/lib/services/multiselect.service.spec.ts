@@ -2,6 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { NgxMultiselectService } from './multiselect.service';
 import { debug } from 'util';
+import { MultiselectOption } from '../models/multiselect-option.model';
 
 const groupByProperty = 'team';
 const players = [{
@@ -50,7 +51,7 @@ describe('MultiselectService', () => {
       </div>`;
 
       // act
-      const grandChild = div.querySelector('.grand-child');
+      const grandChild = div.querySelector('.grand-child') as HTMLElement;
       const closest = service.closest(grandChild, '.grand-parent');
 
       // assert
@@ -107,7 +108,7 @@ describe('MultiselectService', () => {
       [NgxMultiselectService],
       (service: NgxMultiselectService) => {
         // arrange
-        const plyrs = JSON.parse(JSON.stringify(players)) as Record<string, unknown>[];
+        const plyrs = JSON.parse(JSON.stringify(players)) as MultiselectOption[];
         plyrs.forEach(p => p['team'] === 'Manchester United' && (p['ticked'] = true));
 
         // act
@@ -177,7 +178,7 @@ describe('MultiselectService', () => {
     [NgxMultiselectService],
     (service: NgxMultiselectService) => {
       // arrange
-      const plyrs = [1, 2, 1, 2, 3]
+      const plyrs = [1, 2, 1, 2, 3];
 
       // act
       const unique = service.findUnique(plyrs);
