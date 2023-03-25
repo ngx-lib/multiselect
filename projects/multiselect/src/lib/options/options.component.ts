@@ -16,7 +16,7 @@ import { GroupByMultiselectOption, MultiselectOption } from '../models/multisele
   selector: 'ms-options',
   templateUrl: './options.component.html',
   styleUrls: ['./options.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OptionsComponent implements OnInit, OnChanges {
   _options: MultiselectOption[] | GroupByMultiselectOption[] = [];
@@ -35,9 +35,9 @@ export class OptionsComponent implements OnInit, OnChanges {
   end: number = 5;
   filteredOptions!: MultiselectOption[] | GroupByMultiselectOption[];
 
-  @ViewChild('defaultOptionsTemplate', { static: true } as any) defaultOptionsTemplate!: TemplateRef<any>;
+  @ViewChild('defaultOptionsTemplate') defaultOptionsTemplate!: TemplateRef<any>;
 
-  constructor() {}
+  constructor() { }
 
   getOptionStyle(option: MultiselectOption | GroupByMultiselectOption) {
     return { marked: option.ticked, disabled: this.disabled || option.disabled };
@@ -51,7 +51,8 @@ export class OptionsComponent implements OnInit, OnChanges {
     this.filteredOptions = [...this._options].slice(start, end) as MultiselectOption[] | GroupByMultiselectOption[];
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     const { options } = changes;

@@ -69,7 +69,7 @@ describe('FilterOptionsComponent', () => {
     it('it should emit an event to parent component with blank value', () => {
       // arrangement
       // act
-      component.onSearchChange.emit('');
+      component.onSearchChange.emit('')
       // assert
       expect(filterText).toBe('');
     });

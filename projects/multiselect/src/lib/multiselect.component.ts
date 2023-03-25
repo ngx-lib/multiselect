@@ -136,7 +136,7 @@ export class NgxMultiselectComponent implements ControlValueAccessor {
   @Output() onClear: EventEmitter<void> = new EventEmitter<void>();
   @Output() onSearchChange: EventEmitter<string> = new EventEmitter<string>();
 
-  @ViewChild('filterOptions', { read: FilterOptionsComponent, static: true } as any) filterOptions!: FilterOptionsComponent;
+  @ViewChild('filterOptions', { read: FilterOptionsComponent }) filterOptions!: FilterOptionsComponent;
 
   // Adding pending operation in queue
   addOperation(item: MultiselectOption | MultiselectOption[]) {
@@ -235,7 +235,7 @@ export class NgxMultiselectComponent implements ControlValueAccessor {
     let result = optionsCopy;
     if (val) {
       result = optionsCopy.filter(
-        i => i.name?.toLowerCase().indexOf(val.toLowerCase()) !== -1
+        i => i.name && i.name.toLowerCase().indexOf(val.toLowerCase()) !== -1
       );
     }
     this.setOptions(result);
@@ -267,11 +267,11 @@ export class NgxMultiselectComponent implements ControlValueAccessor {
     this.isOpen = !this.isOpen;
   }
 
-  prepopulateOptions(selected: MultiselectOption | MultiselectOption[]) {
+  prepopulateOptions(selected: MultiselectOption | MultiselectOption[]): void {
     let selectedIds: string[] = [];
     selectedIds = this._multiple ?
-      ((selected || []) as MultiselectOption[]).map((i) => i.id!) :
-      selected ? [(selected as MultiselectOption).id!] : [];
+    ((selected || []) as MultiselectOption[]).map((i) => i.id!) :
+    selected ? [(selected as MultiselectOption).id!] : [];
     this.setOptions(
       this.getOptions()
         .map(o => ({

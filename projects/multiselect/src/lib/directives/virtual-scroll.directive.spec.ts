@@ -6,21 +6,17 @@ import { TestBed, ComponentFixture, async } from '@angular/core/testing';
   template: `
     <div class="options-container" msVirtualScroll [totalCount]="count" style="height:200px;">
       <div #top class="top"></div>
-      <div
-        class="option"
+      <div class="option"
         [ngStyle]="{ marginLeft: option.depth * 15 + 'px' }"
         [ngClass]="getOptionStyle(option)"
         *ngFor="let option of filteredOptions; trackBy: trackByFn"
-        (click)="select(option)"
-      >
+        (click)="select(option)">
         <ng-container
           *ngTemplateOutlet="
             optionsTemplate;
             context: {
               option: this.option
-            }
-          "
-        >
+            }">
         </ng-container>
       </div>
       <div #bottom class="bottom"></div>
@@ -29,7 +25,7 @@ import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 })
 class TestVirtualScrollComponent {
   count = 0;
-  @ViewChild(VirtualScrollDirective, { static: true} as any) virtualScroll: VirtualScrollDirective;
+  @ViewChild(VirtualScrollDirective) virtualScroll: VirtualScrollDirective;
 }
 
 describe('VirtualScrollDirective', () => {
@@ -40,7 +36,7 @@ describe('VirtualScrollDirective', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [VirtualScrollDirective, TestVirtualScrollComponent]
+      declarations: [VirtualScrollDirective, TestVirtualScrollComponent],
     }).compileComponents();
   }));
 

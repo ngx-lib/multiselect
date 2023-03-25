@@ -18,6 +18,6 @@ export class DisplaySelectedValuePipe implements PipeTransform {
 
       return `${collection.map(v => v.name).join(', ')}${condn ? DOTS + ' (' + total + ')' : ''}`;
     }
-    return value?.name as string;
+    return value && value.name as string;
   }
 }

@@ -37,7 +37,7 @@ describe('Options Component', () => {
       { id: 6, name: 'Test 6' }
     ];
     component.options = [...options];
-    multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService(), <Renderer2>{});
+    multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService());
     multiselect.multiple = true;
     multiselect.setOptions([...options]);
     component.selectOption.subscribe(option => {
@@ -180,7 +180,7 @@ describe('Options Component', () => {
       const markedOptions = debugElement.queryAll(By.css('.option.marked'));
       expect(markedOptions.length).toBe(1);
       expect(clickedOption.ticked).toBe(true);
-      expect(multiselect._selectedOptions.id).toBe(options[0].id);
+      expect(multiselect._selectedOptions['id']).toBe(options[0].id);
       expect(multiselectSelectSpy).toHaveBeenCalled();
       expect(multiselectSelectSpy).toHaveBeenCalledWith(clickedOption);
       expect(multiselect.isOpen).toBe(false);
@@ -200,7 +200,7 @@ describe('Options Component', () => {
       const markedOptions = debugElement.queryAll(By.css('.option.marked'));
       // TODO: check on below
       // expect(markedOptions.length).toBe(1);
-      expect(multiselect._selectedOptions.id).toBe(options[1].id);
+      expect(multiselect._selectedOptions['id']).toBe(options[1].id);
       expect(clickedOption.ticked).toBe(true);
       expect(multiselectSelectSpy).toHaveBeenCalledTimes(2);
       expect(multiselect.isOpen).toBe(false);

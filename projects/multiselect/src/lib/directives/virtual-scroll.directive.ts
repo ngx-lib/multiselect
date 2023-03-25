@@ -10,11 +10,11 @@ export class VirtualScrollDirective {
   scrollOffset = 0;
   @Input() itemHeight: number = 40;
   @Input() set totalCount(count: number) {
-    this._totalCount = count ?? 0;
+    this._totalCount = count || 0;
     count ? this.initialSetup() : this.reset();
   }
   get() {
-    return this._totalCount ?? 0;
+    return this._totalCount || 0;
   }
   @Output() rangeChanged = new EventEmitter<any>();
   private scrollTimer!: any;

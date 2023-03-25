@@ -16,7 +16,7 @@ import { NgxMultiselectService } from '../services/multiselect.service';
   selector: 'ms-grouped-options',
   templateUrl: './grouped-options.component.html',
   styleUrls: ['./grouped-options.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GroupedOptionsComponent implements OnInit, OnChanges {
   _options: GroupByMultiselectOption[] = [];
@@ -45,9 +45,9 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
   @Output() selectGroup = new EventEmitter<any>();
   @Output() selectOption = new EventEmitter<any>();
 
-  @ViewChild('defaultOptionsTemplate', { static: true } as any) defaultOptionsTemplate!: TemplateRef<any>;
+  @ViewChild('defaultOptionsTemplate') defaultOptionsTemplate!: TemplateRef<any>;
 
-  constructor(public multiselectService: NgxMultiselectService) {}
+  constructor(public multiselectService: NgxMultiselectService) { }
 
   // TODO: Refactor below logic
   formGroupOptions(collection: GroupByMultiselectOption[], selectedOptions: GroupByMultiselectOption[]) {
@@ -55,7 +55,7 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
       ? (selectedOptions || []).map(s => s.id)
       : selectedOptions
       ? [(selectedOptions as any).id]
-      : [];
+        : [];
     const values = collection.map(v => ({
       ...v,
       ticked: !v.isGroup ? selectedIds.indexOf(v.id) !== -1 : v.ticked
@@ -95,7 +95,8 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   ngOnChanges() {
     if (!this.optionsTemplate) {
