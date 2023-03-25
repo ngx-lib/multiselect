@@ -9,6 +9,7 @@ import {
   ViewChild,
   OnChanges
 } from '@angular/core';
+import { MultiselectOption } from '@ngx-lib/multiselect/public_api';
 import { GroupByMultiselectOption } from '../models/multiselect-option.model';
 import { NgxMultiselectService } from '../services/multiselect.service';
 
@@ -18,7 +19,7 @@ import { NgxMultiselectService } from '../services/multiselect.service';
   styleUrls: ['./grouped-options.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GroupedOptionsComponent implements OnInit, OnChanges {
+export class GroupedOptionsComponent implements OnChanges {
   _options: GroupByMultiselectOption[] = [];
   _selectedOptions: GroupByMultiselectOption[] = [];
   groupedOptions: GroupByMultiselectOption[] = [];
@@ -54,7 +55,7 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
     let selectedIds = this.multiple
       ? (selectedOptions || []).map(s => s.id)
       : selectedOptions
-      ? [(selectedOptions as any).id]
+        ? [(selectedOptions as any).id]
         : [];
     const values = collection.map(v => ({
       ...v,
@@ -72,8 +73,8 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
     };
   }
 
-  trackByFn(index: number) {
-    return index;
+  trackByFn(_, option: MultiselectOption | GroupByMultiselectOption) {
+    return option.id;
   }
 
   updateRange({ start, end }: any) {
@@ -82,7 +83,7 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
     this.filteredOptions = [...this.options].slice(start, end);
   }
 
-  select(option: any) {
+  select(option: GroupByMultiselectOption) {
     if (!option.isGroup) {
       this.selectOption.emit(option);
     } else {
@@ -93,9 +94,6 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
         values: values
       });
     }
-  }
-
-  ngOnInit() {
   }
 
   ngOnChanges() {
