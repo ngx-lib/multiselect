@@ -55,7 +55,7 @@ export class NgxMultiselectService {
       (item) => item[groupProperty] as string === groupName
     );
     allDescendants.concat(
-      collection.filter((item: Record<string, unknown>) => (item as Record<string, unknown>)['parent'] == groupName)
+      collection.filter(item => item.parent == groupName)
     );
     return allDescendants;
   }
@@ -125,8 +125,8 @@ export class NgxMultiselectService {
     return result;
   }
 
-  mirrorObject(json: Record<string, unknown>) {
-    const ret: Record<string, unknown> = {};
+  mirrorObject(json: Record<string, string>) {
+    const ret: Record<string, string> = {};
     for (var key in json) {
       ret[json[key] as string] = key;
     }

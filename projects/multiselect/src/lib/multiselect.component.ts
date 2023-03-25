@@ -16,19 +16,17 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { NgxMultiselectService } from './services/multiselect.service';
 import { forwardRef } from '@angular/core';
 import { FilterOptionsComponent } from './filter-options/filter-options.component';
-import { MultiselectOption } from './models/multiselect-option.model';
-
-export const DEFAULT_VALUE_ACCESSOR = {
-  provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => NgxMultiselectComponent),
-  multi: true
-};
+import { MultiselectOption } from './models/multiselect-option.model';;
 
 @Component({
   selector: 'ngx-multiselect',
   templateUrl: './multiselect.component.html',
   styleUrls: ['./multiselect.component.css'],
-  providers: [DEFAULT_VALUE_ACCESSOR],
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => NgxMultiselectComponent),
+    multi: true
+  }],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NgxMultiselectComponent implements ControlValueAccessor {
@@ -239,12 +237,12 @@ export class NgxMultiselectComponent implements ControlValueAccessor {
       );
     }
     this.setOptions(result);
-    this.prepopulateOptions(this._selectedOptions ?? []);
+    this.prepopulateOptions(this._selectedOptions || []);
   };
 
   isValueSelected() {
     return this._selectedOptions && this._multiple ?
-      this._selectedOptions.length :
+      this._selectedOptions instanceof Array && (this._selectedOptions || []).length :
       this._selectedOptions;
   }
 
@@ -270,8 +268,8 @@ export class NgxMultiselectComponent implements ControlValueAccessor {
   prepopulateOptions(selected: MultiselectOption | MultiselectOption[]): void {
     let selectedIds: string[] = [];
     selectedIds = this._multiple ?
-    ((selected || []) as MultiselectOption[]).map((i) => i.id!) :
-    selected ? [(selected as MultiselectOption).id!] : [];
+      ((selected || []) as MultiselectOption[]).map((i) => i.id!) :
+      selected ? [(selected as MultiselectOption).id!] : [];
     this.setOptions(
       this.getOptions()
         .map(o => ({
@@ -314,7 +312,7 @@ export class NgxMultiselectComponent implements ControlValueAccessor {
       this.setOptions(changedOptions);
       this.close();
     }
-    this.viewToModel(selectedOptions ?? null);
+    this.viewToModel(selectedOptions || null);
     this.onItemClick.emit(option);
   }
 
