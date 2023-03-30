@@ -60,11 +60,13 @@ export class VirtualScrollDirective {
     if (!this.scrollTimer) {
       if (now - this.lastScrollFireTime > minScrollTime) {
         this.lastScrollFireTime = now;
+        clearTimeout(this.scrollTimer);
+        this.scrollTimer = null;
       }
       this.scrollTimer = setTimeout(() => {
-        this.scrollTimer = null;
         this.lastScrollFireTime = new Date().getTime();
         this.throttleScroll(target);
+        this.scrollTimer = null;
       }, minScrollTime);
     }
   }
