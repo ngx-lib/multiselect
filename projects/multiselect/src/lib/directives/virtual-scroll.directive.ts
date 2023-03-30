@@ -13,7 +13,7 @@ export class VirtualScrollDirective {
     this._totalCount = count || 0;
     count ? this.initialSetup() : this.reset();
   }
-  get() {
+  get totalCount() {
     return this._totalCount || 0;
   }
   @Output() rangeChanged = new EventEmitter<any>();

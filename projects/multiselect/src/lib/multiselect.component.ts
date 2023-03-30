@@ -104,7 +104,7 @@ export class NgxMultiselectComponent implements ControlValueAccessor {
     return this._multiple;
   }
   set multiple(value: boolean) {
-    this.viewToModel(value ? ([]) : null);
+    this.viewToModel(value ? [] : null);
     this._multiple = value;
   }
 
@@ -137,12 +137,8 @@ export class NgxMultiselectComponent implements ControlValueAccessor {
   @ViewChild('filterOptions', { read: FilterOptionsComponent }) filterOptions!: FilterOptionsComponent;
 
   // Adding pending operation in queue
-  addOperation(item: MultiselectOption | MultiselectOption[]) {
-    if (item instanceof Array) {
-      this.operationPendingQueue.push(...item);
-    } else {
-      this.operationPendingQueue.push(item);
-    }
+  addOperation(item: any) {
+    this.operationPendingQueue.push(item);
   }
 
   // Poping pending operation from queue sequentially
@@ -237,7 +233,9 @@ export class NgxMultiselectComponent implements ControlValueAccessor {
       );
     }
     this.setOptions(result);
-    this.prepopulateOptions(this._selectedOptions || []);
+    if (this._selectedOptions) {
+      this.prepopulateOptions(this._selectedOptions);
+    }
   };
 
   isValueSelected() {
