@@ -9,8 +9,7 @@ import {
   ViewChild,
   OnChanges
 } from '@angular/core';
-import { MultiselectOption } from '@ngx-lib/multiselect/public_api';
-import { GroupByMultiselectOption } from '../models/multiselect-option.model';
+import { GroupByMultiselectOption, MultiselectOption } from '../models/multiselect-option.model';
 import { NgxMultiselectService } from '../services/multiselect.service';
 
 @Component({
