@@ -27,6 +27,7 @@ fieldset {
 .mat-multiselect :host .helper-button {
   background-color: transparent;
   color: #444;
+  padding: 1px 5px;
 }
 
 .mat-multiselect :host .helper-button:not(:last-child) {
