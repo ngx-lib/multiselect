@@ -9,12 +9,12 @@ import { Subscription } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FilterOptionsComponent implements OnInit, OnDestroy {
-  filterName: FormControl;
-  filterNameSubscription: Subscription;
+  filterName!: FormControl;
+  filterNameSubscription!: Subscription;
 
   @Output() onSearchChange = new EventEmitter<string>();
 
-  constructor() {}
+  constructor() { }
 
   clearInputFilter() {
     this.filterName.setValue('');

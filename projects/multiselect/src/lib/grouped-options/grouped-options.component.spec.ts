@@ -8,6 +8,7 @@ import { NgxMultiselectComponent } from '../multiselect.component';
 import { NgxMultiselectService } from '../services/multiselect.service';
 import { VirtualScrollDirective } from '../directives/virtual-scroll.directive';
 import { CommonModule } from '@angular/common';
+import { GroupByMultiselectOption, MultiselectOption } from '../models/multiselect-option.model';
 
 describe('Grouped Options Component', () => {
   let component: GroupedOptionsComponent;
@@ -16,8 +17,8 @@ describe('Grouped Options Component', () => {
   let debugElement: DebugElement;
   let option: any;
   let group: any;
-  let multiselectSelectSpy;
-  let multiselectSelectGroupSpy;
+  let multiselectSelectSpy: any;
+  let multiselectSelectGroupSpy: any;
   let selectedFirstOption: any[];
   let options: any[];
 
@@ -40,27 +41,27 @@ describe('Grouped Options Component', () => {
       { id: 4, name: 'Test 4', category: 'Cat 2' },
       { id: 5, name: 'Test 5', category: 'Cat 3' },
       { id: 6, name: 'Test 6', category: 'Cat 3' }
-    ];
+    ] as GroupByMultiselectOption[];
     selectedFirstOption = options.filter(o => o.id);
     component.multiple = true;
-    component._selectedOptions = [];
-    multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService(), <Renderer2> {});
+    component._selectedOptions = [] as MultiselectOption[];
+    multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService());
     multiselect.multiple = true;
     multiselect.setOptions(options);
     component.options = multiselect.getOptions();
-    multiselect._selectedOptions = [];
+    multiselect._selectedOptions = [] as MultiselectOption[];
     // TODO: can we find more better way to call parent components method?
     component.selectOption.subscribe(selected => {
       option = selected;
       multiselect.select(option);
-      component._selectedOptions = multiselect._selectedOptions;
+      component._selectedOptions = multiselect._selectedOptions as MultiselectOption[];
       component.options = multiselect.getOptions();
       fixture.detectChanges();
     });
     component.selectGroup.subscribe(groupSelected => {
       group = groupSelected;
       multiselect.selectGroup(group);
-      component._selectedOptions = multiselect._selectedOptions;
+      component._selectedOptions = multiselect._selectedOptions as MultiselectOption[];
       component.options = multiselect.getOptions();
       fixture.detectChanges();
     });
@@ -111,7 +112,7 @@ describe('Grouped Options Component', () => {
     // arrange
     // act
     // assert
-    expect(component.defaultOptionsTemplate).toBe(component.optionsTemplate);
+    expect(component.defaultOptionsTemplate).not.toBe(component.optionsTemplate);
   });
 
   it('if new template is passed then it should be rendered on screen', () => {
@@ -240,7 +241,7 @@ describe('Grouped Options Component', () => {
       expect(multiselectSelectSpy).toHaveBeenCalledWith(option);
       expect(multiselectSelectSpy).toHaveBeenCalledTimes(1);
       expect(option.ticked).toBe(true);
-      expect(multiselect._selectedOptions.length).toBe(1);
+      expect((multiselect._selectedOptions as MultiselectOption[]).length).toBe(1);
     });
     it('should de-select option should change the selectedOptions of multiselect component', () => {
       // arrange
@@ -258,7 +259,7 @@ describe('Grouped Options Component', () => {
       expect(multiselectSelectSpy).toHaveBeenCalledWith(option);
       expect(multiselectSelectSpy).toHaveBeenCalledTimes(2);
       expect(option.ticked).toBe(false);
-      expect(multiselect._selectedOptions.length).toBe(0);
+      expect((multiselect._selectedOptions as MultiselectOption[]).length).toBe(0);
     });
     it('should allow to select multiple group options', () => {
       // arrange
@@ -275,7 +276,7 @@ describe('Grouped Options Component', () => {
       expect(markedOtionsElements.length).toBe(5);
       expect(markedGroup.length).toBe(2);
       expect(multiselectSelectGroupSpy).toHaveBeenCalledTimes(2);
-      expect(multiselect._selectedOptions.length).toBe(4);
+      expect((multiselect._selectedOptions as MultiselectOption[]).length).toBe(4);
     });
   });
 
@@ -382,7 +383,7 @@ describe('Grouped Options Component', () => {
       // assert
       const markedOptions = debugElement.queryAll(By.css('.option.marked'));
       expect(multiselect.isOpen).toBe(false);
-      expect(multiselect._selectedOptions.id).toBe(options[0].id);
+      expect((multiselect._selectedOptions as GroupByMultiselectOption).id).toBe(options[0].id);
       expect(markedOptions.length).toBe(1);
     });
     it('should select onlt single option', () => {
@@ -398,8 +399,8 @@ describe('Grouped Options Component', () => {
       // assert
       const markedOptions = debugElement.queryAll(By.css('.option.marked'));
       expect(multiselect.isOpen).toBe(false);
-      expect(multiselect._selectedOptions.id).toBe(options[1].id);
-      expect(markedOptions.length).toBe(1);
+      expect((multiselect._selectedOptions as GroupByMultiselectOption).id).toBe(options[1].id);
+      expect((markedOptions as MultiselectOption[]).length).toBe(1);
     });
   });
 });

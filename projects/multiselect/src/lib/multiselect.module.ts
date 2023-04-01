@@ -18,8 +18,8 @@ import { VirtualScrollDirective } from './directives/virtual-scroll.directive';
     FilterOptionsComponent,
     OptionsComponent,
     GroupedOptionsComponent,
-    VirtualScrollDirective
+    VirtualScrollDirective,
   ],
   exports: [NgxMultiselectComponent, DisplaySelectedValuePipe]
 })
-export class NgxMultiselectModule {}
+export class NgxMultiselectModule { }

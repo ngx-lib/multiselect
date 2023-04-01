@@ -9,6 +9,8 @@ import {
   ViewChild,
   OnChanges
 } from '@angular/core';
+import { MultiselectOption } from '@ngx-lib/multiselect/public_api';
+import { GroupByMultiselectOption } from '../models/multiselect-option.model';
 import { NgxMultiselectService } from '../services/multiselect.service';
 
 @Component({
@@ -17,22 +19,22 @@ import { NgxMultiselectService } from '../services/multiselect.service';
   styleUrls: ['./grouped-options.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GroupedOptionsComponent implements OnInit, OnChanges {
-  _options = [];
-  _selectedOptions = [];
-  groupedOptions = [];
+export class GroupedOptionsComponent implements OnChanges {
+  _options: GroupByMultiselectOption[] = [];
+  _selectedOptions: GroupByMultiselectOption[] = [];
+  groupedOptions: GroupByMultiselectOption[] = [];
   start: number = 0;
   end: number = 5;
-  filteredOptions;
+  filteredOptions!: GroupByMultiselectOption[];
 
-  @Input() groupedProperty: string;
+  @Input() groupedProperty!: string;
   @Input() disabled = false;
   @Input() multiple = false;
-  @Input() set selectedOptions(value) {
+  @Input() set selectedOptions(value: GroupByMultiselectOption[]) {
     this._selectedOptions = value;
     this.formGroupOptions(this._options, this._selectedOptions);
   }
-  @Input() optionsTemplate: TemplateRef<any>;
+  @Input() optionsTemplate!: TemplateRef<any>;
   @Input() set options(value) {
     this._options = value;
     this.formGroupOptions(value, this._selectedOptions);
@@ -44,25 +46,26 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
   @Output() selectGroup = new EventEmitter<any>();
   @Output() selectOption = new EventEmitter<any>();
 
-  @ViewChild('defaultOptionsTemplate', { static: true }) defaultOptionsTemplate: TemplateRef<any>;
+  @ViewChild('defaultOptionsTemplate') defaultOptionsTemplate!: TemplateRef<any>;
 
-  constructor(public multiselectService: NgxMultiselectService) {}
+  constructor(public multiselectService: NgxMultiselectService) { }
 
   // TODO: Refactor below logic
-  formGroupOptions(collection, selectedOptions) {
-    let selectedIds = this.multiple ? 
-      (selectedOptions || []).map(s => s.id) : 
-        selectedOptions ? [selectedOptions.id]
-        :[];
-    const values = collection.map(v => ({ 
-      ...v, 
+  formGroupOptions(collection: GroupByMultiselectOption[], selectedOptions: GroupByMultiselectOption[]) {
+    let selectedIds = this.multiple
+      ? (selectedOptions || []).map(s => s.id)
+      : selectedOptions
+        ? [(selectedOptions as any).id]
+        : [];
+    const values = collection.map(v => ({
+      ...v,
       ticked: !v.isGroup ? selectedIds.indexOf(v.id) !== -1 : v.ticked
-     }));
+    }));
     this.groupedOptions = this.multiselectService.virtualOptionsGroupingFlatten(values, this.groupedProperty);
     this.updateRange({ start: this.start, end: this.end });
   }
 
-  getOptionStyle(option: any) {
+  getOptionStyle(option: GroupByMultiselectOption) {
     return {
       group: option.isGroup,
       marked: option.ticked,
@@ -70,30 +73,27 @@ export class GroupedOptionsComponent implements OnInit, OnChanges {
     };
   }
 
-  trackByFn(_, option) {
+  trackByFn(_, option: MultiselectOption | GroupByMultiselectOption) {
     return option.id;
   }
 
-  updateRange({ start, end }) {
+  updateRange({ start, end }: any) {
     this.start = start;
     this.end = end;
     this.filteredOptions = [...this.options].slice(start, end);
   }
 
-  select(option) {
+  select(option: GroupByMultiselectOption) {
     if (!option.isGroup) {
       this.selectOption.emit(option);
     } else {
       option.ticked = !option.ticked;
       const values = this.multiselectService.collectAllDescendants(this.options, this.groupedProperty, option.name);
-      this.selectGroup.emit({ 
+      this.selectGroup.emit({
         ...option,
         values: values
       });
     }
-  }
-
-  ngOnInit() {
   }
 
   ngOnChanges() {

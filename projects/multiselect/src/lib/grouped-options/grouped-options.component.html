@@ -1,21 +1,14 @@
 <div class="options-container" msVirtualScroll [totalCount]="options.length" (rangeChanged)="updateRange($event)">
   <div #top class="top"></div>
   <ng-container *ngIf="filteredOptions.length; else noOptions">
-    <div
-      class="option"
-      [ngStyle]="{ marginLeft: option.depth * 15 + 'px' }"
-      [ngClass]="getOptionStyle(option)"
-      *ngFor="let option of filteredOptions; trackBy: trackByFn"
-      (click)="select(option)"
-    >
-      <ng-container
-        *ngTemplateOutlet="
+    <div class="option" [ngClass]="getOptionStyle(option)" *ngFor="let option of filteredOptions; trackBy: trackByFn"
+      [ngStyle]="{ marginLeft: option.depth! * 15 + 'px' }" (click)="select(option)">
+      <ng-container *ngTemplateOutlet="
           optionsTemplate;
           context: {
             option: option
           }
-        "
-      ></ng-container>
+        "></ng-container>
     </div>
   </ng-container>
   <div #bottom class="bottom"></div>
