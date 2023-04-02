@@ -1,4 +1,9 @@
 <div class="mat-elevation-z8">
   <ms-navbar></ms-navbar>
+  <br>
+  <div>
+    <ngx-multiselect [(ngModel)]="largeDatasetValue" [options]="bigData" ngDefaultControl>
+    </ngx-multiselect>
+  </div>
   <router-outlet></router-outlet>
 </div>

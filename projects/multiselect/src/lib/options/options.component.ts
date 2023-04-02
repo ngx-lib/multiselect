@@ -35,7 +35,7 @@ export class OptionsComponent implements OnInit, OnChanges {
   end: number = 5;
   filteredOptions!: MultiselectOption[] | GroupByMultiselectOption[];
 
-  @ViewChild('defaultOptionsTemplate') defaultOptionsTemplate!: TemplateRef<any>;
+  @ViewChild('defaultOptionsTemplate', { static: true }) defaultOptionsTemplate!: TemplateRef<any>;
 
   getOptionStyle(option: MultiselectOption | GroupByMultiselectOption) {
     return { marked: option.ticked, disabled: this.disabled || option.disabled };

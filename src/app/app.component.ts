@@ -19,8 +19,10 @@ export class AppComponent implements OnInit, OnDestroy {
   singleSelectOptionsSubscription: Subscription;
   multipleSelectOptionsSubscription: Subscription;
   groupingOptionsSubscription: Subscription;
+  bigData: any[] = [];
+  largeDatasetValue;
 
-  constructor(private appService: AppService) {}
+  constructor(private appService: AppService) { }
 
   singleSelect: any = { id: 1, name: 'a' };
   propertyMapValue: any = { id: 2, name: 'b' };
@@ -35,7 +37,6 @@ export class AppComponent implements OnInit, OnDestroy {
   };
 
   ngOnInit(): void {
-    // Retrieving data for dropdown
     this.singleSelectOptionsSubscription = this.appService.getSingleSelectOptions().subscribe(data => {
       this.propertyMapOptions = [...data];
       this.singleSelectOptions = [...data];
@@ -48,6 +49,9 @@ export class AppComponent implements OnInit, OnDestroy {
       .getGroupingOptions()
       .subscribe(data => (this.groupingOptions = data));
     this.observableOptions = this.appService.getObservableOptions();
+    this.appService.getLargeDataset().subscribe(
+      (data: any[]) => this.bigData = data
+    );
   }
 
   genericEvent($event, eventName) {

@@ -3,7 +3,8 @@ import { inject, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/cor
 import { Title } from '@angular/platform-browser';
 import { APP_BASE_HREF } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { MatProgressBar, MatSidenav } from '@angular/material';
+import { MatSidenav } from '@angular/material/sidenav';
+import { MatProgressBar } from '@angular/material/progress-bar';
 import { By } from '@angular/platform-browser';
 
 import { of, timer } from 'rxjs';
@@ -405,7 +406,7 @@ describe('AppComponent', () => {
         await setupSelectorForTesting();
         const versionWithUrlIndex = component.docVersions.findIndex(v => !!v.url);
         const versionWithUrl = component.docVersions[versionWithUrlIndex];
-        selectElement.triggerEventHandler('change', { option: versionWithUrl, index: versionWithUrlIndex});
+        selectElement.triggerEventHandler('change', { option: versionWithUrl, index: versionWithUrlIndex });
         expect(locationService.go).toHaveBeenCalledWith(versionWithUrl.url);
       });
 
@@ -542,35 +543,35 @@ describe('AppComponent', () => {
 
     describe('click intercepting', () => {
       it('should intercept clicks on anchors and call `location.handleAnchorClick()`',
-              inject([LocationService], (location: LocationService) => {
+        inject([LocationService], (location: LocationService) => {
 
-        const el = fixture.nativeElement as Element;
-        el.innerHTML = '<a href="some/local/url">click me</a>';
-        const anchorElement = el.getElementsByTagName('a')[0];
-        anchorElement.click();
-        expect(location.handleAnchorClick).toHaveBeenCalledWith(anchorElement, 0, false, false);
-      }));
+          const el = fixture.nativeElement as Element;
+          el.innerHTML = '<a href="some/local/url">click me</a>';
+          const anchorElement = el.getElementsByTagName('a')[0];
+          anchorElement.click();
+          expect(location.handleAnchorClick).toHaveBeenCalledWith(anchorElement, 0, false, false);
+        }));
 
       it('should intercept clicks on elements deep within an anchor tag',
-              inject([LocationService], (location: LocationService) => {
+        inject([LocationService], (location: LocationService) => {
 
-        const el = fixture.nativeElement as Element;
-        el.innerHTML = '<a href="some/local/url"><div><img></div></a>';
-        const imageElement  = el.getElementsByTagName('img')[0];
-        const anchorElement = el.getElementsByTagName('a')[0];
-        imageElement.click();
-        expect(location.handleAnchorClick).toHaveBeenCalledWith(anchorElement, 0, false, false);
-      }));
+          const el = fixture.nativeElement as Element;
+          el.innerHTML = '<a href="some/local/url"><div><img></div></a>';
+          const imageElement = el.getElementsByTagName('img')[0];
+          const anchorElement = el.getElementsByTagName('a')[0];
+          imageElement.click();
+          expect(location.handleAnchorClick).toHaveBeenCalledWith(anchorElement, 0, false, false);
+        }));
 
       it('should ignore clicks on elements without an anchor ancestor',
-              inject([LocationService], (location: LocationService) => {
+        inject([LocationService], (location: LocationService) => {
 
-        const el = fixture.nativeElement as Element;
-        el.innerHTML = '<div><p><div><img></div></p></div>';
-        const imageElement  = el.getElementsByTagName('img')[0];
-        imageElement.click();
-        expect(location.handleAnchorClick).not.toHaveBeenCalled();
-      }));
+          const el = fixture.nativeElement as Element;
+          el.innerHTML = '<div><p><div><img></div></p></div>';
+          const imageElement = el.getElementsByTagName('img')[0];
+          imageElement.click();
+          expect(location.handleAnchorClick).not.toHaveBeenCalled();
+        }));
     });
 
     describe('restrainScrolling()', () => {
@@ -588,7 +589,7 @@ describe('AppComponent', () => {
       };
 
       it('should prevent scrolling up if already at the top', () => {
-        const elem = {scrollTop: 0};
+        const elem = { scrollTop: 0 };
 
         expect(preventedScrolling(elem, -100)).toBe(true);
         expect(preventedScrolling(elem, +100)).toBe(false);
@@ -596,7 +597,7 @@ describe('AppComponent', () => {
       });
 
       it('should prevent scrolling down if already at the bottom', () => {
-        const elem = {scrollTop: 100, scrollHeight: 150, clientHeight: 50};
+        const elem = { scrollTop: 100, scrollHeight: 150, clientHeight: 50 };
 
         expect(preventedScrolling(elem, +10)).toBe(true);
         expect(preventedScrolling(elem, -10)).toBe(false);
@@ -613,7 +614,7 @@ describe('AppComponent', () => {
       });
 
       it('should not prevent scrolling if neither at the top nor at the bottom', () => {
-        const elem = {scrollTop: 50, scrollHeight: 150, clientHeight: 50};
+        const elem = { scrollTop: 50, scrollHeight: 150, clientHeight: 50 };
 
         expect(preventedScrolling(elem, +100)).toBe(false);
         expect(preventedScrolling(elem, -100)).toBe(false);
@@ -621,8 +622,8 @@ describe('AppComponent', () => {
     });
 
     describe('aio-toc', () => {
-      let tocContainer: HTMLElement|null;
-      let toc: HTMLElement|null;
+      let tocContainer: HTMLElement | null;
+      let toc: HTMLElement | null;
 
       const setHasFloatingToc = (hasFloatingToc: boolean) => {
         component.hasFloatingToc = hasFloatingToc;
@@ -905,8 +906,8 @@ describe('AppComponent', () => {
   describe('with mocked DocViewer', () => {
     const getDocViewer = () => fixture.debugElement.query(By.css('aio-doc-viewer'));
     const triggerDocViewerEvent =
-        (evt: 'docReady' | 'docRemoved' | 'docInserted' | 'docRendered') =>
-          getDocViewer().triggerEventHandler(evt, undefined);
+      (evt: 'docReady' | 'docRemoved' | 'docInserted' | 'docRendered') =>
+        getDocViewer().triggerEventHandler(evt, undefined);
 
     beforeEach(() => {
       createTestingModule('a/b');
@@ -1138,7 +1139,7 @@ describe('AppComponent', () => {
 
           await Promise.resolve();  // Wait for `MatSidenav.openedChange.emit()` to be called.
           jasmine.clock().tick(0);  // Notify `MatSidenav.openedChange` observers.
-                                    // (It is an async `EventEmitter`, thus uses `setTimeout()`.)
+          // (It is an async `EventEmitter`, thus uses `setTimeout()`.)
 
           await promise;
         }
@@ -1287,7 +1288,7 @@ function createTestingModule(initialUrl: string, mode: string = 'stable') {
   const mockLocationService = new MockLocationService(initialUrl);
   TestBed.resetTestingModule();
   TestBed.configureTestingModule({
-    imports: [ AppModule ],
+    imports: [AppModule],
     providers: [
       { provide: APP_BASE_HREF, useValue: '/' },
       { provide: ElementsLoader, useClass: TestElementsLoader },
@@ -1296,21 +1297,23 @@ function createTestingModule(initialUrl: string, mode: string = 'stable') {
       { provide: LocationService, useFactory: () => mockLocationService },
       { provide: Logger, useClass: MockLogger },
       { provide: SearchService, useClass: MockSearchService },
-      { provide: Deployment, useFactory: () => {
-        const deployment = new Deployment(mockLocationService as any);
-        deployment.mode = mode;
-        return deployment;
-      }},
+      {
+        provide: Deployment, useFactory: () => {
+          const deployment = new Deployment(mockLocationService as any);
+          deployment.mode = mode;
+          return deployment;
+        }
+      },
     ]
   });
 }
 
 class TestElementsLoader {
   loadContainedCustomElements = jasmine.createSpy('loadContainedCustomElements')
-      .and.returnValue(of(undefined));
+    .and.returnValue(of(undefined));
 
   loadCustomElement = jasmine.createSpy('loadCustomElement')
-      .and.returnValue(Promise.resolve());
+    .and.returnValue(Promise.resolve());
 }
 
 class TestGaService {
@@ -1324,7 +1327,7 @@ class TestHttpClient {
     major: 4,
     minor: 0,
     patch: 0,
-    prerelease: [ 'local' ],
+    prerelease: ['local'],
     build: 'sha.73808dd',
     version: '4.0.0-local',
     codeName: 'snapshot',
@@ -1352,9 +1355,9 @@ class TestHttpClient {
     ],
     "SideNav": [
       {
-      "title": "Core",
-      "tooltip": "Learn the core capabilities of Angular",
-      "children": [
+        "title": "Core",
+        "tooltip": "Learn the core capabilities of Angular",
+        "children": [
           {
             "url": "guide/pipes",
             "title": "Pipes",
