@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ms-template-driven',
-  templateUrl: './template-driven.component.html'
+  templateUrl: 'template-driven.component.html'
 })
 export class TemplateDrivenComponent implements OnInit {
 

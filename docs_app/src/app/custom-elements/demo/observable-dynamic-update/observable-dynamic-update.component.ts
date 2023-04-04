@@ -3,14 +3,14 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ms-observable-dynamic-update',
-  templateUrl: './observable-dynamic-update.component.html'
+  templateUrl: 'observable-dynamic-update.component.html'
 })
 export class ObservableDynamicUpdateComponent implements OnInit {
 
   observableOptions;
   observableOptionsObserver;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.observableOptions = new Observable((observer) => {
@@ -22,12 +22,12 @@ export class ObservableDynamicUpdateComponent implements OnInit {
     });
   }
 
-  populateDropdown(){
+  populateDropdown() {
     this.observableOptionsObserver.next([
       { "id": 1, "name": "Manchester United" },
       { "id": 2, "name": "Liverpool F.C." },
       { "id": 3, "name": "Chelsea F.C." },
-      { "id": 4, "name": "Arsenal F.C."},
+      { "id": 4, "name": "Arsenal F.C." },
       { "id": 5, "name": "FC Barcelona" }
     ]);
   }

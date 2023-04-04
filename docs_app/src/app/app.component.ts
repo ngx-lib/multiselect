@@ -1,17 +1,19 @@
-import { Component, ElementRef, HostBinding, HostListener, OnInit,
-         QueryList, ViewChild, ViewChildren } from '@angular/core';
+import {
+  Component, ElementRef, HostBinding, HostListener, OnInit,
+  QueryList, ViewChild, ViewChildren
+} from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 
-import { CurrentNodes, NavigationService, NavigationNode, VersionInfo } from 'app/navigation/navigation.service';
-import { DocumentService, DocumentContents } from 'app/documents/document.service';
-import { Deployment } from 'app/shared/deployment.service';
-import { LocationService } from 'app/shared/location.service';
-import { NotificationComponent } from 'app/layout/notification/notification.component';
-import { ScrollService } from 'app/shared/scroll.service';
-import { SearchBoxComponent } from 'app/search/search-box/search-box.component';
-import { SearchResults } from 'app/search/interfaces';
-import { SearchService } from 'app/search/search.service';
-import { TocService } from 'app/shared/toc.service';
+import { CurrentNodes, NavigationService, NavigationNode, VersionInfo } from './navigation/navigation.service';
+import { DocumentService, DocumentContents } from './documents/document.service';
+import { Deployment } from './shared/deployment.service';
+import { LocationService } from './shared/location.service';
+import { NotificationComponent } from './layout/notification/notification.component';
+import { ScrollService } from './shared/scroll.service';
+import { SearchBoxComponent } from './search/search-box/search-box.component';
+import { SearchResults } from './search/interfaces';
+import { SearchService } from './search/search.service';
+import { TocService } from './shared/toc.service';
 
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { first, map } from 'rxjs/operators';
@@ -20,7 +22,7 @@ const sideNavView = 'SideNav';
 
 @Component({
   selector: 'aio-shell',
-  templateUrl: './app.component.html',
+  templateUrl: 'app.component.html',
 })
 export class AppComponent implements OnInit {
 
@@ -110,7 +112,7 @@ export class AppComponent implements OnInit {
     // Do not initialize the search on browsers that lack web worker support
     if ('Worker' in window) {
       // Delay initialization by up to 2 seconds
-      this.searchService.initWorker('app/search/search-worker.js', 2000);
+      this.searchService.initWorker('./search/search-worker.js', 2000);
     }
 
     this.onResize(window.innerWidth);
@@ -177,9 +179,9 @@ export class AppComponent implements OnInit {
     }
 
     this.navigationService.navigationViews.subscribe(views => {
-      this.footerNodes  = views['Footer']  || [];
+      this.footerNodes = views['Footer'] || [];
       this.sideNavNodes = views['SideNav'] || [];
-      this.topMenuNodes = views['TopBar']  || [];
+      this.topMenuNodes = views['TopBar'] || [];
       this.topMenuNarrowNodes = views['TopBarNarrow'] || this.topMenuNodes;
     });
 
@@ -187,7 +189,7 @@ export class AppComponent implements OnInit {
 
     const hasNonEmptyToc = this.tocService.tocList.pipe(map(tocList => tocList.length > 0));
     combineLatest(hasNonEmptyToc, this.showFloatingToc)
-        .subscribe(([hasToc, showFloatingToc]) => this.hasFloatingToc = hasToc && showFloatingToc);
+      .subscribe(([hasToc, showFloatingToc]) => this.hasFloatingToc = hasToc && showFloatingToc);
 
     // Generally, we want to delay updating the shell (e.g. host classes, sidenav state) for the new
     // document, until after the leaving document has been removed (to avoid having the styles for
@@ -264,7 +266,7 @@ export class AppComponent implements OnInit {
       // items in the top-bar, ensure the sidenav is closed.
       // (This condition can only be met when the resize event changes the value of `isSideBySide`
       //  from `false` to `true` while on a non-sidenav doc.)
-      this.sidenav.toggle(false);
+      // this.sidenav.toggle(false);
     }
   }
 
@@ -283,7 +285,7 @@ export class AppComponent implements OnInit {
     }
 
     // Deal with anchor clicks; climb DOM tree until anchor found (or null)
-    let target: HTMLElement|null = eventTarget;
+    let target: HTMLElement | null = eventTarget;
     while (target && !(target instanceof HTMLAnchorElement)) {
       target = target.parentElement;
     }
@@ -307,10 +309,10 @@ export class AppComponent implements OnInit {
 
   notificationDismissed() {
     this.notificationAnimating = true;
-      // this should be kept in sync with the animation durations in:
-      // - aio/src/styles/2-modules/_notification.scss
-      // - aio/src/app/layout/notification/notification.component.ts
-      setTimeout(() => this.notificationAnimating = false, 250);
+    // this should be kept in sync with the animation durations in:
+    // - aio/src/styles/2-modules/_notification.scss
+    // - aio/src/./layout/notification/notification.component.ts
+    setTimeout(() => this.notificationAnimating = false, 250);
     this.updateHostClasses();
   }
 
@@ -366,9 +368,9 @@ export class AppComponent implements OnInit {
       // Must wait until now for mat-toolbar to be measurable.
       const el = this.hostElement.nativeElement as Element;
       this.tocMaxHeightOffset =
-          el.querySelector('footer')!.clientHeight +
-          el.querySelector('.app-toolbar')!.clientHeight +
-          24; //  fudge margin
+        el.querySelector('footer')!.clientHeight +
+        el.querySelector('.app-toolbar')!.clientHeight +
+        24; //  fudge margin
     }
 
     this.tocMaxHeight = (document.body.scrollHeight - window.pageYOffset - this.tocMaxHeightOffset).toFixed(2);
@@ -417,7 +419,7 @@ export class AppComponent implements OnInit {
     if (key === '/' || keyCode === 191) {
       this.focusSearchBox();
     }
-    if (key === 'Escape' || keyCode === 27 ) {
+    if (key === 'Escape' || keyCode === 27) {
       // escape key
       if (this.showSearchResults) {
         this.hideSearchResults();

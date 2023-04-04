@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ms-property-map',
-  templateUrl: './property-map.component.html'
+  templateUrl: 'property-map.component.html'
 })
 export class PropertyMapComponent implements OnInit {
   options;
   team;
   propertyMap = {
-    "id" : "teamId",
-    "name" : "teamName"
+    "id": "teamId",
+    "name": "teamName"
   }
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.options = [{

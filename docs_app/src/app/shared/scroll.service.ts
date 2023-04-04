@@ -1,6 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { PlatformLocation } from '@angular/common';
-import { DOCUMENT } from '@angular/platform-browser';
+import { PlatformLocation, DOCUMENT } from '@angular/common';
 import { fromEvent } from 'rxjs';
 
 export const topMargin = 16;
@@ -31,8 +30,8 @@ export class ScrollService {
   }
 
   constructor(
-      @Inject(DOCUMENT) private document: any,
-      private location: PlatformLocation) {
+    @Inject(DOCUMENT) private document: any,
+    private location: PlatformLocation) {
     // On resize, the toolbar might change height, so "invalidate" the top offset.
     fromEvent(window, 'resize').subscribe(() => this._topOffset = null);
   }
@@ -45,8 +44,8 @@ export class ScrollService {
   scroll() {
     const hash = this.getCurrentHash();
     const element: HTMLElement = hash
-        ? this.document.getElementById(hash)
-        : this.topOfPageElement;
+      ? this.document.getElementById(hash)
+      : this.topOfPageElement;
     this.scrollToElement(element);
   }
 
@@ -54,7 +53,7 @@ export class ScrollService {
    * Scroll to the element.
    * Don't scroll if no element.
    */
-  scrollToElement(element: Element|null) {
+  scrollToElement(element: Element | null) {
     if (element) {
       element.scrollIntoView();
 

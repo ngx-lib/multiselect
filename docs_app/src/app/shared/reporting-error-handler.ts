@@ -29,9 +29,9 @@ export class ReportingErrorHandler extends ErrorHandler {
 
   private reportError(error: string | Error) {
     if (typeof error === 'string') {
-      this.window.onerror(error);
+      this.window?.onerror && this.window?.onerror(error);
     } else {
-      this.window.onerror(error.message, undefined, undefined, undefined, error);
+      this.window?.onerror && this.window?.onerror(error.message, undefined, undefined, undefined, error);
     }
   }
 }

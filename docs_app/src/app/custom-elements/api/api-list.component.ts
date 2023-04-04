@@ -16,14 +16,14 @@ import { ApiSection, ApiService } from './api.service';
 import { Option } from 'app/shared/select/select.component';
 
 class SearchCriteria {
-  query? = '';
-  status? = 'all';
-  type? = 'all';
+  query?= '';
+  status?= 'all';
+  type?= 'all';
 }
 
 @Component({
   selector: 'aio-api-list',
-  templateUrl: './api-list.component.html',
+  templateUrl: 'api-list.component.html',
 })
 export class ApiListComponent implements OnInit {
 
@@ -42,7 +42,7 @@ export class ApiListComponent implements OnInit {
   types: Option[] = [
     { value: 'all', title: 'All' },
     { value: 'class', title: 'Class' },
-    { value: 'const', title: 'Const'},
+    { value: 'const', title: 'Const' },
     { value: 'enum', title: 'Enum' },
     { value: 'function', title: 'Function' },
     { value: 'interface', title: 'Interface' },
@@ -78,19 +78,19 @@ export class ApiListComponent implements OnInit {
   // Todo: may need to debounce as the original did
   // although there shouldn't be any perf consequences if we don't
   setQuery(query: string) {
-    this.setSearchCriteria({query: (query || '').toLowerCase().trim() });
+    this.setSearchCriteria({ query: (query || '').toLowerCase().trim() });
   }
 
   setStatus(status: Option) {
     this.toggleStatusMenu();
     this.status = status;
-    this.setSearchCriteria({status: status.value});
+    this.setSearchCriteria({ status: status.value });
   }
 
   setType(type: Option) {
     this.toggleTypeMenu();
     this.type = type;
-    this.setSearchCriteria({type: type.value});
+    this.setSearchCriteria({ type: type.value });
   }
 
   toggleStatusMenu() {
@@ -107,7 +107,7 @@ export class ApiListComponent implements OnInit {
     let showSection = false;
 
     section.items.forEach(item => {
-      item.show =  matchesType() && matchesStatus() && matchesQuery();
+      item.show = matchesType() && matchesStatus() && matchesQuery();
 
       // show section if any of its items will be shown
       showSection = showSection || item.show;
@@ -135,7 +135,7 @@ export class ApiListComponent implements OnInit {
 
   // Get initial search criteria from URL search params
   private initializeSearchCriteria() {
-    const {query, status, type} = this.locationService.search();
+    const { query, status, type } = this.locationService.search();
 
     const q = (query || '').toLowerCase();
     // Hack: can't bind to query because input cursor always forced to end-of-line.
@@ -154,11 +154,11 @@ export class ApiListComponent implements OnInit {
   }
 
   private setLocationSearch() {
-    const {query, status, type} = this.searchCriteria;
+    const { query, status, type } = this.searchCriteria;
     const params = {
-      query:  query ? query : undefined,
+      query: query ? query : undefined,
       status: status !== 'all' ? status : undefined,
-      type:   type   !== 'all' ? type   : undefined
+      type: type !== 'all' ? type : undefined
     };
 
     this.locationService.setSearch('API Search', params);

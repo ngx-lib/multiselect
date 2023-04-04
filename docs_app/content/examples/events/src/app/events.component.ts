@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ms-events',
-  templateUrl: './events.component.html'
+  templateUrl: 'events.component.html'
 })
 export class EventsDemoComponent implements OnInit {
   options;
   message: string;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     // Retrieving data for dropdown

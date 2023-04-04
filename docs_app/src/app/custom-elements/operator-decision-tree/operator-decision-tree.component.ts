@@ -13,7 +13,7 @@ import { OperatorDecisionTreeService } from './operator-decision-tree.service';
 
 @Component({
   selector: 'aio-operator-decision-tree',
-  templateUrl: './operator-decision-tree.component.html',
+  templateUrl: 'operator-decision-tree.component.html',
   styleUrls: ['./operator-decision-tree.component.scss'],
   animations: [
     trigger('flyIn', [
@@ -34,7 +34,7 @@ export class OperatorDecisionTreeComponent implements OnDestroy {
   constructor(
     private operatorDecisionTreeService: OperatorDecisionTreeService,
     private scrollService: ScrollService
-  ) {}
+  ) { }
 
   selectOption(optionId: string): void {
     this.operatorDecisionTreeService.selectOption(optionId);

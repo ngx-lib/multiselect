@@ -3,7 +3,7 @@ import { AppService } from '../../../app.service';
 
 @Component({
   selector: 'ms-observable-subscribe',
-  templateUrl: './observable-subscribe.component.html'
+  templateUrl: 'observable-subscribe.component.html'
 })
 export class ObservableSubscribeComponent implements OnInit {
 

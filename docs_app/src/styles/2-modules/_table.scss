@@ -69,13 +69,13 @@ table {
       font-weight: 600;
       max-width: 100px;
     }
+  }
 
-    &:last-child td {
-      border: none;
+  tbody > tr > :last-child td {
+    border: none;
 
-      @media (max-width: 480px) {
-        border-bottom: 1px solid $lightgray;
-      }
+    @media (max-width: 480px) {
+      border-bottom: 1px solid $lightgray;
     }
   }
 }

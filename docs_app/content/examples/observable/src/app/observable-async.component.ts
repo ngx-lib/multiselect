@@ -4,14 +4,14 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ms-observable-async',
-  templateUrl: './observable-async.component.html'
+  templateUrl: 'observable-async.component.html'
 })
 export class ObservableAsyncComponent implements OnInit {
 
   observableOptions;
   selectedOptions;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.selectedOptions = new FormControl([
@@ -21,7 +21,7 @@ export class ObservableAsyncComponent implements OnInit {
 
     this.observableOptions = new Observable((observer) => {
       observer.next([
-        { "id": 1, "name": "Manchester United" }, 
+        { "id": 1, "name": "Manchester United" },
         { "id": 2, "name": "Liverpool F.C." },
         { "id": 3, "name": "Chelsea F.C." },
         { "id": 4, "name": "Arsenal F.C." },
