@@ -13,7 +13,7 @@ import { collectAllDescendants, virtualOptionsGroupingFlatten } from '../utils';
 
 @Component({
   selector: 'ms-grouped-options',
-  templateUrl: './grouped-options.component.html',
+  templateUrl: 'grouped-options.component.html',
   styleUrls: ['./grouped-options.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

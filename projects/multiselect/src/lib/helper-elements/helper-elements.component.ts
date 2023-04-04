@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output, Input, ChangeDetectionStrategy } from 
 
 @Component({
   selector: 'ms-helper-elements',
-  templateUrl: './helper-elements.component.html',
+  templateUrl: 'helper-elements.component.html',
   styleUrls: ['./helper-elements.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

@@ -23,7 +23,7 @@ describe('MultiselectComponent', () => {
       TestBed.overrideComponent(NgxMultiselectComponent, {
         set: new Component({
           selector: 'ngx-multiselect',
-          templateUrl: './multiselect.component.html',
+          templateUrl: 'multiselect.component.html',
           changeDetection: ChangeDetectionStrategy.Default
         })
       });
