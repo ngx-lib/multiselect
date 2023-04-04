@@ -81,7 +81,7 @@ It's super easy to get started with Angular multiselect dropdown. Only three ste
 | Angular Version | Supported version            |
 | --------------- | ---------------------------- |
 | Angular 6 - 8   | @ngx-lib/multiselect - 1.x.x |
-| Angular 8+      | @ngx-lib/multiselect - 2.x.x |
+| Angular 9+      | @ngx-lib/multiselect - 2.x.x |
 
 ## Playground
 
@@ -91,7 +91,7 @@ It's super easy to get started with Angular multiselect dropdown. Only three ste
 
 ### Angular 8 - https://stackblitz.com/edit/ngx-multilselect
 
-### Angular 9 - https://stackblitz.com/edit/ngx-multilselect
+### Angular 9 -
 
 # Developer tasks
 
