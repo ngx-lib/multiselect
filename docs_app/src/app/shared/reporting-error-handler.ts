@@ -6,7 +6,9 @@ import { WindowToken } from './window';
  *
  * Errors outside the Angular application may also be handled by `window.onerror`.
  */
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ReportingErrorHandler extends ErrorHandler {
 
   constructor(@Inject(WindowToken) private window: Window) {

@@ -2,7 +2,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { Injector } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 
-import { Logger } from 'app/shared/logger.service';
+import { Logger } from '../../shared/logger.service';
 
 import { ApiService } from './api.service';
 
@@ -32,25 +32,25 @@ describe('ApiService', () => {
   });
 
   it('subscribers should be completed/unsubscribed when service destroyed', () => {
-      let completed = false;
+    let completed = false;
 
-      service.sections.subscribe(
-        undefined,
-        undefined,
-        () => completed = true
-      );
+    service.sections.subscribe(
+      undefined,
+      undefined,
+      () => completed = true
+    );
 
-      service.ngOnDestroy();
-      expect(completed).toBe(true);
+    service.ngOnDestroy();
+    expect(completed).toBe(true);
 
-      // Stop `httpMock.verify()` from complaining.
-      httpMock.expectOne({});
+    // Stop `httpMock.verify()` from complaining.
+    httpMock.expectOne({});
   });
 
   describe('#sections', () => {
 
     it('first subscriber should fetch sections', done => {
-      const data = [{name: 'a', title: 'A', items: []}, {name: 'b', title: 'B', items: []}];
+      const data = [{ name: 'a', title: 'A', items: [] }, { name: 'b', title: 'B', items: [] }];
 
       service.sections.subscribe(sections => {
         expect(sections).toEqual(data);
@@ -61,7 +61,7 @@ describe('ApiService', () => {
     });
 
     it('second subscriber should get previous sections and NOT trigger refetch', done => {
-      const data = [{name: 'a', title: 'A', items: []}, {name: 'b', title: 'B', items: []}];
+      const data = [{ name: 'a', title: 'A', items: [] }, { name: 'b', title: 'B', items: [] }];
       let subscriptions = 0;
 
       service.sections.subscribe(sections => {
@@ -91,7 +91,7 @@ describe('ApiService', () => {
 
       let call = 0;
 
-      let data = [{name: 'a', title: 'A', items: []}, {name: 'b', title: 'B', items: []}];
+      let data = [{ name: 'a', title: 'A', items: [] }, { name: 'b', title: 'B', items: [] }];
 
       service.sections.subscribe(sections => {
         // called twice during this test
@@ -103,7 +103,7 @@ describe('ApiService', () => {
       httpMock.expectOne({}).flush(data);
 
       // refresh/refetch
-      data = [{name: 'c', title: 'C', items: []}];
+      data = [{ name: 'c', title: 'C', items: [] }];
       service.fetchSections();
       httpMock.expectOne({}).flush(data);
 

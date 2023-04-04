@@ -32,12 +32,14 @@ interface SvgIconMap {
  * A custom replacement for Angular Material's `MdIconRegistry`, which allows
  * us to provide preloaded icon SVG sources.
  */
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CustomIconRegistry extends MatIconRegistry {
   private preloadedSvgElements: SvgIconMap = {};
 
   constructor(http: HttpClient, sanitizer: DomSanitizer, @Optional() @Inject(DOCUMENT) document,
-              @Inject(SVG_ICONS) svgIcons: SvgIconInfo[]) {
+    @Inject(SVG_ICONS) svgIcons: SvgIconInfo[]) {
     super(http, sanitizer, document);
     this.loadSvgElements(svgIcons);
   }

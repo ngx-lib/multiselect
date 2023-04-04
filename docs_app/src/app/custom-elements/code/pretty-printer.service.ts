@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { from as fromPromise, Observable } from 'rxjs';
 import { first, map, share } from 'rxjs/operators';
 
-import { Logger } from 'app/shared/logger.service';
+import { Logger } from '../../shared/logger.service';
 
 declare const System: {
   import(name: string): Promise<any>;
@@ -14,7 +14,9 @@ type PrettyPrintOne = (code: string, language?: string, linenums?: number | bool
 /**
  * Wrapper around the prettify.js library
  */
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class PrettyPrinter {
 
   private prettyPrintOne: Observable<PrettyPrintOne>;

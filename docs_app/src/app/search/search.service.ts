@@ -7,15 +7,17 @@ can be found in the LICENSE file at http://angular.io/license
 import { NgZone, Injectable } from '@angular/core';
 import { ConnectableObservable, Observable, race, ReplaySubject, timer } from 'rxjs';
 import { concatMap, first, publishReplay } from 'rxjs/operators';
-import { WebWorkerClient } from 'app/shared/web-worker';
-import { SearchResults } from 'app/search/interfaces';
+import { WebWorkerClient } from '../shared/web-worker';
+import { SearchResults } from '../search/interfaces';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class SearchService {
   private ready: Observable<boolean>;
   private searchesSubject = new ReplaySubject<string>(1);
   private worker: WebWorkerClient;
-  constructor(private zone: NgZone) {}
+  constructor(private zone: NgZone) { }
 
   /**
    * Initialize the search engine. We offer an `initDelay` to prevent the search initialisation from delaying the
@@ -28,9 +30,9 @@ export class SearchService {
   initWorker(workerUrl: string, initDelay: number) {
     // Wait for the initDelay or the first search
     const ready = this.ready = race<any>(
-        timer(initDelay),
-        this.searchesSubject.asObservable().pipe(first()),
-      )
+      timer(initDelay),
+      this.searchesSubject.asObservable().pipe(first()),
+    )
       .pipe(
         concatMap(() => {
           // Create the worker and load the index

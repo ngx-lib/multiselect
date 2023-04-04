@@ -3,7 +3,7 @@ import { NgModule, Type } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatRippleModule } from '@angular/material/core';
-import { ScrollService } from 'app/shared/scroll.service';
+import { ScrollService } from '../../shared/scroll.service';
 import { WithCustomElementComponent } from '../element-registry';
 import { OperatorDecisionTreeDataService } from './operator-decision-tree-data.service';
 import { OperatorDecisionTreeComponent } from './operator-decision-tree.component';

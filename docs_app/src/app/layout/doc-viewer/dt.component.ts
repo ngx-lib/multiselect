@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { DocumentContents } from 'app/documents/document.service';
+import { DocumentContents } from '../../documents/document.service';
 
 @Component({
   selector: 'aio-dt',

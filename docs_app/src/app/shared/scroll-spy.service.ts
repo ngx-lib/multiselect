@@ -3,7 +3,7 @@ import { DOCUMENT } from '@angular/common';
 import { fromEvent, Observable, ReplaySubject, Subject } from 'rxjs';
 import { auditTime, distinctUntilChanged, takeUntil } from 'rxjs/operators';
 
-import { ScrollService } from 'app/shared/scroll.service';
+import { ScrollService } from '../shared/scroll.service';
 
 
 export interface ScrollItem {
@@ -33,7 +33,7 @@ export class ScrollSpiedElement implements ScrollItem {
    * @param {Element} element - The element whose position relative to the viewport is tracked.
    * @param {number}  index   - The index of the element in the original list of element (group).
    */
-  constructor(public readonly element: Element, public readonly index: number) {}
+  constructor(public readonly element: Element, public readonly index: number) { }
 
   /*
    * @method
@@ -97,7 +97,7 @@ export class ScrollSpiedElementGroup {
    * @param {number} maxScrollTop - The maximum possible `scrollTop` (based on the viewport size).
    */
   onScroll(scrollTop: number, maxScrollTop: number) {
-    let activeItem: ScrollItem|undefined;
+    let activeItem: ScrollItem | undefined;
 
     if (scrollTop + 1 >= maxScrollTop) {
       activeItem = this.spiedElements[0];
@@ -115,7 +115,9 @@ export class ScrollSpiedElementGroup {
   }
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ScrollSpyService {
   private spiedElementGroups: ScrollSpiedElementGroup[] = [];
   private onStopListening = new Subject();
@@ -124,7 +126,7 @@ export class ScrollSpyService {
   private lastContentHeight: number;
   private lastMaxScrollTop: number;
 
-  constructor(@Inject(DOCUMENT) private doc: any, private scrollService: ScrollService) {}
+  constructor(@Inject(DOCUMENT) private doc: any, private scrollService: ScrollService) { }
 
   /*
    * @method

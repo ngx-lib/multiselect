@@ -3,7 +3,7 @@ import { By } from '@angular/platform-browser';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { NavItemComponent } from './nav-item.component';
-import { NavigationNode } from 'app/navigation/navigation.model';
+import { NavigationNode } from '../../navigation/navigation.model';
 
 describe('NavItemComponent', () => {
 
@@ -183,7 +183,7 @@ describe('NavItemComponent', () => {
         title: 'x',
         children: [
           { title: 'a' },
-          { title: 'b', hidden: true},
+          { title: 'b', hidden: true },
           { title: 'c' }
         ]
       };

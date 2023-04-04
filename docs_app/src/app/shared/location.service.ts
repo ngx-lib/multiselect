@@ -4,10 +4,12 @@ import { Location, PlatformLocation } from '@angular/common';
 import { ReplaySubject } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
-import { GaService } from 'app/shared/ga.service';
-import { SwUpdatesService } from 'app/sw-updates/sw-updates.service';
+import { GaService } from '../shared/ga.service';
+import { SwUpdatesService } from '../sw-updates/sw-updates.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class LocationService {
 
   private readonly urlParser = document.createElement('a');
@@ -38,7 +40,7 @@ export class LocationService {
   }
 
   // TODO: ignore if url-without-hash-or-search matches current location?
-  go(url: string|null|undefined) {
+  go(url: string | null | undefined) {
     if (!url) { return; }
     url = this.stripSlashes(url);
     if (/^http/.test(url) || this.swUpdateActivated) {
@@ -64,24 +66,24 @@ export class LocationService {
   }
 
   search() {
-    const search: { [index: string]: string|undefined; } = {};
+    const search: { [index: string]: string | undefined; } = {};
     const path = this.location.path();
     const q = path.indexOf('?');
     if (q > -1) {
       try {
-          const params = path.substr(q + 1).split('&');
-          params.forEach(p => {
-            const pair = p.split('=');
-            if (pair[0]) {
-              search[decodeURIComponent(pair[0])] = pair[1] && decodeURIComponent(pair[1]);
-            }
-          });
+        const params = path.substr(q + 1).split('&');
+        params.forEach(p => {
+          const pair = p.split('=');
+          if (pair[0]) {
+            search[decodeURIComponent(pair[0])] = pair[1] && decodeURIComponent(pair[1]);
+          }
+        });
       } catch (e) { /* don't care */ }
     }
     return search;
   }
 
-  setSearch(label: string, params: { [key: string]: string|undefined}) {
+  setSearch(label: string, params: { [key: string]: string | undefined }) {
     const search = Object.keys(params).reduce((acc, key) => {
       const value = params[key];
       return (value === undefined) ? acc :
@@ -137,8 +139,8 @@ export class LocationService {
     this.urlParser.href = relativeUrl;
 
     // don't navigate if external link or has extension
-    if ( anchor.href !== this.urlParser.href ||
-         !/\/[^/.]*$/.test(pathname) ) {
+    if (anchor.href !== this.urlParser.href ||
+      !/\/[^/.]*$/.test(pathname)) {
       return true;
     }
 

@@ -10,10 +10,10 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 import { combineLatest, Observable, ReplaySubject } from 'rxjs';
 
-import { LocationService } from 'app/shared/location.service';
+import { LocationService } from '../../shared/location.service';
 import { ApiSection, ApiService } from './api.service';
 
-import { Option } from 'app/shared/select/select.component';
+import { Option } from '../../shared/select/select.component';
 
 class SearchCriteria {
   query?= '';

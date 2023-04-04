@@ -3,12 +3,14 @@ import { TestBed } from '@angular/core/testing';
 
 import { Subscription } from 'rxjs';
 
-import { LocationService } from 'app/shared/location.service';
-import { MockLocationService } from 'testing/location.service';
-import { Logger } from 'app/shared/logger.service';
-import { MockLogger } from 'testing/logger.service';
-import { DocumentService, DocumentContents,
-         FETCHING_ERROR_ID, FILE_NOT_FOUND_ID } from './document.service';
+import { LocationService } from '../shared/location.service';
+import { MockLocationService } from '../../testing/location.service';
+import { Logger } from '../shared/logger.service';
+import { MockLogger } from '../../testing/logger.service';
+import {
+  DocumentService, DocumentContents,
+  FETCHING_ERROR_ID, FILE_NOT_FOUND_ID
+} from './document.service';
 
 
 const CONTENT_URL_PREFIX = 'generated/docs/';
@@ -50,7 +52,7 @@ describe('DocumentService', () => {
     });
 
     it('should emit a document each time the location changes', () => {
-      let latestDocument: DocumentContents|undefined;
+      let latestDocument: DocumentContents | undefined;
       const doc0 = { contents: 'doc 0', id: 'initial/doc' };
       const doc1 = { contents: 'doc 1', id: 'new/doc' };
       const { docService, locationService } = getServices('initial/doc');
@@ -67,13 +69,13 @@ describe('DocumentService', () => {
     });
 
     it('should emit the not-found document if the document is not found on the server', () => {
-      let currentDocument: DocumentContents|undefined;
+      let currentDocument: DocumentContents | undefined;
       const notFoundDoc = { id: FILE_NOT_FOUND_ID, contents: '<h1>Page Not Found</h1>' };
       const { docService, logger } = getServices('missing/doc');
       docService.currentDocument.subscribe(doc => currentDocument = doc);
 
       // Initial request return 404.
-      httpMock.expectOne({}).flush(null, {status: 404, statusText: 'NOT FOUND'});
+      httpMock.expectOne({}).flush(null, { status: 404, statusText: 'NOT FOUND' });
       expect(logger.output.error).toEqual([
         [jasmine.any(Error)]
       ]);
@@ -87,14 +89,14 @@ describe('DocumentService', () => {
     });
 
     it('should emit a hard-coded not-found document if the not-found document is not found on the server', () => {
-      let currentDocument: DocumentContents|undefined;
+      let currentDocument: DocumentContents | undefined;
       const hardCodedNotFoundDoc = { contents: 'Document not found', id: FILE_NOT_FOUND_ID };
       const nextDoc = { contents: 'Next Doc', id: 'new/doc' };
       const { docService, locationService } = getServices(FILE_NOT_FOUND_ID);
 
       docService.currentDocument.subscribe(doc => currentDocument = doc);
 
-      httpMock.expectOne({}).flush(null, { status: 404, statusText: 'NOT FOUND'});
+      httpMock.expectOne({}).flush(null, { status: 404, statusText: 'NOT FOUND' });
       expect(currentDocument).toEqual(hardCodedNotFoundDoc);
 
       // now check that we haven't killed the currentDocument observable sequence
@@ -111,13 +113,13 @@ describe('DocumentService', () => {
 
       docService.currentDocument.subscribe(doc => latestDocument = doc);
 
-      httpMock.expectOne({}).flush(null, {status: 500, statusText: 'Server Error'});
+      httpMock.expectOne({}).flush(null, { status: 500, statusText: 'Server Error' });
       expect(latestDocument.id).toEqual(FETCHING_ERROR_ID);
       expect(logger.output.error).toEqual([
         [jasmine.any(Error)]
       ]);
       expect(logger.output.error[0][0].message)
-          .toEqual(`Error fetching document 'initial/doc': (Http failure response for generated/docs/initial/doc.json: 500 Server Error)`);
+        .toEqual(`Error fetching document 'initial/doc': (Http failure response for generated/docs/initial/doc.json: 500 Server Error)`);
 
       locationService.go('new/doc');
       httpMock.expectOne({}).flush(doc1);

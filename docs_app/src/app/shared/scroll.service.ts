@@ -6,7 +6,9 @@ export const topMargin = 16;
 /**
  * A service that scrolls document elements into view
  */
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ScrollService {
 
   private _topOffset: number | null;

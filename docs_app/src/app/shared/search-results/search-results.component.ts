@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { SearchResult, SearchResults, SearchArea } from 'app/search/interfaces';
+import { SearchResult, SearchResults, SearchArea } from '../../search/interfaces';
 
 /**
  * A component to display search results in groups

@@ -1,6 +1,6 @@
 /* tslint:disable component-selector */
 import { Component } from '@angular/core';
-import { LocationService } from 'app/shared/location.service';
+import { LocationService } from '../../shared/location.service';
 
 /** Renders the current location path. */
 @Component({

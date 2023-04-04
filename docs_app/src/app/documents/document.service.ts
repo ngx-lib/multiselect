@@ -7,8 +7,8 @@ import { catchError, switchMap, tap } from 'rxjs/operators';
 import { DocumentContents } from './document-contents';
 export { DocumentContents } from './document-contents';
 
-import { LocationService } from 'app/shared/location.service';
-import { Logger } from 'app/shared/logger.service';
+import { LocationService } from '../shared/location.service';
+import { Logger } from '../shared/logger.service';
 
 export const FILE_NOT_FOUND_ID = 'file-not-found';
 export const FETCHING_ERROR_ID = 'fetching-error';
@@ -28,7 +28,9 @@ const FETCHING_ERROR_CONTENTS = `
   </div>
 `;
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class DocumentService {
 
   private cache = new Map<string, Observable<DocumentContents>>();
@@ -46,7 +48,7 @@ export class DocumentService {
   private getDocument(url: string) {
     const id = url || 'index';
     this.logger.log('getting document', id);
-    if ( !this.cache.has(id)) {
+    if (!this.cache.has(id)) {
       this.cache.set(id, this.fetchDocument(id));
     }
     return this.cache.get(id)!;
@@ -58,7 +60,7 @@ export class DocumentService {
 
     this.logger.log('fetching document from', requestPath);
     this.http
-      .get<DocumentContents>(requestPath, {responseType: 'json'})
+      .get<DocumentContents>(requestPath, { responseType: 'json' })
       .pipe(
         tap(data => {
           if (!data || typeof data !== 'object') {

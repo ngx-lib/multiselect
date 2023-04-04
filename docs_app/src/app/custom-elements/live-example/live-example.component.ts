@@ -1,8 +1,8 @@
 /* tslint:disable component-selector */
 import { AfterContentInit, AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
-import { CONTENT_URL_PREFIX } from 'app/documents/document.service';
-import { AttrMap, boolFromValue, getAttrs, getAttrValue } from 'app/shared/attribute-utils';
+import { CONTENT_URL_PREFIX } from '../../documents/document.service';
+import { AttrMap, boolFromValue, getAttrs, getAttrValue } from '../../shared/attribute-utils';
 
 
 const LIVE_EXAMPLE_BASE = CONTENT_URL_PREFIX + 'live-examples/';
@@ -105,8 +105,8 @@ export class LiveExampleComponent implements AfterContentInit {
     const isEmbedded = boolFromValue(getAttrValue(attrs, 'embedded'));
 
     return downloadOnly ? 'downloadOnly'
-           : isEmbedded ? 'embedded' :
-                          'default';
+      : isEmbedded ? 'embedded' :
+        'default';
   }
 
   private getStackblitz(exampleDir: string, stackblitzName: string, isEmbedded: boolean) {
@@ -137,7 +137,7 @@ export class LiveExampleComponent implements AfterContentInit {
 @Component({
   selector: 'aio-embedded-stackblitz',
   template: `<iframe #iframe frameborder="0" width="100%" height="100%"></iframe>`,
-  styles: [ 'iframe { min-height: 400px; }' ]
+  styles: ['iframe { min-height: 400px; }']
 })
 export class EmbeddedStackblitzComponent implements AfterViewInit {
   @Input() src: string;

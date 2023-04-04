@@ -6,7 +6,7 @@ import {
   trigger
 } from '@angular/animations';
 import { Component, OnDestroy } from '@angular/core';
-import { ScrollService } from 'app/shared/scroll.service';
+import { ScrollService } from '../../shared/scroll.service';
 import { Observable } from 'rxjs';
 import { OperatorTreeNode } from './interfaces';
 import { OperatorDecisionTreeService } from './operator-decision-tree.service';

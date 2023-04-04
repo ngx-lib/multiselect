@@ -7,10 +7,10 @@ import { first } from 'rxjs/operators';
 
 import { CodeComponent } from './code.component';
 import { CodeModule } from './code.module';
-import { CopierService } from 'app/shared//copier.service';
-import { Logger } from 'app/shared/logger.service';
+import { CopierService } from '../../shared//copier.service';
+import { Logger } from '../../shared/logger.service';
 import { PrettyPrinter } from './pretty-printer.service';
-import { StackblitzService } from 'app/shared/stackblitz.service';
+import { StackblitzService } from '../../shared/stackblitz.service';
 
 const oneLineCode = 'const foo = "bar";';
 

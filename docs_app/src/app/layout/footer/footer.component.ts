@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { NavigationNode, VersionInfo } from 'app/navigation/navigation.service';
+import { NavigationNode, VersionInfo } from '../../navigation/navigation.service';
 
 @Component({
   selector: 'aio-footer',
