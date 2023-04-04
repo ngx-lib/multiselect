@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ms-observable-async',
-  templateUrl: './observable-async.component.html'
+  templateUrl: 'observable-async.component.html'
 })
 export class ObservableAsyncComponent implements OnInit {
 

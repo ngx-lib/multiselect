@@ -4,13 +4,13 @@ import { DocService } from '../doc.service';
 
 @Component({
   selector: 'ms-doc',
-  templateUrl: './doc.component.html',
+  templateUrl: 'doc.component.html',
   styleUrls: ['./doc.component.css']
 })
 export class DocComponent implements OnInit {
   data: any;
 
-  constructor(private router: Router, private _activatedRoute: ActivatedRoute, private _docService: DocService) {}
+  constructor(private router: Router, private _activatedRoute: ActivatedRoute, private _docService: DocService) { }
 
   apiLinks = [
     { link: ['/docs', 'getting-started'], text: 'Getting Started' },

@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'ms-property-map',
-  templateUrl: './propertymap.component.html'
+  templateUrl: 'propertymap.component.html'
 })
 export class PropertyMapComponent implements OnInit {
   options;

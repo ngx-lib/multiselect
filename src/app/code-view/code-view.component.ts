@@ -3,7 +3,7 @@ import hljs from 'highlight.js/lib/highlight';
 
 @Component({
   selector: 'ms-code-view',
-  templateUrl: './code-view.component.html',
+  templateUrl: 'code-view.component.html',
   styleUrls: ['./code-view.component.css']
 })
 export class CodeViewComponent implements OnInit {

@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ms-observable-dynamic-update',
-  templateUrl: './observable-dynamic-update.component.html'
+  templateUrl: 'observable-dynamic-update.component.html'
 })
 export class ObservableDynamicUpdateComponent implements OnInit {
 
