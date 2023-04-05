@@ -22,11 +22,8 @@
       "es2016",
       "dom"
     ],
-    "module": "es2015"
+    "module": "es2015",
   },
-  "include": [
-    "../dist/multiselect/**/*",
-  ],
   "exclude": [
     "content",
     "tools",
@@ -39,9 +36,6 @@
       "../dist/multiselect"
     ],
     "@ngx-lib/multiselect/*": [
-      "../dist/multiselect/*"
-    ],
-    "include": [
       "../dist/multiselect/*"
     ],
     "./app/": ["app/*"],

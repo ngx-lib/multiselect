@@ -91,7 +91,15 @@ It's super easy to get started with Angular multiselect dropdown. Only three ste
 
 ### Angular 8 - https://stackblitz.com/edit/ngx-multilselect
 
-### Angular 9 -
+### Angular 9 - https://stackblitz.com/edit/angular-qfis38
+
+### Angular 12 - https://stackblitz.com/edit/base-angular-12-app-cyixan
+
+### Angular 13 - https://stackblitz.com/edit/angular-3qzfyc
+
+### Angular 14 - https://stackblitz.com/edit/angular-rhm55j
+
+### Angular 15 - https://stackblitz.com/edit/angular-rhm55j
 
 # Developer tasks
 
