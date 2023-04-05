@@ -1,6 +1,6 @@
 {
   "name": "@ngx-lib/multiselect",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "license": "MIT",
   "keywords": [
     "angular",
@@ -13,16 +13,8 @@
     "ngx multiselect"
   ],
   "peerDependencies": {
-    "@angular/animations": ">= 6.0.4",
     "@angular/common": ">=6.0.4",
-    "@angular/compiler": ">=6.0.4",
     "@angular/core": ">=6.0.4",
-    "@angular/forms": ">=6.0.4",
-    "@angular/platform-browser": ">=6.0.4",
-    "@angular/platform-browser-dynamic": ">=6.0.4",
-    "@angular/router": ">=6.0.4",
-    "core-js": ">=2.5.4",
-    "rxjs": ">=6.2.2",
-    "zone.js": ">=0.8.26"
+    "@angular/forms": ">=6.0.4"
   }
 }
