@@ -99,8 +99,6 @@ It's super easy to get started with Angular multiselect dropdown. Only three ste
 
 ### Angular 14 - https://stackblitz.com/edit/angular-rhm55j
 
-### Angular 15 - https://stackblitz.com/edit/angular-rhm55j
-
 # Developer tasks
 
 We use `npm` to manage the dependencies and to run build tasks.
