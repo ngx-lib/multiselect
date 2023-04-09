@@ -1,7 +1,7 @@
 import { Component, ViewChild, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Logger } from 'app/shared/logger.service';
-import { MockLogger } from 'testing/logger.service';
+import { Logger } from '../../shared/logger.service';
+import { MockLogger } from '../../../testing/logger.service';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CodeTabsComponent } from './code-tabs.component';
@@ -14,11 +14,11 @@ describe('CodeTabsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ HostComponent ],
-      imports: [ CodeTabsModule, NoopAnimationsModule ],
-      schemas: [ NO_ERRORS_SCHEMA ],
+      declarations: [HostComponent],
+      imports: [CodeTabsModule, NoopAnimationsModule],
+      schemas: [NO_ERRORS_SCHEMA],
       providers: [
-       { provide: Logger, useClass: MockLogger },
+        { provide: Logger, useClass: MockLogger },
       ]
     });
 

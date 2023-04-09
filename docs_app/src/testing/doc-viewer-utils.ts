@@ -3,12 +3,12 @@ import { Title, Meta } from '@angular/platform-browser';
 
 import { Observable } from 'rxjs';
 
-import { DocumentContents } from 'app/documents/document.service';
-import { DocViewerComponent } from 'app/layout/doc-viewer/doc-viewer.component';
-import { Logger } from 'app/shared/logger.service';
-import { TocService } from 'app/shared/toc.service';
-import { MockLogger } from 'testing/logger.service';
-import { ElementsLoader } from 'app/custom-elements/elements-loader';
+import { DocumentContents } from '../app/documents/document.service';
+import { DocViewerComponent } from '../app/layout/doc-viewer/doc-viewer.component';
+import { Logger } from '../app/shared/logger.service';
+import { TocService } from '../app/shared/toc.service';
+import { MockLogger } from '../testing/logger.service';
+import { ElementsLoader } from '../app/custom-elements/elements-loader';
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -36,7 +36,7 @@ export class TestDocViewerComponent extends DocViewerComponent {
   template: '<aio-doc-viewer [doc]="currentDoc">Test Component</aio-doc-viewer>',
 })
 export class TestParentComponent {
-  currentDoc?: DocumentContents|null;
+  currentDoc?: DocumentContents | null;
   @ViewChild(DocViewerComponent) docViewer: DocViewerComponent;
 }
 
@@ -57,7 +57,7 @@ export class MockTocService {
 
 export class MockElementsLoader {
   loadContainedCustomElements =
-      jasmine.createSpy('MockElementsLoader#loadContainedCustomElements');
+    jasmine.createSpy('MockElementsLoader#loadContainedCustomElements');
 }
 
 @NgModule({

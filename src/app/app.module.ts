@@ -84,4 +84,4 @@ import { DemoShowcaseComponent } from './demos/testing-demos/demo-showcase/demo-
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

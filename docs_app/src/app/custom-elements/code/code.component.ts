@@ -1,10 +1,10 @@
 import { Component, ElementRef, EventEmitter, Input, OnChanges, Output, ViewChild } from '@angular/core';
-import { Logger } from 'app/shared/logger.service';
+import { Logger } from '../../shared/logger.service';
 import { PrettyPrinter } from './pretty-printer.service';
-import { CopierService } from 'app/shared/copier.service';
+import { CopierService } from '../../shared/copier.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { tap } from 'rxjs/operators';
-import { StackblitzService } from 'app/shared/stackblitz.service';
+import { StackblitzService } from '../../shared/stackblitz.service';
 import version from '../../../../tools/stackblitz/rxjs.version';
 
 /**
@@ -26,7 +26,7 @@ const DEFAULT_LINE_NUMS_COUNT = 10;
  * <aio-code
  *   [language]="ts"
  *   [linenums]="true"
- *   [path]="router/src/app/app.module.ts"
+ *   [path]="router/src/../../app.module.ts"
  *   [region]="animations-module">
  * </aio-code>
  * ```
@@ -130,10 +130,10 @@ export class CodeComponent implements OnChanges {
     this.codeText = this.getCodeText(); // store the unformatted code as text (for copying)
 
     this.pretty
-        .formatCode(leftAlignedCode, this.language, this.getLinenums(leftAlignedCode))
-        .pipe(tap(() => this.codeFormatted.emit()))
-        .subscribe(c => this.setCodeHtml(c), err => { /* ignore failure to format */ }
-    );
+      .formatCode(leftAlignedCode, this.language, this.getLinenums(leftAlignedCode))
+      .pipe(tap(() => this.codeFormatted.emit()))
+      .subscribe(c => this.setCodeHtml(c), err => { /* ignore failure to format */ }
+      );
   }
 
   /** Sets the message showing that the code could not be found. */
@@ -197,14 +197,14 @@ export class CodeComponent implements OnChanges {
   getLinenums(code: string) {
     const linenums =
       typeof this.linenums === 'boolean' ? this.linenums :
-      this.linenums === 'true' ? true :
-      this.linenums === 'false' ? false :
-      typeof this.linenums === 'string' ? parseInt(this.linenums, 10) :
-      this.linenums;
+        this.linenums === 'true' ? true :
+          this.linenums === 'false' ? false :
+            typeof this.linenums === 'string' ? parseInt(this.linenums, 10) :
+              this.linenums;
 
     // if no linenums, enable line numbers if more than one line
     return linenums == null || isNaN(linenums as number) ?
-        (code.match(/\n/g) || []).length > DEFAULT_LINE_NUMS_COUNT : linenums;
+      (code.match(/\n/g) || []).length > DEFAULT_LINE_NUMS_COUNT : linenums;
   }
 }
 

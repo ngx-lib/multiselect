@@ -3,9 +3,9 @@ import { BehaviorSubject } from 'rxjs';
 
 import { ApiListComponent } from './api-list.component';
 import { ApiItem, ApiSection, ApiService } from './api.service';
-import { LocationService } from 'app/shared/location.service';
-import { Logger } from 'app/shared/logger.service';
-import { MockLogger } from 'testing/logger.service';
+import { LocationService } from '../../shared/location.service';
+import { Logger } from '../../shared/logger.service';
+import { MockLogger } from './../../../testing/logger.service';
 import { ApiListModule } from './api-list.module';
 
 describe('ApiListComponent', () => {
@@ -15,7 +15,7 @@ describe('ApiListComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ ApiListModule ],
+      imports: [ApiListModule],
       providers: [
         { provide: ApiService, useClass: TestApiService },
         { provide: Logger, useClass: MockLogger },
@@ -36,14 +36,14 @@ describe('ApiListComponent', () => {
    */
   function expectFilteredResult(label: string, itemTest: (item: ApiItem) => boolean) {
     component.filteredSections.subscribe(filtered => {
-      let badItem: ApiItem|undefined;
+      let badItem: ApiItem | undefined;
       expect(filtered.length).toBeGreaterThan(0, 'expected something');
       expect(filtered.every(section => section.items.every(
-          item => {
-            const ok = item.show === itemTest(item);
-            if (!ok) { badItem = item; }
-            return ok;
-          }
+        item => {
+          const ok = item.show === itemTest(item);
+          if (!ok) { badItem = item; }
+          return ok;
+        }
       ))).toBe(true, `${label} fail: ${JSON.stringify(badItem, null, 2)}`);
     });
   }
@@ -55,7 +55,7 @@ describe('ApiListComponent', () => {
     });
 
     it('should return all complete sections when no criteria', () => {
-      let filtered: ApiSection[]|undefined;
+      let filtered: ApiSection[] | undefined;
       component.filteredSections.subscribe(f => filtered = f);
       expect(filtered).toEqual(sections);
     });
@@ -75,17 +75,17 @@ describe('ApiListComponent', () => {
     });
 
     it('item.show should be true for items with selected status', () => {
-      component.setStatus({value: 'stable', title: 'Stable'});
+      component.setStatus({ value: 'stable', title: 'Stable' });
       expectFilteredResult('status: stable', item => item.stability === 'stable');
     });
 
     it('item.show should be true for items with "security-risk" status when selected', () => {
-      component.setStatus({value: 'security-risk', title: 'Security Risk'});
+      component.setStatus({ value: 'security-risk', title: 'Security Risk' });
       expectFilteredResult('status: security-risk', item => item.securityRisk);
     });
 
     it('item.show should be true for items of selected type', () => {
-      component.setType({value: 'class', title: 'Class'});
+      component.setType({ value: 'class', title: 'Class' });
       expectFilteredResult('type: class', item => item.docType === 'class');
     });
 
@@ -101,7 +101,7 @@ describe('ApiListComponent', () => {
     let locationService: TestLocationService;
 
     beforeEach(() => {
-      locationService = <any> fixture.componentRef.injector.get(LocationService);
+      locationService = <any>fixture.componentRef.injector.get(LocationService);
     });
 
     function expectOneItem(name: string, section: string, type: string, stability: string) {
@@ -123,23 +123,23 @@ describe('ApiListComponent', () => {
     }
 
     it('should filter as expected for ?query', () => {
-      locationService.query = {query: '_3'};
+      locationService.query = { query: '_3' };
       expectOneItem('class_3', 'core', 'class', 'experimental');
     });
 
     xit('should filter as expected for ?status', () => {
-      locationService.query = {status: 'deprecated'};
+      locationService.query = { status: 'deprecated' };
       expectOneItem('function_1', 'core', 'function', 'deprecated');
     });
 
     xit('should filter as expected when status is security-risk', () => {
-      locationService.query = {status: 'security-risk'};
+      locationService.query = { status: 'security-risk' };
       fixture.detectChanges();
       expectFilteredResult('security-risk', item => item.securityRisk);
     });
 
     xit('should filter as expected for ?type', () => {
-      locationService.query = {type: 'pipe'};
+      locationService.query = { type: 'pipe' };
       expectOneItem('pipe_1', 'common', 'pipe', 'stable');
     });
 
@@ -168,7 +168,7 @@ describe('ApiListComponent', () => {
     let locationService: TestLocationService;
 
     beforeEach(() => {
-      locationService = <any> fixture.componentRef.injector.get(LocationService);
+      locationService = <any>fixture.componentRef.injector.get(LocationService);
     });
 
     it('should have query', () => {
@@ -189,8 +189,8 @@ describe('ApiListComponent', () => {
 
     it('should have query, status, and type', () => {
       component.setQuery('foo');
-      component.setStatus({value: 'stable', title: 'Stable'});
-      component.setType({value: 'class', title: 'Class'});
+      component.setStatus({ value: 'stable', title: 'Stable' });
+      component.setType({ value: 'class', title: 'Class' });
 
       const search = locationService.setSearch.calls.mostRecent().args[1];
       expect(search.query).toBe('foo');
@@ -228,7 +228,7 @@ describe('ApiListComponent', () => {
 ////// Helpers ////////
 
 class TestLocationService {
-  query: {[index: string]: string } = {};
+  query: { [index: string]: string } = {};
   setSearch = jasmine.createSpy('setSearch');
   search() { return this.query; }
 }

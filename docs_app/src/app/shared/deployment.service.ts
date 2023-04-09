@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
-import { LocationService } from 'app/shared/location.service';
-import { environment } from 'environments/environment';
+import { LocationService } from '../shared/location.service';
+import { environment } from '../../environments/environment';
 
 /**
  * Information about the deployment of this application.
  */
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class Deployment {
   /**
    * The deployment mode set from the environment provided at build time;
@@ -13,5 +15,5 @@ export class Deployment {
    */
   mode: string = this.location.search()['mode'] || environment.mode;
 
-  constructor(private location: LocationService) {}
+  constructor(private location: LocationService) { }
 };

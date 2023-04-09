@@ -5,7 +5,9 @@ import { OperatorDecisionTree, OperatorTreeNode, State } from './interfaces';
 import { OperatorDecisionTreeDataService } from './operator-decision-tree-data.service';
 import { isInitialDecision, nodeHasOptions, treeIsErrorFree } from './utils';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class OperatorDecisionTreeService {
   private initialState: State = {
     previousBranchIds: ['initial'],
@@ -28,10 +30,10 @@ export class OperatorDecisionTreeService {
       isInitialDecision(previousBranchIds)
         ? 'Start by choosing an option from the list below.'
         : `${previousBranchIds
-            .map(entityId => {
-              return tree[entityId].label;
-            })
-            .join(' ')}...`.trim()
+          .map(entityId => {
+            return tree[entityId].label;
+          })
+          .join(' ')}...`.trim()
     )
   );
 
@@ -67,7 +69,7 @@ export class OperatorDecisionTreeService {
     mapTo(true)
   );
 
-  constructor(private dataService: OperatorDecisionTreeDataService) {}
+  constructor(private dataService: OperatorDecisionTreeDataService) { }
 
   private get snapShot(): State {
     return this.state$.getValue();

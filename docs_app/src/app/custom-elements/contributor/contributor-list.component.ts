@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContributorGroup } from './contributors.model';
 import { ContributorService } from './contributor.service';
-import { LocationService } from 'app/shared/location.service';
+import { LocationService } from '../../shared/location.service';
 
 @Component({
   selector: `aio-contributor-list`,
@@ -28,7 +28,7 @@ export class ContributorListComponent implements OnInit {
     private locationService: LocationService) { }
 
   ngOnInit() {
-    const groupName =  this.locationService.search()['group'] || '';
+    const groupName = this.locationService.search()['group'] || '';
     // no need to unsubscribe because `contributors` completes
     this.contributorService.contributors
       .subscribe(grps => {
@@ -41,6 +41,6 @@ export class ContributorListComponent implements OnInit {
   selectGroup(name: string) {
     name = name.toLowerCase();
     this.selectedGroup = this.groups.find(g => g.name.toLowerCase() === name) || this.groups[0];
-    this.locationService.setSearch('', {group: this.selectedGroup.name});
+    this.locationService.setSearch('', { group: this.selectedGroup.name });
   }
 }

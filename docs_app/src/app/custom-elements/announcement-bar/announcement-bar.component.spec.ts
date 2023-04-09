@@ -1,7 +1,7 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Logger } from 'app/shared/logger.service';
-import { MockLogger } from 'testing/logger.service';
+import { Logger } from '../../../app/shared/logger.service';
+import { MockLogger } from '../../../testing/logger.service';
 import { AnnouncementBarComponent } from './announcement-bar.component';
 
 const today = new Date();

@@ -8,7 +8,7 @@ export class EventsDemoComponent implements OnInit {
   options;
   messages: string[] = [];
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     // Retrieving data for dropdown

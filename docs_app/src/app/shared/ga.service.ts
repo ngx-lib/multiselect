@@ -1,9 +1,11 @@
 import { Inject, Injectable } from '@angular/core';
 
 import { environment } from '../../environments/environment';
-import { WindowToken } from 'app/shared/window';
+import { WindowToken } from '../shared/window';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 /**
  * Google Analytics Service - captures app behaviors and sends them to Google Analytics (GA).
  * Presupposes that GA script has been loaded from a script on the host web page.
@@ -14,7 +16,7 @@ export class GaService {
   private previousUrl: string;
 
   constructor(@Inject(WindowToken) private window: Window) {
-    this.ga('create', environment['gaId'] , 'auto');
+    this.ga('create', environment['gaId'], 'auto');
   }
 
   locationChanged(url: string) {

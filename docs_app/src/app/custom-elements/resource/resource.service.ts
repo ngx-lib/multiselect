@@ -5,11 +5,13 @@ import { ConnectableObservable, Observable } from 'rxjs';
 import { map, publishLast } from 'rxjs/operators';
 
 import { Category, Resource, SubCategory } from './resource.model';
-import { CONTENT_URL_PREFIX } from 'app/documents/document.service';
+import { CONTENT_URL_PREFIX } from '../../documents/document.service';
 
 const resourcesPath = CONTENT_URL_PREFIX + 'resources.json';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ResourceService {
   categories: Observable<Category[]>;
 
@@ -40,21 +42,21 @@ function mkCategories(categoryJson: any): Category[] {
       subCategories: mkSubCategories(cat.subCategories, catKey)
     } as Category;
   })
-  .sort(compareCats);
+    .sort(compareCats);
 }
 
 // Extract sorted SubCategory[] from JSON category data
 function mkSubCategories(subCategoryJson: any, catKey: string): SubCategory[] {
   return Object.keys(subCategoryJson).map(subKey => {
-      const sub = subCategoryJson[subKey];
-      return {
-        id: makeId(subKey),
-        title: subKey,
-        order: sub.order,
-        resources: mkResources(sub.resources, subKey, catKey)
-      } as SubCategory;
+    const sub = subCategoryJson[subKey];
+    return {
+      id: makeId(subKey),
+      title: subKey,
+      order: sub.order,
+      resources: mkResources(sub.resources, subKey, catKey)
+    } as SubCategory;
   })
-  .sort(compareCats);
+    .sort(compareCats);
 }
 
 // Extract sorted Resource[] from JSON subcategory data
@@ -66,15 +68,15 @@ function mkResources(resourceJson: any, subKey: string, catKey: string): Resourc
     res.id = makeId(resKey);
     return res as Resource;
   })
-  .sort(compareTitles);
+    .sort(compareTitles);
 }
 
 function compareCats(l: Category | SubCategory, r: Category | SubCategory) {
   return l.order === r.order ? compareTitles(l, r) : l.order > r.order ? 1 : -1;
 }
 
-function compareTitles(l: {title: string}, r: {title: string}) {
- return l.title.toUpperCase() > r.title.toUpperCase() ? 1 : -1;
+function compareTitles(l: { title: string }, r: { title: string }) {
+  return l.title.toUpperCase() > r.title.toUpperCase() ? 1 : -1;
 }
 
 function makeId(title: string) {

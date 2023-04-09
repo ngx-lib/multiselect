@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
-import { Logger } from 'app/shared/logger.service';
-import { CONTENT_URL_PREFIX } from 'app/documents/document.service';
+import { Logger } from '../../shared/logger.service';
+import { CONTENT_URL_PREFIX } from '../..//documents/document.service';
 const announcementsPath = CONTENT_URL_PREFIX + 'announcements.json';
 
 export interface Announcement {
@@ -55,7 +55,7 @@ export interface Announcement {
 export class AnnouncementBarComponent implements OnInit {
   announcement: Announcement;
 
-  constructor(private http: HttpClient, private logger: Logger) {}
+  constructor(private http: HttpClient, private logger: Logger) { }
 
   ngOnInit() {
     this.http.get<Announcement[]>(announcementsPath)
@@ -80,6 +80,6 @@ export class AnnouncementBarComponent implements OnInit {
     return announcements
       .filter(announcement => new Date(announcement.startDate).valueOf() < Date.now())
       .filter(announcement => new Date(announcement.endDate).valueOf() > Date.now())
-      [0];
+    [0];
   }
 }

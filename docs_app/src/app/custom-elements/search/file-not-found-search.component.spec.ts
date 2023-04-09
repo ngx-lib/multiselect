@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Subject } from 'rxjs';
-import { LocationService } from 'app/shared/location.service';
-import { MockLocationService } from 'testing/location.service';
-import { SearchResults } from 'app/search/interfaces';
-import { SearchResultsComponent } from 'app/shared/search-results/search-results.component';
-import { SearchService } from 'app/search/search.service';
+import { LocationService } from '../../shared/location.service';
+import { MockLocationService } from '../../../testing/location.service';
+import { SearchResults } from '../../search/interfaces';
+import { SearchResultsComponent } from '../../shared/search-results/search-results.component';
+import { SearchService } from '../../search/search.service';
 import { FileNotFoundSearchComponent } from './file-not-found-search.component';
 
 
@@ -17,7 +17,7 @@ describe('FileNotFoundSearchComponent', () => {
   beforeEach(() => {
 
     TestBed.configureTestingModule({
-      declarations: [ FileNotFoundSearchComponent, SearchResultsComponent ],
+      declarations: [FileNotFoundSearchComponent, SearchResultsComponent],
       providers: [
         { provide: LocationService, useValue: new MockLocationService('base/initial-url?some-query') },
         SearchService
@@ -39,7 +39,7 @@ describe('FileNotFoundSearchComponent', () => {
     const searchResultsComponent = fixture.debugElement.query(By.directive(SearchResultsComponent)).componentInstance;
     expect(searchResultsComponent.searchResults).toBe(null);
 
-    const results = { query: 'base initial url', results: []};
+    const results = { query: 'base initial url', results: [] };
     searchResultSubject.next(results);
     fixture.detectChanges();
     expect(searchResultsComponent.searchResults).toEqual(results);

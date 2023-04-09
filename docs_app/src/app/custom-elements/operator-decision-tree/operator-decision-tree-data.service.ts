@@ -3,9 +3,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { OperatorDecisionTree } from './interfaces';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class OperatorDecisionTreeDataService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getDecisionTree$(): Observable<OperatorDecisionTree> {
     return this.http.get<OperatorDecisionTree>(

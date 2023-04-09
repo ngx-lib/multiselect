@@ -4,8 +4,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { ReplaySubject, Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 
-import { Logger } from 'app/shared/logger.service';
-import { DOC_CONTENT_URL_PREFIX } from 'app/documents/document.service';
+import { Logger } from '../../shared/logger.service';
+import { DOC_CONTENT_URL_PREFIX } from '../../documents/document.service';
 
 export interface ApiItem {
   name: string;
@@ -24,7 +24,9 @@ export interface ApiSection {
   items: ApiItem[];
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ApiService implements OnDestroy {
 
   private apiBase = DOC_CONTENT_URL_PREFIX + 'api/';
@@ -45,7 +47,7 @@ export class ApiService implements OnDestroy {
       this.fetchSections(); // TODO: get URL for fetchSections by configuration?
 
       // makes sectionsSubject hot; subscribe ensures stays alive (always refCount > 0);
-      this._sections.subscribe(sections => this.logger.log('ApiService got API sections') );
+      this._sections.subscribe(sections => this.logger.log('ApiService got API sections'));
     }
 
     return this._sections;
@@ -57,13 +59,13 @@ export class ApiService implements OnDestroy {
     this.onDestroy.next();
   }
 
- /**
-  * Fetch API sections from a JSON file.
-  * API sections is an array of Angular top modules and metadata about their API documents (items).
-  * Updates `sections` observable
-  *
-  * @param {string} [src] - Name of the api list JSON file
-  */
+  /**
+   * Fetch API sections from a JSON file.
+   * API sections is an array of Angular top modules and metadata about their API documents (items).
+   * Updates `sections` observable
+   *
+   * @param {string} [src] - Name of the api list JSON file
+   */
   fetchSections(src?: string) {
     // TODO: get URL by configuration?
     const url = this.apiBase + (src || this.apiListJsonDefault);

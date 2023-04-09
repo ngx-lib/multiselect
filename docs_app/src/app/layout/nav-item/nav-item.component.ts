@@ -1,9 +1,9 @@
-import { Component, Input, OnChanges} from '@angular/core';
-import { NavigationNode } from 'app/navigation/navigation.model';
+import { Component, Input, OnChanges } from '@angular/core';
+import { NavigationNode } from '../../navigation/navigation.model';
 
 @Component({
   selector: 'aio-nav-item',
-  templateUrl: 'nav-item.component.html',
+  templateUrl: './nav-item.component.html',
 })
 export class NavItemComponent implements OnChanges {
   @Input() isWide = false;
@@ -14,7 +14,7 @@ export class NavItemComponent implements OnChanges {
 
   isExpanded = false;
   isSelected = false;
-  classes: {[index: string]: boolean };
+  classes: { [index: string]: boolean };
   nodeChildren: NavigationNode[];
 
   ngOnChanges() {
@@ -25,8 +25,8 @@ export class NavItemComponent implements OnChanges {
       this.isSelected = ix !== -1; // this node is the selected node or its ancestor
       this.isExpanded = this.isParentExpanded &&
         (this.isSelected || // expand if selected or ...
-        // preserve expanded state when display is wide; collapse in mobile.
-        (this.isWide && this.isExpanded));
+          // preserve expanded state when display is wide; collapse in mobile.
+          (this.isWide && this.isExpanded));
     } else {
       this.isSelected = false;
     }

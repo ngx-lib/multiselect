@@ -1,17 +1,17 @@
 import { animate, state, style, trigger, transition } from '@angular/animations';
 import { Component, EventEmitter, HostBinding, Inject, Input, OnInit, Output } from '@angular/core';
-import { CurrentDateToken } from 'app/shared/current-date';
-import { WindowToken } from 'app/shared/window';
+import { CurrentDateToken } from '../../shared/current-date';
+import { WindowToken } from '../../shared/window';
 
 const LOCAL_STORAGE_NAMESPACE = 'aio-notification/';
 
 @Component({
   selector: 'aio-notification',
-  templateUrl: 'notification.component.html',
+  templateUrl: './notification.component.html',
   animations: [
     trigger('hideAnimation', [
-      state('show', style({height: '*'})),
-      state('hide', style({height: 0})),
+      state('show', style({ height: '*' })),
+      state('hide', style({ height: 0 })),
       // this should be kept in sync with the animation durations in:
       // - aio/src/styles/2-modules/_notification.scss
       // - aio/src/app/app.component.ts : notificationDismissed()
@@ -28,12 +28,12 @@ export class NotificationComponent implements OnInit {
   @Output() dismissed = new EventEmitter();
 
   @HostBinding('@hideAnimation')
-  showNotification: 'show'|'hide';
+  showNotification: 'show' | 'hide';
 
   constructor(
     @Inject(WindowToken) private window: Window,
     @Inject(CurrentDateToken) private currentDate: Date
-  ) {}
+  ) { }
 
   ngOnInit() {
     const previouslyHidden = this.localStorage.getItem(LOCAL_STORAGE_NAMESPACE + this.notificationId) === 'hide';

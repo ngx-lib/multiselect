@@ -3,8 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CodeExampleComponent } from './code-example.component';
 import { CodeExampleModule } from './code-example.module';
-import { Logger } from 'app/shared/logger.service';
-import { MockLogger } from 'testing/logger.service';
+import { Logger } from '../../shared/logger.service';
+import { MockLogger } from '../../../testing/logger.service';
 
 describe('CodeExampleComponent', () => {
   let hostComponent: HostComponent;
@@ -13,7 +13,7 @@ describe('CodeExampleComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ CodeExampleModule ],
+      imports: [CodeExampleModule],
       declarations: [
         HostComponent,
       ],
@@ -54,7 +54,7 @@ describe('CodeExampleComponent', () => {
 
   it('should set avoidFile class if path has .avoid.', () => {
     const codeExampleComponentElement: HTMLElement =
-        fixture.nativeElement.querySelector('code-example');
+      fixture.nativeElement.querySelector('code-example');
 
     expect(codeExampleComponent.path).toBe('code-path');
     expect(codeExampleComponentElement.className.indexOf('avoidFile') === -1).toBe(true);

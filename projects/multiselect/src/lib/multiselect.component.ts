@@ -133,7 +133,7 @@ export class NgxMultiselectComponent implements ControlValueAccessor {
   @Output() onClear: EventEmitter<void> = new EventEmitter<void>();
   @Output() onSearchChange: EventEmitter<string> = new EventEmitter<string>();
 
-  @ViewChild('filterOptions', { read: FilterOptionsComponent }) filterOptions!: FilterOptionsComponent;
+  @ViewChild('filterOptions', { read: FilterOptionsComponent, static: true }) filterOptions!: FilterOptionsComponent;
 
   // Adding pending operation in queue
   addOperation(item: any) {

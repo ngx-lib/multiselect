@@ -7,12 +7,14 @@ import { map, publishLast } from 'rxjs/operators';
 import { Contributor, ContributorGroup } from './contributors.model';
 
 // TODO(andrewjs): Look into changing this so that we don't import the service just to get the const
-import { CONTENT_URL_PREFIX } from 'app/documents/document.service';
+import { CONTENT_URL_PREFIX } from '../../documents/document.service';
 
 const contributorsPath = CONTENT_URL_PREFIX + 'contributors.json';
 const knownGroups = ['Core Team', 'Learning Team', 'Alumn', 'Contributors'];
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ContributorService {
   contributors: Observable<ContributorGroup[]>;
 
@@ -21,10 +23,10 @@ export class ContributorService {
   }
 
   private getContributors() {
-    const contributors = this.http.get<{[key: string]: Contributor}>(contributorsPath).pipe(
+    const contributors = this.http.get<{ [key: string]: Contributor }>(contributorsPath).pipe(
       // Create group map
       map(contribs => {
-        const contribMap: { [name: string]: Contributor[]} = {};
+        const contribMap: { [name: string]: Contributor[] } = {};
         Object.keys(contribs).forEach(key => {
           const contributor = contribs[key];
           const group = contributor.group;
@@ -49,7 +51,7 @@ export class ContributorService {
             contributors: cmap[key].sort(compareContributors)
           } as ContributorGroup;
         })
-        .sort(compareGroups);
+          .sort(compareGroups);
       }),
 
       publishLast(),
@@ -61,11 +63,11 @@ export class ContributorService {
 }
 
 function compareContributors(l: Contributor, r: Contributor) {
- return l.name.toUpperCase() > r.name.toUpperCase() ? 1 : -1;
+  return l.name.toUpperCase() > r.name.toUpperCase() ? 1 : -1;
 }
 
 function compareGroups(l: ContributorGroup, r: ContributorGroup) {
   return l.order === r.order ?
     (l.name > r.name ? 1 : -1) :
-     l.order > r.order ? 1 : -1;
+    l.order > r.order ? 1 : -1;
 }

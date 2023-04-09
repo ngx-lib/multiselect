@@ -13,19 +13,19 @@ export class SingleSelectComponent implements OnInit {
     this.countries = [{
       id: 1,
       name: "India"
-    },{
+    }, {
       id: 2,
       name: "USA"
-    },{
+    }, {
       id: 3,
       name: "China"
-    },{
+    }, {
       id: 4,
       name: "Japan"
-    },{
+    }, {
       id: 5,
       name: "Australia"
-    },{
+    }, {
       id: 6,
       name: "Brazil"
     }];

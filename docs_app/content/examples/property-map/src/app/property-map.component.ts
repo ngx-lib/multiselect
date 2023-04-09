@@ -8,11 +8,11 @@ export class PropertyMapComponent implements OnInit {
   options;
 
   propertyMap = {
-    teamId : "id",
-    teamName : "name"
+    teamId: "id",
+    teamName: "name"
   }
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.options = [{

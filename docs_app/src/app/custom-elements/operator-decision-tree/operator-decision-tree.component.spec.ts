@@ -1,13 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {
-  MatButtonModule,
-  MatCardModule,
-  MatRippleModule
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatRippleModule } from '@angular/material/core';
 import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { ScrollService } from 'app/shared/scroll.service';
+import { ScrollService } from '../../shared/scroll.service';
 import { BehaviorSubject } from 'rxjs';
 import { treeNodeStubNoOptions, treeNodeStubWithOptionsA } from './fixtures';
 import { OperatorDecisionTreeComponent } from './operator-decision-tree.component';
@@ -146,8 +144,7 @@ describe('OperatorDecisionTreeComponent', () => {
             .nativeElement.getAttribute('href');
 
           expect(sentence.textContent).toContain(
-            `You want the ${treeNodeStubNoOptions.docType} ${
-              treeNodeStubNoOptions.label
+            `You want the ${treeNodeStubNoOptions.docType} ${treeNodeStubNoOptions.label
             }.`
           );
           expect(link).toContain(treeNodeStubNoOptions.path);

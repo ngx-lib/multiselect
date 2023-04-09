@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CurrentNode, NavigationNode } from 'app/navigation/navigation.service';
+import { CurrentNode, NavigationNode } from '../../navigation/navigation.service';
 
 @Component({
   selector: 'aio-nav-menu',

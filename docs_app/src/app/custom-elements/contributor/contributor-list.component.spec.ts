@@ -5,7 +5,7 @@ import { of } from 'rxjs';
 import { ContributorGroup } from './contributors.model';
 import { ContributorListComponent } from './contributor-list.component';
 import { ContributorService } from './contributor.service';
-import { LocationService } from 'app/shared/location.service';
+import { LocationService } from '../../shared/location.service';
 
 // Testing the component class behaviors, independent of its template
 // Let e2e tests verify how it displays.
@@ -20,8 +20,8 @@ describe('ContributorListComponent', () => {
   beforeEach(() => {
     injector = ReflectiveInjector.resolveAndCreate([
       ContributorListComponent,
-      {provide: ContributorService, useClass: TestContributorService },
-      {provide: LocationService, useClass: TestLocationService }
+      { provide: ContributorService, useClass: TestContributorService },
+      { provide: LocationService, useClass: TestLocationService }
     ]);
 
     locationService = injector.get(LocationService);
@@ -73,7 +73,7 @@ describe('ContributorListComponent', () => {
   });
 
   //// Test Helpers ////
-  function  getComponent(): ContributorListComponent {
+  function getComponent(): ContributorListComponent {
     const comp = injector.get(ContributorListComponent);
     comp.ngOnInit();
     return comp;

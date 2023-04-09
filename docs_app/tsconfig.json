@@ -13,7 +13,8 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noUnusedLocals": true,
-    "target": "es5",
+    "target": "ES2015",
+    "allowJs": true,
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -21,7 +22,7 @@
       "es2016",
       "dom"
     ],
-    "module": "es2015"
+    "module": "es2015",
   },
   "exclude": [
     "content",
@@ -36,6 +37,8 @@
     ],
     "@ngx-lib/multiselect/*": [
       "../dist/multiselect/*"
-    ]
+    ],
+    "./app/": ["app/*"],
+    "app/": ["app/*"],
   }
 }

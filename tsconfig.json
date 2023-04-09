@@ -8,10 +8,11 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
+    "target": "ES2015",
     "typeRoots": [
       "node_modules/@types"
     ],
+    "allowJs": true,
     "lib": [
       "es2017",
       "dom"
@@ -24,5 +25,15 @@
         "dist/multiselect/*"
       ]
     }
+  },
+  "angularCompilerOptions": {
+    "annotateForClosureCompiler": true,
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true,
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "preserveSymlinks": true,
+    "enableResourceInlining": true,
+    "enableIvy": false
   }
 }

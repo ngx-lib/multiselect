@@ -10,14 +10,14 @@ export class ModelDrivenFormGroupComponent {
 
 
 
-  genders = [{ id: 1, name: "Male"},
-    { id: 2, name: "Female" }
-    ];
+  genders = [{ id: 1, name: "Male" },
+  { id: 2, name: "Female" }
+  ];
 
   profileForm = new FormGroup({
     firstName: new FormControl('Ada Lovelace', Validators.required),
-    selectedGender: new FormControl(null,Validators.required),
-    maritalStatus : new FormControl('single')
+    selectedGender: new FormControl(null, Validators.required),
+    maritalStatus: new FormControl('single')
   });
 
 

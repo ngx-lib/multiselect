@@ -11,7 +11,7 @@ export class EnableDisableComponent implements OnInit {
   selectedOptions;
   form: FormGroup;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.options = [{
@@ -52,23 +52,23 @@ export class EnableDisableComponent implements OnInit {
     this.form.controls['selectedOptions'].disable();
   }
 
-  disableFirstOption(){
+  disableFirstOption() {
     let options = [...this.options]
     // disabled first element
     options[0].disabled = true;
     this.options = options;
   }
 
-  disableWholeGroup(){
+  disableWholeGroup() {
     this.options = this.options.map((player) => {
-      if(player.team === 'Manchester United') {
+      if (player.team === 'Manchester United') {
         player.disabled = true;
       }
       return player;
     });
   }
 
-  enableWholeDropdown () {
+  enableWholeDropdown() {
     this.options = this.options.map((player) => ({ ...player, disabled: false }));
     this.form.controls['selectedOptions'].enable();
   }

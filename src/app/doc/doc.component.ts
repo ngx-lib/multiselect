@@ -10,7 +10,7 @@ import { DocService } from '../doc.service';
 export class DocComponent implements OnInit {
   data: any;
 
-  constructor(private router: Router, private _activatedRoute: ActivatedRoute, private _docService: DocService) {}
+  constructor(private router: Router, private _activatedRoute: ActivatedRoute, private _docService: DocService) { }
 
   apiLinks = [
     { link: ['/docs', 'getting-started'], text: 'Getting Started' },

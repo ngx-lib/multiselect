@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { VersionInfo } from 'app/navigation/navigation.service';
+import { VersionInfo } from '../../navigation/navigation.service';
 
 @Component({
   selector: 'aio-mode-banner',

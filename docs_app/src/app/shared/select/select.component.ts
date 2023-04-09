@@ -7,7 +7,7 @@ export interface Option {
 
 @Component({
   selector: 'aio-select',
-  templateUrl: 'select.component.html'
+  templateUrl: './select.component.html'
 })
 export class SelectComponent implements OnInit {
   @Input()
@@ -17,7 +17,7 @@ export class SelectComponent implements OnInit {
   options: Option[];
 
   @Output()
-  change = new EventEmitter<{option: Option, index: number}>();
+  change = new EventEmitter<{ option: Option, index: number }>();
 
   @Input()
   showSymbol = false;
@@ -27,7 +27,7 @@ export class SelectComponent implements OnInit {
 
   showOptions = false;
 
-  constructor(private hostElement: ElementRef) {}
+  constructor(private hostElement: ElementRef) { }
 
   ngOnInit() {
     this.label = this.label || '';
@@ -43,7 +43,7 @@ export class SelectComponent implements OnInit {
 
   select(option: Option, index: number) {
     this.selected = option;
-    this.change.emit({option, index});
+    this.change.emit({ option, index });
     this.hideOptions();
   }
 

@@ -6,7 +6,7 @@ import { ResourceService } from './resource.service';
 
 @Component({
   selector: 'aio-resource-list',
-  templateUrl: 'resource-list.component.html'
+  templateUrl: './resource-list.component.html'
 })
 export class ResourceListComponent implements OnInit {
 
@@ -20,7 +20,7 @@ export class ResourceListComponent implements OnInit {
     this.location = location.pathname.replace(/^\/+/, '');
   }
 
-  href(cat: {id: string}) {
+  href(cat: { id: string }) {
     return this.location + '#' + cat.id;
   }
 
@@ -32,6 +32,6 @@ export class ResourceListComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event.target'])
   onScroll(target: any) {
-    this.scrollPos = target ? target.scrollTop || target.body.scrollTop ||  0 : 0;
+    this.scrollPos = target ? target.scrollTop || target.body.scrollTop || 0 : 0;
   }
 }
