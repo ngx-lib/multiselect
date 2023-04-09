@@ -3,7 +3,7 @@ import { NavigationNode } from '../../navigation/navigation.model';
 
 @Component({
   selector: 'aio-nav-item',
-  templateUrl: 'nav-item.component.html',
+  templateUrl: './nav-item.component.html',
 })
 export class NavItemComponent implements OnChanges {
   @Input() isWide = false;

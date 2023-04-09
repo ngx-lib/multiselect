@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'ms-model-driven-form-group',
-  templateUrl: 'model-driven-form-group.component.html',
+  templateUrl: './model-driven-form-group.component.html',
   styles: []
 })
 export class ModelDrivenFormGroupComponent {

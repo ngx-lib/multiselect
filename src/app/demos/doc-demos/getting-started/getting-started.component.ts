@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ms-getting-started',
-  templateUrl: 'getting-started.component.html'
+  templateUrl: './getting-started.component.html'
 })
 export class GettingStartedComponent implements OnInit {
 

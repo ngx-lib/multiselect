@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ms-filter-options',
-  templateUrl: 'filter-options.component.html',
+  templateUrl: './filter-options.component.html',
   styleUrls: ['./filter-options.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

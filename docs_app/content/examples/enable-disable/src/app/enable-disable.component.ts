@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'ms-enable-disable',
-  templateUrl: 'enable-disable.component.html'
+  templateUrl: './enable-disable.component.html'
 })
 export class EnableDisableComponent implements OnInit {
 

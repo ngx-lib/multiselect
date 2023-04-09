@@ -4,7 +4,7 @@ import { AppService } from '../../../app.service';
 
 @Component({
   selector: 'ms-large-volume-data',
-  templateUrl: 'large-volume-data.component.html'
+  templateUrl: './large-volume-data.component.html'
 })
 export class LargeVolumeDataComponent implements OnInit {
   largeDatasetOptions;

@@ -14,7 +14,7 @@ import { GroupByMultiselectOption, MultiselectOption } from '../models/multisele
 
 @Component({
   selector: 'ms-options',
-  templateUrl: 'options.component.html',
+  templateUrl: './options.component.html',
   styleUrls: ['./options.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

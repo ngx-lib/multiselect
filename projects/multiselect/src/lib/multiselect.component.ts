@@ -20,7 +20,7 @@ import { findUnique, mapDatasourceToFields, mirrorObject, closest } from './util
 
 @Component({
   selector: 'ngx-multiselect',
-  templateUrl: 'multiselect.component.html',
+  templateUrl: './multiselect.component.html',
   styleUrls: ['./multiselect.component.css'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,

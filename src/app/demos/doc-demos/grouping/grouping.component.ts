@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'ms-grouping',
-  templateUrl: 'grouping.component.html'
+  templateUrl: './grouping.component.html'
 })
 export class GroupingComponent {
 

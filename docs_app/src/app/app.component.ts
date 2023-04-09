@@ -22,7 +22,7 @@ const sideNavView = 'SideNav';
 
 @Component({
   selector: 'aio-shell',
-  templateUrl: 'app.component.html',
+  templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
 

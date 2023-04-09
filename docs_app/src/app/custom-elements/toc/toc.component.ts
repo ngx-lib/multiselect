@@ -9,7 +9,7 @@ type TocType = 'None' | 'Floating' | 'EmbeddedSimple' | 'EmbeddedExpandable';
 
 @Component({
   selector: 'aio-toc',
-  templateUrl: 'toc.component.html',
+  templateUrl: './toc.component.html',
   styles: []
 })
 export class TocComponent implements OnInit, AfterViewInit, OnDestroy {

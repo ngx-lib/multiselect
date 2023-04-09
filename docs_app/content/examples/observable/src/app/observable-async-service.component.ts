@@ -3,7 +3,7 @@ import { AppService } from '../../../app.service';
 
 @Component({
   selector: 'ms-observable-async-service',
-  templateUrl: 'observable-async-service.component.html'
+  templateUrl: './observable-async-service.component.html'
 })
 export class ObservableAsyncServiceComponent implements OnInit {
 

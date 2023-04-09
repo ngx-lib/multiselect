@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ms-single-select',
-  templateUrl: 'single-select.component.html',
+  templateUrl: './single-select.component.html',
 })
 export class SingleSelectComponent implements OnInit {
 

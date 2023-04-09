@@ -4,7 +4,7 @@ import { DocService } from '../doc.service';
 
 @Component({
   selector: 'ms-doc',
-  templateUrl: 'doc.component.html',
+  templateUrl: './doc.component.html',
   styleUrls: ['./doc.component.css']
 })
 export class DocComponent implements OnInit {

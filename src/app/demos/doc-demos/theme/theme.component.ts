@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'ms-theme',
-  templateUrl: 'theme.component.html'
+  templateUrl: './theme.component.html'
 })
 export class ThemeComponent {
   selectedCountry = {

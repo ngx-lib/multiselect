@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'aio-events-advanced',
-  templateUrl: 'events-advanced.component.html',
+  templateUrl: './events-advanced.component.html',
   styles: []
 })
 export class EventsAdvnacedComponent implements OnInit {

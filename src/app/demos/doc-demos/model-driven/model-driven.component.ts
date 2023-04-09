@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'ms-model-driven',
-  templateUrl: 'model-driven.component.html'
+  templateUrl: './model-driven.component.html'
 })
 export class ModelDrivenComponent implements OnInit {
 

@@ -52,7 +52,7 @@ const ZIP_BASE = CONTENT_URL_PREFIX + 'zips/';
  */
 @Component({
   selector: 'live-example',
-  templateUrl: 'live-example.component.html'
+  templateUrl: './live-example.component.html'
 })
 export class LiveExampleComponent implements AfterContentInit {
 

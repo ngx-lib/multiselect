@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ms-custom-template',
-  templateUrl: 'custom-template.component.html'
+  templateUrl: './custom-template.component.html'
 })
 export class CustomTemplateComponent implements OnInit {
 
