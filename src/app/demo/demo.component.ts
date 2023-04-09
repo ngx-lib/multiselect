@@ -1,15 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'ms-demo',
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.css']
 })
-export class DemoComponent implements OnInit {
+export class DemoComponent {
   @Input()
   component: string;
 
-  constructor() {}
-
-  ngOnInit() {}
 }

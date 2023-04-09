@@ -37,8 +37,6 @@ export class OptionsComponent implements OnInit, OnChanges {
 
   @ViewChild('defaultOptionsTemplate') defaultOptionsTemplate!: TemplateRef<any>;
 
-  constructor() { }
-
   getOptionStyle(option: MultiselectOption | GroupByMultiselectOption) {
     return { marked: option.ticked, disabled: this.disabled || option.disabled };
   }

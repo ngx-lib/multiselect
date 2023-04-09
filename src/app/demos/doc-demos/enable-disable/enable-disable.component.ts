@@ -13,8 +13,6 @@ export class EnableDisableComponent implements OnInit {
   @ViewChild('multiSelect')
   multiselectRef: TemplateRef<any>;
 
-  constructor() {}
-
   ngOnInit(): void {
     this.options = [{
       "id": 1,
@@ -48,22 +46,22 @@ export class EnableDisableComponent implements OnInit {
     }]);
   }
 
-  disableWholeDropdown(){
+  disableWholeDropdown() {
     this.isDisabled = true;
   }
 
-  disableWholeDropdownTempRefVariable(){
+  disableWholeDropdownTempRefVariable() {
     //this.multiselectRef.disabled = true;
   }
 
-  disableFirstOption(){
+  disableFirstOption() {
     this.options[0].disabled = true;
     this.options = [...this.options];
   }
 
-  disableWholeGroup(){
+  disableWholeGroup() {
     this.options = this.options.map((player) => {
-      if(player.team === 'Manchester United')
+      if (player.team === 'Manchester United')
         player.disabled = true;
       return player;
     });

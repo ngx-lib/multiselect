@@ -9,8 +9,6 @@ export class CustomTemplateComponent implements OnInit {
   options;
   selectedOptions;
 
-  constructor() { }
-
   ngOnInit() {
     this.options = [
       {

@@ -13,7 +13,6 @@ const matchSelectors = [
   providedIn: 'root'
 })
 export class NgxMultiselectService {
-  constructor() { }
 
   pseudoClassExist(node: HTMLElement, selector: string) {
     const nativeMatches = node.matches || (node as any).msMatchesSelector;

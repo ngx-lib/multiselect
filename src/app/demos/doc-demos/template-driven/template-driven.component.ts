@@ -13,8 +13,6 @@ export class TemplateDrivenComponent implements OnInit {
     "name": "India"
   });
 
-  constructor() { }
-
   ngOnInit() {
     this.options = [
       {

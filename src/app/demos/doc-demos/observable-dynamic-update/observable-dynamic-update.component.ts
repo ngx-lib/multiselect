@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'ms-observable-dynamic-update',
@@ -11,15 +10,13 @@ export class ObservableDynamicUpdateComponent implements OnInit {
   observableOptions;
   observableOptionsObserver;
 
-  constructor() {}
-
   ngOnInit(): void {
     this.observableOptions = new Observable((observer) => {
       this.observableOptionsObserver = observer;
     });
   }
 
-  populateDropdown(){
+  populateDropdown() {
     this.observableOptionsObserver.next([{
       "id": 1,
       "name": "Manchester United"

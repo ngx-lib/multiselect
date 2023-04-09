@@ -1,15 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'ms-title',
   templateUrl: './title.component.html',
   styleUrls: ['./title.component.css']
 })
-export class TitleComponent implements OnInit {
+export class TitleComponent {
   @Input()
   title: string;
-
-  constructor() {}
-
-  ngOnInit() {}
 }

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from 'src/app/app.service';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'ms-events',
@@ -9,8 +7,6 @@ import { FormControl } from '@angular/forms';
 export class EventsDemoComponent implements OnInit {
   options;
   messages: string[] = [];
-
-  constructor() {}
 
   ngOnInit(): void {
     // Retrieving data for dropdown
@@ -36,7 +32,7 @@ export class EventsDemoComponent implements OnInit {
     }];
   }
 
-  
+
   onOpenFired() {
     this.messages.push('I am open now, you can now click on any of my items');
   }

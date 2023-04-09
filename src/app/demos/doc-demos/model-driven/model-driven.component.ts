@@ -10,8 +10,6 @@ export class ModelDrivenComponent implements OnInit {
   options;
   selectedOptions;
 
-  constructor() {}
-
   ngOnInit(): void {
     this.options = [{
       "id": 1,
