@@ -13,10 +13,10 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import { NgxMultiselectService } from './services/multiselect.service';
 import { forwardRef } from '@angular/core';
 import { FilterOptionsComponent } from './filter-options/filter-options.component';
-import { MultiselectOption } from './models/multiselect-option.model';;
+import { MultiselectOption } from './models/multiselect-option.model';
+import { findUnique, mapDatasourceToFields, mirrorObject, closest } from './utils';
 
 @Component({
   selector: 'ngx-multiselect',
@@ -32,14 +32,13 @@ import { MultiselectOption } from './models/multiselect-option.model';;
 export class NgxMultiselectComponent implements ControlValueAccessor {
   constructor(
     private elementRef: ElementRef,
-    private multiselectService: NgxMultiselectService
   ) { }
 
   // private variables
   private _multiple!: boolean;
-  private _theme: string = 'material';
+  private _theme = 'material';
   private _optionsCopy!: MultiselectOption[];
-  private _isOpen: boolean = false;
+  private _isOpen = false;
   private operationPendingQueue: MultiselectOption[] = [];
 
   // public variables
@@ -52,8 +51,8 @@ export class NgxMultiselectComponent implements ControlValueAccessor {
   _defaultPropertyMapLength = Object.keys(this._defaultPropertyMap).length;
   _options!: MultiselectOption[];
 
-  @HostBinding('class.mat-multiselect') matMultiselect: boolean = true;
-  @HostBinding('class.bs-multiselect') bsMultiselect: boolean = false;
+  @HostBinding('class.mat-multiselect') matMultiselect = true;
+  @HostBinding('class.bs-multiselect') bsMultiselect = false;
 
   // Input bindings
   @Input() disabled: boolean = false;
@@ -111,7 +110,7 @@ export class NgxMultiselectComponent implements ControlValueAccessor {
   @Input()
   set options(collection: MultiselectOption[]) {
     if (!collection) return;
-    this._optionsCopy = this.multiselectService.mapDatasourceToFields(
+    this._optionsCopy = mapDatasourceToFields(
       collection,
       this._defaultPropertyMap,
       this.groupedProperty
@@ -187,7 +186,7 @@ export class NgxMultiselectComponent implements ControlValueAccessor {
     let options = value;
     // TODO: can we improve below logic?
     if (Object.keys(this._defaultPropertyMap).length == this._defaultPropertyMapLength) return;
-    const swappedPropertyMap: MultiselectOption = this.multiselectService.mirrorObject(this._defaultPropertyMap) as MultiselectOption;
+    const swappedPropertyMap: MultiselectOption = mirrorObject(this._defaultPropertyMap) as MultiselectOption;
     if (this.multiple) {
       // Mapping can be done at single place.
       (options as MultiselectOption[]).forEach((o) => {
@@ -354,7 +353,7 @@ export class NgxMultiselectComponent implements ControlValueAccessor {
       ? selectedValues.concat(values)
       : selectedValues.filter(o => allGroupOptionIds.indexOf(o.id) === -1);
     // Find unique out of them
-    selectedIds = this.multiselectService.findUnique(selectedValues.map(item => item.id!));
+    selectedIds = findUnique(selectedValues.map(item => item.id!));
     // build selectedOptions array again
     selectedValues = options.filter(o => selectedIds.indexOf(o.id) !== -1);
     this.viewToModel(selectedValues);
@@ -403,7 +402,7 @@ export class NgxMultiselectComponent implements ControlValueAccessor {
     if (
       this.isOpen &&
       this.elementRef.nativeElement !== event &&
-      !this.multiselectService.closest(event, 'ngx-multiselect')
+      !closest(event, 'ngx-multiselect')
     ) {
       this.close();
     }
