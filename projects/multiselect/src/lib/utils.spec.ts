@@ -1,5 +1,3 @@
-import 'jasmine';
-
 import { MultiselectOption } from './models/multiselect-option.model';
 import { closest, optionsGrouping, mirrorObject, virtualOptionsGroupingFlatten, findUnique, } from './utils';
 
