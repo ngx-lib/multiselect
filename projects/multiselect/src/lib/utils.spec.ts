@@ -1,3 +1,5 @@
+import 'jasmine';
+
 import { MultiselectOption } from './models/multiselect-option.model';
 import { closest, optionsGrouping, mirrorObject, virtualOptionsGroupingFlatten, findUnique, } from './utils';
 
@@ -64,7 +66,10 @@ describe('MultiselectService', () => {
     // arrange
     const obj = { id: 'Team', name: 'TeamName' };
     const keys = Object.keys(obj);
-    const values = Object.values(obj);
+    const values = Object.keys(obj).map(function (e) {
+      return obj[e]
+    })
+
 
     // act
     const reverse = mirrorObject(obj);
