@@ -9,13 +9,11 @@ export class PropertyMapComponent implements OnInit {
   options;
   control: FormControl;
   propertyMap = {
-    "id" : "teamId",
-    "name" : "teamName"
+    "id": "teamId",
+    "name": "teamName"
   }
 
-  constructor() {}
-
-  disableForm () {
+  disableForm() {
     this.control.disable()
   }
 

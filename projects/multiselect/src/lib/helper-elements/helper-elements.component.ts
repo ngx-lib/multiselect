@@ -14,8 +14,6 @@ export class HelperElementsComponent {
   @Output() selectNoneClicked = new EventEmitter();
   @Output() resetClicked = new EventEmitter();
 
-  constructor() {}
-
   selectAll() {
     this.selectAllClicked.emit();
   }

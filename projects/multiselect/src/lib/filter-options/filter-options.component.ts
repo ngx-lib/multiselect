@@ -14,8 +14,6 @@ export class FilterOptionsComponent implements OnInit, OnDestroy {
 
   @Output() onSearchChange = new EventEmitter<string>();
 
-  constructor() { }
-
   clearInputFilter() {
     this.filterName.setValue('');
   }

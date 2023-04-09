@@ -14,8 +14,6 @@ export class CodeViewComponent implements OnInit {
   @ViewChild('code')
   codeElement: ElementRef;
 
-  constructor() {}
-
   ngOnInit() {
     this.codeElement.nativeElement.textContent = window.atob(this.code);
     hljs.highlightBlock(this.codeElement.nativeElement);

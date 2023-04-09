@@ -9,8 +9,6 @@ export class GettingStartedComponent implements OnInit {
   options;
   selectedOptions;
 
-  constructor() { }
-
   ngOnInit() {
     this.options = [
       {

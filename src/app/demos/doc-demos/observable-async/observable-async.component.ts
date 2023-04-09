@@ -11,8 +11,6 @@ export class ObservableAsyncComponent implements OnInit {
   observableOptions;
   selectedOptions;
 
-  constructor() {}
-
   ngOnInit(): void {
     this.selectedOptions = new FormControl([{
       "id": 2,

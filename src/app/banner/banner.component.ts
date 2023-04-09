@@ -5,8 +5,5 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.css']
 })
-export class BannerComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit() {}
+export class BannerComponent {
 }

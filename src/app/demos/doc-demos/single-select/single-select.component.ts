@@ -9,8 +9,6 @@ export class SingleSelectComponent implements OnInit {
   countries;
   selectedCountry;
 
-  constructor() { }
-
   ngOnInit() {
     this.countries = [{
       id: 1,

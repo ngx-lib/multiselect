@@ -4,7 +4,7 @@ import { BrowserModule, By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { FilterOptionsComponent } from './filter-options.component';
-import { NgxMultiselectService } from '../services/multiselect.service';
+import { pseudoClassExist } from '../utils';
 
 describe('FilterOptionsComponent', () => {
   let component: FilterOptionsComponent;
@@ -39,10 +39,9 @@ describe('FilterOptionsComponent', () => {
   it('By default input elemenet is focused', () => {
     // arrangment
     const input = debugElement.query(By.css('input'));
-    const service = new NgxMultiselectService();
     // act
     // assert
-    console.dir(service.pseudoClassExist(input.nativeElement, ':focus'));
+    console.dir(pseudoClassExist(input.nativeElement, ':focus'));
     expect(true).toBeTruthy();
   });
 

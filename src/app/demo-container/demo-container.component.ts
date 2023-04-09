@@ -16,8 +16,6 @@ export class DemoContainerComponent implements OnInit {
   @Input()
   data;
 
-  constructor() {}
-
   ngOnInit() {
     console.log('Route resolved document data ', this.data);
   }

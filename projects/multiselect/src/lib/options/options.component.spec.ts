@@ -4,7 +4,6 @@ import { By } from '@angular/platform-browser';
 
 import { OptionsComponent } from './options.component';
 import { NgxMultiselectComponent } from '../multiselect.component';
-import { NgxMultiselectService } from '../services/multiselect.service';
 import { VirtualScrollDirective } from '../directives/virtual-scroll.directive';
 import { CommonModule } from '@angular/common';
 import { MultiselectOption } from '../models/multiselect-option.model';
@@ -38,7 +37,7 @@ describe('Options Component', () => {
       { id: 6, name: 'Test 6' }
     ];
     component.options = [...options];
-    multiselect = new NgxMultiselectComponent(<ElementRef<any>>null, new NgxMultiselectService());
+    multiselect = new NgxMultiselectComponent(<ElementRef<any>>null);
     multiselect.multiple = true;
     multiselect.setOptions([...options]);
     component.selectOption.subscribe(option => {
